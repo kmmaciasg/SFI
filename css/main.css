@@ -254,7 +254,7 @@ html, body{
     background-color: #3f903f !important;
 }
 .bg-danger {
-    background-color: #f38849 !important;
+    background-color: #161616 !important;
 }
 .bg-info {
     background-color: #de5b5b !important;
@@ -332,7 +332,7 @@ html, body{
 	display: inline-block;
 	padding: 0 7px;
 	font-size: 21px;
-	-moz-user-select: none;
+	user-select: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
 }
@@ -393,7 +393,7 @@ html, body{
 	color: #fff;
 	width: 100%;
 	font-size: 25px;
-	background-color: #080808;
+	background-color: #a11f1f;
 }
 .navLateral-body-logo .zmdi-close{
 	width: 0;
@@ -527,7 +527,7 @@ html, body{
 	position: absolute;
 	color: rgba(0,0,0,.3);
 	transition: all .3s ease-in-out;
-	-moz-user-select: none;
+	user-select: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
 }
@@ -811,8 +811,8 @@ html, body{
 	.timeline-c-box-icon{
 		left: 50%;
 		margin-left: -23px;
-		-webkit-transform: translateZ(0);
-		-webkit-backface-visibility: hidden;
+		-webkit-transform-origin-z: 0%;
+		backface-visibility: hidden;
 	}
 	.timeline-c-box-content{
 		margin-left: 0;
