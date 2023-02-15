@@ -282,7 +282,7 @@ html, body{
 	top: 0;
 	left: 0;
 	z-index: 79;
-	color: #fff;
+	color: #b10421;
 }
 .navBar-options{
 	line-height: 45px;
@@ -393,7 +393,7 @@ html, body{
 	color: #fff;
 	width: 100%;
 	font-size: 25px;
-	background-color: #ee744e;
+	background-color: #080808;
 }
 .navLateral-body-logo .zmdi-close{
 	width: 0;
@@ -445,7 +445,7 @@ html, body{
 }
 .menu-principal li a{
 	height: 45px;
-	color: #333;
+	color: #f30909;
 	position: relative;
 	transition: all .3s ease-in-out;
 }

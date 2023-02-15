@@ -6,7 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Home</title>
+	<title>Inicio</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/sweetalert2.css">
 	<link rel="stylesheet" href="css/material.min.css">
@@ -136,14 +136,14 @@
 				</figcaption>
 			</figure>
 			<div class="full-width tittles navLateral-body-tittle-menu">
-				<i class="zmdi zmdi-desktop-mac"></i><span class="hide-on-tablet">&nbsp;OPCIONES</span>
+				<i class="zmdi zmdi-sign-in"></i><span class="hide-on-tablet">&nbsp;MENÚ</span>
 			</div>
 			<nav class="full-width">
 				<ul class="full-width list-unstyle menu-principal">
 					<li class="full-width">
 						<a href="home.php" class="full-width">
 							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-view-dashboard"></i>
+								<i class="zmdi zmdi-home"></i>
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
 								INICIO
@@ -154,7 +154,7 @@
 					<li class="full-width">
 						<a href="#!" class="full-width btn-subMenu">
 							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-case"></i>
+								<i class="zmdi zmdi-hospital-alt"></i>
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
 								PRODUCCION
@@ -165,7 +165,7 @@
 							<li class="full-width">
 								<a href="productnew.html" class="full-width">
 									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-balance"></i>
+										<i class="zmdi zmdi-hospital-alt"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
 										NUEVA PRODUCCION
@@ -175,7 +175,7 @@
 							<li class="full-width">
 								<a href="product1.html" class="full-width">
 									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-truck"></i>
+										<i class="zmdi zmdi-label"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
 										PRODUCCIONES EN FASE 1
@@ -185,7 +185,7 @@
 							<li class="full-width">
 								<a href="product2.html" class="full-width">
 									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-card"></i>
+										<i class="zmdi zmdi-label"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
 										PRODUCCIONES EN FASE 2
@@ -242,7 +242,7 @@
 					<li class="full-width">
 						<a href="producfin.html" class="full-width">
 							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-shopping-cart"></i>
+								<i class="zmdi zmdi-assignment-check"></i>
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
 								PRODUCTO TERMINADO
@@ -253,7 +253,7 @@
 					<li class="full-width">
 						<a href="envases.html" class="full-width">
 							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-store"></i>
+								<i class="zmdi zmdi-battery"></i>
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
 								ENVASES
@@ -265,7 +265,7 @@
 					<li class="full-width">
 						<a href="etiquetas.html" class="full-width">
 							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-store"></i>
+								<i class="zmdi zmdi-file"></i>
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
 								ETIQUETAS
@@ -276,7 +276,7 @@
 					<li class="full-width">
 						<a href="colgantes.html" class="full-width">
 							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-store"></i>
+								<i class="zmdi zmdi-receipt"></i>
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
 								COLGANTES
@@ -287,7 +287,7 @@
 					<li class="full-width">
 						<a href="tapas.html" class="full-width">
 							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-store"></i>
+								<i class="zmdi zmdi-album"></i>
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
 								TAPAS
@@ -298,7 +298,7 @@
 					<li class="full-width">
 						<a href="bandas.html" class="full-width">
 							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-store"></i>
+								<i class="zmdi zmdi-check-all"></i>
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
 								BANDAS DE SEGURIDAD
