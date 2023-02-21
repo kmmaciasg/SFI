@@ -280,7 +280,7 @@ html, body{
 	left: 50%;
 	transform: translate(-50%, -50%);
 	border-radius: 5px;
-	color: #b53f3f;
+	color: #070707;
 }
 /*=============Estilos barra superior*/
 .navBar{
@@ -485,7 +485,7 @@ html, body{
 	transition: all .3s ease-in-out;
 }
 .sub-menu-options li a{ border-left: 3px solid transparent; }
-.sub-menu-options li a:hover{ border-left: 3px solid #b53f3f; }
+.sub-menu-options li a:hover{ border-left: 3px solid #070707; }
 .sub-menu-options-show{
 	height: auto !important;
 	overflow-y: auto !important;
