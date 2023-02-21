@@ -307,15 +307,18 @@
 			</nav>
 		</div>
 	</section>
-	<!-- pageContent -->
-	
+
 	<section class="full-width pageContent">
-	<section class="full-width header-well">
+		<section class="full-width header-well">
 			<div class="full-width header-well-icon">
 				<figure class="full-width">
 						<img src="assets/img/nuevologo.jpeg" alt="LOGO" class="img-responsive">
 				</figure>
-		    </div>		
-		</section>
+				<div class="full-width header-well-text">
+				<p class="text-condensedLight">
+					 INICIO
+				</p>
+			</div>						
+	</section>
 </body>
 </html>
