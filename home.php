@@ -310,17 +310,12 @@
 	<!-- pageContent -->
 	
 	<section class="full-width pageContent">
-		<section class="full-width" style="margin: 30px 0;">
-			<h3 class="text-center tittles">LA CHILA</h3>
-			<li class="noLink">
-						<figure>
-							<img src="assets/img/logohd.png" alt="LOGO" class="img-responsive">
-						</figure>
-					</li>
-		
-			<!-- Tiles -->	
+	<section class="full-width header-well">
+			<div class="full-width header-well-icon">
+				<figure class="full-width">
+						<img src="assets/img/nuevologo.jpeg" alt="LOGO" class="img-responsive">
+				</figure>
+		    </div>		
 		</section>
-	</section>
-	
 </body>
 </html>

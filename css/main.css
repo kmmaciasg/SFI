@@ -54,7 +54,7 @@ html, body{
 }
 .img-responsive{
 	width: 100%;
-	height: auto;
+  height: auto;
 }
 .divider-menu-h{
 	height: 0 !important;
@@ -112,6 +112,7 @@ html, body{
 .header-well-icon{
 	left: 0;
 	width: 25%;
+	align-content: center;
 }
 .header-well-icon i,
 .header-well-text p{
@@ -398,7 +399,7 @@ html, body{
 	pointer-events: none;
 	opacity: 0;
 }
-.navLateral-body-cl,
+
 .navLateral-body-cr{
 	box-sizing: border-box;
 	height: 77px;
@@ -410,6 +411,7 @@ html, body{
 .navLateral-body-cl{
 	width: 30%;
 }
+
 .navLateral-body-cl img{
 	width: 57px;
 	height: 57px;
@@ -543,7 +545,7 @@ html, body{
 	line-height: 67px;
 	z-index: 1;
 }
-/*=============Linea de tiempo (TimeLine)*/
+
 .timeline-c{
   width: 90%;
   max-width: 1170px;
