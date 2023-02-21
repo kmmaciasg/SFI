@@ -312,8 +312,11 @@
 	<section class="full-width pageContent">
 		<section class="full-width text-center" style="padding: 40px 0;">
 			<h3 class="text-center tittles">LA CHILA</h3>
-					<img src="assets/img/logohd.png" alt="Avatar" class="img-responsive">
-			
+			<li class="noLink">
+						<figure>
+							<img src="assets/img/logohd.png" alt="LOGO" class="img-responsive">
+						</figure>
+					</li>
 		
 			<!-- Tiles -->
 			
