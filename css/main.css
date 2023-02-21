@@ -73,14 +73,7 @@ html, body{
 	background-color: #fff;
 	background-image: url(../assets/img/fontLogin.jpg);
 }
-.cover2{
-	background-size: cover;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-color: #fff;
-	background-image: url(../assets/img/logohd.png);
-}
+
 .mdl-list__item-avatar{
 	line-height: 40px;
 	text-align: center;
