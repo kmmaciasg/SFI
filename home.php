@@ -310,7 +310,7 @@
 	<!-- pageContent -->
 	
 	<section class="full-width pageContent">
-		<section class="full-width text-center" style="padding: 40px 0;">
+		<section class="full-width" style="margin: 30px 0;">
 			<h3 class="text-center tittles">LA CHILA</h3>
 			<li class="noLink">
 						<figure>
@@ -318,13 +318,7 @@
 						</figure>
 					</li>
 		
-			<!-- Tiles -->
-			
-		</section>
-		<section class="full-width" style="margin: 30px 0;">
-			<h3 class="text-center tittles"> </h3>
-			<!-- TimeLine -->
-			
+			<!-- Tiles -->	
 		</section>
 	</section>
 	
