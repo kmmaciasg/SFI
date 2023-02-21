@@ -265,7 +265,7 @@ html, body{
     background-color: #161616 !important;
 }
 .bg-info {
-    background-color: #de5b5b !important;
+    background-color: #fcfbfb !important;
 }
 /*=============Estilos login*/
 .container-login{
@@ -401,7 +401,7 @@ html, body{
 	color: #fff;
 	width: 100%;
 	font-size: 25px;
-	background-color: #a11f1f;
+	background-color: #070707;
 }
 .navLateral-body-logo .zmdi-close{
 	width: 0;
@@ -519,7 +519,7 @@ html, body{
 	margin-bottom: 20px;
 	display: inline-block;
 }
-.tile:hover .tile-text span{ color: #b53f3f; }
+.tile:hover .tile-text span{ color: #070707; }
 .tile:hover .tile-icon{
 	color: rgba(7, 7, 7, 0.3);
 	transform: scale(1.5) translate(-10px, -10px);
@@ -579,7 +579,7 @@ html, body{
   left: 18px;
   height: 100%;
   width: 4px;
-  background-color: #b53f3f;
+  background-color: #0a0a0a;
 }
 .timeline-c-box{
   position: relative;
@@ -604,7 +604,7 @@ html, body{
   height: 40px;
   border-radius: 50%;
   border: 3px solid #fff;
-  background-color: #b53f3f;
+  background-color: #0c0c0c;
 }
 .timeline-c-box-icon i{
   display: block;
