@@ -73,6 +73,14 @@ html, body{
 	background-color: #fff;
 	background-image: url(../assets/img/fontLogin.jpg);
 }
+.cover2{
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: #fff;
+	background-image: url(../assets/img/logohd.png);
+}
 .mdl-list__item-avatar{
 	line-height: 40px;
 	text-align: center;
@@ -174,7 +182,7 @@ html, body{
     height: 45px;
     line-height: 45px;
     color: #fff;
-    background-color: #b53f3f;
+    background-color: #050505;
     box-sizing: border-box;
 }
 .NotificationArea-title i{
@@ -450,7 +458,7 @@ html, body{
 	transition: all .3s ease-in-out;
 }
 .menu-principal li a:hover{
-	color: #b53f3f;
+	color: #030303;
 }
 .menu-principal li a div.navLateral-body-cl,
 .menu-principal li a div.navLateral-body-cr{
@@ -513,7 +521,7 @@ html, body{
 }
 .tile:hover .tile-text span{ color: #b53f3f; }
 .tile:hover .tile-icon{
-	color: rgba(238, 0, 0, 0.3);
+	color: rgba(7, 7, 7, 0.3);
 	transform: scale(1.5) translate(-10px, -10px);
 }
 .tile-text{

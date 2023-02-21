@@ -20,7 +20,7 @@
 	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
 	<script src="js/main.js" ></script>
 </head>
-<body>
+<body class="cover2">
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -310,6 +310,7 @@
 		</div>
 	</section>
 	<!-- pageContent -->
+	
 	<section class="full-width pageContent">
 		<section class="full-width text-center" style="padding: 40px 0;">
 			<h3 class="text-center tittles">LA CHILA</h3>
@@ -322,5 +323,6 @@
 			
 		</section>
 	</section>
+	
 </body>
 </html>
