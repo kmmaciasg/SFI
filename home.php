@@ -318,7 +318,17 @@
 				<p class="text-condensedLight">
 					 INICIO
 				</p>
-			</div>						
+			</div>	
+		</class>
 	</section>
+	<div class="full-width divider-menu-h"></div>
+	 <div class="full-width">
+		    <li class="noLink">
+				<figure>
+					<img src="assets/img/logohd.png" alt="Avatar" class="img-responsive">
+				</figure>
+			</li>
+        </div>
+    </div>  
 </body>
 </html>
