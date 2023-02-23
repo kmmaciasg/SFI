@@ -1,4 +1,3 @@
-
 @font-face{
     font-family: "RobotoCondensedLight";
     src: url("../fonts/robotocondensed-light.ttf"), 
@@ -54,7 +53,7 @@ html, body{
 }
 .img-responsive{
 	width: 100%;
-  height: auto;
+	height: auto;
 }
 .divider-menu-h{
 	height: 0 !important;
@@ -112,7 +111,6 @@ html, body{
 .header-well-icon{
 	left: 0;
 	width: 25%;
-	align-content: center;
 }
 .header-well-icon i,
 .header-well-text p{
@@ -252,7 +250,7 @@ html, body{
     background-color: #3f903f !important;
 }
 .bg-danger {
-    background-color: #fcfbfb !important;
+    background-color: #f38849 !important;
 }
 .bg-info {
     background-color: #de5b5b !important;
@@ -332,7 +330,7 @@ html, body{
 	font-size: 21px;
 	-moz-user-select: none;
 	-webkit-user-select: none;
-	user-select: none;
+	-ms-user-select: none;
 }
 .navBar-options-list ul li{ outline: none; }
 .navBar-options-list ul li figure,
@@ -354,7 +352,7 @@ html, body{
 	margin-bottom: 3px;
 }
 .navBar-options-list ul li i.zmdi-notifications-active{
-	color: #0c0c0c;
+	color: #FF4081;
 }
 /*=============Estilos en comun navegacion lateral y contenido pagina*/
 .navLateral,
@@ -391,7 +389,7 @@ html, body{
 	color: #fff;
 	width: 100%;
 	font-size: 25px;
-	background-color: #972503;
+	background-color: #b92b00;
 }
 .navLateral-body-logo .zmdi-close{
 	width: 0;
@@ -399,7 +397,7 @@ html, body{
 	pointer-events: none;
 	opacity: 0;
 }
-
+.navLateral-body-cl,
 .navLateral-body-cr{
 	box-sizing: border-box;
 	height: 77px;
@@ -411,7 +409,6 @@ html, body{
 .navLateral-body-cl{
 	width: 30%;
 }
-
 .navLateral-body-cl img{
 	width: 57px;
 	height: 57px;
@@ -528,7 +525,7 @@ html, body{
 	transition: all .3s ease-in-out;
 	-moz-user-select: none;
 	-webkit-user-select: none;
-	user-select: none;
+	-ms-user-select: none;
 }
 .tile-text span{
 	top: 50%;
@@ -545,7 +542,7 @@ html, body{
 	line-height: 67px;
 	z-index: 1;
 }
-
+/*=============Linea de tiempo (TimeLine)*/
 .timeline-c{
   width: 90%;
   max-width: 1170px;
@@ -810,8 +807,8 @@ html, body{
 	.timeline-c-box-icon{
 		left: 50%;
 		margin-left: -23px;
-		transform: translateZ(0);
-		backface-visibility: hidden;
+		-webkit-transform: translateZ(0);
+		-webkit-backface-visibility: hidden;
 	}
 	.timeline-c-box-content{
 		margin-left: 0;
