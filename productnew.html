@@ -175,37 +175,14 @@
 					</li>
 					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
-						<a href="#!" class="full-width btn-subMenu">
+						<a href="ADMIN.HTML" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-face"></i>
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
-								USUARIOS
+								ADMINISTRACION
 							</div>
-							<span class="zmdi zmdi-chevron-left"></span>
 						</a>
-						<ul class="full-width menu-principal sub-menu-options">
-							<li class="full-width">
-								<a href="admin.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-account"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										ADMINISTRADOR
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="colaborador.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-accounts"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										COLABORADORES
-									</div>
-								</a>
-							</li>
-						</ul>
 					</li>
 					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
@@ -294,6 +271,7 @@
 		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
 			<div class="mdl-tabs__tab-bar">
 				<a href="#tabNewProduct" class="mdl-tabs__tab is-active">AGREGAR NUEVA PRODUCCION</a>
+				<a href="#tabNewMateria" class="mdl-tabs__tab">AGREGAR MATERIAS PRIMAS</a>
 			</div>
 			<div class="mdl-tabs__panel is-active" id="tabNewProduct">
 				<div class="mdl-grid">
@@ -330,7 +308,7 @@
 												<span class="mdl-textfield__error">Peso Invalido</span>
 											</div>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[0-9.]*(\.[0-9]+)?" id="Adiciones">
+												<input class="mdl-textfield__input" type="text" id="Adiciones">
 												<label class="mdl-textfield__label" for="Adiciones">Adiciones</label>
 												<span class="mdl-textfield__error">Adicion Invalida</span>
 											</div>
@@ -382,7 +360,37 @@
 					</div>
 				</div>
 			</div>
-			
+			<div class="mdl-tabs__panel" id="tabNewMateria">
+					<div class="mdl-grid">
+						<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+							<div class="full-width panel mdl-shadow--2dp">
+								<div class="full-width panel-tittle bg-primary text-center tittles">
+									Nueva Materia Prima 
+								</div>
+								<div class="full-width panel-content">
+									<form>
+										<div class="mdl-grid">
+											<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+												<h5 class="text-condensedLight">Nombre de la Materia Prima</h5>
+												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+													<input class="mdl-textfield__input" type="text"  id="MateriaPrima">
+													<label class="mdl-textfield__label" for="MateriaPrima">Materia Prima</label>
+													<span class="mdl-textfield__error">Nombre invalido</span>
+												</div>
+											</div>
+											<p class="text-center">
+												<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="AgregarMateria">
+													<i class="zmdi zmdi-plus"></i>
+												</button>
+												<div class="mdl-tooltip" for="AgregarMateria">Agregar Materia Prima</div>
+											</p>
+										</div>	
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+			</div>
 		</div>
 	</section>
 </body>

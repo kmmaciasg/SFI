@@ -6,7 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Producto Fase 1</title>
+	<title>Produccion en Fase 1</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/sweetalert2.css">
 	<link rel="stylesheet" href="css/material.min.css">
@@ -178,37 +178,14 @@
 					</li>
 					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
-						<a href="#!" class="full-width btn-subMenu">
+						<a href="ADMIN.HTML" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-face"></i>
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
-								USUARIOS
+								ADMINISTRACION
 							</div>
-							<span class="zmdi zmdi-chevron-left"></span>
 						</a>
-						<ul class="full-width menu-principal sub-menu-options">
-							<li class="full-width">
-								<a href="admin.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-account"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										ADMINISTRADOR
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="colaborador.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-accounts"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										COLABORADORES
-									</div>
-								</a>
-							</li>
-						</ul>
 					</li>
 					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
@@ -294,100 +271,57 @@
 				</p>
 			</div>						
 	</section>
-		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-			<div class="mdl-tabs__tab-bar">
-				<a href="#tabNewProduct" class="mdl-tabs__tab is-active">NEW</a>
-				<a href="#tabListProducts" class="mdl-tabs__tab">LIST</a>
+	<div class="full-width divider-menu-h"></div>
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+					<thead>
+						<tr>
+							<th class="mdl-data-table__cell--non-numeric"># Lote</th>
+							<th>Materia Prima</th>
+							<th>Cant</th>
+							<th>Brix</th>
+							<th>Acidez</th>
+							<th>Ph</th>
+							<th>Temperatura</th>
+							<th>Fecha Produccion</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="mdl-data-table__cell--non-numeric">...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+						</tr>
+						<tr>
+							<td class="mdl-data-table__cell--non-numeric">...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+						</tr>
+						<p class="text-center">
+							<tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" id="CambiarParametros" style="margin: 0 150px 0 250px">
+								<i class="zmdi zmdi-refresh"></i>
+							</button></tr>
+							<div class="mdl-tooltip" for="CambiarParametros">Cambiar Parametros</div>
+							<tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" id="PasaraFermentacion">
+								<i class="zmdi zmdi-forward"></i>
+							</button></tr>
+							<div class="mdl-tooltip" for="PasaraFermentacion">Pasar a Fermentacion</div>
+						</p>
+					</tbody>
+				</table>
 			</div>
-			<div class="mdl-tabs__panel is-active" id="tabNewProduct">
-				<div class="mdl-grid">
-					<div class="mdl-tabs__panel" id="tabListProducts">
-						<div class="mdl-grid">
-							<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-								<form action="#">
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-										<label class="mdl-button mdl-js-button mdl-button--icon" for="searchProduct">
-											<i class="zmdi zmdi-search"></i>
-										</label>
-										<div class="mdl-textfield__expandable-holder">
-											<input class="mdl-textfield__input" type="text" id="searchProduct">
-											<label class="mdl-textfield__label"></label>
-										</div>
-									</div>
-								</form>
-								<nav class="full-width menu-categories">
-									<ul class="list-unstyle text-center">
-										<li><a href="#!">Category 1</a></li>
-										<li><a href="#!">Category 2</a></li>
-										<li><a href="#!">Category 3</a></li>
-										<li><a href="#!">Category 4</a></li>
-									</ul>
-								</nav>
-								<div class="full-width text-center" style="padding: 30px 0;">
-									<div class="mdl-card mdl-shadow--2dp full-width product-card">
-										<div class="mdl-card__title">
-											<img src="assets/img/fontLogin.jpg" alt="product" class="img-responsive">
-										</div>
-										<div class="mdl-card__supporting-text">
-											<small>Stock</small><br>
-											<small>Category</small>
-										</div>
-										<div class="mdl-card__actions mdl-card--border">
-											Product name
-											<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-												<i class="zmdi zmdi-more"></i>
-											</button>
-										</div>
-									</div>
-									<div class="mdl-card mdl-shadow--2dp full-width product-card">
-										<div class="mdl-card__title">
-											<img src="assets/img/fontLogin.jpg" alt="product" class="img-responsive">
-										</div>
-										<div class="mdl-card__supporting-text">
-											<small>Stock</small><br>
-											<small>Category</small>
-										</div>
-										<div class="mdl-card__actions mdl-card--border">
-											Product name
-											<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-												<i class="zmdi zmdi-more"></i>
-											</button>
-										</div>
-									</div>
-									<div class="mdl-card mdl-shadow--2dp full-width product-card">
-										<div class="mdl-card__title">
-											<img src="assets/img/fontLogin.jpg" alt="product" class="img-responsive">
-										</div>
-										<div class="mdl-card__supporting-text">
-											<small>Stock</small><br>
-											<small>Category</small>
-										</div>
-										<div class="mdl-card__actions mdl-card--border">
-											Product name
-											<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-												<i class="zmdi zmdi-more"></i>
-											</button>
-										</div>
-									</div>
-									<div class="mdl-card mdl-shadow--2dp full-width product-card">
-										<div class="mdl-card__title">
-											<img src="assets/img/fontLogin.jpg" alt="product" class="img-responsive">
-										</div>
-										<div class="mdl-card__supporting-text">
-											<small>Stock</small><br>
-											<small>Category</small>
-										</div>
-										<div class="mdl-card__actions mdl-card--border">
-											Product name
-											<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-												<i class="zmdi zmdi-more"></i>
-											</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+		</div>
 	</section>
 </body>
 </html>
