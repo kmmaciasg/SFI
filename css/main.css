@@ -328,7 +328,7 @@ html, body{
 	display: inline-block;
 	padding: 0 7px;
 	font-size: 21px;
-	-moz-user-select: none;
+	user-select: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
 }
@@ -523,7 +523,7 @@ html, body{
 	position: absolute;
 	color: rgba(0,0,0,.3);
 	transition: all .3s ease-in-out;
-	-moz-user-select: none;
+	user-select: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
 }
@@ -807,8 +807,8 @@ html, body{
 	.timeline-c-box-icon{
 		left: 50%;
 		margin-left: -23px;
-		-webkit-transform: translateZ(0);
-		-webkit-backface-visibility: hidden;
+		transform: translateZ(0);
+		backface-visibility: hidden;
 	}
 	.timeline-c-box-content{
 		margin-left: 0;
