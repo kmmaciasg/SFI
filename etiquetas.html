@@ -269,63 +269,179 @@
 				</p>
 			</div>						
 	</section>
-		<div class="full-width divider-menu-h"></div>
-		<div class="mdl-grid">
-			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
-				<div class="full-width panel mdl-shadow--2dp">
-					<div class="full-width panel-tittle bg-primary text-center tittles">
-						New company
+	<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+		<div class="mdl-tabs__tab-bar">
+			<a href="#tabNewProduct" class="mdl-tabs__tab is-active">INGRESAR ETIQUETA</a>
+			<a href="#tabNewEgreso" class="mdl-tabs__tab">EGRESAR ETIQUETA</a>
+			<a href="#tabNewInventario" class="mdl-tabs__tab">INVENTARIO</a>
+		</div>
+		<div class="mdl-tabs__panel is-active" id="tabNewProduct">
+			<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+					<div class="full-width panel mdl-shadow--2dp">
+						<div class="full-width panel-tittle bg-primary text-center tittles">
+							Ingreso Etiqueta
+						</div>
+						<div class="full-width panel-content">
+							<form>
+								<div class="mdl-grid">
+									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+										<h5 class="text-condensedLight">Informacion Básica</h5>
+
+										<div class="mdl-textfield mdl-js-textfield">
+											<select class="mdl-textfield__input">
+												<option value="" disabled="" selected="">Seleccione la Etiqueta a Ingresar</option>
+												<option value="">Manzana</option>
+												<option value="">Pera </option>
+											</select>
+										</div>
+										<h6 class="text-condensedLight">Fecha de Ingreso</h6>
+										<div class="mdl-textfield mdl-js-textfield">
+											<input type="date" class="mdl-textfield__input">
+											
+										</div>
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
+											<label class="mdl-textfield__label" for="cant">Cantidad</label>
+											<span class="mdl-textfield__error">Cantidad invalida</span>
+										</div>	
+										<div class="mdl-textfield mdl-js-textfield">
+											<select class="mdl-textfield__input">
+												<option value="" disabled="" selected="">Tamaño</option>
+												<option value="">* 50ml</option>
+												<option value="">* 250ml </option>
+											</select>
+										</div>
+										<div class="mdl-textfield mdl-js-textfield">
+											<input class="mdl-textfield__input" type="text"  id="Empleado">
+											<label class="mdl-textfield__label" for="Empleado">Nombre de quien ingresa la Etiqueta</label>
+											<span class="mdl-textfield__error">Nombre Invalio</span>	
+										</div>
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="#Factura">
+											<label class="mdl-textfield__label" for="#Factura">Numero de Factura</label>
+											<span class="mdl-textfield__error">Numero Invalido</span>
+										</div>
+										<div class="mdl-textfield mdl-js-textfield">
+											<input class="mdl-textfield__input" type="text"  id="Proveedor">
+											<label class="mdl-textfield__label" for="Proveedor">Nombre del Proveedor</label>
+											<span class="mdl-textfield__error">Nombre Invalio</span>	
+										</div>
+									</div>
+								</div>
+								<p class="text-center">
+									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="AgregarProducto">
+										<i class="zmdi zmdi-plus"></i>
+									</button>
+									<div class="mdl-tooltip" for="AgregarProducto">Agregar Etiqueta</div>
+									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 55px;" id="CrearProducto">
+										<i class="zmdi zmdi-shopping-cart-plus"></i>
+									</button>
+									<div class="mdl-tooltip" for="CrearProducto">Crear Nueva Etiqueta</div>
+									<h6 class="text-condensedLight">Crear Nueva Etiqueta</h6>
+								</p>
+							</form>
+						</div>
 					</div>
-					<div class="full-width panel-content">
-						<form>
-							<h5 class="text-condensedLight">Data company</h5>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="DNICompany">
-								<label class="mdl-textfield__label" for="DNICompany">DNI</label>
-								<span class="mdl-textfield__error">Invalid number</span>
-							</div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameCompany">
-								<label class="mdl-textfield__label" for="NameCompany">Name</label>
-								<span class="mdl-textfield__error">Invalid name</span>
-							</div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" id="addressCompany">
-								<label class="mdl-textfield__label" for="addressCompany">Address</label>
-								<span class="mdl-textfield__error">Invalid address</span>
-							</div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="email" id="emailCompany">
-								<label class="mdl-textfield__label" for="emailCompany">E-mail</label>
-								<span class="mdl-textfield__error">Invalid E-mail</span>
-							</div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" id="urlCompany">
-								<label class="mdl-textfield__label" for="urlCompany">Web</label>
-								<span class="mdl-textfield__error">Invalid web</span>
-							</div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="phoneCompany">
-								<label class="mdl-textfield__label" for="phoneCompany">Phone</label>
-								<span class="mdl-textfield__error">Invalid phone number</span>
-							</div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="faxCompany">
-								<label class="mdl-textfield__label" for="faxCompany">Fax</label>
-								<span class="mdl-textfield__error">Invalid fax number</span>
-							</div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" id="coinCompany">
-								<label class="mdl-textfield__label" for="coinCompany">Coin</label>
-								<span class="mdl-textfield__error">Invalid coin</span>
-							</div>
-							<p class="text-center">
-								<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addCompany">
-									<i class="zmdi zmdi-plus"></i>
-								</button>
-								<div class="mdl-tooltip" for="btn-addCompany">Add company</div>
-							</p>
-						</form>
+				</div>
+			</div>
+		</div>
+		<div class="mdl-tabs__panel" id="tabNewEgreso">
+			<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+					<div class="full-width panel mdl-shadow--2dp">
+						<div class="full-width panel-tittle bg-primary text-center tittles">
+							Egreso Etiqueta
+						</div>
+						<div class="full-width panel-content">
+							<form>
+								<div class="mdl-grid">
+									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+										<h5 class="text-condensedLight">Informacion Básica</h5>
+
+										<div class="mdl-textfield mdl-js-textfield">
+											<select class="mdl-textfield__input">
+												<option value="" disabled="" selected="">Seleccione la Etiqueta a Egresar</option>
+												<option value="">Manzana </option>
+												<option value="">Banano </option>
+											</select>
+										</div>
+										<h6 class="text-condensedLight">Fecha de Egreso</h6>
+										<div class="mdl-textfield mdl-js-textfield">
+											<input type="date" class="mdl-textfield__input">
+											
+										</div>
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
+											<label class="mdl-textfield__label" for="cant">Cantidad</label>
+											<span class="mdl-textfield__error">Cantidad invalida</span>
+										</div>	
+										<div class="mdl-textfield mdl-js-textfield">
+											<select class="mdl-textfield__input">
+												<option value="" disabled="" selected="">Tamaño</option>
+												<option value="">* 100ml</option>
+												<option value="">* 400ml </option>
+											</select>
+										</div>
+										<div class="mdl-textfield mdl-js-textfield">
+											<input class="mdl-textfield__input" type="text"  id="Empleado">
+											<label class="mdl-textfield__label" for="Empleado">Nombre de quien Egresa la Etiqueta</label>
+											<span class="mdl-textfield__error">Nombre Invalio</span>
+										</div>
+										
+									</div>
+								</div>
+								<p class="text-center">
+									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="EgresarProducto">
+										<i class="zmdi zmdi-minus"></i>
+									</button>
+									<div class="mdl-tooltip" for="EgresarProducto">Egresar Etiqueta</div>
+								</p>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>	
+		<div class="mdl-tabs__panel" id="tabNewInventario">
+			<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+					<div class="full-width panel mdl-shadow--2dp">
+						<div class="full-width panel-tittle bg-primary text-center tittles">
+							Inventario de Etiquetas
+						</div>
+						<div class="full-width panel-content">
+							<form>
+								<div class="mdl-grid">
+									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+										<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+											<thead>
+												<tr>
+													<th class="mdl-data-table__cell--non-numeric">Nombre de Etiqueta</th>
+													<th>Tamaño</th>
+													<th>Proveedor</th>
+													<th>Cantidad</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="mdl-data-table__cell--non-numeric">...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+												</tr>
+												<tr>
+													<td class="mdl-data-table__cell--non-numeric">...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>	
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
