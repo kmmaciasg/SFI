@@ -273,93 +273,66 @@
 			<div class="mdl-tabs__tab-bar">
 				<a href="#tabNewAdmin" class="mdl-tabs__tab is-active">CREAR USUARIO</a>
 				<a href="#tabListAdmin" class="mdl-tabs__tab">ASIGNAR TAREAS</a>
+				<a href="#AsignarPermiso" class="mdl-radio"></a>
 			</div>
 			<div class="mdl-tabs__panel is-active" id="tabNewAdmin">
 				<div class="mdl-grid">
 					<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
 						<div class="full-width panel mdl-shadow--2dp">
 							<div class="full-width panel-tittle bg-primary text-center tittles">
-								New Administrator
+								Nuevo Usuario
 							</div>
 							<div class="full-width panel-content">
 								<form>
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-											<h5 class="text-condensedLight">Data Administrator</h5>
+											<h5 class="text-condensedLight">Datos del Usuario</h5>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="DNIAdmin">
-												<label class="mdl-textfield__label" for="DNIAdmin">DNI</label>
-												<span class="mdl-textfield__error">Invalid number</span>
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="Nom">
+												<label class="mdl-textfield__label" for="Nom">Nombres</label>
+												<span class="mdl-textfield__error">Nombre Invalido</span>
 											</div>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameAdmin">
-												<label class="mdl-textfield__label" for="NameAdmin">Name</label>
-												<span class="mdl-textfield__error">Invalid name</span>
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="Ape">
+												<label class="mdl-textfield__label" for="Ape">Apellidos</label>
+												<span class="mdl-textfield__error">Nombre Invalido</span>
 											</div>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="LastNameAdmin">
-												<label class="mdl-textfield__label" for="LastNameAdmin">Last Name</label>
-												<span class="mdl-textfield__error">Invalid last name</span>
+												<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="Cel">
+												<label class="mdl-textfield__label" for="Cel">Numero Celular</label>
+												<span class="mdl-textfield__error">Numero Invalido</span>
 											</div>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="phoneAdmin">
-												<label class="mdl-textfield__label" for="phoneAdmin">Phone</label>
-												<span class="mdl-textfield__error">Invalid phone number</span>
+												<input class="mdl-textfield__input" type="Number" id="DI">
+												<label class="mdl-textfield__label" for="DI">Documento de Identidad</label>
+												<span class="mdl-textfield__error">Numero Invalido</span>
+											</div>
+											<div class="mdl-textfield mdl-js-textfield">
+												<select class="mdl-textfield__input">
+													<option value="" disabled="" selected="">Selecciona el tipo de Usuario</option>
+													<option value="">1</option>
+													<option value="">2</option>
+													<option value="">3</option>
+												</select>
 											</div>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="email" id="emailAdmin">
-												<label class="mdl-textfield__label" for="emailAdmin">E-mail</label>
-												<span class="mdl-textfield__error">Invalid E-mail</span>
-											</div>
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" id="addressAdmin">
-												<label class="mdl-textfield__label" for="addressAdmin">Address</label>
-												<span class="mdl-textfield__error">Invalid address</span>
-											</div>
-										</div>
-										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-											<h5 class="text-condensedLight">Account Details</h5>
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ]*(\.[0-9]+)?" id="UserNameAdmin">
-												<label class="mdl-textfield__label" for="UserNameAdmin">User Name</label>
-												<span class="mdl-textfield__error">Invalid user name</span>
+												<h6 class="text-condensedLight">Fecha Nacimiento</h6>
+												<input class="mdl-textfield__input" type="Date" id="FechaNacimiento">
+												<label class="mdl-textfield__label" for="FechaNacimiento"></label>
+												<span class="mdl-textfield__error">Fecha Invalida</span>
 											</div>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="password" id="passwordAdmin">
 												<label class="mdl-textfield__label" for="passwordAdmin">Password</label>
 												<span class="mdl-textfield__error">Invalid password</span>
 											</div>
-											<h5 class="text-condensedLight">Choose Avatar</h5>
-											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-												<input type="radio" id="option-1" class="mdl-radio__button" name="options" value="avatar-male.png">
-												<img src="assets/img/avatar-male.png" alt="avatar" style="height: 45px; width: 45px">
-												<span class="mdl-radio__label">Avatar 1</span>
-											</label>
-											<br><br>
-											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-												<input type="radio" id="option-2" class="mdl-radio__button" name="options" value="avatar-female.png">
-												<img src="assets/img/avatar-female.png" alt="avatar" style="height: 45px; width: 45px" >
-												<span class="mdl-radio__label">Avatar 2</span>
-											</label>
-											<br><br>
-											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
-												<input type="radio" id="option-3" class="mdl-radio__button" name="options" value="avatar-male2.png">
-												<img src="assets/img/avatar-male2.png" alt="avatar" style="height: 45px; width: 45px" >
-												<span class="mdl-radio__label">Avatar 3</span>
-											</label>
-											<br><br>
-											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
-												<input type="radio" id="option-4" class="mdl-radio__button" name="options" value="avatar-female2.png">
-												<img src="assets/img/avatar-female2.png" alt="avatar" style="height: 45px; width: 45px">
-												<span class="mdl-radio__label">Avatar 4</span>
-											</label>
 										</div>
 									</div>
 									<p class="text-center">
-										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addAdmin">
+										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="NuevoUsuario">
 											<i class="zmdi zmdi-plus"></i>
 										</button>
-										<div class="mdl-tooltip" for="btn-addAdmin">Add Administrator</div>
+										<div class="mdl-tooltip" for="NuevoUsuario">Agregar Usuario</div>
 									</p>
 								</form>
 							</div>
@@ -390,46 +363,90 @@
 									<div class="mdl-list__item mdl-list__item--two-line">
 										<span class="mdl-list__item-primary-content">
 											<i class="zmdi zmdi-account mdl-list__item-avatar"></i>
-											<span>1. Administrator name</span>
-											<span class="mdl-list__item-sub-title">DNI</span>
+											<span>Nombre de usuario</span>
+											<span class="mdl-list__item-sub-title">Documento de Identidad</span>
 										</span>
-										<a class="mdl-list__item-secondary-action" href="#!"><i class="zmdi zmdi-more"></i></a>
+										<a class="mdl-list__item-secondary-action" href="#AsignarPermiso"><i class="zmdi zmdi-more"></i></a>
 									</div>
-									<li class="full-width divider-menu-h"></li>
-									<div class="mdl-list__item mdl-list__item--two-line">
-										<span class="mdl-list__item-primary-content">
-											<i class="zmdi zmdi-account mdl-list__item-avatar"></i>
-											<span>2. Administrator name</span>
-											<span class="mdl-list__item-sub-title">DNI</span>
-										</span>
-										<a class="mdl-list__item-secondary-action" href="#!"><i class="zmdi zmdi-more"></i></a>
+								
+									<div class="mdl-radio is-active" id="AsignarPermiso">
+										<h5 class="text-condensedLight">Escoger las tareas NO permitidas</h5>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+												<input type="radio" id="option-1" class="mdl-radio__button" name="options" >
+												<span class="mdl-radio__label"> Agregar Nueva Produccion</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+												<input type="radio" id="option-2" class="mdl-radio__button" name="options" >
+												<span class="mdl-radio__label">Pasar produccion de Fase 1 a Fase 2</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+												<input type="radio" id="option-3" class="mdl-radio__button" name="options" >
+												<span class="mdl-radio__label">Pasar de Fermentación a Envasado</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
+												<input type="radio" id="option-4" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Ingresar Producto Terminado</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-5">
+												<input type="radio" id="option-5" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Egresar Producto Terminado</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-6">
+												<input type="radio" id="option-6" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Ingresar Envases</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-7">
+												<input type="radio" id="option-7" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Egresar Envases</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-8">
+												<input type="radio" id="option-8" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Ingresar Etiquetas</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-9">
+												<input type="radio" id="option-9" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Egresar Etiquetas</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-10">
+												<input type="radio" id="option-10" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Ingresar Colgantes</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-11">
+												<input type="radio" id="option-11" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Egresar Colgantes</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-12">
+												<input type="radio" id="option-12" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Ingresar Tapas</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-13">
+												<input type="radio" id="option-13" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Egresar Tapas</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-14">
+												<input type="radio" id="option-14" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Ingresar Bandas de Seguridad</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-15">
+												<input type="radio" id="option-15" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Egresar Bandas de Seguridad</span>
+											</label>
 									</div>
-									<li class="full-width divider-menu-h"></li>
-									<div class="mdl-list__item mdl-list__item--two-line">
-										<span class="mdl-list__item-primary-content">
-											<i class="zmdi zmdi-account mdl-list__item-avatar"></i>
-											<span>3. Administrator name</span>
-											<span class="mdl-list__item-sub-title">DNI</span>
-										</span>
-										<a class="mdl-list__item-secondary-action" href="#!"><i class="zmdi zmdi-more"></i></a>
-									</div>
-									<li class="full-width divider-menu-h"></li>
-									<div class="mdl-list__item mdl-list__item--two-line">
-										<span class="mdl-list__item-primary-content">
-											<i class="zmdi zmdi-account mdl-list__item-avatar"></i>
-											<span>4. Administrator name</span>
-											<span class="mdl-list__item-sub-title">DNI</span>
-										</span>
-										<a class="mdl-list__item-secondary-action" href="#!"><i class="zmdi zmdi-more"></i></a>
-									</div>
-									<li class="full-width divider-menu-h"></li>
-									<div class="mdl-list__item mdl-list__item--two-line">
-										<span class="mdl-list__item-primary-content">
-											<i class="zmdi zmdi-account mdl-list__item-avatar"></i>
-											<span>5. Administrator name</span>
-											<span class="mdl-list__item-sub-title">DNI</span>
-										</span>
-										<a class="mdl-list__item-secondary-action" href="#!"><i class="zmdi zmdi-more"></i></a>
+										
 									</div>
 								</div>
 							</div>
