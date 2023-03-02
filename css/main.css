@@ -170,7 +170,7 @@ html, body{
     height: 45px;
     line-height: 45px;
     color: #fff;
-    background-color: #b53f3f;
+    background-color: #d46922;
     box-sizing: border-box;
 }
 .NotificationArea-title i{
@@ -225,7 +225,7 @@ html, body{
     text-align: center;
     font-size: 20px;
     color: #fff;
-    background-color: #D9534F;
+    background-color: #f57825;
     border-radius: 50%;
 }
 .Notification-text{
@@ -244,7 +244,7 @@ html, body{
 }
 /*====== Backgrouns color*/
 .bg-primary {
-    background-color: #a42e2e !important;
+    background-color: #d46321 !important;
 }
 .bg-success {
     background-color: #3f903f !important;
@@ -253,7 +253,7 @@ html, body{
     background-color: #f38849 !important;
 }
 .bg-info {
-    background-color: #de5b5b !important;
+    background-color: #f1600b !important;
 }
 /*=============Estilos login*/
 .container-login{
@@ -268,11 +268,11 @@ html, body{
 	left: 50%;
 	transform: translate(-50%, -50%);
 	border-radius: 5px;
-	color: #b53f3f;
+	color: #d8611c;
 }
 /*=============Estilos barra superior*/
 .navBar{
-	background-color: #b53f3f;
+	background-color: #f1740e;
 	height: 45px;
 	position: absolute;
 	top: 0;
@@ -352,7 +352,7 @@ html, body{
 	margin-bottom: 3px;
 }
 .navBar-options-list ul li i.zmdi-notifications-active{
-	color: #FF4081;
+	color: #ff8c40;
 }
 /*=============Estilos en comun navegacion lateral y contenido pagina*/
 .navLateral,
@@ -389,7 +389,7 @@ html, body{
 	color: #fff;
 	width: 100%;
 	font-size: 25px;
-	background-color: #b92b00;
+	background-color: #df6704;
 }
 .navLateral-body-logo .zmdi-close{
 	width: 0;
@@ -446,7 +446,7 @@ html, body{
 	transition: all .3s ease-in-out;
 }
 .menu-principal li a:hover{
-	color: #b53f3f;
+	color: #d36120;
 }
 .menu-principal li a div.navLateral-body-cl,
 .menu-principal li a div.navLateral-body-cr{
@@ -473,7 +473,7 @@ html, body{
 	transition: all .3s ease-in-out;
 }
 .sub-menu-options li a{ border-left: 3px solid transparent; }
-.sub-menu-options li a:hover{ border-left: 3px solid #b53f3f; }
+.sub-menu-options li a:hover{ border-left: 3px solid #e46217; }
 .sub-menu-options-show{
 	height: auto !important;
 	overflow-y: auto !important;
@@ -507,9 +507,9 @@ html, body{
 	margin-bottom: 20px;
 	display: inline-block;
 }
-.tile:hover .tile-text span{ color: #b53f3f; }
+.tile:hover .tile-text span{ color: #e96a15; }
 .tile:hover .tile-icon{
-	color: rgba(238, 0, 0, 0.3);
+	color: rgba(238, 102, 11, 0.3);
 	transform: scale(1.5) translate(-10px, -10px);
 }
 .tile-text{
@@ -567,7 +567,7 @@ html, body{
   left: 18px;
   height: 100%;
   width: 4px;
-  background-color: #b53f3f;
+  background-color: #e96b18;
 }
 .timeline-c-box{
   position: relative;
@@ -592,7 +592,7 @@ html, body{
   height: 40px;
   border-radius: 50%;
   border: 3px solid #fff;
-  background-color: #b53f3f;
+  background-color: #e47317;
 }
 .timeline-c-box-icon i{
   display: block;
