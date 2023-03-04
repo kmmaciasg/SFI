@@ -23,7 +23,7 @@
 		<p class="text-center" style="font-size: 80px;">
 			<i class="zmdi zmdi-account-circle"></i>
 		</p>
-		<p class="text-center text-condensedLight">Bienvenido sistema la Chila </p>
+		<p class="text-center text-condensedLight">Bienvenido Sistema La Chila </p>
 		<form action= "login_usuario.php" method="POST">
 
 			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -34,7 +34,7 @@
 			    <input class="mdl-textfield__input" type="password"  name="pass"  id="pass">
 			    <label class="mdl-textfield__label" for="pass">Contraseña</label>
 			</div>
-			<button id="SingIn" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: #a81515; float:right;">
+			<button id="SingIn" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: #e47317; float:right;">
 				Ingresar <i class="zmdi zmdi-mail-send"></i>
 			</button>
 			

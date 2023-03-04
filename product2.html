@@ -523,53 +523,58 @@
 	<div class="full-width divider-menu-h"></div>
 	<div class="mdl-grid">
 		<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-				<thead>
-					<tr>
-						<th class="mdl-data-table__cell--non-numeric"># Lote</th>
-						<th>Materia Prima</th>
-						<th>Cant</th>
-						<th>Brix</th>
-						<th>Acidez</th>
-						<th>Ph</th>
-						<th>Temperatura</th>
-						<th>Fecha Produccion</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td class="mdl-data-table__cell--non-numeric">...</td>
-						<td>...</td>
-						<td>...</td>
-						<td>...</td>
-						<td>...</td>
-						<td>...</td>
-						<td>...</td>
-						<td>...</td>
-					</tr>
-					<tr>
-						<td class="mdl-data-table__cell--non-numeric">...</td>
-						<td>...</td>
-						<td>...</td>
-						<td>...</td>
-						<td>...</td>
-						<td>...</td>
-						<td>...</td>
-						<td>...</td>
-					</tr>
-					<p class="text-center">
-						<tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" id="CambiarParametros" style="margin: 0 150px 0 250px">
-							<i class="zmdi zmdi-refresh"></i>
-						</button></tr>
-						<div class="mdl-tooltip" for="CambiarParametros">Cambiar Parametros</div>
-						<tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" id="PasaraEnvasado">
-							<i class="zmdi zmdi-forward"></i>
-						</button></tr>
-						<div class="mdl-tooltip" for="PasaraEnvasado">Pasar a Envasado</div>
-						
-					</p>
-				</tbody>
-			</table>
+			<div class="full-width panel mdl-shadow--2dp">
+				<div class="full-width panel-tittle bg-primary text-center tittles">
+					Producciones en Fermentacion 2
+				</div>
+				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+					<thead>
+						<tr>
+							<th class="mdl-data-table__cell--non-numeric"># Lote</th>
+							<th>Materia Prima</th>
+							<th>Cant</th>
+							<th>Peso Inicial</th>
+							<th>Peso Bruto</th>
+							<th>Fecha Produccion</th>
+							<th>Nombre quien ingresa</th>
+							<th>Adiciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="mdl-data-table__cell--non-numeric">...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+						</tr>
+						<tr>
+							<td class="mdl-data-table__cell--non-numeric">...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+							<td>...</td>
+						</tr>
+						<p class="text-center">
+							<tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 185px;" id="PasaraFermentacion">
+								<i class="zmdi zmdi-forward"></i>
+							</button></tr>
+							<div class="mdl-tooltip" for="PasaraFermentacion">Pasar a Envasado</div>
+							<tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 185px;" id="modificarLitraje">
+								<i class="zmdi zmdi-refresh"></i>
+							</button></tr>
+							<div class="mdl-tooltip" for="modificarLitraje">Modificar Litraje</div>
+						</p>
+					</tbody>
+				</table>
+			</div>
+			
 		</div>
 	</div>
 	</section>

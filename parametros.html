@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Tapas</title>
+	<title>Parametros</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/sweetalert2.css">
 	<link rel="stylesheet" href="css/material.min.css">
@@ -546,3 +546,130 @@
             </p>
         </div>						
 </section>
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+    <div class="mdl-tabs__tab-bar">
+        <a href="#tabNewParametro" class="mdl-tabs__tab is-active">INGRESAR PARAMETROS</a>
+        <a href="#tabNewHparametro" class="mdl-tabs__tab">HISTORIAL PARAMETROS</a>
+    </div>
+    <div class="mdl-tabs__panel is-active" id="tabNewParametro">
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+                <div class="full-width panel mdl-shadow--2dp">
+                    <div class="full-width panel-tittle bg-primary text-center tittles">
+                        Ingresar Parametros
+                    </div>
+                    <div class="full-width panel-content">
+                        <form>
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+                                    <h5 class="text-condensedLight">Informacion Básica</h5>
+                                    <div class="mdl-textfield mdl-js-textfield">
+                                        <select class="mdl-textfield__input">
+                                            <option value="" disabled="" selected="">Selecciona el # de Lote</option>
+                                            <option value="">...</option>
+                                            <option value="">...</option>
+                                        </select>
+                                    </div>
+                                    <h6 class="text-condensedLight">Fecha de Toma de Parametros</h6>
+                                                <div class="mdl-textfield mdl-js-textfield">
+                                                    <input type="date" class="mdl-textfield__input">
+                                                </div>
+                                                <div class="mdl-textfield mdl-js-textfield">
+                                                    <input class="mdl-textfield__input" type="text"  id="Empleado">
+                                                    <label class="mdl-textfield__label" for="Empleado">Nombre de quien Ingresa Parametros</label>
+                                                    <span class="mdl-textfield__error">Nombre Invalio</span>
+                                                </div> 
+                                </div>
+                                        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+                                            <h5 class="text-condensedLight">Parámetros</h5>
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <input class="mdl-textfield__input" type="number" step="0.0000001" id="brix">
+                                            <label class="mdl-textfield__label" for="brix">BRIX</label>
+                                            <span class="mdl-textfield__error">BRIX invalido</span>
+                                        </div>
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <input class="mdl-textfield__input" type="number" step="0.0000001" id="Acidez">
+                                            <label class="mdl-textfield__label" for="Acidez">Acidez</label>
+                                            <span class="mdl-textfield__error">valor no valido</span>
+                                        </div>
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <input class="mdl-textfield__input" type="number" step="0.0000001" id="PH">
+                                            <label class="mdl-textfield__label" for="PH">Ph</label>
+                                            <span class="mdl-textfield__error">valor no valido</span>
+                                        </div>
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <input class="mdl-textfield__input" type="number" step="0.0000001" id="Temperatura">
+                                            <label class="mdl-textfield__label" for="Temperatura">Temperatura</label>
+                                            <span class="mdl-textfield__error">valor no valido</span>
+                                        </div>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <input class="mdl-textfield__input" type="number" step="0.0000001" id="Alcohol">
+                                                <label class="mdl-textfield__label" for="Alcohol">Alcohol</label>
+                                                <span class="mdl-textfield__error">valor no valido</span>
+                                            </div>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <input class="mdl-textfield__input" type="number" step="0.0000001" id="SolidosTotales">
+                                                <label class="mdl-textfield__label" for="SolidosTotales">Solidos Totales</label>
+                                                <span class="mdl-textfield__error">valor no valido</span>
+                                            </div>
+                                              
+                            </div>
+                            <p class="text-center">
+                                <tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" id="CambiarParametros" style="margin: 0 150px 0 250px">
+                                    <i class="zmdi zmdi-plus"></i>
+                                </button></tr>
+                                <div class="mdl-tooltip" for="CambiarParametros">Ingresar Parametros</div>
+                            </p>
+                        </form>
+                    </div>            
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="mdl-tabs__panel" id="tabNewHparametro">
+        <div class="full-width divider-menu-h"></div>
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+                        <thead>
+                            <tr>
+                                <th class="mdl-data-table__cell--non-numeric"># Lote</th>
+                                <th>Alcohol</th>
+                                <th>Solidos Totales</th>
+                                <th>Brix</th>
+                                <th>Acidez</th>
+                                <th>Ph</th>
+                                <th>Temperatura</th>
+                                <th>Fecha Toma Parametros</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+      </div>
+</div>
+
+
