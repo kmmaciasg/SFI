@@ -408,7 +408,17 @@
 										<i class="zmdi zmdi-window-maximize"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
-										Tapas, Bandas y Alistamiento
+										Tapas y Bandas
+									</div>
+								</a>
+							</li>
+							<li class="full-width">
+								<a href="Historial_ep.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-window-maximize"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										Envasado y Parametros
 									</div>
 								</a>
 							</li>
@@ -544,18 +554,39 @@
 												</select>
 											</div>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text"  id="materia">
-												<label class="mdl-textfield__label" for="materia">Materia Prima</label>
-												<span class="mdl-textfield__error">Nombre Invalio</span>
+												<input class="mdl-textfield__input" type="number" step="0.0000001" id="Cant">
+												<label class="mdl-textfield__label" for="Cant">Cantidad</label>
+												<span class="mdl-textfield__error">valor no valido</span>
 											</div>
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" id="Descripcion">
-												<label class="mdl-textfield__label" for="Descripcion">Descripcion de los productos envasados</label>
-												<span class="mdl-textfield__error">Descripcion Invalida</span>
+											<div class="mdl-textfield mdl-js-textfield">
+												<select class="mdl-textfield__input">
+													<option value="" disabled="" selected="">Tamaño</option>
+													<option value="">100</option>
+													<option value="">60 </option>
+													<option value="">477 </option>
+												</select>
 											</div>
+										
+									</div>
+									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input class="mdl-textfield__input" type="text"  id="materia">
+											<label class="mdl-textfield__label" for="materia">Materia Prima</label>
+											<span class="mdl-textfield__error">Nombre Invalio</span>
+										</div>
+										<div class="mdl-textfield mdl-js-textfield">
+											<input class="mdl-textfield__input" type="text"  id="Empleado">
+											<label class="mdl-textfield__label" for="Empleado">Nombre de quien Envasa</label>
+											<span class="mdl-textfield__error">Nombre Invalio</span>
+										</div>
+										<h6 class="text-condensedLight">Fecha de Envasado</h6>
+									<div class="mdl-textfield mdl-js-textfield">
+										<input type="date" class="mdl-textfield__input">
+										
+									</div>
 									</div>
 									<p class="text-center">
-										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="Agregar Envasado">
+										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 400px;" id="Agregar Envasado">
 											<i class="zmdi zmdi-plus"></i>
 										</button>
 										<div class="mdl-tooltip" for="Agregar Envasado">Agregar Envasado</div>

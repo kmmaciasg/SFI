@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Tapas</title>
+	<title>Completar Ruta</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/sweetalert2.css">
 	<link rel="stylesheet" href="css/material.min.css">
@@ -435,7 +435,17 @@
                                     <i class="zmdi zmdi-window-maximize"></i>
                                 </div>
                                 <div class="navLateral-body-cr hide-on-tablet">
-                                    Tapas, Bandas y Alistamiento
+                                    Tapas y Bandas
+                                </div>
+                            </a>
+                        </li>
+                        <li class="full-width">
+                            <a href="Historial_ep.html" class="full-width">
+                                <div class="navLateral-body-cl">
+                                    <i class="zmdi zmdi-window-maximize"></i>
+                                </div>
+                                <div class="navLateral-body-cr hide-on-tablet">
+                                    Envasado y Parametros
                                 </div>
                             </a>
                         </li>
@@ -546,3 +556,52 @@
             </p>
         </div>						
 </section>
+<div class="mdl-tabs__panel" id="tabListAdmin">
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
+            <div class="full-width panel mdl-shadow--2dp">
+                <div class="full-width panel-tittle bg-success text-center tittles">
+                    Completar Ruta
+                </div>
+                <div class="full-width panel-content">
+                    <div class="mdl-list">
+                        <div class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="zmdi zmdi-account mdl-list__item-avatar"></i>
+                                <span>Nombre de usuario</span>
+                                <span class="mdl-list__item-sub-title">Documento de Identidad</span>
+                            </span>
+                           
+                        </div>
+                    
+                        <div class="mdl-radio is-active" id="AsignarPermiso">
+                            <h5 class="text-condensedLight">Ruta de Entrega</h5>
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                                    <input type="radio" id="option-1" class="mdl-radio__button" name="options" >
+                                    <span class="mdl-radio__label"> ...</span>
+                                </label>
+                                <br><br>
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                                    <input type="radio" id="option-2" class="mdl-radio__button" name="options" >
+                                    <span class="mdl-radio__label">...</span>
+                                </label>
+                                <br><br>
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                                    <input type="radio" id="option-3" class="mdl-radio__button" name="options" >
+                                    <span class="mdl-radio__label">...</span>
+                                </label>
+                               
+                        </div>
+                        <p class="text-center">
+                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addProduct">
+                                <i class="zmdi zmdi-check-all"></i>
+                            </button>
+                            <div class="mdl-tooltip" for="btn-addProduct">Finalizar Ruta</div>
+                        </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

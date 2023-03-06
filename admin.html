@@ -409,7 +409,17 @@
 										<i class="zmdi zmdi-window-maximize"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
-										Tapas, Bandas y Alistamiento
+										Tapas y Bandas
+									</div>
+								</a>
+							</li>
+							<li class="full-width">
+								<a href="Historial_ep.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-window-maximize"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										Envasado y Parametros
 									</div>
 								</a>
 							</li>
@@ -525,7 +535,6 @@
 			<div class="mdl-tabs__tab-bar">
 				<a href="#tabNewAdmin" class="mdl-tabs__tab is-active">CREAR USUARIO</a>
 				<a href="#tabListAdmin" class="mdl-tabs__tab">ASIGNAR TAREAS</a>
-				<a href="#AsignarPermiso" class="mdl-radio"></a>
 			</div>
 			<div class="mdl-tabs__panel is-active" id="tabNewAdmin">
 				<div class="mdl-grid">
@@ -538,7 +547,6 @@
 								<form>
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-											<h5 class="text-condensedLight">Datos del Usuario</h5>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="Nom">
 												<label class="mdl-textfield__label" for="Nom">Nombres</label>
@@ -549,6 +557,17 @@
 												<label class="mdl-textfield__label" for="Ape">Apellidos</label>
 												<span class="mdl-textfield__error">Nombre Invalido</span>
 											</div>
+											
+										
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<h6 class="text-condensedLight">Fecha Nacimiento</h6>
+												<input class="mdl-textfield__input" type="Date" id="FechaNacimiento">
+												<label class="mdl-textfield__label" for="FechaNacimiento"></label>
+												<span class="mdl-textfield__error">Fecha Invalida</span>
+											</div>
+											
+										</div>
+										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="Cel">
 												<label class="mdl-textfield__label" for="Cel">Numero Celular</label>
@@ -559,6 +578,11 @@
 												<label class="mdl-textfield__label" for="DI">Documento de Identidad</label>
 												<span class="mdl-textfield__error">Numero Invalido</span>
 											</div>
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input" type="password" id="passwordAdmin">
+												<label class="mdl-textfield__label" for="passwordAdmin">Password</label>
+												<span class="mdl-textfield__error">Invalid password</span>
+											</div>
 											<div class="mdl-textfield mdl-js-textfield">
 												<select class="mdl-textfield__input">
 													<option value="" disabled="" selected="">Selecciona el tipo de Usuario</option>
@@ -566,17 +590,6 @@
 													<option value="">2</option>
 													<option value="">3</option>
 												</select>
-											</div>
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<h6 class="text-condensedLight">Fecha Nacimiento</h6>
-												<input class="mdl-textfield__input" type="Date" id="FechaNacimiento">
-												<label class="mdl-textfield__label" for="FechaNacimiento"></label>
-												<span class="mdl-textfield__error">Fecha Invalida</span>
-											</div>
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="password" id="passwordAdmin">
-												<label class="mdl-textfield__label" for="passwordAdmin">Password</label>
-												<span class="mdl-textfield__error">Invalid password</span>
 											</div>
 										</div>
 									</div>
@@ -623,7 +636,7 @@
 									</div>
 								
 									<div class="mdl-radio is-active" id="AsignarPermiso">
-										<h5 class="text-condensedLight">Escoger las tareas NO permitidas</h5>
+										<h5 class="text-condensedLight">Escoger las tareas permitidas</h5>
 											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
 												<input type="radio" id="option-1" class="mdl-radio__button" name="options" >
 												<span class="mdl-radio__label"> Agregar Nueva Produccion</span>

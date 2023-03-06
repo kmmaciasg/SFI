@@ -406,15 +406,25 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="Historial_tb.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-window-maximize"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Tapas, Bandas y Alistamiento
-									</div>
-								</a>
-							</li>
+                            <a href="Historial_tb.html" class="full-width">
+                                <div class="navLateral-body-cl">
+                                    <i class="zmdi zmdi-window-maximize"></i>
+                                </div>
+                                <div class="navLateral-body-cr hide-on-tablet">
+                                    Tapas y Bandas
+                                </div>
+                            </a>
+                        </li>
+                        <li class="full-width">
+                            <a href="Historial_ep.html" class="full-width">
+                                <div class="navLateral-body-cl">
+                                    <i class="zmdi zmdi-window-maximize"></i>
+                                </div>
+                                <div class="navLateral-body-cr hide-on-tablet">
+                                    Envasado y Parametros
+                                </div>
+                            </a>
+                        </li>
 						</ul>	
 					</li>
 					<li class="full-width divider-menu-h"></li>
