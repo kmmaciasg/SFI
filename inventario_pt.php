@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Producciones en Envasado</title>
+	<title>Inventario</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/sweetalert2.css">
 	<link rel="stylesheet" href="css/material.min.css">
@@ -112,8 +112,36 @@
 			</nav>
 		</div>
 	</div>
-	<!-- navLateral -->
-	<section class="full-width navLateral">
+
+
+
+<div class="full-width navBar">
+    <div class="full-width navBar-options">
+        <i class="zmdi zmdi-more-vert btn-menu" id="btn-menu"></i>	
+        <div class="mdl-tooltip" for="btn-menu">Menu</div>
+        <nav class="navBar-options-list">
+            <ul class="list-unstyle">
+                <li class="btn-Notification" id="notifications">
+                    <i class="zmdi zmdi-notifications"></i>
+                    <!-- <i class="zmdi zmdi-notifications-active btn-Notification" id="notifications"></i> -->
+                    <div class="mdl-tooltip" for="notifications">Notificaciones</div>
+                </li>
+                <li class="btn-exit" id="btn-exit">
+                    <i class="zmdi zmdi-power"></i>
+                    <div class="mdl-tooltip" for="btn-exit">Salir</div>
+                </li>
+                <li class="text-condensedLight noLink" ><small>Nombre de Usuario</small></li>
+                <li class="noLink">
+                    <figure>
+                        <img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+                    </figure>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<!-- navLateral -->
+<section class="full-width navLateral">
 		<div class="full-width navLateral-bg btn-menu"></div>
 		<div class="full-width navLateral-body">
 			<div class="full-width navLateral-body-logo text-center tittles">
@@ -155,7 +183,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="productnew.html" class="full-width">
+								<a href="productnew.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-hospital-alt"></i>
 									</div>
@@ -165,7 +193,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="product1.html" class="full-width">
+								<a href="product1.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-label"></i>
 									</div>
@@ -175,7 +203,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="product2.html" class="full-width">
+								<a href="product2.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-label"></i>
 									</div>
@@ -185,7 +213,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="product3.html" class="full-width">
+								<a href="product3.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-label"></i>
 									</div>
@@ -199,7 +227,7 @@
 					
 					<li class="full-width divider-menu-h"></li>
 					 <li class="full-width">
-							 <a href="parametros.HTML" class="full-width">
+							 <a href="parametros.php" class="full-width">
 							 <div class="navLateral-body-cl">
 								<i class="zmdi zmdi-cocktail"></i>
 							 </div>
@@ -211,7 +239,7 @@
                     </li>
 					<li class="full-width divider-menu-h"></li>
 					    <li class="full-width">
-						    <a href="ADMIN.HTML" class="full-width">
+						    <a href="ADMIN.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-face"></i>
 							</div>
@@ -234,7 +262,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-						    <a href="producfin.html" class="full-width">
+						    <a href="producfin.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-assignment-check"></i>
 							</div>
@@ -244,7 +272,7 @@
 						    </a>
 							</li>
 							<li class="full-width">
-						     <a href="envases.html" class="full-width">
+						     <a href="envases.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-battery"></i>
 							</div>
@@ -254,7 +282,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="embalaje.HTML" class="full-width">
+						    <a href="embalaje.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-card-giftcard"></i>
 							</div>
@@ -264,7 +292,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="etiquetas.html" class="full-width">
+						    <a href="etiquetas.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-file"></i>
 							</div>
@@ -274,7 +302,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="colgantes.html" class="full-width">
+						    <a href="colgantes.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-receipt"></i>
 							</div>
@@ -284,7 +312,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="tapas.html" class="full-width">
+						    <a href="tapas.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-album"></i>
 							</div>
@@ -294,7 +322,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="bandas.html" class="full-width">
+						    <a href="bandas.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-check-all"></i>
 							</div>
@@ -319,7 +347,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="inventario_pt.html" class="full-width">
+								<a href="inventario_pt.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-file-text"></i>
 									</div>
@@ -329,7 +357,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="inventario_e.html" class="full-width">
+								<a href="inventario_e.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-file-text"></i>
 									</div>
@@ -339,7 +367,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="inventario_ec.html" class="full-width">
+								<a href="inventario_ec.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-file-text"></i>
 									</div>
@@ -349,7 +377,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="inventario_tb.html" class="full-width">
+								<a href="inventario_tb.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-file-text"></i>
 									</div>
@@ -373,7 +401,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="historial_pl.html" class="full-width">
+								<a href="historial_pl.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-window-maximize"></i>
 									</div>
@@ -383,7 +411,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="historial_e.html" class="full-width">
+								<a href="historial_e.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-window-maximize"></i>
 									</div>
@@ -393,7 +421,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="Historial_ec.html" class="full-width">
+								<a href="Historial_ec.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-window-maximize"></i>
 									</div>
@@ -403,25 +431,25 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="Historial_tb.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-window-maximize"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Tapas y Bandas
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="Historial_ep.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-window-maximize"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Envasado y Parametros
-									</div>
-								</a>
-							</li>
+                            <a href="Historial_tb.php" class="full-width">
+                                <div class="navLateral-body-cl">
+                                    <i class="zmdi zmdi-window-maximize"></i>
+                                </div>
+                                <div class="navLateral-body-cr hide-on-tablet">
+                                    Tapas y Bandas
+                                </div>
+                            </a>
+                        </li>
+                        <li class="full-width">
+                            <a href="Historial_ep.php" class="full-width">
+                                <div class="navLateral-body-cl">
+                                    <i class="zmdi zmdi-window-maximize"></i>
+                                </div>
+                                <div class="navLateral-body-cr hide-on-tablet">
+                                    Envasado y Parametros
+                                </div>
+                            </a>
+                        </li>
 						</ul>	
 					</li>
 					<li class="full-width divider-menu-h"></li>
@@ -437,7 +465,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="generar_o.html" class="full-width">
+								<a href="generar_o.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-calendar-note"></i>
 									</div>
@@ -447,7 +475,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="completar_o.html" class="full-width">
+								<a href="completar_o.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-calendar-note"></i>
 									</div>
@@ -457,7 +485,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="historial_o.html" class="full-width">
+								<a href="historial_o.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-calendar-note"></i>
 									</div>
@@ -482,7 +510,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="generar_r.html" class="full-width">
+								<a href="generar_r.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-truck"></i>
 									</div>
@@ -492,7 +520,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="completar_r.html" class="full-width">
+								<a href="completar_r.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-truck"></i>
 									</div>
@@ -502,7 +530,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="historial_r.html" class="full-width">
+								<a href="historial_r.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-truck"></i>
 									</div>
@@ -517,89 +545,55 @@
 			</nav>
 		</div>
 	</section>
-	<!-- pageContent -->
-	<section class="full-width pageContent">
-		<section class="full-width header-well">
-			<div class="full-width header-well-icon">
-				<figure class="full-width">
-						<img src="assets/img/nuevologo.jpeg" alt="LOGO" class="img-responsive">
-				</figure>
-				<div class="full-width header-well-text">
-				<p class="text-condensedLight">
-					 PRODUCCION ENVASADO
-				</p>
-			</div>						
-	</section>
-		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-			<div class="mdl-tabs__tab-bar">
-				<a href="#tabNewProduct" class="mdl-tabs__tab is-active">NUEVO ENVASADO</a>
-			</div>
-			<div class="mdl-tabs__panel is-active" id="tabNewProduct">
-				<div class="mdl-grid">
-					<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-						<div class="full-width panel mdl-shadow--2dp">
-							<div class="full-width panel-tittle bg-primary text-center tittles">
-								Producciones a Envasar
-							</div>
-							<div class="full-width panel-content">
-								<form>
-									<div class="mdl-grid">
-										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-											<h5 class="text-condensedLight">Información de Envasado</h5>
-											<div class="mdl-textfield mdl-js-textfield">
-												<select class="mdl-textfield__input">
-													<option value="" disabled="" selected=""># Lote de Envasado</option>
-													<option value="">...</option>
-													<option value="">...</option>
-												</select>
-											</div>
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" step="0.0000001" id="Cant">
-												<label class="mdl-textfield__label" for="Cant">Cantidad</label>
-												<span class="mdl-textfield__error">valor no valido</span>
-											</div>
-											<div class="mdl-textfield mdl-js-textfield">
-												<select class="mdl-textfield__input">
-													<option value="" disabled="" selected="">Tamaño</option>
-													<option value="">100</option>
-													<option value="">60 </option>
-													<option value="">477 </option>
-												</select>
-											</div>
-										
-									</div>
-									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="text"  id="materia">
-											<label class="mdl-textfield__label" for="materia">Materia Prima</label>
-											<span class="mdl-textfield__error">Nombre Invalio</span>
-										</div>
-										<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text"  id="Empleado">
-											<label class="mdl-textfield__label" for="Empleado">Nombre de quien Envasa</label>
-											<span class="mdl-textfield__error">Nombre Invalio</span>
-										</div>
-										<h6 class="text-condensedLight">Fecha de Envasado</h6>
-									<div class="mdl-textfield mdl-js-textfield">
-										<input type="date" class="mdl-textfield__input">
-										
-									</div>
-									</div>
-									<p class="text-center">
-										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 400px;" id="Agregar Envasado">
-											<i class="zmdi zmdi-plus"></i>
-										</button>
-										<div class="mdl-tooltip" for="Agregar Envasado">Agregar Envasado</div>
-									</p>
-
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>	
-		</div>
-	              
-	</section>
-</body>
-</html>
+<section class="full-width pageContent">
+    <section class="full-width header-well">
+        <div class="full-width header-well-icon">
+            <figure class="full-width">
+                    <img src="assets/img/nuevologo.jpeg" alt="LOGO" class="img-responsive">
+            </figure>
+            <div class="full-width header-well-text">
+            <p class="text-condensedLight">
+                 PRODUCTO TERMINADO
+            </p>
+        </div>						
+</section>
+<div class="mdl-tabs__panel is-active" id="tabNewProduct">
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+            <div class="full-width panel mdl-shadow--2dp">
+                <div class="full-width panel-tittle bg-primary text-center tittles">
+                    Inventario de Productos Terminados
+                </div>
+                <div class="full-width panel-content">
+                    <form>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+                                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+                                    <thead>
+                                        <tr>
+                                            <th class="mdl-data-table__cell--non-numeric">Producto</th>
+                                            <th>Tamaño</th>
+                                            <th>Cantidad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="mdl-data-table__cell--non-numeric">...</td>
+                                            <td>...</td>
+                                            <td>...</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="mdl-data-table__cell--non-numeric">...</td>
+                                            <td>...</td>
+                                            <td>...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>	
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

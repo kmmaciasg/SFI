@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Produccion en Fase 1</title>
+	<title>Administrador</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/sweetalert2.css">
 	<link rel="stylesheet" href="css/material.min.css">
@@ -156,7 +156,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="productnew.html" class="full-width">
+								<a href="productnew.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-hospital-alt"></i>
 									</div>
@@ -166,7 +166,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="product1.html" class="full-width">
+								<a href="product1.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-label"></i>
 									</div>
@@ -176,7 +176,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="product2.html" class="full-width">
+								<a href="product2.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-label"></i>
 									</div>
@@ -186,7 +186,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="product3.html" class="full-width">
+								<a href="product3.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-label"></i>
 									</div>
@@ -200,7 +200,7 @@
 					
 					<li class="full-width divider-menu-h"></li>
 					 <li class="full-width">
-							 <a href="parametros.HTML" class="full-width">
+							 <a href="parametros.php" class="full-width">
 							 <div class="navLateral-body-cl">
 								<i class="zmdi zmdi-cocktail"></i>
 							 </div>
@@ -212,7 +212,7 @@
                     </li>
 					<li class="full-width divider-menu-h"></li>
 					    <li class="full-width">
-						    <a href="ADMIN.HTML" class="full-width">
+						    <a href="ADMIN.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-face"></i>
 							</div>
@@ -235,7 +235,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-						    <a href="producfin.html" class="full-width">
+						    <a href="producfin.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-assignment-check"></i>
 							</div>
@@ -245,7 +245,7 @@
 						    </a>
 							</li>
 							<li class="full-width">
-						     <a href="envases.html" class="full-width">
+						     <a href="envases.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-battery"></i>
 							</div>
@@ -255,7 +255,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="embalaje.HTML" class="full-width">
+						    <a href="embalaje.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-card-giftcard"></i>
 							</div>
@@ -265,7 +265,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="etiquetas.html" class="full-width">
+						    <a href="etiquetas.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-file"></i>
 							</div>
@@ -275,7 +275,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="colgantes.html" class="full-width">
+						    <a href="colgantes.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-receipt"></i>
 							</div>
@@ -285,7 +285,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="tapas.html" class="full-width">
+						    <a href="tapas.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-album"></i>
 							</div>
@@ -295,7 +295,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="bandas.html" class="full-width">
+						    <a href="bandas.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-check-all"></i>
 							</div>
@@ -320,7 +320,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="inventario_pt.html" class="full-width">
+								<a href="inventario_pt.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-file-text"></i>
 									</div>
@@ -330,7 +330,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="inventario_e.html" class="full-width">
+								<a href="inventario_e.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-file-text"></i>
 									</div>
@@ -340,7 +340,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="inventario_ec.html" class="full-width">
+								<a href="inventario_ec.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-file-text"></i>
 									</div>
@@ -350,7 +350,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="inventario_tb.html" class="full-width">
+								<a href="inventario_tb.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-file-text"></i>
 									</div>
@@ -374,7 +374,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="historial_pl.html" class="full-width">
+								<a href="historial_pl.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-window-maximize"></i>
 									</div>
@@ -384,7 +384,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="historial_e.html" class="full-width">
+								<a href="historial_e.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-window-maximize"></i>
 									</div>
@@ -394,7 +394,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="Historial_ec.html" class="full-width">
+								<a href="Historial_ec.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-window-maximize"></i>
 									</div>
@@ -404,25 +404,25 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="Historial_tb.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-window-maximize"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Tapas y Bandas
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="Historial_ep.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-window-maximize"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Envasado y Parametros
-									</div>
-								</a>
-							</li>
+                            <a href="Historial_tb.php" class="full-width">
+                                <div class="navLateral-body-cl">
+                                    <i class="zmdi zmdi-window-maximize"></i>
+                                </div>
+                                <div class="navLateral-body-cr hide-on-tablet">
+                                    Tapas y Bandas
+                                </div>
+                            </a>
+                        </li>
+                        <li class="full-width">
+                            <a href="Historial_ep.php" class="full-width">
+                                <div class="navLateral-body-cl">
+                                    <i class="zmdi zmdi-window-maximize"></i>
+                                </div>
+                                <div class="navLateral-body-cr hide-on-tablet">
+                                    Envasado y Parametros
+                                </div>
+                            </a>
+                        </li>
 						</ul>	
 					</li>
 					<li class="full-width divider-menu-h"></li>
@@ -438,7 +438,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="generar_o.html" class="full-width">
+								<a href="generar_o.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-calendar-note"></i>
 									</div>
@@ -448,7 +448,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="completar_o.html" class="full-width">
+								<a href="completar_o.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-calendar-note"></i>
 									</div>
@@ -458,7 +458,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="historial_o.html" class="full-width">
+								<a href="historial_o.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-calendar-note"></i>
 									</div>
@@ -483,7 +483,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="generar_r.html" class="full-width">
+								<a href="generar_r.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-truck"></i>
 									</div>
@@ -493,7 +493,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="completar_r.html" class="full-width">
+								<a href="completar_r.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-truck"></i>
 									</div>
@@ -503,7 +503,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="historial_r.html" class="full-width">
+								<a href="historial_r.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-truck"></i>
 									</div>
@@ -527,64 +527,198 @@
 				</figure>
 				<div class="full-width header-well-text">
 				<p class="text-condensedLight">
-					 FERMENTACION 1
+					 ADMINISTRACION
 				</p>
 			</div>						
 	</section>
-	<div class="full-width divider-menu-h"></div>
-		<div class="mdl-grid">
-			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-				<div class="full-width panel mdl-shadow--2dp">
-					<div class="full-width panel-tittle bg-primary text-center tittles">
-						Producciones en Fermentacion 1
+		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+			<div class="mdl-tabs__tab-bar">
+				<a href="#tabNewAdmin" class="mdl-tabs__tab is-active">CREAR USUARIO</a>
+				<a href="#tabListAdmin" class="mdl-tabs__tab">ASIGNAR TAREAS</a>
+			</div>
+			<div class="mdl-tabs__panel is-active" id="tabNewAdmin">
+				<div class="mdl-grid">
+					<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+						<div class="full-width panel mdl-shadow--2dp">
+							<div class="full-width panel-tittle bg-primary text-center tittles">
+								Nuevo Usuario
+							</div>
+							<div class="full-width panel-content">
+								<form>
+									<div class="mdl-grid">
+										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="Nom">
+												<label class="mdl-textfield__label" for="Nom">Nombres</label>
+												<span class="mdl-textfield__error">Nombre Invalido</span>
+											</div>
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="Ape">
+												<label class="mdl-textfield__label" for="Ape">Apellidos</label>
+												<span class="mdl-textfield__error">Nombre Invalido</span>
+											</div>
+											
+										
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<h6 class="text-condensedLight">Fecha Nacimiento</h6>
+												<input class="mdl-textfield__input" type="Date" id="FechaNacimiento">
+												<label class="mdl-textfield__label" for="FechaNacimiento"></label>
+												<span class="mdl-textfield__error">Fecha Invalida</span>
+											</div>
+											
+										</div>
+										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="Cel">
+												<label class="mdl-textfield__label" for="Cel">Numero Celular</label>
+												<span class="mdl-textfield__error">Numero Invalido</span>
+											</div>
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input" type="Number" id="DI">
+												<label class="mdl-textfield__label" for="DI">Documento de Identidad</label>
+												<span class="mdl-textfield__error">Numero Invalido</span>
+											</div>
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input" type="password" id="passwordAdmin">
+												<label class="mdl-textfield__label" for="passwordAdmin">Password</label>
+												<span class="mdl-textfield__error">Invalid password</span>
+											</div>
+											<div class="mdl-textfield mdl-js-textfield">
+												<select class="mdl-textfield__input">
+													<option value="" disabled="" selected="">Selecciona el tipo de Usuario</option>
+													<option value="">1</option>
+													<option value="">2</option>
+													<option value="">3</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<p class="text-center">
+										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="NuevoUsuario">
+											<i class="zmdi zmdi-plus"></i>
+										</button>
+										<div class="mdl-tooltip" for="NuevoUsuario">Agregar Usuario</div>
+									</p>
+								</form>
+							</div>
+						</div>
 					</div>
-					
-					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-						<thead>
-							<tr>
-								<th class="mdl-data-table__cell--non-numeric"># Lote</th>
-								<th>Materia Prima</th>
-								<th>Cant</th>
-								<th>Peso Inicial</th>
-								<th>Peso Bruto</th>
-								<th>Fecha Produccion</th>
-								<th>Nombre quien ingresa</th>
-								<th>Adiciones</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="mdl-data-table__cell--non-numeric">...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-							</tr>
-							<tr>
-								<td class="mdl-data-table__cell--non-numeric">...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-							</tr>
-							<p class="text-center">
-								<tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 185px;" id="PasaraFermentacion">
-									<i class="zmdi zmdi-forward"></i>
-								</button></tr>
-								<div class="mdl-tooltip" for="PasaraFermentacion">Pasar a Fermentacion 2</div>
-							</p>
-						</tbody>
-					</table>
 				</div>
-				
-				
-                       
+			</div>
+			<div class="mdl-tabs__panel" id="tabListAdmin">
+				<div class="mdl-grid">
+					<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
+						<div class="full-width panel mdl-shadow--2dp">
+							<div class="full-width panel-tittle bg-success text-center tittles">
+								Asignar Tareas
+							</div>
+							<div class="full-width panel-content">
+								<form action="#">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+										<label class="mdl-button mdl-js-button mdl-button--icon" for="searchAdmin">
+											<i class="zmdi zmdi-search"></i>
+										</label>
+										<div class="mdl-textfield__expandable-holder">
+											<input class="mdl-textfield__input" type="text" id="searchAdmin">
+											<label class="mdl-textfield__label"></label>
+										</div>
+									</div>
+								</form>
+								<div class="mdl-list">
+									<div class="mdl-list__item mdl-list__item--two-line">
+										<span class="mdl-list__item-primary-content">
+											<i class="zmdi zmdi-account mdl-list__item-avatar"></i>
+											<span>Nombre de usuario</span>
+											<span class="mdl-list__item-sub-title">Documento de Identidad</span>
+										</span>
+										<a class="mdl-list__item-secondary-action" href="#AsignarPermiso"><i class="zmdi zmdi-check-all"></i></a>
+										<a class="mdl-list__item-sub-title">Asignar</a>
+									</div>
+								
+									<div class="mdl-radio is-active" id="AsignarPermiso">
+										<h5 class="text-condensedLight">Escoger las tareas permitidas</h5>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+												<input type="radio" id="option-1" class="mdl-radio__button" name="options" >
+												<span class="mdl-radio__label"> Agregar Nueva Produccion</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+												<input type="radio" id="option-2" class="mdl-radio__button" name="options" >
+												<span class="mdl-radio__label">Pasar produccion de Fase 1 a Fase 2</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+												<input type="radio" id="option-3" class="mdl-radio__button" name="options" >
+												<span class="mdl-radio__label">Pasar de Fermentación a Envasado</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
+												<input type="radio" id="option-4" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Ingresar Producto Terminado</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-5">
+												<input type="radio" id="option-5" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Egresar Producto Terminado</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-6">
+												<input type="radio" id="option-6" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Ingresar Envases</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-7">
+												<input type="radio" id="option-7" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Egresar Envases</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-8">
+												<input type="radio" id="option-8" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Ingresar Etiquetas</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-9">
+												<input type="radio" id="option-9" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Egresar Etiquetas</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-10">
+												<input type="radio" id="option-10" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Ingresar Colgantes</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-11">
+												<input type="radio" id="option-11" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Egresar Colgantes</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-12">
+												<input type="radio" id="option-12" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Ingresar Tapas</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-13">
+												<input type="radio" id="option-13" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Egresar Tapas</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-14">
+												<input type="radio" id="option-14" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Ingresar Bandas de Seguridad</span>
+											</label>
+											<br><br>
+											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-15">
+												<input type="radio" id="option-15" class="mdl-radio__button" name="options">
+												<span class="mdl-radio__label">Egresar Bandas de Seguridad</span>
+											</label>
+									</div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>

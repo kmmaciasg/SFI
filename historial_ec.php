@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Envases</title>
+	<title>Historial</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/sweetalert2.css">
 	<link rel="stylesheet" href="css/material.min.css">
@@ -86,7 +86,7 @@
 	        </a>  
 	    </section>
 	</section>
-	<!-- navLateral -->
+	<!-- navBar -->
 	<!-- navLateral -->
 	<div class="full-width navBar">
 		<div class="full-width navBar-options">
@@ -113,8 +113,35 @@
 			</nav>
 		</div>
 	</div>
-	<!-- navLateral -->
-	<section class="full-width navLateral">
+
+
+<div class="full-width navBar">
+    <div class="full-width navBar-options">
+        <i class="zmdi zmdi-more-vert btn-menu" id="btn-menu"></i>	
+        <div class="mdl-tooltip" for="btn-menu">Menu</div>
+        <nav class="navBar-options-list">
+            <ul class="list-unstyle">
+                <li class="btn-Notification" id="notifications">
+                    <i class="zmdi zmdi-notifications"></i>
+                    <!-- <i class="zmdi zmdi-notifications-active btn-Notification" id="notifications"></i> -->
+                    <div class="mdl-tooltip" for="notifications">Notificaciones</div>
+                </li>
+                <li class="btn-exit" id="btn-exit">
+                    <i class="zmdi zmdi-power"></i>
+                    <div class="mdl-tooltip" for="btn-exit">Salir</div>
+                </li>
+                <li class="text-condensedLight noLink" ><small>Nombre de Usuario</small></li>
+                <li class="noLink">
+                    <figure>
+                        <img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+                    </figure>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<!-- navLateral -->
+<section class="full-width navLateral">
 		<div class="full-width navLateral-bg btn-menu"></div>
 		<div class="full-width navLateral-body">
 			<div class="full-width navLateral-body-logo text-center tittles">
@@ -156,7 +183,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="productnew.html" class="full-width">
+								<a href="productnew.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-hospital-alt"></i>
 									</div>
@@ -166,7 +193,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="product1.html" class="full-width">
+								<a href="product1.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-label"></i>
 									</div>
@@ -176,7 +203,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="product2.html" class="full-width">
+								<a href="product2.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-label"></i>
 									</div>
@@ -186,7 +213,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="product3.html" class="full-width">
+								<a href="product3.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-label"></i>
 									</div>
@@ -200,7 +227,7 @@
 					
 					<li class="full-width divider-menu-h"></li>
 					 <li class="full-width">
-							 <a href="parametros.HTML" class="full-width">
+							 <a href="parametros.php" class="full-width">
 							 <div class="navLateral-body-cl">
 								<i class="zmdi zmdi-cocktail"></i>
 							 </div>
@@ -212,7 +239,7 @@
                     </li>
 					<li class="full-width divider-menu-h"></li>
 					    <li class="full-width">
-						    <a href="ADMIN.HTML" class="full-width">
+						    <a href="ADMIN.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-face"></i>
 							</div>
@@ -235,7 +262,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-						    <a href="producfin.html" class="full-width">
+						    <a href="producfin.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-assignment-check"></i>
 							</div>
@@ -245,7 +272,7 @@
 						    </a>
 							</li>
 							<li class="full-width">
-						     <a href="envases.html" class="full-width">
+						     <a href="envases.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-battery"></i>
 							</div>
@@ -255,7 +282,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="embalaje.HTML" class="full-width">
+						    <a href="embalaje.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-card-giftcard"></i>
 							</div>
@@ -265,7 +292,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="etiquetas.html" class="full-width">
+						    <a href="etiquetas.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-file"></i>
 							</div>
@@ -275,7 +302,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="colgantes.html" class="full-width">
+						    <a href="colgantes.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-receipt"></i>
 							</div>
@@ -285,7 +312,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="tapas.html" class="full-width">
+						    <a href="tapas.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-album"></i>
 							</div>
@@ -295,7 +322,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="bandas.html" class="full-width">
+						    <a href="bandas.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-check-all"></i>
 							</div>
@@ -320,7 +347,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="inventario_pt.html" class="full-width">
+								<a href="inventario_pt.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-file-text"></i>
 									</div>
@@ -330,7 +357,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="inventario_e.html" class="full-width">
+								<a href="inventario_e.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-file-text"></i>
 									</div>
@@ -340,7 +367,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="inventario_ec.html" class="full-width">
+								<a href="inventario_ec.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-file-text"></i>
 									</div>
@@ -350,7 +377,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="inventario_tb.html" class="full-width">
+								<a href="inventario_tb.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-file-text"></i>
 									</div>
@@ -374,7 +401,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="historial_pl.html" class="full-width">
+								<a href="historial_pl.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-window-maximize"></i>
 									</div>
@@ -384,7 +411,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="historial_e.html" class="full-width">
+								<a href="historial_e.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-window-maximize"></i>
 									</div>
@@ -394,7 +421,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="Historial_ec.html" class="full-width">
+								<a href="Historial_ec.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-window-maximize"></i>
 									</div>
@@ -404,25 +431,25 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="Historial_tb.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-window-maximize"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Tapas y Bandas
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="Historial_ep.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-window-maximize"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Envasado y Parametros
-									</div>
-								</a>
-							</li>
+                            <a href="Historial_tb.php" class="full-width">
+                                <div class="navLateral-body-cl">
+                                    <i class="zmdi zmdi-window-maximize"></i>
+                                </div>
+                                <div class="navLateral-body-cr hide-on-tablet">
+                                    Tapas y Bandas
+                                </div>
+                            </a>
+                        </li>
+                        <li class="full-width">
+                            <a href="Historial_ep.php" class="full-width">
+                                <div class="navLateral-body-cl">
+                                    <i class="zmdi zmdi-window-maximize"></i>
+                                </div>
+                                <div class="navLateral-body-cr hide-on-tablet">
+                                    Envasado y Parametros
+                                </div>
+                            </a>
+                        </li>
 						</ul>	
 					</li>
 					<li class="full-width divider-menu-h"></li>
@@ -438,7 +465,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="generar_o.html" class="full-width">
+								<a href="generar_o.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-calendar-note"></i>
 									</div>
@@ -448,7 +475,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="completar_o.html" class="full-width">
+								<a href="completar_o.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-calendar-note"></i>
 									</div>
@@ -458,7 +485,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="historial_o.html" class="full-width">
+								<a href="historial_o.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-calendar-note"></i>
 									</div>
@@ -483,7 +510,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="generar_r.html" class="full-width">
+								<a href="generar_r.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-truck"></i>
 									</div>
@@ -493,7 +520,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="completar_r.html" class="full-width">
+								<a href="completar_r.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-truck"></i>
 									</div>
@@ -503,7 +530,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="historial_r.html" class="full-width">
+								<a href="historial_r.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-truck"></i>
 									</div>
@@ -518,158 +545,180 @@
 			</nav>
 		</div>
 	</section>
-	<!-- pageContent -->
-	<section class="full-width pageContent">
-		<section class="full-width header-well">
-			<div class="full-width header-well-icon">
-				<figure class="full-width">
-						<img src="assets/img/nuevologo.jpeg" alt="LOGO" class="img-responsive">
-				</figure>
-				<div class="full-width header-well-text">
-				<p class="text-condensedLight">
-					 ENVASES
-				</p>
-			</div>						
-	</section>
-	<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-		<div class="mdl-tabs__tab-bar">
-			<a href="#tabNewProduct" class="mdl-tabs__tab is-active">INGRESAR ENVASE</a>
-			<a href="#tabNewEgreso" class="mdl-tabs__tab">SALIDA DE ENVASE</a>
-		</div>
-		<div class="mdl-tabs__panel is-active" id="tabNewProduct">
-			<div class="mdl-grid">
-				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-					<div class="full-width panel mdl-shadow--2dp">
-						<div class="full-width panel-tittle bg-primary text-center tittles">
-							Ingreso Envase
-						</div>
-						<div class="full-width panel-content">
-							<form>
-								<div class="mdl-grid">
-									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-										
-										<h6 class="text-condensedLight">Fecha de Ingreso</h6>
-										<div class="mdl-textfield mdl-js-textfield">
-											<input type="date" class="mdl-textfield__input">
-											
-										</div>
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
-											<label class="mdl-textfield__label" for="cant">Cantidad</label>
-											<span class="mdl-textfield__error">Cantidad invalida</span>
-										</div>	
-										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
-												<option value="" disabled="" selected="">Tamaño</option>
-												<option value="">* 50ml</option>
-												<option value="">* 250ml </option>
-											</select>
-										</div>
-										
-									</div>
-									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-			
+<section class="full-width pageContent">
+    <section class="full-width header-well">
+        <div class="full-width header-well-icon">
+            <figure class="full-width">
+                    <img src="assets/img/nuevologo.jpeg" alt="LOGO" class="img-responsive">
+            </figure>
+            <div class="full-width header-well-text">
+            <p class="text-condensedLight">
+                 HISTORIAL
+            </p>
+        </div>						
+</section>
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+    <div class="mdl-tabs__tab-bar">
+       <a href="#tabNewProduct" class="mdl-tabs__tab is-active">Etiquetas</a>
+       <a href="#tabNewLote" class="mdl-tabs__tab">Colgantes</a>
+     </div>
+   <div class="mdl-tabs__panel is-active" id="tabNewProduct">
+       <div class="mdl-grid">
+           <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+               <div class="full-width panel mdl-shadow--2dp">
+                   <div class="full-width panel-tittle bg-primary text-center tittles">
+                       Historial de Etiquetas
+                   </div>
+                   <div class="full-width panel-content">
+                       <div class="mdl-grid">
+                           <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+                               <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+                                   <thead>
+                                       <tr>
+                                           <th class="mdl-data-table__cell--non-numeric">Tipo Etiqueta</th>
+                                           <th>Fecha de Ingreso</th>
+                                           <th>Cantidad</th>
+                                           <th>Tamaño</th>
+                                           <th>Usuario</th>
+                                       </tr>
+                                   </thead>
+                                   <tbody>
+                                       <tr>
+                                           <td class="mdl-data-table__cell--non-numeric">...</td>
+                                           <td>...</td>
+                                           <td>...</td>
+                                           <td>...</td>
+                                           <td>...</td>
+                                       </tr>
+                                       <tr>
+                                           <td class="mdl-data-table__cell--non-numeric">...</td>
+                                           <td>...</td>
+                                           <td>...</td>
+                                           <td>...</td>
+                                           <td>...</td>
+                                       </tr>
+                                   </tbody>
+                               </table>
+                           </div>
+                       </div>
+                   </div>
 
-										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
-												<option value="" disabled="" selected="">Seleccione el Envase a Ingresar</option>
-												<option value="">Vidrio</option>
-												<option value="">Plastico </option>
-											</select>
-										</div>
-										<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text"  id="Empleado">
-											<label class="mdl-textfield__label" for="Empleado">Nombre de quien ingresa el envase</label>
-											<span class="mdl-textfield__error">Nombre Invalio</span>	
-										</div>
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="#Factura">
-											<label class="mdl-textfield__label" for="#Factura">Numero de Factura</label>
-											<span class="mdl-textfield__error">Numero Invalido</span>
-										</div>
-										<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text"  id="Proveedor">
-											<label class="mdl-textfield__label" for="Proveedor">Nombre del Proveedor</label>
-											<span class="mdl-textfield__error">Nombre Invalio</span>	
-										</div>
-									</div>
-								</div>
-								<p class="text-center">
-									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="AgregarProducto">
-										<i class="zmdi zmdi-plus"></i>
-										<div class="mdl-tooltip" for="AgregarProducto">Ingresar Envase</div>
-									</button>
-									
-									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 55px;" id="CrearProducto">
-										<i class="zmdi zmdi-shopping-cart-plus"></i>
-										<div class="mdl-tooltip" for="CrearProducto">Crear Nuevo Envase</div>
-									</button>
-				
-								</p>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="mdl-tabs__panel" id="tabNewEgreso">
-			<div class="mdl-grid">
-				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-					<div class="full-width panel mdl-shadow--2dp">
-						<div class="full-width panel-tittle bg-primary text-center tittles">
-							Salida de Envase
-						</div>
-						<div class="full-width panel-content">
-							<form>
-								<div class="mdl-grid">
-									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-										
+                   <div class="full-width panel-content">
+                       <div class="mdl-grid">
+                           <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+                               <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+                                   <thead>
+                                       <tr>
+                                           <th class="mdl-data-table__cell--non-numeric">Tipo Etiqueta</th>
+                                           <th>Fecha de Egreso</th>
+                                           <th>Cantidad</th>
+                                           <th>Tamaño</th>
+                                           <th>Usuario</th>
+                                       </tr>
+                                   </thead>
+                                   <tbody>
+                                       <tr>
+                                           <td class="mdl-data-table__cell--non-numeric">...</td>
+                                           <td>...</td>
+                                           <td>...</td>
+                                           <td>...</td>
+                                           <td>...</td>
+                                       </tr>
+                                       <tr>
+                                           <td class="mdl-data-table__cell--non-numeric">...</td>
+                                           <td>...</td>
+                                           <td>...</td>
+                                           <td>...</td>
+                                           <td>...</td>
+                                       </tr>
+                                   </tbody>
+                               </table>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
 
-										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
-												<option value="" disabled="" selected="">Seleccione el Envase a Egresar</option>
-												<option value="">Manzana </option>
-												<option value="">Banano </option>
-											</select>
-										</div>
-										<h6 class="text-condensedLight">Fecha de Salida</h6>
-										<div class="mdl-textfield mdl-js-textfield">
-											<input type="date" class="mdl-textfield__input">
-											
-										</div>
-										
-									</div>
-									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
-											<label class="mdl-textfield__label" for="cant">Cantidad</label>
-											<span class="mdl-textfield__error">Cantidad invalida</span>
-										</div>	
-										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
-												<option value="" disabled="" selected="">Tamaño</option>
-												<option value="">* 100ml</option>
-												<option value="">* 400ml </option>
-											</select>
-										</div>
-										<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text"  id="Empleado">
-											<label class="mdl-textfield__label" for="Empleado">Nombre de quien Egresa el envase</label>
-											<span class="mdl-textfield__error">Nombre Invalio</span>
-										</div>
-									</div>
-								</div>
-								<p class="text-center">
-									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="EgresarProducto">
-										<i class="zmdi zmdi-minus"></i>
-									</button>
-									<div class="mdl-tooltip" for="EgresarProducto">Sacar Envase</div>
-								</p>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-	</div>	
-</body>
-</html>
+       
+   </div>
+   
+     <div class="mdl-tabs__panel" id="tabNewLote">
+       <div class="mdl-grid">
+       <div class="full-width panel mdl-shadow--2dp">
+           <div class="full-width panel-tittle bg-primary text-center tittles">
+               Historial de Colgantes
+           </div>
+           <div class="full-width panel-content">
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+                        <thead>
+                            <tr>
+                                <th class="mdl-data-table__cell--non-numeric">Tipo Colgante</th>
+                                <th>Fecha de Ingreso</th>
+                                <th>Cantidad</th>
+                                <th>Tamaño</th>
+                                <th>Usuario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="full-width panel-content">
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+                        <thead>
+                            <tr>
+                                <th class="mdl-data-table__cell--non-numeric">Tipo Colgante</th>
+                                <th>Fecha de Egreso</th>
+                                <th>Cantidad</th>
+                                <th>Tamaño</th>
+                                <th>Usuario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+</div>

@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Nueva Produccion</title>
+	<title>Tapas</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/sweetalert2.css">
 	<link rel="stylesheet" href="css/material.min.css">
@@ -19,17 +18,6 @@
 	<script src="js/main.js" ></script>
 </head>
 <body>
-<?php
-include 'conexion_db.php';
-
-// Consulta SQL para obtener los datos
-$sql = "SELECT nombre FROM materias";
-
-// Ejecutar la consulta
-$resultado = mysqli_query($conexion, $sql);
-
-?>
-
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -538,131 +526,210 @@ $resultado = mysqli_query($conexion, $sql);
 				</figure>
 				<div class="full-width header-well-text">
 				<p class="text-condensedLight">
-					 NUEVA PRODUCCION
+					 TAPAS
 				</p>
 			</div>						
 	</section>
-		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-			<div class="mdl-tabs__tab-bar">
-				<a href="#tabNewProduct" class="mdl-tabs__tab is-active">AGREGAR NUEVA PRODUCCION</a>
-				<a href="#tabNewMateria" class="mdl-tabs__tab">AGREGAR MATERIAS PRIMAS</a>
-			</div>
-			<div class="mdl-tabs__panel is-active" id="tabNewProduct">
-				<div class="mdl-grid">
-					<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-						<div class="full-width panel mdl-shadow--2dp">
-							<div class="full-width panel-tittle bg-primary text-center tittles">
-								Nueva Producción 
-							</div>
-							<div class="full-width panel-content">
-								<form>
-									<div class="mdl-grid">
-										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-										
-											<div class="mdl-textfield mdl-js-textfield">
-											<h6 class="text-condensedLight">Fecha de Produccion</h6>
-												<input type="date" class="mdl-textfield__input">
-											</div>
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input"  type="number" step="0.0000001" id="PesoInicial">
-												<label class="mdl-textfield__label" for="PesoInicial">Peso Inicial Kg</label>
-												<span class="mdl-textfield__error">Peso Invalido</span>
-											</div>
-											
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" step="0.0000001" id="PesoBruto">
-												<label class="mdl-textfield__label" for="PesoBruto">Peso Bruto</label>
-												<span class="mdl-textfield__error">Peso Invalido</span>
-											</div>	
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" step="0.0000001" id="PesoDesperdicio">
-												<label class="mdl-textfield__label" for="PesoDesperdicio">Peso Desperdicio Kg</label>
-												<span class="mdl-textfield__error">Peso Invalido</span>
-											</div>
-											
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" step="0.0000001" id="PesoNeto">
-												<label class="mdl-textfield__label" for="PesoNeto">Peso Neto</label>
-												<span class="mdl-textfield__error">Peso Invalido</span>
-											</div>	
+	<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+		<div class="mdl-tabs__tab-bar">
+			<a href="#tabNewProduct" class="mdl-tabs__tab is-active">INGRESAR TAPA</a>
+			<a href="#tabNewEgreso" class="mdl-tabs__tab">SALIDA DE TAPA</a>
+		</div>
+		<div class="mdl-tabs__panel is-active" id="tabNewProduct">
+			<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+					<div class="full-width panel mdl-shadow--2dp">
+						<div class="full-width panel-tittle bg-primary text-center tittles">
+							Ingreso de Tapa
+						</div>
+						<div class="full-width panel-content">
+							<form>
+								<div class="mdl-grid">
+									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+									
+										<h5 class="text-condensedLight">Información Básica</h5>
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
+											<label class="mdl-textfield__label" for="cant">Cantidad</label>
+											<span class="mdl-textfield__error">Cantidad invalida</span>
+										</div>	
+										<div class="mdl-textfield mdl-js-textfield">
+											<select class="mdl-textfield__input">
+												<option value="" disabled="" selected="">Tamaño</option>
+												<option value="">28</option>
+												<option value="">38 </option>
+												<option value="">60 </option>
+											</select>
 										</div>
-										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-											
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="#lote">
-												<label class="mdl-textfield__label" for="#lote">Número de Lote</label>
-												<span class="mdl-textfield__error">Número de lote invalido</span>
-											</div>
-											<div class="mdl-textfield mdl-js-textfield">
-											<h6 class="text-condensedLight">Selecciona la materia prima</h6>
-												<?php
-												echo "<select nombre='opciones'>";
-												while ($fila = mysqli_fetch_assoc($resultado)) {
-													echo "<option value='".$fila['nombre']."'>".$fila['nombre']."</option>";
-												}
-												echo "</select>";
-												?>
-											</div>
-					
-											<div class="mdl-textfield mdl-js-textfield">
-                                                <input class="mdl-textfield__input" type="text"  id="Empleado">
-                                                <label class="mdl-textfield__label" for="Empleado">Nombre Ingresa Produccion</label>
-                                                <span class="mdl-textfield__error">Nombre Invalio</span>
-                                            </div>  
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" step="0.0000001" id="Cantidad">
-												<label class="mdl-textfield__label" for="Cantidad">Cantidad en L</label>
-												<span class="mdl-textfield__error">Peso Invalido</span>
-											</div>
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" id="Adiciones">
-												<label class="mdl-textfield__label" for="Adiciones">Adiciones</label>
-												<span class="mdl-textfield__error">Adicion Invalida</span>
-											</div>
+										
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="#Factura">
+											<label class="mdl-textfield__label" for="#Factura">Numero de Factura</label>
+											<span class="mdl-textfield__error">Numero Invalido</span>
+										</div>
+										<div class="mdl-textfield mdl-js-textfield">
+											<input class="mdl-textfield__input" type="text"  id="Proveedor">
+											<label class="mdl-textfield__label" for="Proveedor">Nombre del Proveedor</label>
+											<span class="mdl-textfield__error">Nombre Invalio</span>	
 										</div>
 									</div>
-									<p class="text-center">
-										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addProduct">
-											<i class="zmdi zmdi-plus"></i>
-										</button>
-										<div class="mdl-tooltip" for="btn-addProduct">Agregar Produccion</div>
-									</p>
-								</form>
-							</div>
+									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+										<div class="mdl-textfield mdl-js-textfield">
+											<select class="mdl-textfield__input">
+												<option value="" disabled="" selected="">Seleccione el tipo de Tapa a Ingresar</option>
+												<option value="">Plastica</option>
+												<option value="">Metalica </option>
+											</select>
+										</div>
+										<div class="mdl-textfield mdl-js-textfield">
+											<select class="mdl-textfield__input">
+												<option value="" disabled="" selected="">Seleccione el color de Tapa a Ingresar</option>
+												<option value="">Negra</option>
+												<option value="">Roja </option>
+												<option value="">Blanca </option>
+											</select>
+										</div>
+										<h6 class="text-condensedLight">Fecha de Ingreso</h6>
+										<div class="mdl-textfield mdl-js-textfield">
+											<input type="date" class="mdl-textfield__input">
+											
+										</div>
+										
+										<div class="mdl-textfield mdl-js-textfield">
+											<input class="mdl-textfield__input" type="text"  id="Empleado">
+											<label class="mdl-textfield__label" for="Empleado">Nombre de quien ingresa el envase</label>
+											<span class="mdl-textfield__error">Nombre Invalio</span>	
+										</div>
+									</div>
+								</div>
+								<p class="text-center">
+									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="AgregarProducto">
+										<i class="zmdi zmdi-plus"></i>
+										<div class="mdl-tooltip" for="AgregarProducto">Ingresar Tapa</div>
+									</button>
+									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 55px;" id="CrearProducto">
+										<i class="zmdi zmdi-shopping-cart-plus"></i>
+										<div class="mdl-tooltip" for="CrearProducto">Crear Nueva Tapa</div>
+									</button>
+								</p>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="mdl-tabs__panel" id="tabNewMateria">
-					<div class="mdl-grid">
-						<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-							<div class="full-width panel mdl-shadow--2dp">
-								<div class="full-width panel-tittle bg-primary text-center tittles">
-									Nueva Materia Prima 
-								</div>
-								<div class="full-width panel-content">
-									<form>
-										<div class="mdl-grid">
-											<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-												<h5 class="text-condensedLight">Nombre de la Materia Prima</h5>
-												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-													<input class="mdl-textfield__input" type="text"  id="MateriaPrima">
-													<label class="mdl-textfield__label" for="MateriaPrima">Materia Prima</label>
-													<span class="mdl-textfield__error">Nombre invalido</span>
-												</div>
-											</div>
-											<p class="text-center">
-												<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="AgregarMateria">
-													<i class="zmdi zmdi-plus"></i>
-												</button>
-												<div class="mdl-tooltip" for="AgregarMateria">Agregar Materia Prima</div>
-											</p>
+		</div>
+		<div class="mdl-tabs__panel" id="tabNewEgreso">
+			<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+					<div class="full-width panel mdl-shadow--2dp">
+						<div class="full-width panel-tittle bg-primary text-center tittles">
+							Salida de Tapa
+						</div>
+						<div class="full-width panel-content">
+							<form>
+								<div class="mdl-grid">
+									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+										<h5 class="text-condensedLight">Informacion Básica</h5>
+
+										
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
+											<label class="mdl-textfield__label" for="cant">Cantidad</label>
+											<span class="mdl-textfield__error">Cantidad invalida</span>
 										</div>	
-									</form>
+										<div class="mdl-textfield mdl-js-textfield">
+											<select class="mdl-textfield__input">
+												<option value="" disabled="" selected="">Tamaño</option>
+												<option value="">28</option>
+												<option value="">38 </option>
+												<option value="">60 </option>
+											</select>
+										</div>
+										<div class="mdl-textfield mdl-js-textfield">
+											<input class="mdl-textfield__input" type="text"  id="Empleado">
+											<label class="mdl-textfield__label" for="Empleado">Nombre de quien Egresa la tapa</label>
+											<span class="mdl-textfield__error">Nombre Invalio</span>
+										</div>
+									</div>
+									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+										<div class="mdl-textfield mdl-js-textfield">
+											<select class="mdl-textfield__input">
+												<option value="" disabled="" selected="">Seleccione el Tipo de Tapa a Egresar</option>
+												<option value="">Plastica</option>
+												<option value="">Metalica </option>
+											</select>
+										</div>
+										<div class="mdl-textfield mdl-js-textfield">
+											<select class="mdl-textfield__input">
+												<option value="" disabled="" selected="">Seleccione el color de Tapa a Egresar</option>
+												<option value="">Negra</option>
+												<option value="">Roja </option>
+												<option value="">Blanca </option>
+											</select>
+										</div>
+										<h6 class="text-condensedLight">Fecha de Salida</h6>
+										<div class="mdl-textfield mdl-js-textfield">
+											<input type="date" class="mdl-textfield__input">
+											
+										</div>
+									</div>
 								</div>
-							</div>
+								<p class="text-center">
+									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="EgresarProducto">
+										<i class="zmdi zmdi-minus"></i>
+									</button>
+									<div class="mdl-tooltip" for="EgresarProducto">Sacar Tapa</div>
+								</p>
+							</form>
 						</div>
 					</div>
+				</div>
+			</div>
+	</div>	
+		<div class="mdl-tabs__panel" id="tabNewInventario">
+			<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+					<div class="full-width panel mdl-shadow--2dp">
+						<div class="full-width panel-tittle bg-primary text-center tittles">
+							Inventario de Tapas
+						</div>
+						<div class="full-width panel-content">
+							<form>
+								<div class="mdl-grid">
+									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+										<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+											<thead>
+												<tr>
+													<th class="mdl-data-table__cell--non-numeric">Tipo de Tapa</th>
+													<th>Tamaño</th>
+													<th>Color</th>
+													<th>Proveedor</th>
+													<th>Cantidad</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="mdl-data-table__cell--non-numeric">...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+												</tr>
+												<tr>
+													<td class="mdl-data-table__cell--non-numeric">...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>	
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>

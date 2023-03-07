@@ -155,7 +155,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="productnew.html" class="full-width">
+								<a href="productnew.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-hospital-alt"></i>
 									</div>
@@ -165,7 +165,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="product1.html" class="full-width">
+								<a href="product1.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-label"></i>
 									</div>
@@ -175,7 +175,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="product2.html" class="full-width">
+								<a href="product2.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-label"></i>
 									</div>
@@ -185,7 +185,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="product3.html" class="full-width">
+								<a href="product3.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-label"></i>
 									</div>
@@ -199,7 +199,7 @@
 					
 					<li class="full-width divider-menu-h"></li>
 					 <li class="full-width">
-							 <a href="parametros.HTML" class="full-width">
+							 <a href="parametros.php" class="full-width">
 							 <div class="navLateral-body-cl">
 								<i class="zmdi zmdi-cocktail"></i>
 							 </div>
@@ -211,7 +211,7 @@
                     </li>
 					<li class="full-width divider-menu-h"></li>
 					    <li class="full-width">
-						    <a href="ADMIN.HTML" class="full-width">
+						    <a href="ADMIN.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-face"></i>
 							</div>
@@ -234,7 +234,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-						    <a href="producfin.html" class="full-width">
+						    <a href="producfin.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-assignment-check"></i>
 							</div>
@@ -244,7 +244,7 @@
 						    </a>
 							</li>
 							<li class="full-width">
-						     <a href="envases.html" class="full-width">
+						     <a href="envases.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-battery"></i>
 							</div>
@@ -254,7 +254,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="embalaje.HTML" class="full-width">
+						    <a href="embalaje.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-card-giftcard"></i>
 							</div>
@@ -264,7 +264,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="etiquetas.html" class="full-width">
+						    <a href="etiquetas.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-file"></i>
 							</div>
@@ -274,7 +274,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="colgantes.html" class="full-width">
+						    <a href="colgantes.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-receipt"></i>
 							</div>
@@ -284,7 +284,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="tapas.html" class="full-width">
+						    <a href="tapas.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-album"></i>
 							</div>
@@ -294,7 +294,7 @@
 						    </a>
 					        </li>
 							<li class="full-width">
-						    <a href="bandas.html" class="full-width">
+						    <a href="bandas.php" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-check-all"></i>
 							</div>
@@ -319,7 +319,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="inventario_pt.html" class="full-width">
+								<a href="inventario_pt.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-file-text"></i>
 									</div>
@@ -329,7 +329,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="inventario_e.html" class="full-width">
+								<a href="inventario_e.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-file-text"></i>
 									</div>
@@ -339,7 +339,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="inventario_ec.html" class="full-width">
+								<a href="inventario_ec.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-file-text"></i>
 									</div>
@@ -349,7 +349,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="inventario_tb.html" class="full-width">
+								<a href="inventario_tb.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-file-text"></i>
 									</div>
@@ -373,7 +373,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="historial_pl.html" class="full-width">
+								<a href="historial_pl.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-window-maximize"></i>
 									</div>
@@ -383,7 +383,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="historial_e.html" class="full-width">
+								<a href="historial_e.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-window-maximize"></i>
 									</div>
@@ -393,7 +393,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="Historial_ec.html" class="full-width">
+								<a href="Historial_ec.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-window-maximize"></i>
 									</div>
@@ -403,25 +403,25 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="Historial_tb.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-window-maximize"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Tapas y Bandas
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="Historial_ep.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-window-maximize"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Envasado y Parametros
-									</div>
-								</a>
-							</li>
+                            <a href="Historial_tb.php" class="full-width">
+                                <div class="navLateral-body-cl">
+                                    <i class="zmdi zmdi-window-maximize"></i>
+                                </div>
+                                <div class="navLateral-body-cr hide-on-tablet">
+                                    Tapas y Bandas
+                                </div>
+                            </a>
+                        </li>
+                        <li class="full-width">
+                            <a href="Historial_ep.php" class="full-width">
+                                <div class="navLateral-body-cl">
+                                    <i class="zmdi zmdi-window-maximize"></i>
+                                </div>
+                                <div class="navLateral-body-cr hide-on-tablet">
+                                    Envasado y Parametros
+                                </div>
+                            </a>
+                        </li>
 						</ul>	
 					</li>
 					<li class="full-width divider-menu-h"></li>
@@ -437,7 +437,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="generar_o.html" class="full-width">
+								<a href="generar_o.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-calendar-note"></i>
 									</div>
@@ -447,7 +447,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="completar_o.html" class="full-width">
+								<a href="completar_o.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-calendar-note"></i>
 									</div>
@@ -457,7 +457,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="historial_o.html" class="full-width">
+								<a href="historial_o.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-calendar-note"></i>
 									</div>
@@ -482,7 +482,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="generar_r.html" class="full-width">
+								<a href="generar_r.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-truck"></i>
 									</div>
@@ -492,7 +492,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="completar_r.html" class="full-width">
+								<a href="completar_r.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-truck"></i>
 									</div>
@@ -502,7 +502,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="historial_r.html" class="full-width">
+								<a href="historial_r.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-truck"></i>
 									</div>

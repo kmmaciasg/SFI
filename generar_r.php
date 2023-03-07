@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Nueva Produccion</title>
+	<title>Generar Ruta</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/sweetalert2.css">
 	<link rel="stylesheet" href="css/material.min.css">
@@ -19,17 +18,6 @@
 	<script src="js/main.js" ></script>
 </head>
 <body>
-<?php
-include 'conexion_db.php';
-
-// Consulta SQL para obtener los datos
-$sql = "SELECT nombre FROM materias";
-
-// Ejecutar la consulta
-$resultado = mysqli_query($conexion, $sql);
-
-?>
-
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -124,8 +112,35 @@ $resultado = mysqli_query($conexion, $sql);
 			</nav>
 		</div>
 	</div>
-	<!-- navLateral -->
-	<section class="full-width navLateral">
+
+
+<div class="full-width navBar">
+    <div class="full-width navBar-options">
+        <i class="zmdi zmdi-more-vert btn-menu" id="btn-menu"></i>	
+        <div class="mdl-tooltip" for="btn-menu">Menu</div>
+        <nav class="navBar-options-list">
+            <ul class="list-unstyle">
+                <li class="btn-Notification" id="notifications">
+                    <i class="zmdi zmdi-notifications"></i>
+                    <!-- <i class="zmdi zmdi-notifications-active btn-Notification" id="notifications"></i> -->
+                    <div class="mdl-tooltip" for="notifications">Notificaciones</div>
+                </li>
+                <li class="btn-exit" id="btn-exit">
+                    <i class="zmdi zmdi-power"></i>
+                    <div class="mdl-tooltip" for="btn-exit">Salir</div>
+                </li>
+                <li class="text-condensedLight noLink" ><small>Nombre de Usuario</small></li>
+                <li class="noLink">
+                    <figure>
+                        <img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+                    </figure>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<!-- navLateral -->
+<section class="full-width navLateral">
 		<div class="full-width navLateral-bg btn-menu"></div>
 		<div class="full-width navLateral-body">
 			<div class="full-width navLateral-body-logo text-center tittles">
@@ -529,142 +544,58 @@ $resultado = mysqli_query($conexion, $sql);
 			</nav>
 		</div>
 	</section>
-	<!-- pageContent -->
-	<section class="full-width pageContent">
-		<section class="full-width header-well">
-			<div class="full-width header-well-icon">
-				<figure class="full-width">
-						<img src="assets/img/nuevologo.jpeg" alt="LOGO" class="img-responsive">
-				</figure>
-				<div class="full-width header-well-text">
-				<p class="text-condensedLight">
-					 NUEVA PRODUCCION
-				</p>
-			</div>						
-	</section>
-		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-			<div class="mdl-tabs__tab-bar">
-				<a href="#tabNewProduct" class="mdl-tabs__tab is-active">AGREGAR NUEVA PRODUCCION</a>
-				<a href="#tabNewMateria" class="mdl-tabs__tab">AGREGAR MATERIAS PRIMAS</a>
-			</div>
-			<div class="mdl-tabs__panel is-active" id="tabNewProduct">
-				<div class="mdl-grid">
-					<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-						<div class="full-width panel mdl-shadow--2dp">
-							<div class="full-width panel-tittle bg-primary text-center tittles">
-								Nueva Producción 
-							</div>
-							<div class="full-width panel-content">
-								<form>
-									<div class="mdl-grid">
-										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-										
-											<div class="mdl-textfield mdl-js-textfield">
-											<h6 class="text-condensedLight">Fecha de Produccion</h6>
-												<input type="date" class="mdl-textfield__input">
-											</div>
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input"  type="number" step="0.0000001" id="PesoInicial">
-												<label class="mdl-textfield__label" for="PesoInicial">Peso Inicial Kg</label>
-												<span class="mdl-textfield__error">Peso Invalido</span>
-											</div>
-											
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" step="0.0000001" id="PesoBruto">
-												<label class="mdl-textfield__label" for="PesoBruto">Peso Bruto</label>
-												<span class="mdl-textfield__error">Peso Invalido</span>
-											</div>	
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" step="0.0000001" id="PesoDesperdicio">
-												<label class="mdl-textfield__label" for="PesoDesperdicio">Peso Desperdicio Kg</label>
-												<span class="mdl-textfield__error">Peso Invalido</span>
-											</div>
-											
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" step="0.0000001" id="PesoNeto">
-												<label class="mdl-textfield__label" for="PesoNeto">Peso Neto</label>
-												<span class="mdl-textfield__error">Peso Invalido</span>
-											</div>	
-										</div>
-										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-											
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="#lote">
-												<label class="mdl-textfield__label" for="#lote">Número de Lote</label>
-												<span class="mdl-textfield__error">Número de lote invalido</span>
-											</div>
-											<div class="mdl-textfield mdl-js-textfield">
-											<h6 class="text-condensedLight">Selecciona la materia prima</h6>
-												<?php
-												echo "<select nombre='opciones'>";
-												while ($fila = mysqli_fetch_assoc($resultado)) {
-													echo "<option value='".$fila['nombre']."'>".$fila['nombre']."</option>";
-												}
-												echo "</select>";
-												?>
-											</div>
-					
-											<div class="mdl-textfield mdl-js-textfield">
-                                                <input class="mdl-textfield__input" type="text"  id="Empleado">
-                                                <label class="mdl-textfield__label" for="Empleado">Nombre Ingresa Produccion</label>
-                                                <span class="mdl-textfield__error">Nombre Invalio</span>
-                                            </div>  
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" step="0.0000001" id="Cantidad">
-												<label class="mdl-textfield__label" for="Cantidad">Cantidad en L</label>
-												<span class="mdl-textfield__error">Peso Invalido</span>
-											</div>
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" id="Adiciones">
-												<label class="mdl-textfield__label" for="Adiciones">Adiciones</label>
-												<span class="mdl-textfield__error">Adicion Invalida</span>
-											</div>
-										</div>
-									</div>
-									<p class="text-center">
-										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addProduct">
-											<i class="zmdi zmdi-plus"></i>
-										</button>
-										<div class="mdl-tooltip" for="btn-addProduct">Agregar Produccion</div>
-									</p>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="mdl-tabs__panel" id="tabNewMateria">
-					<div class="mdl-grid">
-						<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-							<div class="full-width panel mdl-shadow--2dp">
-								<div class="full-width panel-tittle bg-primary text-center tittles">
-									Nueva Materia Prima 
-								</div>
-								<div class="full-width panel-content">
-									<form>
-										<div class="mdl-grid">
-											<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-												<h5 class="text-condensedLight">Nombre de la Materia Prima</h5>
-												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-													<input class="mdl-textfield__input" type="text"  id="MateriaPrima">
-													<label class="mdl-textfield__label" for="MateriaPrima">Materia Prima</label>
-													<span class="mdl-textfield__error">Nombre invalido</span>
-												</div>
-											</div>
-											<p class="text-center">
-												<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="AgregarMateria">
-													<i class="zmdi zmdi-plus"></i>
-												</button>
-												<div class="mdl-tooltip" for="AgregarMateria">Agregar Materia Prima</div>
-											</p>
-										</div>	
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-			</div>
-		</div>
-	</section>
-</body>
-</html>
+<section class="full-width pageContent">
+    <section class="full-width header-well">
+        <div class="full-width header-well-icon">
+            <figure class="full-width">
+                    <img src="assets/img/nuevologo.jpeg" alt="LOGO" class="img-responsive">
+            </figure>
+            <div class="full-width header-well-text">
+            <p class="text-condensedLight">
+                 GENERAR RUTA
+            </p>
+        </div>						
+</section>
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+    <div class="mdl-tabs__panel is-active" id="tabNewProduct">
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+                <div class="full-width panel mdl-shadow--2dp">
+                    <div class="full-width panel-tittle bg-success text-center tittles">
+                        Nueva Ruta
+                    </div>
+                    <div class="full-width panel-content">
+                        <form>
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+                                    <h5 class="text-condensedLight text-center">Agregue los lugares de destino</h5>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield">
+                                    <input class="mdl-textfield__input" type="text"  id="Lugar1">
+                                    <label class="mdl-textfield__label" for="Lugar1">Lugar 1</label>
+                                    <span class="mdl-textfield__error">Nombre Invalio</span>
+                                </div>  
+                                <div class="mdl-textfield mdl-js-textfield">
+                                    <input class="mdl-textfield__input" type="text"  id="Lugar2">
+                                    <label class="mdl-textfield__label" for="Lugar2">Lugar 2</label>
+                                    <span class="mdl-textfield__error">Nombre Invalio</span>
+                                </div>  
+                            </div>
+                            <p class="text-center">
+                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="AgregarProducto">
+                                    <i class="zmdi zmdi-plus"></i>
+                                    <div class="mdl-tooltip" for="AgregarProducto">Agregar Lugar</div>
+                                </button>
+                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 55px;" id="CrearProducto">
+                                    <i class="zmdi zmdi-shopping-cart-plus"></i>
+                                    <div class="mdl-tooltip" for="CrearProducto">Generar Ruta</div>
+                                </button>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
