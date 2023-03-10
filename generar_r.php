@@ -587,7 +587,7 @@
                                     <div class="mdl-tooltip" for="AgregarProducto">Agregar Lugar</div>
                                 </button>
                                 <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 55px;" id="CrearProducto">
-                                    <i class="zmdi zmdi-shopping-cart-plus"></i>
+                                    <i class="zmdi zmdi-truck"></i>
                                     <div class="mdl-tooltip" for="CrearProducto">Generar Ruta</div>
                                 </button>
                             </p>

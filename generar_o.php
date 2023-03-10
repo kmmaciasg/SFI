@@ -601,7 +601,7 @@
                                             <input class="mdl-textfield__input" type="number" step="0.0000001"  id="cajas">
                                         <span class="mdl-textfield__error">Numero Invalio</span>
                                         </h6>
-                                        <h6 class="text-condensedLight">Transporte
+                                        <h6 class="text-condensedLight">Modo de Pago
                                             <select class="mdl-textfield__input">
                                                 <option value="" disabled="" selected="">...</option>
                                                 <option value="">Contra Entrega</option>
@@ -710,9 +710,13 @@
                                     <div class="mdl-tooltip" for="btn-generar">Generar Orden</div>
                                 </button>
                                 <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary"  id="btn-guia">
-                                    <i class="zmdi zmdi-truck"></i>
+                                    <i class="zmdi zmdi-collection-text"></i>
                                     <div class="mdl-tooltip" for="btn-guia">Crear Guia</div>
                                 </button>
+								<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="CrearProducto">
+										<i class="zmdi zmdi-account-add"></i>
+										<div class="mdl-tooltip" for="CrearProducto">Crear Nuevo Cliente</div>
+									</button>
                                
                             </p>
                         </form>

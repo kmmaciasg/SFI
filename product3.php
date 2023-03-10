@@ -555,7 +555,7 @@
 											</div>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number" step="0.0000001" id="Cant">
-												<label class="mdl-textfield__label" for="Cant">Cantidad</label>
+												<label class="mdl-textfield__label" for="Cant"># de Unidades</label>
 												<span class="mdl-textfield__error">valor no valido</span>
 											</div>
 											<div class="mdl-textfield mdl-js-textfield">

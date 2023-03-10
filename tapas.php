@@ -546,21 +546,16 @@
 							<form>
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-									
-										<h5 class="text-condensedLight">Información Básica</h5>
+									<div class="mdl-textfield mdl-js-textfield">
+											<input class="mdl-textfield__input" type="text"  id="Empleado">
+											<label class="mdl-textfield__label" for="Empleado">Nombre de quien ingresa el envase</label>
+											<span class="mdl-textfield__error">Nombre Invalio</span>	
+										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
-											<label class="mdl-textfield__label" for="cant">Cantidad</label>
+											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
 										</div>	
-										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
-												<option value="" disabled="" selected="">Tamaño</option>
-												<option value="">28</option>
-												<option value="">38 </option>
-												<option value="">60 </option>
-											</select>
-										</div>
 										
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="#Factura">
@@ -595,11 +590,7 @@
 											
 										</div>
 										
-										<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text"  id="Empleado">
-											<label class="mdl-textfield__label" for="Empleado">Nombre de quien ingresa el envase</label>
-											<span class="mdl-textfield__error">Nombre Invalio</span>	
-										</div>
+										
 									</div>
 								</div>
 								<p class="text-center">
@@ -629,29 +620,17 @@
 							<form>
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-										<h5 class="text-condensedLight">Informacion Básica</h5>
-
 										
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
-											<label class="mdl-textfield__label" for="cant">Cantidad</label>
+											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
 										</div>	
-										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
-												<option value="" disabled="" selected="">Tamaño</option>
-												<option value="">28</option>
-												<option value="">38 </option>
-												<option value="">60 </option>
-											</select>
-										</div>
 										<div class="mdl-textfield mdl-js-textfield">
 											<input class="mdl-textfield__input" type="text"  id="Empleado">
 											<label class="mdl-textfield__label" for="Empleado">Nombre de quien Egresa la tapa</label>
 											<span class="mdl-textfield__error">Nombre Invalio</span>
 										</div>
-									</div>
-									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 										<div class="mdl-textfield mdl-js-textfield">
 											<select class="mdl-textfield__input">
 												<option value="" disabled="" selected="">Seleccione el Tipo de Tapa a Egresar</option>
@@ -659,6 +638,9 @@
 												<option value="">Metalica </option>
 											</select>
 										</div>
+									</div>
+									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+										
 										<div class="mdl-textfield mdl-js-textfield">
 											<select class="mdl-textfield__input">
 												<option value="" disabled="" selected="">Seleccione el color de Tapa a Egresar</option>

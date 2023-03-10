@@ -579,7 +579,7 @@
                                         <thead>
                                             <tr>
                                                 <th class="mdl-data-table__cell--non-numeric"> Tipo de Etiqueta</th>
-                                                <th>Tamaño</th>
+                                               
                                                 <th>Cantidad</th>
                                             </tr>
                                         </thead>
@@ -587,11 +587,9 @@
                                             <tr>
                                                 <td class="mdl-data-table__cell--non-numeric">...</td>
                                                 <td>...</td>
-                                                <td>...</td>
                                             </tr>
                                             <tr>
                                                 <td class="mdl-data-table__cell--non-numeric">...</td>
-                                                <td>...</td>
                                                 <td>...</td>
                                             </tr>
                                         </tbody>
@@ -619,7 +617,7 @@
                                         <thead>
                                             <tr>
                                                 <th class="mdl-data-table__cell--non-numeric"> Tipo de Colgante</th>
-                                                <th>Tamaño</th>
+                                               
                                                 <th>Cantidad</th>
                                             </tr>
                                         </thead>
@@ -627,11 +625,9 @@
                                             <tr>
                                                 <td class="mdl-data-table__cell--non-numeric">...</td>
                                                 <td>...</td>
-                                                <td>...</td>
                                             </tr>
                                             <tr>
                                                 <td class="mdl-data-table__cell--non-numeric">...</td>
-                                                <td>...</td>
                                                 <td>...</td>
                                             </tr>
                                         </tbody>

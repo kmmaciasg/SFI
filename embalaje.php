@@ -589,16 +589,9 @@
                                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                         <input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
-                                        <label class="mdl-textfield__label" for="cant">Cantidad</label>
+                                        <label class="mdl-textfield__label" for="cant"># de Unidades</label>
                                         <span class="mdl-textfield__error">Cantidad invalida</span>
                                     </div>	
-                                    <div class="mdl-textfield mdl-js-textfield">
-                                        <select class="mdl-textfield__input">
-                                            <option value="" disabled="" selected="">Tamaño</option>
-                                            <option value="">* 100ml</option>
-                                            <option value="">* 400ml </option>
-                                        </select>
-                                    </div>
                                     <div class="mdl-textfield mdl-js-textfield">
                                         <input class="mdl-textfield__input" type="text"  id="Empleado">
                                         <label class="mdl-textfield__label" for="Empleado">Nombre de quien ingresa el Embalaje</label>
@@ -609,8 +602,12 @@
                             <p class="text-center">
                                 <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="AgregarProducto">
                                     <i class="zmdi zmdi-plus"></i>
-                                </button>
                                 <div class="mdl-tooltip" for="AgregarProducto">Ingresar Embalaje</div>
+                                </button>
+								<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 55px;" id="CrearProducto">
+										<i class="zmdi zmdi-shopping-cart-plus"></i>
+										<div class="mdl-tooltip" for="CrearProducto">Crear Nuevo Embalaje</div>
+									</button>
                             </p>
                         </form>
                     </div>
@@ -648,16 +645,9 @@
                                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                         <input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
-                                        <label class="mdl-textfield__label" for="cant">Cantidad</label>
+                                        <label class="mdl-textfield__label" for="cant"># de Unidades</label>
                                         <span class="mdl-textfield__error">Cantidad invalida</span>
                                     </div>	
-                                    <div class="mdl-textfield mdl-js-textfield">
-                                        <select class="mdl-textfield__input">
-                                            <option value="" disabled="" selected="">Tamaño</option>
-                                            <option value="">* 100ml</option>
-                                            <option value="">* 400ml </option>
-                                        </select>
-                                    </div>
                                     <div class="mdl-textfield mdl-js-textfield">
                                         <input class="mdl-textfield__input" type="text"  id="Empleado">
                                         <label class="mdl-textfield__label" for="Empleado">Nombre de quien Egresa el Embalaje</label>

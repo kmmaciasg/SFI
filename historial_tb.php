@@ -578,7 +578,6 @@
                                            <th class="mdl-data-table__cell--non-numeric">Tipo Tapa</th>
                                            <th>Fecha de Ingreso</th>
                                            <th>Cantidad</th>
-                                           <th>Tamaño</th>
                                            <th>Color</th>
                                            <th>Usuario</th>
                                        </tr>
@@ -590,11 +589,9 @@
                                            <td>...</td>
                                            <td>...</td>
                                            <td>...</td>
-                                           <td>...</td>
                                        </tr>
                                        <tr>
                                            <td class="mdl-data-table__cell--non-numeric">...</td>
-                                           <td>...</td>
                                            <td>...</td>
                                            <td>...</td>
                                            <td>...</td>
@@ -615,7 +612,6 @@
                                            <th class="mdl-data-table__cell--non-numeric">Tipo Tapa</th>
                                            <th>Fecha de Egreso</th>
                                            <th>Cantidad</th>
-                                           <th>Tamaño</th>
                                            <th>Color</th>
                                            <th>Usuario</th>
                                        </tr>
@@ -627,11 +623,9 @@
                                            <td>...</td>
                                            <td>...</td>
                                            <td>...</td>
-                                           <td>...</td>
                                        </tr>
                                        <tr>
                                            <td class="mdl-data-table__cell--non-numeric">...</td>
-                                           <td>...</td>
                                            <td>...</td>
                                            <td>...</td>
                                            <td>...</td>
@@ -664,7 +658,6 @@
                                 <th class="mdl-data-table__cell--non-numeric">Tipo Banda</th>
                                 <th>Fecha de Ingreso</th>
                                 <th>Cantidad</th>
-                                <th>Tamaño</th>
                                 <th>Usuario</th>
                             </tr>
                         </thead>
@@ -674,11 +667,9 @@
                                 <td>...</td>
                                 <td>...</td>
                                 <td>...</td>
-                                <td>...</td>
                             </tr>
                             <tr>
                                 <td class="mdl-data-table__cell--non-numeric">...</td>
-                                <td>...</td>
                                 <td>...</td>
                                 <td>...</td>
                                 <td>...</td>
@@ -698,7 +689,6 @@
                                 <th class="mdl-data-table__cell--non-numeric">Tipo Banda</th>
                                 <th>Fecha de Egreso</th>
                                 <th>Cantidad</th>
-                                <th>Tamaño</th>
                                 <th>Usuario</th>
                             </tr>
                         </thead>
@@ -708,11 +698,9 @@
                                 <td>...</td>
                                 <td>...</td>
                                 <td>...</td>
-                                <td>...</td>
                             </tr>
                             <tr>
                                 <td class="mdl-data-table__cell--non-numeric">...</td>
-                                <td>...</td>
                                 <td>...</td>
                                 <td>...</td>
                                 <td>...</td>

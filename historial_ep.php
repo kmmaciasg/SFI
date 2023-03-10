@@ -577,7 +577,7 @@
                                                 <tr>
                                                     <th class="mdl-data-table__cell--non-numeric">Lote Envasado</th>
                                                     <th>Materia Prima</th>
-                                                    <th>Cantidad</th>
+                                                    <th># Unidades</th>
                                                     <th>Tamaño</th>
                                                     <th>Usuario</th>
                                                     <th>Fecha Envasado</th>

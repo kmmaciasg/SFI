@@ -577,7 +577,7 @@
                                         <thead>
                                             <tr>
                                                 <th class="mdl-data-table__cell--non-numeric"> Tipo de Tapa</th>
-                                                <th>Tamaño</th>
+                                              
                                                 <th>Color</th>
                                                 <th>Cantidad</th>
                                             </tr>
@@ -587,11 +587,9 @@
                                                 <td class="mdl-data-table__cell--non-numeric">...</td>
                                                 <td>...</td>
                                                 <td>...</td>
-                                                <td>...</td>
                                             </tr>
                                             <tr>
                                                 <td class="mdl-data-table__cell--non-numeric">...</td>
-                                                <td>...</td>
                                                 <td>...</td>
                                                 <td>...</td>
                                             </tr>
@@ -620,7 +618,7 @@
                                         <thead>
                                             <tr>
                                                 <th class="mdl-data-table__cell--non-numeric"> Tipo de Banda</th>
-                                                <th>Tamaño</th>
+                                              
                                                 <th>Cantidad</th>
                                             </tr>
                                         </thead>
@@ -628,11 +626,9 @@
                                             <tr>
                                                 <td class="mdl-data-table__cell--non-numeric">...</td>
                                                 <td>...</td>
-                                                <td>...</td>
                                             </tr>
                                             <tr>
                                                 <td class="mdl-data-table__cell--non-numeric">...</td>
-                                                <td>...</td>
                                                 <td>...</td>
                                             </tr>
                                         </tbody>

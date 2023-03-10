@@ -547,11 +547,11 @@
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 
+									
 										<h6 class="text-condensedLight">Fecha de Ingreso</h6>
-										<div class="mdl-textfield mdl-js-textfield">
 											<input type="date" class="mdl-textfield__input">
+										
 											
-										</div>
 									
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="#Factura">
@@ -575,16 +575,10 @@
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
-											<label class="mdl-textfield__label" for="cant">Cantidad</label>
+											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
 										</div>	
-										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
-												<option value="" disabled="" selected="">Tamaño</option>
-												<option value="">38</option>
-												<option value="">60 </option>
-											</select>
-										</div>
+									
 										<div class="mdl-textfield mdl-js-textfield">
 											<input class="mdl-textfield__input" type="text"  id="Empleado">
 											<label class="mdl-textfield__label" for="Empleado">Nombre de quien ingresa la banda</label>
@@ -623,10 +617,7 @@
 
 										
 										<h6 class="text-condensedLight">Fecha de Salida</h6>
-										<div class="mdl-textfield mdl-js-textfield">
 											<input type="date" class="mdl-textfield__input">
-											
-										</div>
 										
 										<div class="mdl-textfield mdl-js-textfield">
 											<input class="mdl-textfield__input" type="text"  id="Empleado">
@@ -644,16 +635,9 @@
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
-											<label class="mdl-textfield__label" for="cant">Cantidad</label>
+											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
 										</div>	
-										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
-												<option value="" disabled="" selected="">Tamaño</option>
-												<option value="">38</option>
-												<option value="">60 </option>
-											</select>
-										</div>
 									</div>
 								</div>
 								<p class="text-center">

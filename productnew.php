@@ -568,12 +568,7 @@ $resultado = mysqli_query($conexion, $sql);
 												<label class="mdl-textfield__label" for="PesoInicial">Peso Inicial Kg</label>
 												<span class="mdl-textfield__error">Peso Invalido</span>
 											</div>
-											
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" step="0.0000001" id="PesoBruto">
-												<label class="mdl-textfield__label" for="PesoBruto">Peso Bruto</label>
-												<span class="mdl-textfield__error">Peso Invalido</span>
-											</div>	
+												
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number" step="0.0000001" id="PesoDesperdicio">
 												<label class="mdl-textfield__label" for="PesoDesperdicio">Peso Desperdicio Kg</label>
@@ -593,7 +588,7 @@ $resultado = mysqli_query($conexion, $sql);
 												<label class="mdl-textfield__label" for="#lote">Número de Lote</label>
 												<span class="mdl-textfield__error">Número de lote invalido</span>
 											</div>
-											<div class="mdl-textfield mdl-js-textfield">
+											
 											<h6 class="text-condensedLight">Selecciona la materia prima</h6>
 												<?php
 												echo "<select nombre='opciones'>";
@@ -602,7 +597,7 @@ $resultado = mysqli_query($conexion, $sql);
 												}
 												echo "</select>";
 												?>
-											</div>
+										
 					
 											<div class="mdl-textfield mdl-js-textfield">
                                                 <input class="mdl-textfield__input" type="text"  id="Empleado">
