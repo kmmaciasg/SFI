@@ -458,6 +458,16 @@
 								</a>
 							</li>
 							<li class="full-width">
+								<a href="reparto.php" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-calendar-note"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										Pedidos en Reparto
+									</div>
+								</a>
+							</li>
+							<li class="full-width">
 								<a href="historial_o.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-calendar-note"></i>
@@ -513,11 +523,25 @@
 								</a>
 							</li>
 						</ul>
+							
+					<li class="full-width divider-menu-h"></li>
+					 <li class="full-width">
+							 <a href="Facturacion.php" class="full-width">
+							 <div class="navLateral-body-cl">
+								<i class="zmdi zmdi-assignment-check"></i>
+							 </div>
+							 <div class="navLateral-body-cr hide-on-tablet">
+								FACTURACION
+							 </div>
+						     </a>
+					    </li>
+                    </li>
 					</li>
 				</ul>	
 			</nav>
 		</div>
 	</section>
+
 	<!-- pageContent -->
 	<section class="full-width pageContent">
 		<section class="full-width header-well">
@@ -588,10 +612,7 @@
 										<i class="zmdi zmdi-plus"></i>
 										<div class="mdl-tooltip" for="AgregarProducto">Ingresar Colgante</div>
 									</button>
-									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 55px;" id="CrearProducto">
-										<i class="zmdi zmdi-shopping-cart-plus"></i>
-										<div class="mdl-tooltip" for="CrearProducto">Crear Nuevo Colgante</div>
-									</button>
+									
 							</form>
 						</div>
 					</div>

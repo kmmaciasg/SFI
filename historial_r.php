@@ -484,6 +484,16 @@
 								</a>
 							</li>
 							<li class="full-width">
+								<a href="reparto.php" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-calendar-note"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										Pedidos en Reparto
+									</div>
+								</a>
+							</li>
+							<li class="full-width">
 								<a href="historial_o.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-calendar-note"></i>
@@ -539,11 +549,25 @@
 								</a>
 							</li>
 						</ul>
+							
+					<li class="full-width divider-menu-h"></li>
+					 <li class="full-width">
+							 <a href="Facturacion.php" class="full-width">
+							 <div class="navLateral-body-cl">
+								<i class="zmdi zmdi-assignment-check"></i>
+							 </div>
+							 <div class="navLateral-body-cr hide-on-tablet">
+								FACTURACION
+							 </div>
+						     </a>
+					    </li>
+                    </li>
 					</li>
 				</ul>	
 			</nav>
 		</div>
 	</section>
+
 	<section class="full-width pageContent">
     <section class="full-width header-well">
         <div class="full-width header-well-icon">

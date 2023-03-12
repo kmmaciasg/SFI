@@ -114,34 +114,7 @@
 		</div>
 	</div>
 
-
-<div class="full-width navBar">
-    <div class="full-width navBar-options">
-        <i class="zmdi zmdi-more-vert btn-menu" id="btn-menu"></i>	
-        <div class="mdl-tooltip" for="btn-menu">Menu</div>
-        <nav class="navBar-options-list">
-            <ul class="list-unstyle">
-                <li class="btn-Notification" id="notifications">
-                    <i class="zmdi zmdi-notifications"></i>
-                    <!-- <i class="zmdi zmdi-notifications-active btn-Notification" id="notifications"></i> -->
-                    <div class="mdl-tooltip" for="notifications">Notificaciones</div>
-                </li>
-                <li class="btn-exit" id="btn-exit">
-                    <i class="zmdi zmdi-power"></i>
-                    <div class="mdl-tooltip" for="btn-exit">Salir</div>
-                </li>
-                <li class="text-condensedLight noLink" ><small>Nombre de Usuario</small></li>
-                <li class="noLink">
-                    <figure>
-                        <img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
-                    </figure>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</div>
-<!-- navLateral -->
-<section class="full-width navLateral">
+	<section class="full-width navLateral">
 		<div class="full-width navLateral-bg btn-menu"></div>
 		<div class="full-width navLateral-body">
 			<div class="full-width navLateral-body-logo text-center tittles">
@@ -485,6 +458,16 @@
 								</a>
 							</li>
 							<li class="full-width">
+								<a href="reparto.php" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-calendar-note"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										Pedidos en Reparto
+									</div>
+								</a>
+							</li>
+							<li class="full-width">
 								<a href="historial_o.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-calendar-note"></i>
@@ -540,11 +523,25 @@
 								</a>
 							</li>
 						</ul>
+							
+					<li class="full-width divider-menu-h"></li>
+					 <li class="full-width">
+							 <a href="Facturacion.php" class="full-width">
+							 <div class="navLateral-body-cl">
+								<i class="zmdi zmdi-assignment-check"></i>
+							 </div>
+							 <div class="navLateral-body-cr hide-on-tablet">
+								FACTURACION
+							 </div>
+						     </a>
+					    </li>
+                    </li>
 					</li>
 				</ul>	
 			</nav>
 		</div>
 	</section>
+
 <section class="full-width pageContent">
     <section class="full-width header-well">
         <div class="full-width header-well-icon">

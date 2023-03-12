@@ -141,7 +141,7 @@
 </div>
 <!-- navLateral -->
 <section class="full-width navLateral">
-	<div class="full-width navLateral-bg btn-menu"></div>
+		<div class="full-width navLateral-bg btn-menu"></div>
 		<div class="full-width navLateral-body">
 			<div class="full-width navLateral-body-logo text-center tittles">
 				<i class="zmdi zmdi-close btn-menu"></i> Inventario
@@ -484,6 +484,16 @@
 								</a>
 							</li>
 							<li class="full-width">
+								<a href="reparto.php" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-calendar-note"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										Pedidos en Reparto
+									</div>
+								</a>
+							</li>
+							<li class="full-width">
 								<a href="historial_o.php" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-calendar-note"></i>
@@ -539,11 +549,25 @@
 								</a>
 							</li>
 						</ul>
+							
+					<li class="full-width divider-menu-h"></li>
+					 <li class="full-width">
+							 <a href="Facturacion.php" class="full-width">
+							 <div class="navLateral-body-cl">
+								<i class="zmdi zmdi-assignment-check"></i>
+							 </div>
+							 <div class="navLateral-body-cr hide-on-tablet">
+								FACTURACION
+							 </div>
+						     </a>
+					    </li>
+                    </li>
 					</li>
 				</ul>	
 			</nav>
 		</div>
-</section>
+	</section>
+
 <section class="full-width pageContent">
     <section class="full-width header-well">
         <div class="full-width header-well-icon">
@@ -564,6 +588,17 @@
                     Completar Ruta
                 </div>
                 <div class="full-width panel-content">
+				<form action="#">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+										<label class="mdl-button mdl-js-button mdl-button--icon" for="searchAdmin">
+											<i class="zmdi zmdi-search"></i>
+										</label>
+										<div class="mdl-textfield__expandable-holder">
+											<input class="mdl-textfield__input" type="text" id="searchAdmin">
+											<label class="mdl-textfield__label"></label>
+										</div>
+									</div>
+								</form>
                     <div class="mdl-list">
                         <div class="mdl-list__item mdl-list__item--two-line">
                             <span class="mdl-list__item-primary-content">
@@ -573,8 +608,6 @@
                             </span>
                            
                         </div>
-                    
-                        <div class="mdl-radio is-active" id="AsignarPermiso">
                             <h5 class="text-condensedLight">Ruta de Entrega</h5>
                                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
                                     <input type="radio" id="option-1" class="mdl-radio__button" name="options" >
@@ -591,7 +624,6 @@
                                     <span class="mdl-radio__label">...</span>
                                 </label>
                                
-                        </div>
                         <p class="text-center">
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addProduct">
                                 <i class="zmdi zmdi-check-all"></i>
