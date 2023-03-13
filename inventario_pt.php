@@ -596,7 +596,6 @@
                                     <thead>
                                         <tr>
                                             <th class="mdl-data-table__cell--non-numeric">Producto</th>
-                                            <th>Tamaño</th>
                                             <th>Cantidad</th>
                                         </tr>
                                     </thead>
@@ -604,11 +603,9 @@
                                         <tr>
                                             <td class="mdl-data-table__cell--non-numeric">...</td>
                                             <td>...</td>
-                                            <td>...</td>
                                         </tr>
                                         <tr>
                                             <td class="mdl-data-table__cell--non-numeric">...</td>
-                                            <td>...</td>
                                             <td>...</td>
                                         </tr>
                                     </tbody>

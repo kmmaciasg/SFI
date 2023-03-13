@@ -568,7 +568,7 @@
 							<th>Materia Prima</th>
 							<th>Cant</th>
 							<th>Peso Inicial</th>
-							<th>Peso Bruto</th>
+							<th>Peso Neto</th>
 							<th>Fecha Produccion</th>
 							<th>Nombre quien ingresa</th>
 							<th>Adiciones</th>

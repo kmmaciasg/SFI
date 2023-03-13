@@ -19,6 +19,18 @@
 	<script src="js/main.js" ></script>
 </head>
 <body>
+	
+<?php
+include 'conexion_db.php';
+
+// Consulta SQL para obtener los datos
+$sql = "SELECT descripcion FROM envases";
+
+// Ejecutar la consulta
+$resultado = mysqli_query($conexion, $sql);
+
+$resultado1 = mysqli_query($conexion, $sql);
+?>
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -572,40 +584,36 @@
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 										
-										<h6 class="text-condensedLight">Fecha de Ingreso</h6>
-										<div class="mdl-textfield mdl-js-textfield">
+										<h6 class="text-condensedLight">Fecha de Ingreso
 											<input type="date" class="mdl-textfield__input">
-											
-										</div>
+									
+										</h6>
+										
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
 											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
+											
 										</div>	
-										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
-												<option value="" disabled="" selected="">Tamaño</option>
-												<option value="">* 50ml</option>
-												<option value="">* 250ml </option>
-											</select>
-										</div>
-										
-									</div>
-									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-			
-
-										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
-												<option value="" disabled="" selected="">Seleccione el Envase a Ingresar</option>
-												<option value="">Vidrio</option>
-												<option value="">Plastico </option>
-											</select>
-										</div>
 										<div class="mdl-textfield mdl-js-textfield">
 											<input class="mdl-textfield__input" type="text"  id="Empleado">
 											<label class="mdl-textfield__label" for="Empleado">Nombre de quien ingresa el envase</label>
 											<span class="mdl-textfield__error">Nombre Invalio</span>	
 										</div>
+									</div>
+									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+			
+
+									<h6 class="text-condensedLight">Selecciona el envase
+											<?php
+												echo "<select nombre='opciones'>";
+												while ($fila = mysqli_fetch_assoc($resultado)) {
+													echo "<option value='".$fila['descripcion']."'>".$fila['descripcion']."</option>";
+												}
+												echo "</select>";
+												?>
+										</h6>
+										
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="#Factura">
 											<label class="mdl-textfield__label" for="#Factura">Numero de Factura</label>
@@ -647,20 +655,20 @@
 							<form>
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-										
+									<h6 class="text-condensedLight">Selecciona el envase
+											<?php
+												echo "<select nombre='opciones'>";
+												while ($fila = mysqli_fetch_assoc($resultado1)) {
+													echo "<option value='".$fila['descripcion']."'>".$fila['descripcion']."</option>";
+												}
+												echo "</select>";
+												?>
+										</h6>
 
-										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
-												<option value="" disabled="" selected="">Seleccione el Envase a Egresar</option>
-												<option value="">Manzana </option>
-												<option value="">Banano </option>
-											</select>
-										</div>
-										<h6 class="text-condensedLight">Fecha de Salida</h6>
-										<div class="mdl-textfield mdl-js-textfield">
-											<input type="date" class="mdl-textfield__input">
+										<h6 class="text-condensedLight">Fecha de Salida
 											
-										</div>
+										<input type="date" class="mdl-textfield__input">
+										</h6>
 										
 									</div>
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
@@ -669,13 +677,6 @@
 											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
 										</div>	
-										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
-												<option value="" disabled="" selected="">Tamaño</option>
-												<option value="">* 100ml</option>
-												<option value="">* 400ml </option>
-											</select>
-										</div>
 										<div class="mdl-textfield mdl-js-textfield">
 											<input class="mdl-textfield__input" type="text"  id="Empleado">
 											<label class="mdl-textfield__label" for="Empleado">Nombre de quien Egresa el envase</label>

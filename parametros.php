@@ -18,6 +18,17 @@
 	<script src="js/main.js" ></script>
 </head>
 <body>
+<?php
+include 'conexion_db.php';
+
+// Consulta SQL para obtener los datos
+$sql = "SELECT id FROM lotes";
+
+// Ejecutar la consulta
+$resultado = mysqli_query($conexion, $sql);
+
+
+?>
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -595,26 +606,37 @@
                         <form>
                             <div class="mdl-grid">
                                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-                                    <h5 class="text-condensedLight">Informacion Básica</h5>
-                                    <div class="mdl-textfield mdl-js-textfield">
-                                        <select class="mdl-textfield__input">
-                                            <option value="" disabled="" selected="">Selecciona el # de Lote</option>
-                                            <option value="">...</option>
-                                            <option value="">...</option>
-                                        </select>
-                                    </div>
-                                    <h6 class="text-condensedLight">Fecha de Toma de Parametros</h6>
-                                                <div class="mdl-textfield mdl-js-textfield">
-                                                    <input type="date" class="mdl-textfield__input">
-                                                </div>
+                                  
+                                       
+											<h6 class="text-condensedLight">Selecciona el # de Lote
+											<?php
+												echo "<select nombre='opciones'>";
+												while ($fila = mysqli_fetch_assoc($resultado)) {
+													echo "<option value='".$fila['id']."'>".$fila['id']."</option>";
+												}
+												echo "</select>";
+												?>
+										</h6>
+													
+												<h6 class="text-condensedLight">Fecha de Toma de Parametros
+												<input type="date" class="mdl-textfield__input">
+												</h6>
+                                                   
+                                              
                                                 <div class="mdl-textfield mdl-js-textfield">
                                                     <input class="mdl-textfield__input" type="text"  id="Empleado">
                                                     <label class="mdl-textfield__label" for="Empleado">Nombre de quien Ingresa Parametros</label>
                                                     <span class="mdl-textfield__error">Nombre Invalio</span>
                                                 </div> 
+												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <input class="mdl-textfield__input" type="number" step="0.0000001" id="Alcohol">
+                                                <label class="mdl-textfield__label" for="Alcohol">Alcohol</label>
+                                                <span class="mdl-textfield__error">valor no valido</span>
+                                            </div>
+                                           
                                 </div>
                                         <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-                                            <h5 class="text-condensedLight">Parámetros</h5>
+                                            
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                             <input class="mdl-textfield__input" type="number" step="0.0000001" id="brix">
                                             <label class="mdl-textfield__label" for="brix">BRIX</label>
@@ -635,12 +657,7 @@
                                             <label class="mdl-textfield__label" for="Temperatura">Temperatura</label>
                                             <span class="mdl-textfield__error">valor no valido</span>
                                         </div>
-                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input class="mdl-textfield__input" type="number" step="0.0000001" id="Alcohol">
-                                                <label class="mdl-textfield__label" for="Alcohol">Alcohol</label>
-                                                <span class="mdl-textfield__error">valor no valido</span>
-                                            </div>
-                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input class="mdl-textfield__input" type="number" step="0.0000001" id="SolidosTotales">
                                                 <label class="mdl-textfield__label" for="SolidosTotales">Solidos Totales</label>
                                                 <span class="mdl-textfield__error">valor no valido</span>

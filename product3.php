@@ -18,6 +18,22 @@
 	<script src="js/main.js" ></script>
 </head>
 <body>
+<?php
+include 'conexion_db.php';
+
+// Consulta SQL para obtener los datos
+$sql = "SELECT id FROM lotes";
+
+// Ejecutar la consulta
+$resultado = mysqli_query($conexion, $sql);
+
+// Consulta SQL para obtener los datos
+$sqlt = "SELECT capacidad FROM envases";
+
+// Ejecutar la consulta
+$resultadot = mysqli_query($conexion, $sqlt);
+
+?>
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -570,26 +586,31 @@
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 											<h5 class="text-condensedLight">Información de Envasado</h5>
-											<div class="mdl-textfield mdl-js-textfield">
-												<select class="mdl-textfield__input">
-													<option value="" disabled="" selected=""># Lote de Envasado</option>
-													<option value="">...</option>
-													<option value="">...</option>
-												</select>
-											</div>
+											
+											<h6 class="text-condensedLight">Selecciona el # de Lote
+											<?php
+												echo "<select nombre='opciones'>";
+												while ($fila = mysqli_fetch_assoc($resultado)) {
+													echo "<option value='".$fila['id']."'>".$fila['id']."</option>";
+												}
+												echo "</select>";
+												?>
+										</h6>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number" step="0.0000001" id="Cant">
 												<label class="mdl-textfield__label" for="Cant"># de Unidades</label>
 												<span class="mdl-textfield__error">valor no valido</span>
+												<h6 class="text-condensedLight">Selecciona el Tamaño
+											<?php
+												echo "<select nombre='opciones'>";
+												while ($fila = mysqli_fetch_assoc($resultadot)) {
+													echo "<option value='".$fila['capacidad']."'>".$fila['capacidad']."</option>";
+												}
+												echo "</select>";
+												?>
+										</h6>
 											</div>
-											<div class="mdl-textfield mdl-js-textfield">
-												<select class="mdl-textfield__input">
-													<option value="" disabled="" selected="">Tamaño</option>
-													<option value="">100</option>
-													<option value="">60 </option>
-													<option value="">477 </option>
-												</select>
-											</div>
+											
 										
 									</div>
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
@@ -602,12 +623,11 @@
 											<input class="mdl-textfield__input" type="text"  id="Empleado">
 											<label class="mdl-textfield__label" for="Empleado">Nombre de quien Envasa</label>
 											<span class="mdl-textfield__error">Nombre Invalio</span>
+											<h6 class="text-condensedLight">Fecha de Envasado
+											<input type="date" class="mdl-textfield__input">
+											</h6>
+										    
 										</div>
-										<h6 class="text-condensedLight">Fecha de Envasado</h6>
-									<div class="mdl-textfield mdl-js-textfield">
-										<input type="date" class="mdl-textfield__input">
-										
-									</div>
 									</div>
 									<p class="text-center">
 										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 400px;" id="Agregar Envasado">

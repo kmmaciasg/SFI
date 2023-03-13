@@ -19,6 +19,16 @@
 	<script src="js/main.js" ></script>
 </head>
 <body>
+	
+<?php
+include 'conexion_db.php';
+
+// Consulta SQL para obtener los datos
+$sql = "SELECT tipo FROM usuarios";
+
+// Ejecutar la consulta
+$resultado = mysqli_query($conexion, $sql);
+?>
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -583,12 +593,12 @@
 											</div>
 											
 										
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<h6 class="text-condensedLight">Fecha Nacimiento</h6>
+												<h6 class="text-condensedLight">Fecha Nacimiento
+													
 												<input class="mdl-textfield__input" type="Date" id="FechaNacimiento">
 												<label class="mdl-textfield__label" for="FechaNacimiento"></label>
 												<span class="mdl-textfield__error">Fecha Invalida</span>
-											</div>
+												</h6>
 											
 										</div>
 										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
@@ -607,14 +617,15 @@
 												<label class="mdl-textfield__label" for="passwordAdmin">Password</label>
 												<span class="mdl-textfield__error">Invalid password</span>
 											</div>
-											<div class="mdl-textfield mdl-js-textfield">
-												<select class="mdl-textfield__input">
-													<option value="" disabled="" selected="">Selecciona el tipo de Usuario</option>
-													<option value="">1</option>
-													<option value="">2</option>
-													<option value="">3</option>
-												</select>
-											</div>
+											<h6 class="text-condensedLight">Selecciona el tipo de Usuario
+											<?php
+												echo "<select nombre='opciones'>";
+												while ($fila = mysqli_fetch_assoc($resultado)) {
+													echo "<option value='".$fila['tipo']."'>".$fila['tipo']."</option>";
+												}
+												echo "</select>";
+												?>
+										</h6>
 										</div>
 									</div>
 									<p class="text-center">
