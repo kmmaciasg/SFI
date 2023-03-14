@@ -604,7 +604,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 			
 
-									<h6 class="text-condensedLight">Selecciona el envase
+									 <h6 class="text-condensedLight">Selecciona el envase
 											<?php
 												echo "<select nombre='opciones'>";
 												while ($fila = mysqli_fetch_assoc($resultado)) {

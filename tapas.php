@@ -18,6 +18,25 @@
 	<script src="js/main.js" ></script>
 </head>
 <body>
+<?php
+include 'conexion_db.php';
+
+// Consulta SQL para obtener los datos
+$sql = "SELECT tipo_tapa FROM tapas";
+
+// Ejecutar la consulta
+$resultado = mysqli_query($conexion, $sql);
+
+$resultado1 = mysqli_query($conexion, $sql);
+
+// Consulta SQL para obtener los datos
+$sql1 = "SELECT color_tapa FROM tapas";
+
+// Ejecutar la consulta
+$resultadoc = mysqli_query($conexion, $sql1);
+
+$resultadoc1 = mysqli_query($conexion, $sql1);
+?>
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -570,11 +589,7 @@
 							<form>
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-									<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text"  id="Empleado">
-											<label class="mdl-textfield__label" for="Empleado">Nombre de quien ingresa el envase</label>
-											<span class="mdl-textfield__error">Nombre Invalio</span>	
-										</div>
+							
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
 											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
@@ -591,29 +606,35 @@
 											<label class="mdl-textfield__label" for="Proveedor">Nombre del Proveedor</label>
 											<span class="mdl-textfield__error">Nombre Invalio</span>	
 										</div>
+										
+										<div class="mdl-textfield mdl-js-textfield">
+											<input class="mdl-textfield__input" type="text"  id="Empleado">
+											<label class="mdl-textfield__label" for="Empleado">Nombre de quien ingresa la tapa</label>
+											<span class="mdl-textfield__error">Nombre Invalio</span>	
+										</div>
 									</div>
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
-												<option value="" disabled="" selected="">Seleccione el tipo de Tapa a Ingresar</option>
-												<option value="">Plastica</option>
-												<option value="">Metalica </option>
-											</select>
-										</div>
-										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
-												<option value="" disabled="" selected="">Seleccione el color de Tapa a Ingresar</option>
-												<option value="">Negra</option>
-												<option value="">Roja </option>
-												<option value="">Blanca </option>
-											</select>
-										</div>
-										<h6 class="text-condensedLight">Fecha de Ingreso</h6>
-										<div class="mdl-textfield mdl-js-textfield">
-											<input type="date" class="mdl-textfield__input">
-											
-										</div>
-										
+									    <h6 class="text-condensedLight">Selecciona el tipo de tapa
+											<?php
+												echo "<select nombre='opciones'>";
+												while ($fila = mysqli_fetch_assoc($resultado)) {
+													echo "<option value='".$fila['tipo_tapa']."'>".$fila['tipo_tapa']."</option>";
+												}
+												echo "</select>";
+											?>
+								       </h6>
+									   <h6 class="text-condensedLight">Selecciona el color de la tapa
+											<?php
+												echo "<select nombre='opciones'>";
+												while ($fila = mysqli_fetch_assoc($resultadoc)) {
+													echo "<option value='".$fila['color_tapa']."'>".$fila['color_tapa']."</option>";
+												}
+												echo "</select>";
+											?>
+								       </h6>
+										<h6 class="text-condensedLight">Fecha de Ingreso 
+										<input type="date" class="mdl-textfield__input">
+										</h6>
 										
 									</div>
 								</div>
@@ -655,24 +676,28 @@
 											<label class="mdl-textfield__label" for="Empleado">Nombre de quien Egresa la tapa</label>
 											<span class="mdl-textfield__error">Nombre Invalio</span>
 										</div>
-										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
-												<option value="" disabled="" selected="">Seleccione el Tipo de Tapa a Egresar</option>
-												<option value="">Plastica</option>
-												<option value="">Metalica </option>
-											</select>
-										</div>
+										<h6 class="text-condensedLight">Selecciona el tipo de tapa
+											<?php
+												echo "<select nombre='opciones'>";
+												while ($fila = mysqli_fetch_assoc($resultado1)) {
+													echo "<option value='".$fila['tipo_tapa']."'>".$fila['tipo_tapa']."</option>";
+												}
+												echo "</select>";
+											?>
+								       </h6>
+									  
 									</div>
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 										
-										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
-												<option value="" disabled="" selected="">Seleccione el color de Tapa a Egresar</option>
-												<option value="">Negra</option>
-												<option value="">Roja </option>
-												<option value="">Blanca </option>
-											</select>
-										</div>
+									     <h6 class="text-condensedLight">Selecciona el color de la tapa
+											<?php
+												echo "<select nombre='opciones'>";
+												while ($fila = mysqli_fetch_assoc($resultadoc1)) {
+													echo "<option value='".$fila['color_tapa']."'>".$fila['color_tapa']."</option>";
+												}
+												echo "</select>";
+											?>
+								       </h6>
 										<h6 class="text-condensedLight">Fecha de Salida</h6>
 										<div class="mdl-textfield mdl-js-textfield">
 											<input type="date" class="mdl-textfield__input">

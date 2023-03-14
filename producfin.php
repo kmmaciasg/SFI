@@ -622,8 +622,13 @@ $resultado1 = mysqli_query($conexion, $sql);
 								<p class="text-center">
 									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="AgregarProducto">
 										<i class="zmdi zmdi-plus"></i>
+										<div class="mdl-tooltip" for="AgregarProducto">Ingresar Producto</div>
 									</button>
-									<div class="mdl-tooltip" for="AgregarProducto">Ingresar Producto</div>
+									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 55px;" id="CrearProducto">
+										<i class="zmdi zmdi-shopping-cart-plus"></i>
+										<div class="mdl-tooltip" for="CrearProducto">Crear Nuevo Producto</div>
+									</button>
+									
 								</p>
 							</form>
 						</div>

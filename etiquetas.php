@@ -19,6 +19,18 @@
 	<script src="js/main.js" ></script>
 </head>
 <body>
+	
+<?php
+include 'conexion_db.php';
+
+// Consulta SQL para obtener los datos
+$sql = "SELECT descripcion FROM etiquetas";
+
+// Ejecutar la consulta
+$resultado = mysqli_query($conexion, $sql);
+
+$resultado1 = mysqli_query($conexion, $sql);
+?>
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -571,14 +583,34 @@
 							<form>
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-										
-										
-										
-										<h6 class="text-condensedLight">Fecha de Ingreso</h6>
+									   <h6 class="text-condensedLight">Fecha de Ingreso
 											<input type="date" class="mdl-textfield__input">
-											
+									
+										</h6>
 										
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
+											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
+											<span class="mdl-textfield__error">Cantidad invalida</span>
+											
+										</div>	
+										<div class="mdl-textfield mdl-js-textfield">
+											<input class="mdl-textfield__input" type="text"  id="Empleado">
+											<label class="mdl-textfield__label" for="Empleado">Nombre de quien ingresa la etiqueta</label>
+											<span class="mdl-textfield__error">Nombre Invalio</span>	
+										</div>
+									</div>
+									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+									   <h6 class="text-condensedLight">Selecciona la etiqueta
+											<?php
+												echo "<select nombre='opciones'>";
+												while ($fila = mysqli_fetch_assoc($resultado)) {
+													echo "<option value='".$fila['descripcion']."'>".$fila['descripcion']."</option>";
+												}
+												echo "</select>";
+											?>
+								       </h6>
+								       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="#Factura">
 											<label class="mdl-textfield__label" for="#Factura">Numero de Factura</label>
 											<span class="mdl-textfield__error">Numero Invalido</span>
@@ -587,28 +619,8 @@
 											<input class="mdl-textfield__input" type="text"  id="Proveedor">
 											<label class="mdl-textfield__label" for="Proveedor">Nombre del Proveedor</label>
 											<span class="mdl-textfield__error">Nombre Invalio</span>	
-										</div>
-									</div>
-									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
-												<option value="" disabled="" selected="">Seleccione la Etiqueta a Ingresar</option>
-												<option value="">Manzana</option>
-												<option value="">Pera </option>
-											</select>
-										</div>
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
-											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
-											<span class="mdl-textfield__error">Cantidad invalida</span>
-										</div>	
-									
-										<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text"  id="Empleado">
-											<label class="mdl-textfield__label" for="Empleado">Nombre de quien ingresa la Etiqueta</label>
-											<span class="mdl-textfield__error">Nombre Invalio</span>	
-										</div>
-									</div>
+								  		</div>
+                                    </div>
 								</div>
 								<p class="text-center">
 									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="AgregarProducto">
@@ -638,17 +650,18 @@
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 
-										<div class="mdl-textfield mdl-js-textfield">
-											<select class="mdl-textfield__input">
-												<option value="" disabled="" selected="">Seleccione la Etiqueta a Egresar</option>
-												<option value="">Manzana </option>
-												<option value="">Banano </option>
-											</select>
-										<h6 class="text-condensedLight">Fecha de Salida</h6>
+									    <h6 class="text-condensedLight">Selecciona la etiqueta
+											<?php
+												echo "<select nombre='opciones'>";
+												while ($fila = mysqli_fetch_assoc($resultado1)) {
+													echo "<option value='".$fila['descripcion']."'>".$fila['descripcion']."</option>";
+												}
+												echo "</select>";
+												?>
+								        </h6>
+										<h6 class="text-condensedLight">Fecha de Salida
 											<input type="date" class="mdl-textfield__input">
-										</div>
-										
-											
+											</h6>
 											
 									</div>
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
