@@ -18,6 +18,14 @@
 	<script src="js/main.js" ></script>
 </head>
 <body>
+<?php
+include 'conexion_db.php';
+
+ 
+				// Consultar la tabla
+				$sql = "SELECT codigo, descripcion, cantidad FROM productos";
+				$resultado = $conexion->query($sql);
+?>
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -562,8 +570,7 @@
 							 </div>
 						     </a>
 					    </li>
-                    </li>
-					</li>
+						</li>
 				</ul>	
 			</nav>
 		</div>
@@ -595,19 +602,31 @@
                                 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
                                     <thead>
                                         <tr>
-                                            <th class="mdl-data-table__cell--non-numeric">Producto</th>
-                                            <th>Cantidad</th>
+                                            <th class="mdl-data-table">Codigo</th>
+                                            <th class="mdl-data-table">Producto</th>
+											<th class="mdl-data-table">Cantidad</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="mdl-data-table__cell--non-numeric">...</td>
-                                            <td>...</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="mdl-data-table__cell--non-numeric">...</td>
-                                            <td>...</td>
-                                        </tr>
+                                       <?php   
+									   
+				// Mostrar los resultados en la tabla
+				if ($resultado->num_rows > 0) {
+					while($fila = $resultado->fetch_assoc()) {
+						echo "<tr>";
+						echo "<td>" . $fila["codigo"] . "</td>";
+						echo "<td>" . $fila["descripcion"] . "</td>";
+						echo "<td>" . $fila["cantidad"] . "</td>";
+						echo "</tr>";
+					}
+				} else {
+					echo "0 resultados";
+				}                              
+									   
+									   
+									   
+									   
+									   ?>
                                     </tbody>
                                 </table>
                             </div>

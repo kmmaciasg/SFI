@@ -78,6 +78,8 @@ html, body{
 	width: 100%;
 	overflow-x: scroll;
 	position: relative;
+	
+	text-align: center;
 }
 /*====== paneles*/
 .panel{ height: auto; }
