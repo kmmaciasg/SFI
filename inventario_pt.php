@@ -602,9 +602,9 @@ include 'conexion_db.php';
                                 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
                                     <thead>
                                         <tr>
-                                            <th class="mdl-data-table">Codigo</th>
-                                            <th class="mdl-data-table">Producto</th>
-											<th class="mdl-data-table">Cantidad</th>
+                                            <th class="mdl-data-table"style="text-align: center;">Codigo</th>
+                                            <th class="mdl-data-table" style="text-align: center;">Producto</th>
+											<th class="mdl-data-table" style="text-align: center;">Cantidad</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -612,20 +612,14 @@ include 'conexion_db.php';
 									   
 				// Mostrar los resultados en la tabla
 				if ($resultado->num_rows > 0) {
-					while($fila = $resultado->fetch_assoc()) {
-						echo "<tr>";
-						echo "<td>" . $fila["codigo"] . "</td>";
-						echo "<td>" . $fila["descripcion"] . "</td>";
-						echo "<td>" . $fila["cantidad"] . "</td>";
-						echo "</tr>";
-					}
+					while($row = $resultado->fetch_assoc()) {
+						echo "<tr><td style='text-align:center'>" . $row["codigo"] . "</td>
+						<td style='text-align:center'>" . $row["descripcion"] . "</td>
+						<td style='text-align:center'>" . $row["cantidad"] . "</td></tr>";
+					  }
 				} else {
 					echo "0 resultados";
-				}                              
-									   
-									   
-									   
-									   
+				}
 									   ?>
                                     </tbody>
                                 </table>

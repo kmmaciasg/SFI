@@ -18,6 +18,18 @@
 	<script src="js/main.js" ></script>
 </head>
 <body>
+<?php
+include 'conexion_db.php';
+
+ 
+				// Consultar la tabla
+				$sql = "SELECT descripcion, cantidad FROM envases";
+				$resultado = $conexion->query($sql);
+
+				// Consultar la tabla
+				$sql1 = "SELECT descripcion, cant FROM embalaje";
+				$resultado1 = $conexion->query($sql1);
+?>
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -601,20 +613,23 @@
                                     <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
                                         <thead>
                                             <tr>
-                                                <th class="mdl-data-table__cell--non-numeric"> Tipo de Envase</th>
-                                               
-                                                <th>Cantidad</th>
+                                            <th class="mdl-data-table"style="text-align: center;">TIPO DE ENVASE</th>
+                                            <th class="mdl-data-table" style="text-align: center;">CANTIDAD</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="mdl-data-table__cell--non-numeric">...</td>
-                                                <td>...</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="mdl-data-table__cell--non-numeric">...</td>
-                                                <td>...</td>
-                                            </tr>
+										<?php   
+									   
+									   // Mostrar los resultados en la tabla
+									   if ($resultado->num_rows > 0) {
+										   while($row = $resultado->fetch_assoc()) {
+											   echo "<tr><td style='text-align:center'>" . $row["descripcion"] . "</td>
+											   <td style='text-align:center'>" . $row["cantidad"] . "</td></tr>";
+											 }
+									   } else {
+										   echo "0 resultados";
+									   }
+															  ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -637,22 +652,25 @@
                             <div class="mdl-grid">
                                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
                                     <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-                                        <thead>
+									<thead>
                                             <tr>
-                                                <th class="mdl-data-table__cell--non-numeric"> Tipo de Embalaje</th>
-                                               
-                                                <th>Cantidad</th>
+                                            <th class="mdl-data-table"style="text-align: center;">TIPO DE EMBALAJE</th>
+                                            <th class="mdl-data-table" style="text-align: center;">CANTIDAD</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="mdl-data-table__cell--non-numeric">...</td>
-                                                <td>...</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="mdl-data-table__cell--non-numeric">...</td>
-                                                <td>...</td>
-                                            </tr>
+										<?php   
+									   
+									   // Mostrar los resultados en la tabla
+									   if ($resultado1->num_rows > 0) {
+										   while($row = $resultado1->fetch_assoc()) {
+											   echo "<tr><td style='text-align:center'>" . $row["descripcion"] . "</td>
+											   <td style='text-align:center'>" . $row["cant"] . "</td></tr>";
+											 }
+									   } else {
+										   echo "0 resultados";
+									   }
+															  ?>
                                         </tbody>
                                     </table>
                                 </div>
