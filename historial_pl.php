@@ -18,6 +18,22 @@
 	<script src="js/main.js" ></script>
 </head>
 <body>
+<?php
+include 'conexion_db.php';
+
+ 
+				// Consultar la tabla
+				$sql = "SELECT producto, ingreso, cantidad, Usuario FROM `historial-pt-i`";
+				$resultado = $conexion->query($sql);
+
+				// Consultar la tabla
+				$sqle = "SELECT producto, egreso, cantidad, Usuario FROM `historial-pt-e`";
+				$resultadoe = $conexion->query($sqle);
+
+				// Consultar la tabla
+				$sql1 = "SELECT id, materia, fecha_inicio, peso_inicial, peso_neto, adicion, cantidad, usuario FROM lotes";
+				$resultado1 = $conexion->query($sql1);
+?>
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -597,28 +613,30 @@
                                 <div class="mdl-grid">
                                     <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
                                         <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-                                            <thead>
-                                                <tr>
-                                                    <th class="mdl-data-table__cell--non-numeric">Nombre Producto</th>
-                                                    <th>Fecha de Ingreso</th>
-                                                    <th>Cantidad</th>
-                                                    <th>Usuario</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="mdl-data-table__cell--non-numeric">...</td>
-                                                    <td>...</td>
-                                                    <td>...</td>
-                                                    <td>...</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="mdl-data-table__cell--non-numeric">...</td>
-                                                    <td>...</td>
-                                                    <td>...</td>
-                                                    <td>...</td>
-                                                </tr>
-                                            </tbody>
+										<thead>
+                                            <tr>
+                                            <th class="mdl-data-table"style="text-align: center;">NOMBRE DE PRODUCTO</th>
+                                            <th class="mdl-data-table" style="text-align: center;">FECHA DE INGRESO</th>
+                                            <th class="mdl-data-table" style="text-align: center;">CANTIDAD</th>
+                                            <th class="mdl-data-table" style="text-align: center;">USUARIO</th>
+                                            </tr>
+                                    </thead>
+                                    <tbody>
+										<?php   
+									   
+									   // Mostrar los resultados en la tabla
+									   if ($resultado->num_rows > 0) {
+										   while($row = $resultado->fetch_assoc()) {
+											   echo "<tr><td style='text-align:center'>" . $row["producto"] . "</td>
+											   <td style='text-align:center'>" . $row["ingreso"] . "</td>
+											   <td style='text-align:center'>" . $row["cantidad"] . "</td>
+											   <td style='text-align:center'>" . $row["Usuario"] . "</td></tr>";
+											 }
+									   } else {
+										   echo "0 resultados";
+									   }
+															  ?>
+                                    </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -628,28 +646,30 @@
                                 <div class="mdl-grid">
                                     <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
                                         <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-                                            <thead>
-                                                <tr>
-                                                    <th class="mdl-data-table__cell--non-numeric">Nombre Producto</th>
-                                                    <th>Fecha de Egreso</th>
-                                                    <th>Cantidad</th>
-                                                    <th>Usuario</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="mdl-data-table__cell--non-numeric">...</td>
-                                                    <td>...</td>
-                                                    <td>...</td>
-                                                    <td>...</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="mdl-data-table__cell--non-numeric">...</td>
-                                                    <td>...</td>
-                                                    <td>...</td>
-                                                    <td>...</td>
-                                                </tr>
-                                            </tbody>
+										<thead>
+                                            <tr>
+                                            <th class="mdl-data-table"style="text-align: center;">NOMBRE DE PRODUCTO</th>
+                                            <th class="mdl-data-table" style="text-align: center;">FECHA DE EGRESO</th>
+                                            <th class="mdl-data-table" style="text-align: center;">CANTIDAD</th>
+                                            <th class="mdl-data-table" style="text-align: center;">USUARIO</th>
+                                            </tr>
+                                    </thead>
+                                    <tbody>
+										<?php   
+									   
+									   // Mostrar los resultados en la tabla
+									   if ($resultadoe->num_rows > 0) {
+										   while($row = $resultadoe->fetch_assoc()) {
+											   echo "<tr><td style='text-align:center'>" . $row["producto"] . "</td>
+											   <td style='text-align:center'>" . $row["egreso"] . "</td>
+											   <td style='text-align:center'>" . $row["cantidad"] . "</td>
+											   <td style='text-align:center'>" . $row["Usuario"] . "</td></tr>";
+											 }
+									   } else {
+										   echo "0 resultados";
+									   }
+															  ?>
+                                    </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -672,39 +692,38 @@
                             <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
                                 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
                                     <thead>
-                                        <tr>
-                                            <th class="mdl-data-table__cell--non-numeric"># Lote</th>
-                                            <th>Materia Prima</th>
-                                            <th>Peso Inicial</th>
-                                            <th>Peso Bruto</th>
-                                            <th>Fecha Produccion</th>
-                                            <th>Usuario</th>
-                                            <th>Cantidad</th>
-                                            <th>Adiciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="mdl-data-table__cell--non-numeric">...</td>
-                                            <td>...</td>
-                                            <td>...</td>
-                                            <td>...</td>
-                                            <td>...</td>
-                                            <td>...</td>
-                                            <td>...</td>
-                                            <td>...</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="mdl-data-table__cell--non-numeric">...</td>
-                                            <td>...</td>
-                                            <td>...</td>
-                                            <td>...</td>
-                                            <td>...</td>
-                                            <td>...</td>
-                                            <td>...</td>
-                                            <td>...</td>
-                                        </tr>
-                                    </tbody>
+                                            <tr>
+                                            <th class="mdl-data-table"style="text-align: center;"># DE LOTE</th>
+                                            <th class="mdl-data-table" style="text-align: center;">MATERIA</th>
+                                            <th class="mdl-data-table"style="text-align: center;">FECHA PRODUCCION</th>
+                                            <th class="mdl-data-table" style="text-align: center;">PESO INICIAL</th>
+                                            <th class="mdl-data-table"style="text-align: center;">PESO NETO</th>
+                                            <th class="mdl-data-table"style="text-align: center;">ADICION</th>
+                                            <th class="mdl-data-table" style="text-align: center;">CANTIDAD</th>
+                                            <th class="mdl-data-table" style="text-align: center;">USUARIO</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+										<?php   
+									
+									   // Mostrar los resultados en la tabla
+									   if ($resultado1->num_rows > 0) {
+										   while($row = $resultado1->fetch_assoc()) {
+											   echo "<tr><td style='text-align:center'>" . $row["id"] . "</td>
+											   <td style='text-align:center'>" . $row["materia"] . "</td>
+											   <td style='text-align:center'>" . $row["fecha_inicio"] . "</td>
+											   <td style='text-align:center'>" . $row["peso_inicial"] . "</td>
+											   <td style='text-align:center'>" . $row["peso_neto"] . "</td>
+											   <td style='text-align:center'>" . $row["adicion"] . "</td>
+											   <td style='text-align:center'>" . $row["cantidad"] . "</td>
+											   <td style='text-align:center'>" . $row["usuario"] . "</td></tr>";
+											 }
+									   } else {
+										   echo "0 resultados";
+									   }
+															  ?>
+                                        </tbody>
+                                        </tbody>
                                 </table>
                             </div>
                         </div>

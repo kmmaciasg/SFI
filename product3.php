@@ -28,7 +28,7 @@ $sql = "SELECT id FROM lotes";
 $resultado = mysqli_query($conexion, $sql);
 
 // Consulta SQL para obtener los datos
-$sqlt = "SELECT capacidad FROM envases";
+$sqlt = "SELECT descripcion FROM envases";
 
 // Ejecutar la consulta
 $resultadot = mysqli_query($conexion, $sqlt);
@@ -600,11 +600,13 @@ $resultadot = mysqli_query($conexion, $sqlt);
 												<input class="mdl-textfield__input" type="number" step="0.0000001" id="Cant">
 												<label class="mdl-textfield__label" for="Cant"># de Unidades</label>
 												<span class="mdl-textfield__error">valor no valido</span>
-												<h6 class="text-condensedLight">Selecciona el Tamaño
+												
+												<h6 class="text-condensedLight">Selecciona el tipo de Envase
 											<?php
+											
 												echo "<select nombre='opciones'>";
 												while ($fila = mysqli_fetch_assoc($resultadot)) {
-													echo "<option value='".$fila['capacidad']."'>".$fila['capacidad']."</option>";
+													echo "<option value='".$fila['descripcion']."'>".$fila['descripcion']."</option>";
 												}
 												echo "</select>";
 												?>

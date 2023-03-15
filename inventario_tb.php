@@ -616,8 +616,8 @@ include 'conexion_db.php';
                                             <th class="mdl-data-table" style="text-align: center;">COLOR</th>
                                             <th class="mdl-data-table" style="text-align: center;">CANTIDAD</th>
                                             </tr>
-                                        </thead>
-                                        <tbody>
+                                    </thead>
+                                    <tbody>
 										<?php   
 									   
 									   // Mostrar los resultados en la tabla
@@ -631,8 +631,7 @@ include 'conexion_db.php';
 										   echo "0 resultados";
 									   }
 															  ?>
-                                        </tbody>
-                                        </tbody>
+                                    </tbody>
                                     </table>
                                 </div>
                             </div>	
