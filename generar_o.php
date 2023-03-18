@@ -616,9 +616,11 @@ $resultado1 = mysqli_query($conexion, $sql1);
                                     <h5 class="text-condensedLight text-center">Tel: 3212287588</h5>
                                     
                                     <div class="mdl-textfield mdl-js-textfield">
-                                        <h6 class="text-condensedLight">Fecha
-                                            <input type="date" class="mdl-textfield__input">
-                                        </h6>
+                                        
+										<label for="fecha">Fecha : </label>
+										
+                                        <input type="date" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
+										
 
 										<h6 class="text-condensedLight">Cliente</h6>
 												<?php

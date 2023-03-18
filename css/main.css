@@ -486,6 +486,7 @@ html, body{
 	right: 0;
 	width: 80%;
 	z-index: 77;
+	overflow-x: auto;
 	background-color: #fff;
 	transition: all .3s ease-in-out;
 }
@@ -503,7 +504,8 @@ html, body{
 	margin: 0 1%;
 	position: relative;
 	transition: all .3s ease-in-out;
-	overflow: hidden;
+	overflow: auto;
+	overflow-x: scroll;
 	cursor: pointer;
 	margin-bottom: 20px;
 	display: inline-block;

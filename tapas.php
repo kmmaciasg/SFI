@@ -607,13 +607,14 @@ $resultadoc1 = mysqli_query($conexion, $sql1);
 											<span class="mdl-textfield__error">Nombre Invalio</span>	
 										</div>
 										
-										<div class="mdl-textfield mdl-js-textfield">
+										
+									</div>
+									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+									<div class="mdl-textfield mdl-js-textfield">
 											<input class="mdl-textfield__input" type="text"  id="Empleado">
 											<label class="mdl-textfield__label" for="Empleado">Nombre de quien ingresa la tapa</label>
 											<span class="mdl-textfield__error">Nombre Invalio</span>	
 										</div>
-									</div>
-									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 									    <h6 class="text-condensedLight">Selecciona el tipo de tapa
 											<?php
 												echo "<select nombre='opciones'>";
@@ -632,9 +633,10 @@ $resultadoc1 = mysqli_query($conexion, $sql1);
 												echo "</select>";
 											?>
 								       </h6>
-										<h6 class="text-condensedLight">Fecha de Ingreso 
-										<input type="date" class="mdl-textfield__input">
-										</h6>
+										
+									<label for="fecha">Fecha de ingreso:</label>
+										
+                                        <input type="date" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
 										
 									</div>
 								</div>
@@ -676,15 +678,6 @@ $resultadoc1 = mysqli_query($conexion, $sql1);
 											<label class="mdl-textfield__label" for="Empleado">Nombre de quien Egresa la tapa</label>
 											<span class="mdl-textfield__error">Nombre Invalio</span>
 										</div>
-										<h6 class="text-condensedLight">Selecciona el tipo de tapa
-											<?php
-												echo "<select nombre='opciones'>";
-												while ($fila = mysqli_fetch_assoc($resultado1)) {
-													echo "<option value='".$fila['tipo_tapa']."'>".$fila['tipo_tapa']."</option>";
-												}
-												echo "</select>";
-											?>
-								       </h6>
 									  
 									</div>
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
@@ -698,12 +691,23 @@ $resultadoc1 = mysqli_query($conexion, $sql1);
 												echo "</select>";
 											?>
 								       </h6>
-										<h6 class="text-condensedLight">Fecha de Salida</h6>
-										<div class="mdl-textfield mdl-js-textfield">
-											<input type="date" class="mdl-textfield__input">
-											
-										</div>
+										
+									<label for="fecha">Fecha de salida:</label>
+										
+                                        <input type="date" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
+
+										<h6 class="text-condensedLight">Selecciona el tipo de tapa
+											<?php
+												echo "<select nombre='opciones'>";
+												while ($fila = mysqli_fetch_assoc($resultado1)) {
+													echo "<option value='".$fila['tipo_tapa']."'>".$fila['tipo_tapa']."</option>";
+												}
+												echo "</select>";
+											?>
+								       </h6>
 									</div>
+									
+									
 								</div>
 								<p class="text-center">
 									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="EgresarProducto">

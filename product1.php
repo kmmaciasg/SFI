@@ -19,6 +19,13 @@
 	<script src="js/main.js" ></script>
 </head>
 <body>
+<?php
+include 'conexion_db.php';
+
+				// Consultar la tabla
+				$sql1 = "SELECT Lote, materia, fecha, peso_i, peso_n, adicion, cant, usuario FROM Fase1";
+				$resultado1 = $conexion->query($sql1);
+?>
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -564,45 +571,45 @@
 					</div>
 					
 					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-						<thead>
-							<tr>
-								<th class="mdl-data-table__cell--non-numeric"># Lote</th>
-								<th>Materia Prima</th>
-								<th>Cant</th>
-								<th>Peso Inicial</th>
-								<th>Peso Neto</th>
-								<th>Fecha Produccion</th>
-								<th>Nombre quien ingresa</th>
-								<th>Adiciones</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="mdl-data-table__cell--non-numeric">...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-							</tr>
-							<tr>
-								<td class="mdl-data-table__cell--non-numeric">...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-							</tr>
-							<p class="text-center">
-								<tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 185px;" id="PasaraFermentacion">
+					<thead>
+                                            <tr>
+                                            <th class="mdl-data-table"style="text-align: center;"># DE LOTE</th>
+                                            <th class="mdl-data-table" style="text-align: center;">MATERIA</th>
+                                            <th class="mdl-data-table"style="text-align: center;">FECHA PRODUCCION</th>
+                                            <th class="mdl-data-table" style="text-align: center;">PESO INICIAL</th>
+                                            <th class="mdl-data-table"style="text-align: center;">PESO NETO</th>
+                                            <th class="mdl-data-table"style="text-align: center;">ADICION</th>
+                                            <th class="mdl-data-table" style="text-align: center;">CANTIDAD</th>
+                                            <th class="mdl-data-table" style="text-align: center;">USUARIO</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+										<?php   
+									
+									   // Mostrar los resultados en la tabla
+									   if ($resultado1->num_rows > 0) {
+										   while($row = $resultado1->fetch_assoc()) {
+											   echo "<tr><td style='text-align:center'>" . $row["Lote"] . "</td>
+											   <td style='text-align:center'>" . $row["materia"] . "</td>
+											   <td style='text-align:center'>" . $row["fecha"] . "</td>
+											   <td style='text-align:center'>" . $row["peso_i"] . "</td>
+											   <td style='text-align:center'>" . $row["peso_n"] . "</td>
+											   <td style='text-align:center'>" . $row["adicion"] . "</td>
+											   <td style='text-align:center'>" . $row["cant"] . "</td>
+											   <td style='text-align:center'>" . $row["usuario"] . "</td></tr>";
+											 }
+									   } else {
+										   echo "0 resultados";
+									   }
+															  ?>
+
+<p class="text-center">
+								<tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 200px;" id="PasaraFermentacion">
 									<i class="zmdi zmdi-forward"></i>
 								</button></tr>
 								<div class="mdl-tooltip" for="PasaraFermentacion">Pasar a Fermentacion 2</div>
 							</p>
+							
 						</tbody>
 					</table>
 				</div>

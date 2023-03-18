@@ -723,7 +723,6 @@ include 'conexion_db.php';
 									   }
 															  ?>
                                         </tbody>
-                                        </tbody>
                                 </table>
                             </div>
                         </div>

@@ -583,10 +583,10 @@ $resultado1 = mysqli_query($conexion, $sql);
 							<form>
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-									<h6 class="text-condensedLight">Fecha de Ingreso
-											<input type="date" class="mdl-textfield__input">
 									
-										</h6>
+									<label for="fecha">Fecha de ingreso:</label>
+										
+                                        <input type="date" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
 										
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
@@ -654,9 +654,10 @@ $resultado1 = mysqli_query($conexion, $sql);
 												echo "</select>";
 												?>
 								        </h6>
-										<h6 class="text-condensedLight">Fecha de Salida
-											<input type="date" class="mdl-textfield__input">
-										</h6>	
+										
+									<label for="fecha">Fecha de salida:</label>
+										
+                                        <input type="date" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
 									</div>
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
