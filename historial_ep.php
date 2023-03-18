@@ -18,6 +18,21 @@
 	<script src="js/main.js" ></script>
 </head>
 <body>
+<?php
+include 'conexion_db.php';
+
+ 
+				// Consultar la tabla
+				$sql = "SELECT Lote, Tipo_Envase, Usuario, cantidad, fecha_envasado, materia FROM envasado ";
+				$resultado = $conexion->query($sql);
+
+				// Consultar la tabla
+				$sql1 = "SELECT Lote, Usuario, brix, alcohol, ph, solidos, ac, temperatura, fecha_registro FROM `registro_variables`";
+				$resultado1 = $conexion->query($sql1);
+
+				
+
+?>
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -597,34 +612,33 @@
                                 <div class="mdl-grid">
                                     <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
                                         <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-                                            <thead>
-                                                <tr>
-                                                    <th class="mdl-data-table__cell--non-numeric">Lote Envasado</th>
-                                                    <th>Materia Prima</th>
-                                                    <th># Unidades</th>
-                                                    <th>Tamaño</th>
-                                                    <th>Usuario</th>
-                                                    <th>Fecha Envasado</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="mdl-data-table__cell--non-numeric">...</td>
-                                                    <td>...</td>
-                                                    <td>...</td>
-                                                    <td>...</td>
-                                                    <td>...</td>
-                                                    <td>...</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="mdl-data-table__cell--non-numeric">...</td>
-                                                    <td>...</td>
-                                                    <td>...</td>
-                                                    <td>...</td>
-                                                    <td>...</td>
-                                                    <td>...</td>
-                                                </tr>
-                                            </tbody>
+										<thead>
+                                            <tr>
+                                            <th class="mdl-data-table"style="text-align: center;">LOTE ENVASADO</th>
+                                            <th class="mdl-data-table" style="text-align: center;">MATERIA</th>
+                                            <th class="mdl-data-table" style="text-align: center;">CANT</th>
+                                            <th class="mdl-data-table" style="text-align: center;">ENVASE</th>
+                                            <th class="mdl-data-table" style="text-align: center;">USUARIO</th>
+                                            <th class="mdl-data-table" style="text-align: center;">FECHA_ENVASADO</th>
+                                            </tr>
+                                        </thead>
+                                    <tbody>
+										<?php   
+									   
+									   // Mostrar los resultados en la tabla
+									   if ($resultado->num_rows > 0) {
+										   while($row = $resultado->fetch_assoc()) {
+											   echo "<tr><td style='text-align:center'>" . $row["Lote"] . "</td>
+											   <td style='text-align:center'>" . $row["materia"] . "</td>
+											   <td style='text-align:center'>" . $row["Tipo_Envase"] . "</td>
+											   <td style='text-align:center'>" . $row["Usuario"] . "</td>
+											   <td style='text-align:center'>" . $row["fecha_envasado"] . "</td></tr>";
+											 }
+									   } else {
+										   echo "0 resultados";
+									   }
+															  ?>
+                                    </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -647,43 +661,39 @@
             <div class="mdl-grid">
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
                     <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-                        <thead>
-                            <tr>
-                                <th class="mdl-data-table__cell--non-numeric"># Lote</th>
-                                <th>Alcohol</th>
-                                <th>Solidos Totales</th>
-                                <th>Brix</th>
-                                <th>Acidez</th>
-                                <th>Ph</th>
-                                 <th>Temperatura</th>
-                                <th>Usuario</th>
-                                <th>Fecha Toma Parametros</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="mdl-data-table__cell--non-numeric">...</td>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                            </tr>
-                            <tr>
-                                <td class="mdl-data-table__cell--non-numeric">...</td>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                            </tr>
-                        </tbody>
+					<thead>
+                                            <tr>
+                                            <th class="mdl-data-table"style="text-align: center;">LOTE</th>
+                                            <th class="mdl-data-table" style="text-align: center;">ALCOHOL</th>
+                                            <th class="mdl-data-table" style="text-align: center;">SOLIDOS TOTALES</th>
+                                            <th class="mdl-data-table" style="text-align: center;">BRIX</th>
+                                            <th class="mdl-data-table" style="text-align: center;">ACIDEZ</th>
+                                            <th class="mdl-data-table" style="text-align: center;">PH</th>
+                                            <th class="mdl-data-table" style="text-align: center;">TEMPERATURA</th>
+                                            <th class="mdl-data-table" style="text-align: center;">USUARIO</th>
+                                            <th class="mdl-data-table" style="text-align: center;">FECHA_TOMA_PARAMETROS</th>
+                                            </tr>
+                                        </thead>
+                                    <tbody>
+										<?php   
+									   
+									   // Mostrar los resultados en la tabla
+									   if ($resultado1->num_rows > 0) {
+										   while($row = $resultado1->fetch_assoc()) {
+											   echo "<tr><td style='text-align:center'>" . $row["Lote"] . "</td>
+											   <td style='text-align:center'>" . $row["alcohol"] . "</td>
+											   <td style='text-align:center'>" . $row["solidos"] . "</td>
+											   <td style='text-align:center'>" . $row["ac"] . "</td>
+											   <td style='text-align:center'>" . $row["ph"] . "</td>
+											   <td style='text-align:center'>" . $row["temperatura"] . "</td>
+											   <td style='text-align:center'>" . $row["Usuario"] . "</td>
+											   <td style='text-align:center'>" . $row["fecha_registro"] . "</td></tr>";
+											 }
+									   } else {
+										   echo "0 resultados";
+									   }
+															  ?>
+                                    </tbody>
                     </table>
                 </div>
             </div>

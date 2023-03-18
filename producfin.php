@@ -582,13 +582,9 @@ $resultado1 = mysqli_query($conexion, $sql);
 							<form>
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+									<label for="fecha">Fecha de ingreso:</label>
+<input type="date" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
 								
-										<h6 class="text-condensedLight">Fecha de Ingreso
-											<input type="date" class="mdl-textfield__input">
-											
-										
-										</h6>
-										
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
 											<label class="mdl-textfield__label" for="cant"># de Unidades</label>

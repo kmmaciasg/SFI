@@ -19,6 +19,22 @@
 	<script src="js/main.js" ></script>
 </head>
 <body>
+<?php
+include 'conexion_db.php';
+
+// Consulta SQL para obtener los datos
+$sql = "SELECT nombre FROM clientes";
+
+// Ejecutar la consulta
+$resultado = mysqli_query($conexion, $sql);
+
+// Consulta SQL para obtener los datos
+$sql1 = "SELECT descripcion, codigo FROM productos";
+
+// Ejecutar la consulta
+$resultado1 = mysqli_query($conexion, $sql1);
+
+?>
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -604,13 +620,14 @@
                                             <input type="date" class="mdl-textfield__input">
                                         </h6>
 
-                                        <h6 class="text-condensedLight">Cliente
-                                        <select class="mdl-textfield__input">
-                                            <option value="" disabled="" selected="">Selecciona el Cliente</option>
-                                            <option value="">...</option>
-                                            <option value="">...</option>
-                                        </select>
-                                        </h6>
+										<h6 class="text-condensedLight">Cliente</h6>
+												<?php
+												echo "<select nombre='opciones'>";
+												while ($fila = mysqli_fetch_assoc($resultado)) {
+													echo "<option value='".$fila['nombre']."'>".$fila['nombre']."</option>";
+												}
+												echo "</select>";
+												?>
 
                                         <h6 class="text-condensedLight">Direccion
                                             <input class="mdl-textfield__input" type="text"  id="Direccion">
@@ -684,13 +701,10 @@
                                 </div>
                             </div>
                             <div class="mdl-grid">
-                                <div class="mdl-cell mdl-cell--1-col-phone mdl-cell--4-col-tablet mdl-cell--2-col-desktop">
+							<div class="mdl-cell mdl-cell--1-col-phone mdl-cell--4-col-tablet mdl-cell--2-col-desktop">
                                     <h6 class="text-condensedLight">Codigo
-                                        <select class="mdl-textfield__input">
-                                            <option value="" disabled="" selected="">...</option>
-                                            <option value="">...</option>
-                                            <option value="">...</option>
-                                        </select>
+                                        <input class="mdl-textfield__input" type="number" step="0.0000001"  id="Cantidad">
+                                    <span class="mdl-textfield__error">Numero Invalio</span>
                                     </h6>
                                 </div>
                                 <div class="mdl-cell mdl-cell--1-col-phone mdl-cell--4-col-tablet mdl-cell--2-col-desktop">
@@ -700,13 +714,14 @@
                                     </h6>
                                 </div>
                                 <div class="mdl-cell mdl-cell--1-col-phone mdl-cell--4-col-tablet mdl-cell--3-col-desktop">
-                                    <h6 class="text-condensedLight">Producto
-                                        <select class="mdl-textfield__input">
-                                            <option value="" disabled="" selected="">...</option>
-                                            <option value="">...</option>
-                                            <option value="">...</option>
-                                        </select>
-                                    </h6>
+								<h6 class="text-condensedLight">Producto</h6>
+												<?php
+												echo "<select descripcion='opciones'>";
+												while ($fila = mysqli_fetch_assoc($resultado1)) {
+													echo "<option value='".$fila['descripcion']."'>".$fila['descripcion']."</option>";
+												}
+												echo "</select>";
+												?>
                                 </div>
                                 <div class="mdl-cell mdl-cell--1-col-phone mdl-cell--4-col-tablet mdl-cell--2-col-desktop">
                                     <h6 class="text-condensedLight">LV
