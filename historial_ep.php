@@ -611,7 +611,8 @@ include 'conexion_db.php';
                             <div class="full-width panel-content">
                                 <div class="mdl-grid">
                                     <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-                                        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+                                    <div style="overflow-x: auto;">   
+									<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 										<thead>
                                             <tr>
                                             <th class="mdl-data-table"style="text-align: center;">LOTE ENVASADO</th>
@@ -641,6 +642,7 @@ include 'conexion_db.php';
                                     </tbody>
                                         </table>
                                     </div>
+									</div>
                                 </div>
                             </div>
                         </div>
@@ -660,7 +662,8 @@ include 'conexion_db.php';
                         <div class="full-width divider-menu-h"></div>
             <div class="mdl-grid">
                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+                <div style="overflow-x: auto;">    
+				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 					<thead>
                                             <tr>
                                             <th class="mdl-data-table"style="text-align: center;">LOTE</th>
@@ -695,6 +698,7 @@ include 'conexion_db.php';
 															  ?>
                                     </tbody>
                     </table>
+				</div>
                 </div>
             </div>
       </div>

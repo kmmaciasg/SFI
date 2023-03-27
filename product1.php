@@ -569,7 +569,7 @@ include 'conexion_db.php';
 					<div class="full-width panel-tittle bg-primary text-center tittles">
 						Producciones en Fermentacion 1
 					</div>
-					
+					<div style="overflow-x: auto;">
 					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 					<thead>
                                             <tr>
@@ -612,6 +612,8 @@ include 'conexion_db.php';
 							
 						</tbody>
 					</table>
+</div>
+					
 				</div>
 				
 				
