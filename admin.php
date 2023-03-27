@@ -578,16 +578,16 @@ $resultado = mysqli_query($conexion, $sql);
 								Nuevo Usuario
 							</div>
 							<div class="full-width panel-content">
-								<form>
+								<form action= "crearusuario.php" method="POST">
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="Nom">
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" name="Nom" id="Nom">
 												<label class="mdl-textfield__label" for="Nom">Nombres</label>
 												<span class="mdl-textfield__error">Nombre Invalido</span>
 											</div>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="Ape">
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" name="Ape"id="Ape">
 												<label class="mdl-textfield__label" for="Ape">Apellidos</label>
 												<span class="mdl-textfield__error">Nombre Invalido</span>
 											</div>
@@ -595,7 +595,7 @@ $resultado = mysqli_query($conexion, $sql);
 										
 												<h6 class="text-condensedLight">Fecha Nacimiento
 													
-												<input class="mdl-textfield__input" type="Date" id="FechaNacimiento">
+												<input class="mdl-textfield__input" type="Date" name="FechaNacimiento" id="FechaNacimiento">
 												<label class="mdl-textfield__label" for="FechaNacimiento"></label>
 												<span class="mdl-textfield__error">Fecha Invalida</span>
 												</h6>
@@ -603,23 +603,23 @@ $resultado = mysqli_query($conexion, $sql);
 										</div>
 										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="Cel">
+												<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" name="Cel" id="Cel">
 												<label class="mdl-textfield__label" for="Cel">Numero Celular</label>
 												<span class="mdl-textfield__error">Numero Invalido</span>
 											</div>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="Number" id="DI">
+												<input class="mdl-textfield__input" type="Number" name="DI" id="DI">
 												<label class="mdl-textfield__label" for="DI">Documento de Identidad</label>
 												<span class="mdl-textfield__error">Numero Invalido</span>
 											</div>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="password" id="passwordAdmin">
-												<label class="mdl-textfield__label" for="passwordAdmin">Password</label>
+												<input class="mdl-textfield__input" type="password" name="passwordAdmin" id="passwordAdmin">
+												<label class="mdl-textfield__label" for="passwordAdmin">Contraseña</label>
 												<span class="mdl-textfield__error">Invalid password</span>
 											</div>
 											<h6 class="text-condensedLight">Selecciona el tipo de Usuario
 											<?php
-												echo "<select nombre='opciones'>";
+												echo "<select name='opciones' id='opciones'>";
 												while ($fila = mysqli_fetch_assoc($resultado)) {
 													echo "<option value='".$fila['tipo']."'>".$fila['tipo']."</option>";
 												}
@@ -629,7 +629,7 @@ $resultado = mysqli_query($conexion, $sql);
 										</div>
 									</div>
 									<p class="text-center">
-										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="NuevoUsuario">
+										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" id="NuevoUsuario">
 											<i class="zmdi zmdi-plus"></i>
 										</button>
 										<div class="mdl-tooltip" for="NuevoUsuario">Agregar Usuario</div>

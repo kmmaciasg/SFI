@@ -582,14 +582,14 @@ $resultadot = mysqli_query($conexion, $sqlt);
 								Producciones a Envasar
 							</div>
 							<div class="full-width panel-content">
-								<form>
+								<form action= "nuevoenvasado.php" method="POST">
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 											<h5 class="text-condensedLight">Información de Envasado</h5>
 											
 											<h6 class="text-condensedLight">Selecciona el # de Lote
 											<?php
-												echo "<select nombre='opciones'>";
+												echo "<select name='opciones'id='opciones'>";
 												while ($fila = mysqli_fetch_assoc($resultado)) {
 													echo "<option value='".$fila['id']."'>".$fila['id']."</option>";
 												}
@@ -597,14 +597,14 @@ $resultadot = mysqli_query($conexion, $sqlt);
 												?>
 										</h6>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" step="0.0000001" id="Cant">
+												<input class="mdl-textfield__input" type="number" step="0.0000001" name="Cant" id="Cant">
 												<label class="mdl-textfield__label" for="Cant"># de Unidades</label>
 												<span class="mdl-textfield__error">valor no valido</span>
 												
 												<h6 class="text-condensedLight">Selecciona el tipo de Envase
 											<?php
 											
-												echo "<select nombre='opciones'>";
+												echo "<select name='tipo' id='tipo'>";
 												while ($fila = mysqli_fetch_assoc($resultadot)) {
 													echo "<option value='".$fila['descripcion']."'>".$fila['descripcion']."</option>";
 												}
@@ -617,25 +617,24 @@ $resultadot = mysqli_query($conexion, $sqlt);
 									</div>
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="text"  id="materia">
+											<input class="mdl-textfield__input" type="text"  name="materia"  id="materia">
 											<label class="mdl-textfield__label" for="materia">Materia Prima</label>
 											<span class="mdl-textfield__error">Nombre Invalio</span>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text"  id="Empleado">
+											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado">
 											<label class="mdl-textfield__label" for="Empleado">Nombre de quien Envasa</label>
 											<span class="mdl-textfield__error">Nombre Invalio</span>
-											<h6 class="text-condensedLight">Fecha de Envasado
-											<input type="date" class="mdl-textfield__input">
-											</h6>
-										    
 										</div>
+										
+										<label for="fecha">Fecha de Envasado:</label>
+										<input type="date" id="fecha" name="fecha" value="<?php echo date('Y-m-d'); ?>" />
 									</div>
 									<p class="text-center">
-										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 400px;" id="Agregar Envasado">
+										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary"  style="margin-left: 400px;" type="submit" id="guardar">
 											<i class="zmdi zmdi-plus"></i>
 										</button>
-										<div class="mdl-tooltip" for="Agregar Envasado">Agregar Envasado</div>
+										<div class="mdl-tooltip" for="guardar">Agregar Envasado</div>
 									</p>
 
 								</form>

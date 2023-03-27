@@ -640,7 +640,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 							Salida de Producto
 						</div>
 						<div class="full-width panel-content">
-							<form>
+							<form action= "ingresarproducto.php" method="POST">
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 

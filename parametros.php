@@ -603,33 +603,31 @@ $resultado = mysqli_query($conexion, $sql);
                         Ingresar Parametros
                     </div>
                     <div class="full-width panel-content">
-                        <form>
+                        <form action= "ingresarparametros.php" method="POST">
                             <div class="mdl-grid">
                                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
                                   
                                        
 											<h6 class="text-condensedLight">Selecciona el # de Lote
 											<?php
-												echo "<select nombre='opciones'>";
+												echo "<select name='opciones'id='opciones'>";
 												while ($fila = mysqli_fetch_assoc($resultado)) {
 													echo "<option value='".$fila['id']."'>".$fila['id']."</option>";
 												}
 												echo "</select>";
 												?>
 										</h6>
-													
-												<h6 class="text-condensedLight">Fecha de Toma de Parametros
-												<input type="date" class="mdl-textfield__input">
-												</h6>
-                                                   
+										<label for="fecha">Fecha de Toma de Parametros:</label>
+										<input type="date" id="fecha" name="fecha" value="<?php echo date('Y-m-d'); ?>" />
+								
                                               
                                                 <div class="mdl-textfield mdl-js-textfield">
-                                                    <input class="mdl-textfield__input" type="text"  id="Empleado">
+                                                    <input class="mdl-textfield__input" type="text"  name="Empleado" id="Empleado">
                                                     <label class="mdl-textfield__label" for="Empleado">Nombre de quien Ingresa Parametros</label>
                                                     <span class="mdl-textfield__error">Nombre Invalio</span>
                                                 </div> 
 												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input class="mdl-textfield__input" type="number" step="0.0000001" id="Alcohol">
+                                                <input class="mdl-textfield__input" type="number" step="0.0000001" name="Alcohol" id="Alcohol">
                                                 <label class="mdl-textfield__label" for="Alcohol">Alcohol</label>
                                                 <span class="mdl-textfield__error">valor no valido</span>
                                             </div>
@@ -638,34 +636,34 @@ $resultado = mysqli_query($conexion, $sql);
                                         <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
                                             
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input class="mdl-textfield__input" type="number" step="0.0000001" id="brix">
+                                            <input class="mdl-textfield__input" type="number" step="0.0000001" name="brix" id="brix">
                                             <label class="mdl-textfield__label" for="brix">BRIX</label>
                                             <span class="mdl-textfield__error">BRIX invalido</span>
                                         </div>
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input class="mdl-textfield__input" type="number" step="0.0000001" id="Acidez">
+                                            <input class="mdl-textfield__input" type="number" step="0.0000001" name="Acidez" id="Acidez">
                                             <label class="mdl-textfield__label" for="Acidez">Acidez</label>
                                             <span class="mdl-textfield__error">valor no valido</span>
                                         </div>
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input class="mdl-textfield__input" type="number" step="0.0000001" id="PH">
+                                            <input class="mdl-textfield__input" type="number" step="0.0000001" name="PH" id="PH">
                                             <label class="mdl-textfield__label" for="PH">Ph</label>
                                             <span class="mdl-textfield__error">valor no valido</span>
                                         </div>
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input class="mdl-textfield__input" type="number" step="0.0000001" id="Temperatura">
+                                            <input class="mdl-textfield__input" type="number" step="0.0000001" name="Temperatura" id="Temperatura">
                                             <label class="mdl-textfield__label" for="Temperatura">Temperatura</label>
                                             <span class="mdl-textfield__error">valor no valido</span>
                                         </div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                <input class="mdl-textfield__input" type="number" step="0.0000001" id="SolidosTotales">
+                                                <input class="mdl-textfield__input" type="number" step="0.0000001" name="SolidosTotales" id="SolidosTotales">
                                                 <label class="mdl-textfield__label" for="SolidosTotales">Solidos Totales</label>
                                                 <span class="mdl-textfield__error">valor no valido</span>
                                             </div>
                                               
                             </div>
                             <p class="text-center">
-                                <tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" id="CambiarParametros" style="margin: 0 150px 0 250px">
+                                <tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" id="CambiarParametros" type="submit" style="margin: 0 150px 0 250px">
                                     <i class="zmdi zmdi-plus"></i>
                                 </button></tr>
                                 <div class="mdl-tooltip" for="CambiarParametros">Ingresar Parametros</div>
