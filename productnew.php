@@ -579,33 +579,34 @@ $resultado = mysqli_query($conexion, $sql);
 								Nueva Producción 
 							</div>
 							<div class="full-width panel-content">
-								<form>
+								<form action= "nuevaproduccion.php" method="POST">
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 										
 										<label for="fecha">Fecha de Producción:</label>
-<input type="date" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
+										<input type="date" id="fecha" name="fecha" value="<?php echo date('Y-m-d'); ?>" />
+
 
 											
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input"  type="number" step="0.0000001" id="PesoInicial">
+												<input class="mdl-textfield__input"  type="number" step="0.0000001" name="PesoInicial" id="PesoInicial">
 												<label class="mdl-textfield__label" for="PesoInicial">Peso Inicial Kg</label>
 												<span class="mdl-textfield__error">Peso Invalido</span>
 											</div>
 												
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" step="0.0000001" id="PesoDesperdicio">
+												<input class="mdl-textfield__input" type="number" step="0.0000001" name="PesoDesperdicio" id="PesoDesperdicio">
 												<label class="mdl-textfield__label" for="PesoDesperdicio">Peso Desperdicio Kg</label>
 												<span class="mdl-textfield__error">Peso Invalido</span>
 											</div>
 											
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" step="0.0000001" id="PesoNeto">
+												<input class="mdl-textfield__input" type="number" step="0.0000001" name="PesoNeto" id="PesoNeto">
 												<label class="mdl-textfield__label" for="PesoNeto">Peso Neto</label>
 												<span class="mdl-textfield__error">Peso Invalido</span>
 											</div>	
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" id="Adiciones">
+												<input class="mdl-textfield__input" type="text" name="Adiciones" id="Adiciones">
 												<label class="mdl-textfield__label" for="Adiciones">Adiciones</label>
 												<span class="mdl-textfield__error">Adicion Invalida</span>
 											</div>
@@ -613,14 +614,14 @@ $resultado = mysqli_query($conexion, $sql);
 										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 											
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="#lote">
+												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="#lote" id="#lote">
 												<label class="mdl-textfield__label" for="#lote">Número de Lote</label>
 												<span class="mdl-textfield__error">Número de lote invalido</span>
 											</div>
 											
 											<h6 class="text-condensedLight">Selecciona la materia prima</h6>
 												<?php
-												echo "<select nombre='opciones'>";
+												echo "<select name='opciones' id='opciones' >";
 												while ($fila = mysqli_fetch_assoc($resultado)) {
 													echo "<option value='".$fila['nombre']."'>".$fila['nombre']."</option>";
 												}
@@ -629,22 +630,22 @@ $resultado = mysqli_query($conexion, $sql);
 										
 					
 											<div class="mdl-textfield mdl-js-textfield">
-                                                <input class="mdl-textfield__input" type="text"  id="Empleado">
+                                                <input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado">
                                                 <label class="mdl-textfield__label" for="Empleado">Nombre Ingresa Produccion</label>
                                                 <span class="mdl-textfield__error">Nombre Invalio</span>
                                             </div>  
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" step="0.0000001" id="Cantidad">
+												<input class="mdl-textfield__input" type="number" step="0.0000001"name="Cantidad" id="Cantidad">
 												<label class="mdl-textfield__label" for="Cantidad">Cantidad en L</label>
 												<span class="mdl-textfield__error">Peso Invalido</span>
 											</div>
 										</div>
 									</div>
 									<p class="text-center">
-										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addProduct">
+										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" id="guardar">
 											<i class="zmdi zmdi-plus"></i>
 										</button>
-										<div class="mdl-tooltip" for="btn-addProduct">Agregar Produccion</div>
+										<div class="mdl-tooltip" for="guardar">Agregar Produccion</div>
 									</p>
 								</form>
 							</div>
