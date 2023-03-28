@@ -10,7 +10,7 @@
   
 
   // Insertar los datos en la base de datos
-  $sql = "INSERT INTO `historial-t-e` (producto, egreso, cantidad, Usuario) VALUES ('$producto','$fecha','$cantidad', '$empleado')";
+  $sql = "INSERT INTO `historial-b-e` (producto, egreso, cantidad, Usuario) VALUES ('$producto','$fecha','$cantidad', '$empleado')";
 
   $resultado = mysqli_query($conexion, $sql);
 

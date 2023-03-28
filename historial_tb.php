@@ -23,15 +23,15 @@ include 'conexion_db.php';
 
  
 				// Consultar la tabla
-				$sql = "SELECT producto, ingreso, cantidad, Usuario, color_tapa FROM `historial-t-i`";
+				$sql = "SELECT producto, ingreso, cantidad, Usuario, factura, proveedor FROM `historial-t-i`";
 				$resultado = $conexion->query($sql);
 
 				// Consultar la tabla
-				$sqle = "SELECT producto, egreso, cantidad, Usuario, color_tapa FROM `historial-t-e`";
+				$sqle = "SELECT producto, egreso, cantidad, Usuario FROM `historial-t-e`";
 				$resultadoe = $conexion->query($sqle);
 
 				// Consultar la tabla
-				$sql1 = "SELECT producto, ingreso, cantidad, Usuario FROM `historial-b-i`";
+				$sql1 = "SELECT producto, ingreso, cantidad, Usuario, factura, proveedor FROM `historial-b-i`";
 				$resultado1 = $conexion->query($sql1);
 
 				// Consultar la tabla
@@ -624,10 +624,11 @@ include 'conexion_db.php';
 							   <thead>
                                             <tr>
                                             <th class="mdl-data-table"style="text-align: center;">TIPO DE TAPA</th>
-                                            <th class="mdl-data-table"style="text-align: center;">COLOR DE TAPA</th>
                                             <th class="mdl-data-table" style="text-align: center;">FECHA DE INGRESO</th>
                                             <th class="mdl-data-table" style="text-align: center;">CANTIDAD</th>
                                             <th class="mdl-data-table" style="text-align: center;">USUARIO</th>
+                                            <th class="mdl-data-table" style="text-align: center;">FACTURA</th>
+                                            <th class="mdl-data-table" style="text-align: center;">PROVEEDOR</th>
                                             </tr>
                                     </thead>
                                     <tbody>
@@ -637,10 +638,11 @@ include 'conexion_db.php';
 									   if ($resultado->num_rows > 0) {
 										   while($row = $resultado->fetch_assoc()) {
 											   echo "<tr><td style='text-align:center'>" . $row["producto"] . "</td>
-											   <td style='text-align:center'>" . $row["color_tapa"] . "</td>
 											   <td style='text-align:center'>" . $row["ingreso"] . "</td>
 											   <td style='text-align:center'>" . $row["cantidad"] . "</td>
-											   <td style='text-align:center'>" . $row["Usuario"] . "</td></tr>";
+											   <td style='text-align:center'>" . $row["Usuario"] . "</td>
+											   <td style='text-align:center'>" . $row["factura"] . "</td>
+											   <td style='text-align:center'>" . $row["proveedor"] . "</td></tr>";
 											 }
 									   } else {
 										   echo "0 resultados";
@@ -661,7 +663,6 @@ include 'conexion_db.php';
 							   <thead>
                                             <tr>
                                             <th class="mdl-data-table"style="text-align: center;">TIPO DE TAPA</th>
-                                            <th class="mdl-data-table" style="text-align: center;">COLOR DE TAPA</th>
                                             <th class="mdl-data-table" style="text-align: center;">FECHA DE EGRESO</th>
                                             <th class="mdl-data-table" style="text-align: center;">CANTIDAD</th>
                                             <th class="mdl-data-table" style="text-align: center;">USUARIO</th>
@@ -674,7 +675,6 @@ include 'conexion_db.php';
 									   if ($resultadoe->num_rows > 0) {
 										   while($row = $resultadoe->fetch_assoc()) {
 											   echo "<tr><td style='text-align:center'>" . $row["producto"] . "</td>
-											   <td style='text-align:center'>" . $row["COLOR_TAPA"] . "</td>
 											   <td style='text-align:center'>" . $row["egreso"] . "</td>
 											   <td style='text-align:center'>" . $row["cantidad"] . "</td>
 											   <td style='text-align:center'>" . $row["Usuario"] . "</td></tr>";
@@ -713,6 +713,8 @@ include 'conexion_db.php';
                                             <th class="mdl-data-table" style="text-align: center;">FECHA DE INGRESO</th>
                                             <th class="mdl-data-table" style="text-align: center;">CANTIDAD</th>
                                             <th class="mdl-data-table" style="text-align: center;">USUARIO</th>
+                                            <th class="mdl-data-table" style="text-align: center;">FACTURA</th>
+                                            <th class="mdl-data-table" style="text-align: center;">PROVEEDOR</th>
                                             </tr>
                                     </thead>
                                     <tbody>
@@ -724,7 +726,9 @@ include 'conexion_db.php';
 											   echo "<tr><td style='text-align:center'>" . $row["producto"] . "</td>
 											   <td style='text-align:center'>" . $row["ingreso"] . "</td>
 											   <td style='text-align:center'>" . $row["cantidad"] . "</td>
-											   <td style='text-align:center'>" . $row["Usuario"] . "</td></tr>";
+											   <td style='text-align:center'>" . $row["Usuario"] . "</td>
+											   <td style='text-align:center'>" . $row["factura"] . "</td>
+											   <td style='text-align:center'>" . $row["proveedor"] . "</td></tr>";
 											 }
 									   } else {
 										   echo "0 resultados";

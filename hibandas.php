@@ -6,11 +6,13 @@
   $empleado = $_POST['Empleado'];
   $cantidad = $_POST['cant'];
   $producto = $_POST['opciones'];
+  $factura = $_POST['#Factura'];
+  $proveedor = $_POST['Proveedor'];
   
   
 
   // Insertar los datos en la base de datos
-  $sql = "INSERT INTO `historial-t-e` (producto, egreso, cantidad, Usuario) VALUES ('$producto','$fecha','$cantidad', '$empleado')";
+  $sql = "INSERT INTO `historial-b-i` (producto, ingreso, cantidad, Usuario, factura, proveedor) VALUES ('$producto','$fecha','$cantidad', '$empleado','$factura', '$proveedor')";
 
   $resultado = mysqli_query($conexion, $sql);
 
