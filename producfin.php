@@ -579,20 +579,20 @@ $resultado1 = mysqli_query($conexion, $sql);
 							Ingreso de Producto
 						</div>
 						<div class="full-width panel-content">
-							<form>
+							<form action= "hiproductot.php" method="POST">>
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 									<label for="fecha">Fecha de ingreso:</label>
-<input type="date" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
+<input type="date"  name="fecha" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
 								
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="cant" id="cant">
 											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
 										</div>	
 										
 										<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="codigo">
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="codigo" id="codigo">
 											<label class="mdl-textfield__label" for="codigo">Codigo de Barras</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
 										</div>
@@ -600,7 +600,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 									<h6 class="text-condensedLight">Selecciona el producto
 											<?php
-												echo "<select nombre='opciones'>";
+												echo "<select name='opciones' id='opciones'>";
 												while ($fila = mysqli_fetch_assoc($resultado)) {
 													echo "<option value='".$fila['descripcion']."'>".$fila['descripcion']."</option>";
 												}
@@ -608,7 +608,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 												?>
 										</h6>
 											<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text"  id="Empleado">
+											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado">
 											<label class="mdl-textfield__label" for="Empleado">Nombre de quien ingresa el producto</label>
 											<span class="mdl-textfield__error">Nombre Invalio</span>
 											
@@ -616,7 +616,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 									</div>
 								</div>
 								<p class="text-center">
-									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="AgregarProducto">
+									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary"  type="submit" id="AgregarProducto">
 										<i class="zmdi zmdi-plus"></i>
 										<div class="mdl-tooltip" for="AgregarProducto">Ingresar Producto</div>
 									</button>
@@ -640,22 +640,22 @@ $resultado1 = mysqli_query($conexion, $sql);
 							Salida de Producto
 						</div>
 						<div class="full-width panel-content">
-							<form action= "ingresarproducto.php" method="POST">
+							<form action= "heproductot.php" method="POST">
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 
 									<label for="fecha">Fecha de salida:</label>
 										
-                                        <input type="date" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
+                                        <input type="date" name="fecha" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
 											
 											
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="cant" id="cant">
 											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
 										</div>	
 										<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text"  id="Empleado">
+											<input class="mdl-textfield__input" type="text"  name="Empleado" id="Empleado">
 											<label class="mdl-textfield__label" for="Empleado">Nombre de quien Egresa el producto</label>
 											<span class="mdl-textfield__error">Nombre Invalio</span>
 										</div>
@@ -663,7 +663,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 									<h6 class="text-condensedLight">Selecciona el producto
 											<?php
-												echo "<select nombre='opciones'>";
+												echo "<select name='opciones' id='opciones'>";
 												while ($fila = mysqli_fetch_assoc($resultado1)) {
 													echo "<option value='".$fila['descripcion']."'>".$fila['descripcion']."</option>";
 												}
@@ -671,7 +671,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 												?>
 										</h6>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="codigo">
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="codigo" id="codigo">
 											<label class="mdl-textfield__label" for="codigo">Codigo de Barras</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
 										</div>	
@@ -681,7 +681,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 									</div>
 								</div>
 								<p class="text-center">
-									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="EgresarProducto">
+									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" id="EgresarProducto">
 										<i class="zmdi zmdi-minus"></i>
 									</button>
 									<div class="mdl-tooltip" for="EgresarProducto">Sacar Producto</div>

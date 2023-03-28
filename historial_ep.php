@@ -631,6 +631,7 @@ include 'conexion_db.php';
 										   while($row = $resultado->fetch_assoc()) {
 											   echo "<tr><td style='text-align:center'>" . $row["Lote"] . "</td>
 											   <td style='text-align:center'>" . $row["materia"] . "</td>
+											   <td style='text-align:center'>" . $row["cantidad"] . "</td>
 											   <td style='text-align:center'>" . $row["Tipo_Envase"] . "</td>
 											   <td style='text-align:center'>" . $row["Usuario"] . "</td>
 											   <td style='text-align:center'>" . $row["fecha_envasado"] . "</td></tr>";
@@ -686,6 +687,7 @@ include 'conexion_db.php';
 											   echo "<tr><td style='text-align:center'>" . $row["Lote"] . "</td>
 											   <td style='text-align:center'>" . $row["alcohol"] . "</td>
 											   <td style='text-align:center'>" . $row["solidos"] . "</td>
+											   <td style='text-align:center'>" . $row["brix"] . "</td>
 											   <td style='text-align:center'>" . $row["ac"] . "</td>
 											   <td style='text-align:center'>" . $row["ph"] . "</td>
 											   <td style='text-align:center'>" . $row["temperatura"] . "</td>

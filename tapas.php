@@ -22,20 +22,12 @@
 include 'conexion_db.php';
 
 // Consulta SQL para obtener los datos
-$sql = "SELECT tipo_tapa FROM tapas";
+$sql = "SELECT Descripcion FROM tapas";
 
 // Ejecutar la consulta
 $resultado = mysqli_query($conexion, $sql);
 
 $resultado1 = mysqli_query($conexion, $sql);
-
-// Consulta SQL para obtener los datos
-$sql1 = "SELECT color_tapa FROM tapas";
-
-// Ejecutar la consulta
-$resultadoc = mysqli_query($conexion, $sql1);
-
-$resultadoc1 = mysqli_query($conexion, $sql1);
 ?>
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
@@ -615,20 +607,11 @@ $resultadoc1 = mysqli_query($conexion, $sql1);
 											<label class="mdl-textfield__label" for="Empleado">Nombre de quien ingresa la tapa</label>
 											<span class="mdl-textfield__error">Nombre Invalio</span>	
 										</div>
-									    <h6 class="text-condensedLight">Selecciona el tipo de tapa
+									    <h6 class="text-condensedLight">Selecciona la tapa
 											<?php
 												echo "<select nombre='opciones'>";
-												while ($fila = mysqli_fetch_assoc($resultado)) {
-													echo "<option value='".$fila['tipo_tapa']."'>".$fila['tipo_tapa']."</option>";
-												}
-												echo "</select>";
-											?>
-								       </h6>
-									   <h6 class="text-condensedLight">Selecciona el color de la tapa
-											<?php
-												echo "<select nombre='opciones'>";
-												while ($fila = mysqli_fetch_assoc($resultadoc)) {
-													echo "<option value='".$fila['color_tapa']."'>".$fila['color_tapa']."</option>";
+												while ($fila = mysqli_fetch_assoc($resultado1)) {
+													echo "<option value='".$fila['Descripcion']."'>".$fila['Descripcion']."</option>";
 												}
 												echo "</select>";
 											?>
@@ -664,7 +647,7 @@ $resultadoc1 = mysqli_query($conexion, $sql1);
 							Salida de Tapa
 						</div>
 						<div class="full-width panel-content">
-							<form>
+							<form action= "hitapas.php" method="POST">
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 										
@@ -682,11 +665,11 @@ $resultadoc1 = mysqli_query($conexion, $sql1);
 									</div>
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 										
-									     <h6 class="text-condensedLight">Selecciona el color de la tapa
+									     <h6 class="text-condensedLight">Selecciona la tapa
 											<?php
 												echo "<select nombre='opciones'>";
-												while ($fila = mysqli_fetch_assoc($resultadoc1)) {
-													echo "<option value='".$fila['color_tapa']."'>".$fila['color_tapa']."</option>";
+												while ($fila = mysqli_fetch_assoc($resultado)) {
+													echo "<option value='".$fila['Descripcion']."'>".$fila['Descripcion']."</option>";
 												}
 												echo "</select>";
 											?>
@@ -696,15 +679,6 @@ $resultadoc1 = mysqli_query($conexion, $sql1);
 										
                                         <input type="date" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
 
-										<h6 class="text-condensedLight">Selecciona el tipo de tapa
-											<?php
-												echo "<select nombre='opciones'>";
-												while ($fila = mysqli_fetch_assoc($resultado1)) {
-													echo "<option value='".$fila['tipo_tapa']."'>".$fila['tipo_tapa']."</option>";
-												}
-												echo "</select>";
-											?>
-								       </h6>
 									</div>
 									
 									
@@ -721,52 +695,7 @@ $resultadoc1 = mysqli_query($conexion, $sql1);
 				</div>
 			</div>
 	</div>	
-		<div class="mdl-tabs__panel" id="tabNewInventario">
-			<div class="mdl-grid">
-				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-					<div class="full-width panel mdl-shadow--2dp">
-						<div class="full-width panel-tittle bg-primary text-center tittles">
-							Inventario de Tapas
-						</div>
-						<div class="full-width panel-content">
-							<form>
-								<div class="mdl-grid">
-									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-										<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-											<thead>
-												<tr>
-													<th class="mdl-data-table__cell--non-numeric">Tipo de Tapa</th>
-													<th>Tamaño</th>
-													<th>Color</th>
-													<th>Proveedor</th>
-													<th>Cantidad</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td class="mdl-data-table__cell--non-numeric">...</td>
-													<td>...</td>
-													<td>...</td>
-													<td>...</td>
-													<td>...</td>
-												</tr>
-												<tr>
-													<td class="mdl-data-table__cell--non-numeric">...</td>
-													<td>...</td>
-													<td>...</td>
-													<td>...</td>
-													<td>...</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>	
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		
 	</section>
 </body>
 </html>

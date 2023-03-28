@@ -580,22 +580,22 @@ $resultado1 = mysqli_query($conexion, $sql);
 							Ingreso de Colgante
 						</div>
 						<div class="full-width panel-content">
-							<form>
+							<form action= "hicolgantes.php" method="POST">
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 									
 									<label for="fecha">Fecha de ingreso:</label>
 										
-                                        <input type="date" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
+                                        <input type="date" name="fecha" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
 										
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="cant" id="cant">
 											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
 											
 										</div>	
 										<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text"  id="Empleado">
+											<input class="mdl-textfield__input" type="text"  name="Empleado" id="Empleado">
 											<label class="mdl-textfield__label" for="Empleado">Nombre de quien ingresa el colgante</label>
 											<span class="mdl-textfield__error">Nombre Invalio</span>	
 										</div>
@@ -603,7 +603,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 									<h6 class="text-condensedLight">Selecciona el colgante
 											<?php
-												echo "<select nombre='opciones'>";
+												echo "<select name='opciones' id='opciones'>";
 												while ($fila = mysqli_fetch_assoc($resultado)) {
 													echo "<option value='".$fila['descripcion']."'>".$fila['descripcion']."</option>";
 												}
@@ -611,19 +611,19 @@ $resultado1 = mysqli_query($conexion, $sql);
 											?>
 								       </h6>
 								       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="#Factura">
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="#Factura" id="#Factura">
 											<label class="mdl-textfield__label" for="#Factura">Numero de Factura</label>
 											<span class="mdl-textfield__error">Numero Invalido</span>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text"  id="Proveedor">
+											<input class="mdl-textfield__input" type="text" name="Proveedor" id="Proveedor">
 											<label class="mdl-textfield__label" for="Proveedor">Nombre del Proveedor</label>
 											<span class="mdl-textfield__error">Nombre Invalio</span>	
 								  		</div>
 									</div>
 								</div>
 								<p class="text-center">
-									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="AgregarProducto">
+									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" id="AgregarProducto">
 										<i class="zmdi zmdi-plus"></i>
 										<div class="mdl-tooltip" for="AgregarProducto">Ingresar Colgante</div>
 									</button>
@@ -642,12 +642,12 @@ $resultado1 = mysqli_query($conexion, $sql);
 							Salida de Colgante
 						</div>
 						<div class="full-width panel-content">
-							<form>
+							<form action= "hecolgantes.php" method="POST">
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 									<h6 class="text-condensedLight">Selecciona el colgante
 											<?php
-												echo "<select nombre='opciones'>";
+												echo "<select name='opciones' id='opciones'>";
 												while ($fila = mysqli_fetch_assoc($resultado1)) {
 													echo "<option value='".$fila['descripcion']."'>".$fila['descripcion']."</option>";
 												}
@@ -657,16 +657,16 @@ $resultado1 = mysqli_query($conexion, $sql);
 										
 									<label for="fecha">Fecha de salida:</label>
 										
-                                        <input type="date" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
+                                        <input type="date" name="fecha" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
 									</div>
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="cant">
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="cant" id="cant">
 											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
 										</div>	
 										<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text"  id="Empleado">
+											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado">
 											<label class="mdl-textfield__label" for="Empleado">Nombre de quien Egresa el colgante</label>
 											<span class="mdl-textfield__error">Nombre Invalio</span>
 										</div>
