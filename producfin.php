@@ -579,7 +579,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 							Ingreso de Producto
 						</div>
 						<div class="full-width panel-content">
-							<form action= "hiproductot.php" method="POST">>
+							<form id="formulario" name="formulario" method="POST" action="producfin.php" onsubmit="return enviarDatos();">
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 									<label for="fecha">Fecha de ingreso:</label>
@@ -640,22 +640,22 @@ $resultado1 = mysqli_query($conexion, $sql);
 							Salida de Producto
 						</div>
 						<div class="full-width panel-content">
-							<form action= "heproductot.php" method="POST">
+							<form id="formulario2" name="formulario2" method="POST" action="producfin.php" onsubmit="return enviarDatos2();">
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 
 									<label for="fecha">Fecha de salida:</label>
 										
-                                        <input type="date" name="fecha" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
+                                        <input type="date" name="fecha2" id="fecha2" value="<?php echo date('Y-m-d'); ?>" />
 											
 											
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="cant" id="cant">
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="cant2" id="cant2">
 											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
 										</div>	
 										<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text"  name="Empleado" id="Empleado">
+											<input class="mdl-textfield__input" type="text"  name="Empleado2" id="Empleado2">
 											<label class="mdl-textfield__label" for="Empleado">Nombre de quien Egresa el producto</label>
 											<span class="mdl-textfield__error">Nombre Invalio</span>
 										</div>
@@ -663,7 +663,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 									<h6 class="text-condensedLight">Selecciona el producto
 											<?php
-												echo "<select name='opciones' id='opciones'>";
+												echo "<select name='opciones2' id='opciones2'>";
 												while ($fila = mysqli_fetch_assoc($resultado1)) {
 													echo "<option value='".$fila['descripcion']."'>".$fila['descripcion']."</option>";
 												}
@@ -692,7 +692,72 @@ $resultado1 = mysqli_query($conexion, $sql);
 				</div>
 			</div>
 	</div>	
-		
-	</section>
+	<script>
+function enviarDatos() {
+  // Obtenemos los datos del formulario
+  var producto = document.getElementById("opciones").value;
+  var fecha = document.getElementById("fecha").value;
+  var cantidad = document.getElementById("cant").value;
+  var empleado = document.getElementById("Empleado").value;
+
+  // Creamos un objeto XMLHttpRequest para enviar los datos a actualizarinventario.php
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("POST", "actualizarinventariopt.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send("opciones=" + producto + "&fecha=" + fecha + "&cant=" + cantidad  + "&Empleado=" + empleado);
+
+  // Creamos otro objeto XMLHttpRequest para enviar los datos a guardarhistorial.php
+  var xmlhttp2 = new XMLHttpRequest();
+  xmlhttp2.open("POST", "hiproductot.php", true);
+  xmlhttp2.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp2.send("opciones=" + producto + "&fecha=" + fecha + "&cant=" + cantidad  + "&Empleado=" + empleado);
+
+    // Mostramos una notificación de éxito
+	alert("Los datos han sido guardados correctamente.");
+
+// Limpiamos los campos del formulario
+document.getElementById("opciones").value = "";
+document.getElementById("fecha").value = "";
+document.getElementById("cant").value = "";
+document.getElementById("Empleado").value = "";
+
+  // Retornamos false para evitar que el formulario se envíe automáticamente
+  return false;
+}
+</script>
+
+<script>
+function enviarDatos2() {
+  // Obtenemos los datos del formulario
+  var producto = document.getElementById("opciones2").value;
+  var fecha = document.getElementById("fecha2").value;
+  var cantidad = document.getElementById("cant2").value;
+  var empleado = document.getElementById("Empleado2").value;
+
+  // Creamos un objeto XMLHttpRequest para enviar los datos a actualizarinventario.php
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("POST", "actualizarinventariopts.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send("opciones2=" + producto + "&fecha2=" + fecha + "&cant2=" + cantidad  + "&Empleado2=" + empleado);
+
+  // Creamos otro objeto XMLHttpRequest para enviar los datos a guardarhistorial.php
+  var xmlhttp2 = new XMLHttpRequest();
+  xmlhttp2.open("POST", "heproductot.php", true);
+  xmlhttp2.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp2.send("opciones2=" + producto + "&fecha2=" + fecha + "&cant2=" + cantidad  + "&Empleado2=" + empleado);
+
+    // Mostramos una notificación de éxito
+	alert("Los datos han sido guardados correctamente.");
+
+// Limpiamos los campos del formulario
+document.getElementById("opciones2").value = "";
+document.getElementById("fecha2").value = "";
+document.getElementById("cant2").value = "";
+document.getElementById("Empleado2").value = "";
+
+  // Retornamos false para evitar que el formulario se envíe automáticamente
+  return false;
+}
+</script>
 </body>
 </html>

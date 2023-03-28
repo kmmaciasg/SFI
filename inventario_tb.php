@@ -23,7 +23,7 @@ include 'conexion_db.php';
 
  
 				// Consultar la tabla
-				$sql = "SELECT tipo_tapa, color_tapa, cantidad FROM tapas";
+				$sql = "SELECT Descripcion, cantidad FROM tapas";
 				$resultado = $conexion->query($sql);
 
 				// Consultar la tabla
@@ -614,7 +614,6 @@ include 'conexion_db.php';
 									<thead>
                                             <tr>
                                             <th class="mdl-data-table"style="text-align: center;">TIPO DE TAPA</th>
-                                            <th class="mdl-data-table" style="text-align: center;">COLOR</th>
                                             <th class="mdl-data-table" style="text-align: center;">CANTIDAD</th>
                                             </tr>
                                     </thead>
@@ -624,8 +623,7 @@ include 'conexion_db.php';
 									   // Mostrar los resultados en la tabla
 									   if ($resultado->num_rows > 0) {
 										   while($row = $resultado->fetch_assoc()) {
-											   echo "<tr><td style='text-align:center'>" . $row["tipo_tapa"] . "</td>
-											   <td style='text-align:center'>" . $row["color_tapa"] . "</td>
+											   echo "<tr><td style='text-align:center'>" . $row["Descripcion"] . "</td>
 											   <td style='text-align:center'>" . $row["cantidad"] . "</td></tr>";
 											 }
 									   } else {
