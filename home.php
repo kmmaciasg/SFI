@@ -1,3 +1,29 @@
+<?php
+
+$conexion = mysqli_connect ("localhost", "root", "", "lachila" ); 
+
+// Obtener el nombre de usuario de la URL
+$username = $_GET['userName'];
+// Realizar una consulta SQL para obtener el apellido del usuario
+$resultado = mysqli_query($conexion, "SELECT apellidos, nombres FROM usuarios WHERE num_documento ='$username'");
+
+// Verificar si la consulta se realizó correctamente
+if (!$resultado) {
+  die("Error de consulta: " . mysqli_error($conexion));
+}
+
+// Obtener el apellido del usuario
+if ($fila = mysqli_fetch_assoc($resultado)) {
+  $apellido = $fila['apellidos']; 
+  $nombre = $fila['nombres'];
+
+  $nombre_completo = $nombre . " " . $apellido;
+} else {
+  // Si no se encontró el usuario, mostrar un mensaje de error
+  $apellido = "Usuario no encontrado";
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -105,7 +131,7 @@
 						<i class="zmdi zmdi-power"></i>
 						<div class="mdl-tooltip" for="btn-exit">Salir</div>
 					</li>
-					<li class="text-condensedLight noLink" ><small>Nombre de Usuario</small></li>
+					<li class="text-condensedLight noLink" ><small> <?php echo htmlspecialchars($nombre_completo); ?></small></li>
 					<li class="noLink">
 						<figure>
 							<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
@@ -128,8 +154,8 @@
 				</div>
 				<figcaption class="navLateral-body-cr hide-on-tablet">
 					<span>
-						nombre usuario<br>
-						<small>tipo usuario</small>
+					<span>Usuario: <?php echo htmlspecialchars($_GET['userName']); ?><br>
+						<small> <?php echo htmlspecialchars($nombre_completo); ?></small>
 					</span>
 				</figcaption>
 			</figure>
@@ -565,6 +591,6 @@
 				</figure>
 			</li>
         </div>
-    </div>  
+    </div> 
 </body>
 </html>
