@@ -608,11 +608,9 @@ $resultado1 = mysqli_query($conexion, $sql);
 											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
 										</div>	
-										<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado">
-											<label class="mdl-textfield__label" for="Empleado">Nombre de quien ingresa la etiqueta</label>
-											<span class="mdl-textfield__error">Nombre Invalio</span>	
-										</div>
+										<h6 class="text-condensedLight">Usuario:  
+											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado" value="<?php echo $nombre_completo ?>" readonly>
+											</h6>
 									</div>
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 									   <h6 class="text-condensedLight">Selecciona la etiqueta
@@ -673,24 +671,23 @@ $resultado1 = mysqli_query($conexion, $sql);
 												echo "</select>";
 												?>
 								        </h6>
-									<label for="fecha">Fecha de salida:</label>
-										
-                                        <input type="date" name="fecha2" id="fecha2" value="<?php echo date('Y-m-d'); ?>" />
-											
-									</div>
-									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="cant2" id="cant2">
 											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
 										</div>	
+									
+									</div>
+									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+
+									<label for="fecha">Fecha de salida:</label>
 										
-										<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text"  name="Empleado2"  id="Empleado2">
-											<label class="mdl-textfield__label" for="Empleado">Nombre de quien Egresa la Etiqueta</label>
-											<span class="mdl-textfield__error">Nombre Invalio</span>
-										</div>
+                                        <input type="date" name="fecha2" id="fecha2" value="<?php echo date('Y-m-d'); ?>" />
+											
+										
+										<h6 class="text-condensedLight">Usuario:  
+											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado" value="<?php echo $nombre_completo ?>" readonly>
+											</h6>
 									</div>
 								</div>
 								<p class="text-center">

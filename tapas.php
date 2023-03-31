@@ -598,31 +598,21 @@ $resultado1 = mysqli_query($conexion, $sql);
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 							
+										<label for="fecha">Fecha de ingreso:</label>
+										
+                                        <input type="date" name="fecha" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
+										
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="cant" id="cant">
 											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
 										</div>	
-										
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="#Factura" id="#Factura">
-											<label class="mdl-textfield__label" for="#Factura">Numero de Factura</label>
-											<span class="mdl-textfield__error">Numero Invalido</span>
-										</div>
-										<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text" name="Proveedor" id="Proveedor">
-											<label class="mdl-textfield__label" for="Proveedor">Nombre del Proveedor</label>
-											<span class="mdl-textfield__error">Nombre Invalio</span>	
-										</div>
-										
-										
+										<h6 class="text-condensedLight">Usuario:  
+											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado" value="<?php echo $nombre_completo ?>" readonly>
+											</h6>
 									</div>
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-									<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado">
-											<label class="mdl-textfield__label" for="Empleado">Nombre de quien ingresa la tapa</label>
-											<span class="mdl-textfield__error">Nombre Invalio</span>	
-										</div>
+									
 									    <h6 class="text-condensedLight">Selecciona la tapa
 											<?php
 												echo "<select name='opciones' id='opciones'>";
@@ -633,11 +623,18 @@ $resultado1 = mysqli_query($conexion, $sql);
 											?>
 								       </h6>
 										
-									<label for="fecha">Fecha de ingreso:</label>
-										
-                                        <input type="date" name="fecha" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
-										
-									</div>
+									   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="#Factura" id="#Factura">
+											<label class="mdl-textfield__label" for="#Factura">Numero de Factura</label>
+											<span class="mdl-textfield__error">Numero Invalido</span>
+										</div>
+										<div class="mdl-textfield mdl-js-textfield">
+											<input class="mdl-textfield__input" type="text" name="Proveedor" id="Proveedor">
+											<label class="mdl-textfield__label" for="Proveedor">Nombre del Proveedor</label>
+											<span class="mdl-textfield__error">Nombre Invalio</span>	
+										</div>
+									
+										</div>
 								</div>
 								<p class="text-center">
 									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" id="AgregarProducto">
@@ -666,22 +663,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 							<form id="formulario2" name="formulario2" method="POST" action="tapas.php" onsubmit="return enviarDatos2();">
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-										
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="cant2" id="cant2">
-											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
-											<span class="mdl-textfield__error">Cantidad invalida</span>
-										</div>	
-										<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text" name="Empleado2" id="Empleado2">
-											<label class="mdl-textfield__label" for="Empleado">Nombre de quien Egresa la tapa</label>
-											<span class="mdl-textfield__error">Nombre Invalio</span>
-										</div>
-									  
-									</div>
-									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-										
-									     <h6 class="text-condensedLight">Selecciona la tapa
+									<h6 class="text-condensedLight">Selecciona la tapa
 											<?php
 												echo "<select name='opciones2' id='opciones2'>";
 												while ($fila = mysqli_fetch_assoc($resultado)) {
@@ -690,11 +672,24 @@ $resultado1 = mysqli_query($conexion, $sql);
 												echo "</select>";
 											?>
 								       </h6>
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="cant2" id="cant2">
+											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
+											<span class="mdl-textfield__error">Cantidad invalida</span>
+										</div>	
+										
+									  
+									</div>
+									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+										
+									    
 										
 									<label for="fecha">Fecha de salida:</label>
 										
                                         <input type="date" name="fecha2" id="fecha2" value="<?php echo date('Y-m-d'); ?>" />
-
+										<h6 class="text-condensedLight">Usuario:  
+											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado" value="<?php echo $nombre_completo ?>" readonly>
+											</h6>
 									</div>
 									
 									

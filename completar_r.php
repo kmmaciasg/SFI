@@ -592,8 +592,8 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
                         <div class="mdl-list__item mdl-list__item--two-line">
                             <span class="mdl-list__item-primary-content">
                                 <i class="zmdi zmdi-account mdl-list__item-avatar"></i>
-                                <span>Nombre de usuario</span>
-                                <span class="mdl-list__item-sub-title">Documento de Identidad</span>
+                                <span>Usuario</span>
+                                <span class="mdl-list__item-sub-title"><?php echo $nombre_completo ?></span>
                             </span>
                            
                         </div>

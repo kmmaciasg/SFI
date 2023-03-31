@@ -642,16 +642,13 @@ $resultado = mysqli_query($conexion, $sql);
 													echo "<option value='".$fila['nombre']."'>".$fila['nombre']."</option>";
 												}
 												echo "</select>";
-												?>
+										    ?>
 										
 					
-											<div class="mdl-textfield mdl-js-textfield">
 											<h6 class="text-condensedLight">Usuario:  
-											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado" value="<?php echo $nombre_completo ?>">
-                                                <label class="mdl-textfield__label" for="Empleado">Usuario</label>
+											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado" value="<?php echo $nombre_completo ?>" readonly>
 											</h6>
                                                 
-                                            </div>  
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number" step="0.0000001"name="Cantidad" id="Cantidad">
 												<label class="mdl-textfield__label" for="Cantidad">Cantidad en L</label>

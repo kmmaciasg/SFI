@@ -613,7 +613,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 										</div>
 									</div>
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-									<h6 class="text-condensedLight">Selecciona el producto
+									 <h6 class="text-condensedLight">Selecciona el producto
 											<?php
 												echo "<select name='opciones' id='opciones'>";
 												while ($fila = mysqli_fetch_assoc($resultado)) {
@@ -621,13 +621,11 @@ $resultado1 = mysqli_query($conexion, $sql);
 												}
 												echo "</select>";
 												?>
-										</h6>
-											<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado">
-											<label class="mdl-textfield__label" for="Empleado">Nombre de quien ingresa el producto</label>
-											<span class="mdl-textfield__error">Nombre Invalio</span>
+									 </h6>
 											
-										</div>
+										<h6 class="text-condensedLight">Usuario:  
+											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado" value="<?php echo $nombre_completo ?>" readonly>
+											</h6>
 									</div>
 								</div>
 								<p class="text-center">
@@ -663,19 +661,6 @@ $resultado1 = mysqli_query($conexion, $sql);
 										
                                         <input type="date" name="fecha2" id="fecha2" value="<?php echo date('Y-m-d'); ?>" />
 											
-											
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="cant2" id="cant2">
-											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
-											<span class="mdl-textfield__error">Cantidad invalida</span>
-										</div>	
-										<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text"  name="Empleado2" id="Empleado2">
-											<label class="mdl-textfield__label" for="Empleado">Nombre de quien Egresa el producto</label>
-											<span class="mdl-textfield__error">Nombre Invalio</span>
-										</div>
-									</div>
-									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 									<h6 class="text-condensedLight">Selecciona el producto
 											<?php
 												echo "<select name='opciones2' id='opciones2'>";
@@ -690,7 +675,20 @@ $resultado1 = mysqli_query($conexion, $sql);
 											<label class="mdl-textfield__label" for="codigo">Codigo de Barras</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
 										</div>	
+									</div>
+									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+									
 										
+											
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="cant2" id="cant2">
+											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
+											<span class="mdl-textfield__error">Cantidad invalida</span>
+										</div>	
+										
+										<h6 class="text-condensedLight">Usuario:  
+											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado" value="<?php echo $nombre_completo ?>" readonly>
+											</h6>
 										
 
 									</div>

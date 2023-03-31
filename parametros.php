@@ -610,11 +610,10 @@ $resultado = mysqli_query($conexion, $sql);
 										<input type="date" id="fecha" name="fecha" value="<?php echo date('Y-m-d'); ?>" />
 								
                                               
-                                                <div class="mdl-textfield mdl-js-textfield">
-                                                    <input class="mdl-textfield__input" type="text"  name="Empleado" id="Empleado">
-                                                    <label class="mdl-textfield__label" for="Empleado">Nombre de quien Ingresa Parametros</label>
-                                                    <span class="mdl-textfield__error">Nombre Invalio</span>
-                                                </div> 
+                                               
+											<h6 class="text-condensedLight">Usuario:  
+											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado" value="<?php echo $nombre_completo ?>" readonly>
+											</h6> 
 												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                 <input class="mdl-textfield__input" type="number" step="0.0000001" name="Alcohol" id="Alcohol">
                                                 <label class="mdl-textfield__label" for="Alcohol">Alcohol</label>

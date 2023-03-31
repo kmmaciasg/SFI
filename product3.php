@@ -636,11 +636,10 @@ $resultadot = mysqli_query($conexion, $sqlt);
 											<label class="mdl-textfield__label" for="materia">Materia Prima</label>
 											<span class="mdl-textfield__error">Nombre Invalio</span>
 										</div>
-										<div class="mdl-textfield mdl-js-textfield">
-											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado">
-											<label class="mdl-textfield__label" for="Empleado">Nombre de quien Envasa</label>
-											<span class="mdl-textfield__error">Nombre Invalio</span>
-										</div>
+										
+										<h6 class="text-condensedLight">Usuario:  
+											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado" value="<?php echo $nombre_completo ?>" readonly>
+											</h6>
 										
 										<label for="fecha">Fecha de Envasado:</label>
 										<input type="date" id="fecha" name="fecha" value="<?php echo date('Y-m-d'); ?>" />
