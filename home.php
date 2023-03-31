@@ -1,27 +1,17 @@
 <?php
 
 $conexion = mysqli_connect ("localhost", "root", "", "lachila" ); 
-
-// Obtener el nombre de usuario de la URL
-$username = $_GET['userName'];
-// Realizar una consulta SQL para obtener el apellido del usuario
-$resultado = mysqli_query($conexion, "SELECT apellidos, nombres FROM usuarios WHERE num_documento ='$username'");
-
-// Verificar si la consulta se realizó correctamente
-if (!$resultado) {
-  die("Error de consulta: " . mysqli_error($conexion));
-}
-
-// Obtener el apellido del usuario
-if ($fila = mysqli_fetch_assoc($resultado)) {
-  $apellido = $fila['apellidos']; 
-  $nombre = $fila['nombres'];
-
-  $nombre_completo = $nombre . " " . $apellido;
-} else {
-  // Si no se encontró el usuario, mostrar un mensaje de error
-  $apellido = "Usuario no encontrado";
-}
+session_start(); // Iniciar sesión
+    if(isset($_SESSION['nombre_usuario'])){ // Comprobar si se ha iniciado sesión
+        $nombre_usuario = $_SESSION['nombre_usuario']; // Obtener el nombre de usuario guardado en la sesión
+        $apellido_usuario = $_SESSION['apellido_usuario']; // Obtener el apellido de usuario guardado en la sesión
+       
+		
+// Concatenar el nombre y apellido en una sola cadena de texto
+$nombre_completo = $nombre_usuario . " " . $apellido_usuario;
+    } else {
+        header("Location: index.php"); // Si no se ha iniciado sesión, redirigir al inicio de sesión
+    }
 
 ?>
 
@@ -154,8 +144,7 @@ if ($fila = mysqli_fetch_assoc($resultado)) {
 				</div>
 				<figcaption class="navLateral-body-cr hide-on-tablet">
 					<span>
-					<span>Usuario: <?php echo htmlspecialchars($_GET['userName']); ?><br>
-						<small> <?php echo htmlspecialchars($nombre_completo); ?></small>
+					<span>Usuario: <?php echo htmlspecialchars($nombre_completo); ?> <br>
 					</span>
 				</figcaption>
 			</figure>

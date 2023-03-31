@@ -1,3 +1,19 @@
+<?php
+
+$conexion = mysqli_connect ("localhost", "root", "", "lachila" ); 
+session_start(); // Iniciar sesión
+    if(isset($_SESSION['nombre_usuario'])){ // Comprobar si se ha iniciado sesión
+        $nombre_usuario = $_SESSION['nombre_usuario']; // Obtener el nombre de usuario guardado en la sesión
+        $apellido_usuario = $_SESSION['apellido_usuario']; // Obtener el apellido de usuario guardado en la sesión
+       
+		
+// Concatenar el nombre y apellido en una sola cadena de texto
+$nombre_completo = $nombre_usuario . " " . $apellido_usuario;
+    } else {
+        header("Location: index.php"); // Si no se ha iniciado sesión, redirigir al inicio de sesión
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -99,6 +115,7 @@ $resultado = mysqli_query($conexion, $sql);
 	</section>
 	<!-- navBar -->
 	<!-- navLateral -->
+	
 	<div class="full-width navBar">
 		<div class="full-width navBar-options">
 			<i class="zmdi zmdi-more-vert btn-menu" id="btn-menu"></i>	
@@ -114,7 +131,7 @@ $resultado = mysqli_query($conexion, $sql);
 						<i class="zmdi zmdi-power"></i>
 						<div class="mdl-tooltip" for="btn-exit">Salir</div>
 					</li>
-					<li class="text-condensedLight noLink" ><small>Nombre de Usuario</small></li>
+					<li class="text-condensedLight noLink" ><small> <?php echo htmlspecialchars($nombre_completo); ?></small></li>
 					<li class="noLink">
 						<figure>
 							<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
@@ -137,8 +154,7 @@ $resultado = mysqli_query($conexion, $sql);
 				</div>
 				<figcaption class="navLateral-body-cr hide-on-tablet">
 					<span>
-						nombre usuario<br>
-						<small>tipo usuario</small>
+					<span>Usuario: <?php echo htmlspecialchars($nombre_completo); ?><br>
 					</span>
 				</figcaption>
 			</figure>
@@ -630,9 +646,11 @@ $resultado = mysqli_query($conexion, $sql);
 										
 					
 											<div class="mdl-textfield mdl-js-textfield">
-                                                <input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado">
-                                                <label class="mdl-textfield__label" for="Empleado">Nombre Ingresa Produccion</label>
-                                                <span class="mdl-textfield__error">Nombre Invalio</span>
+											<h6 class="text-condensedLight">Usuario:  
+											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado" value="<?php echo $nombre_completo ?>">
+                                                <label class="mdl-textfield__label" for="Empleado">Usuario</label>
+											</h6>
+                                                
                                             </div>  
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number" step="0.0000001"name="Cantidad" id="Cantidad">

@@ -1,4 +1,19 @@
+<?php
 
+$conexion = mysqli_connect ("localhost", "root", "", "lachila" ); 
+session_start(); // Iniciar sesión
+    if(isset($_SESSION['nombre_usuario'])){ // Comprobar si se ha iniciado sesión
+        $nombre_usuario = $_SESSION['nombre_usuario']; // Obtener el nombre de usuario guardado en la sesión
+        $apellido_usuario = $_SESSION['apellido_usuario']; // Obtener el apellido de usuario guardado en la sesión
+       
+		
+// Concatenar el nombre y apellido en una sola cadena de texto
+$nombre_completo = $nombre_usuario . " " . $apellido_usuario;
+    } else {
+        header("Location: index.php"); // Si no se ha iniciado sesión, redirigir al inicio de sesión
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -95,6 +110,7 @@ include 'conexion_db.php';
 	</section>
 	<!-- navBar -->
 	<!-- navLateral -->
+
 	<div class="full-width navBar">
 		<div class="full-width navBar-options">
 			<i class="zmdi zmdi-more-vert btn-menu" id="btn-menu"></i>	
@@ -110,7 +126,7 @@ include 'conexion_db.php';
 						<i class="zmdi zmdi-power"></i>
 						<div class="mdl-tooltip" for="btn-exit">Salir</div>
 					</li>
-					<li class="text-condensedLight noLink" ><small>Nombre de Usuario</small></li>
+					<li class="text-condensedLight noLink" ><small> <?php echo htmlspecialchars($nombre_completo); ?></small></li>
 					<li class="noLink">
 						<figure>
 							<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
@@ -133,8 +149,7 @@ include 'conexion_db.php';
 				</div>
 				<figcaption class="navLateral-body-cr hide-on-tablet">
 					<span>
-						nombre usuario<br>
-						<small>tipo usuario</small>
+					<span>Usuario: <?php echo htmlspecialchars($nombre_completo); ?><br>
 					</span>
 				</figcaption>
 			</figure>
