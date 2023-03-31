@@ -676,18 +676,18 @@ $resultado = mysqli_query($conexion, $sql);
 									Nueva Materia Prima 
 								</div>
 								<div class="full-width panel-content">
-									<form>
+									<form action= "nuevamateria.php" method="POST">
 										<div class="mdl-grid">
 											<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 												<h5 class="text-condensedLight">Nombre de la Materia Prima</h5>
 												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-													<input class="mdl-textfield__input" type="text"  id="MateriaPrima">
-													<label class="mdl-textfield__label" for="MateriaPrima">Materia Prima</label>
+													<input class="mdl-textfield__input" type="text"  name="MateriaPrima2"id="MateriaPrima2">
+													<label class="mdl-textfield__label" for="MateriaPrima2">Materia Prima</label>
 													<span class="mdl-textfield__error">Nombre invalido</span>
 												</div>
 											</div>
 											<p class="text-center">
-												<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="AgregarMateria">
+												<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" id="AgregarMateria">
 													<i class="zmdi zmdi-plus"></i>
 												</button>
 												<div class="mdl-tooltip" for="AgregarMateria">Agregar Materia Prima</div>

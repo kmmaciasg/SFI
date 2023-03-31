@@ -641,7 +641,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 										<i class="zmdi zmdi-plus"></i>
 										<div class="mdl-tooltip" for="AgregarProducto">Ingresar Tapa</div>
 									</button>
-									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 55px;" id="CrearProducto">
+									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" onclick="abrirVentana()" style="margin-left: 55px;" id="CrearProducto">
 										<i class="zmdi zmdi-shopping-cart-plus"></i>
 										<div class="mdl-tooltip" for="CrearProducto">Crear Nueva Tapa</div>
 									</button>
@@ -778,5 +778,46 @@ document.getElementById("Empleado2").value = "";
 }
 </script>		
 		
+<script>
+function abrirVentana() {
+  // Abrir ventana emergente
+  var ventana = window.open("", "Nueva ventana", "width=400,height=400");
+  
+
+  // Insertar HTML en la ventana
+  ventana.document.write(`
+  
+  <head>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/sweetalert2.css">
+	<link rel="stylesheet" href="css/material.min.css">
+	<link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+					<div class="full-width panel mdl-shadow--2dp">
+
+    <form method="post" action="insertar_tapa.php">
+
+      <label>Descripción:</label>
+      <input type="text" name="descripcion"><br><br>
+      <label>Cantidad:</label>
+      <input type="number" name="cantidad"><br><br>
+
+	  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 155px;" id="CrearProducto">
+										<i class="zmdi zmdi-shopping-cart-plus"></i>
+										<div class="mdl-tooltip" for="CrearProducto">Crear Nuevo Producto</div>
+									</button>
+    </form>
+	</div>
+	</div>
+	</div>
+
+  `);
+}
+</script>
 </body>
 </html>
