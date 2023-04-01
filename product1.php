@@ -592,7 +592,7 @@ include 'conexion_db.php';
                                             <th class="mdl-data-table" style="text-align: center;">MATERIA</th>
                                             <th class="mdl-data-table"style="text-align: center;">FECHA PRODUCCION</th>
                                             <th class="mdl-data-table" style="text-align: center;">PESO INICIAL</th>
-                                            <th class="mdl-data-table"style="text-align: center;">PESO NETO</th>
+                                            <th class="mdl-data-table"style="text-align: center;">PESO DESPERDICIO</th>
                                             <th class="mdl-data-table"style="text-align: center;">ADICION</th>
                                             <th class="mdl-data-table" style="text-align: center;">CANTIDAD</th>
                                             <th class="mdl-data-table" style="text-align: center;">USUARIO</th>
@@ -619,7 +619,7 @@ include 'conexion_db.php';
 															  ?>
 
 <p class="text-center">
-								<tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 200px;" id="PasaraFermentacion">
+								<tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 200px;" onclick="pasarfase2" id="PasaraFermentacion">
 									<i class="zmdi zmdi-forward"></i>
 								</button></tr>
 								<div class="mdl-tooltip" for="PasaraFermentacion">Pasar a Fermentacion 2</div>
@@ -636,5 +636,35 @@ include 'conexion_db.php';
 			</div>
 		</div>
 	</section>
+	
+	<script>
+function pasarfase2() {
+  // Obtenemos los datos del formulario
+
+  var pesoinicial = document.getElementById("PesoInicial").value;
+  var fecha = document.getElementById("fecha").value;
+  var pesodesperdicio = document.getElementById("PesoDesperdicio").value;
+  var pesoneto = document.getElementById("PesoNeto").value;
+  var adiciones= document.getElementById("Adiciones").value;
+  var lote = document.getElementById("#lote").value;
+  var empleado = document.getElementById("Empleado").value;
+  var cantidad = document.getElementById("Cantidad").value;
+  var materia = document.getElementById("opciones").value;
+
+
+  // Creamos un objeto XMLHttpRequest para enviar los datos a actualizarinventario.php
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("POST", "pasarfase2.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send("PesoInicial=" + pesoinicial  + "&fecha=" + fecha + "&PesoDesperdicio=" + pesodesperdicio + "&PesoNeto=" + pesoneto + "&Adiciones=" + adiciones + "&#lote=" + lote + "&Empleado=" + empleado + "&Cantidad=" + cantidad + "&opciones=" + materia);
+
+  
+    // Mostramos una notificación de éxito
+	alert("Los datos han sido guardados correctamente.");
+
+  // Retornamos false para evitar que el formulario se envíe automáticamente
+  return false;
+}
+</script>		
 </body>
 </html>

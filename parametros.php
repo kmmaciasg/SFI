@@ -32,6 +32,25 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 	<script src="js/sweetalert2.min.js" ></script>
 	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
 	<script src="js/main.js" ></script>
+	<script>
+		function cargarMateriaPrima() {
+    // Obtener el número de lote seleccionado
+    var loteSeleccionado = document.getElementById("opciones").value;
+
+    // Enviar una petición AJAX al archivo obtenerMateriaPrima.php
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            // Actualizar el área de texto con la materia prima obtenida
+            var materiaPrima = JSON.parse(this.responseText)["materiaPrima"];
+            document.getElementById("areaMateriaPrima").value = materiaPrima;
+        }
+    };
+    xhttp.open("POST", "obtenerMateriaPrima.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("lote=" + loteSeleccionado);
+}
+	</script>
 </head>
 <body>
 <?php
@@ -596,16 +615,21 @@ $resultado = mysqli_query($conexion, $sql);
                             <div class="mdl-grid">
                                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
                                   
-                                       
-											<h6 class="text-condensedLight">Selecciona el # de Lote
+								<h6 class="text-condensedLight">Selecciona el # de Lote
 											<?php
-												echo "<select name='opciones'id='opciones'>";
+												echo '<select name="opciones"id="opciones" onchange="cargarMateriaPrima()">';
 												while ($fila = mysqli_fetch_assoc($resultado)) {
 													echo "<option value='".$fila['id']."'>".$fila['id']."</option>";
 												}
 												echo "</select>";
 												?>
-										</h6>
+											</h6>
+
+											<label for="areamateriaPrima">Materia prima:</label>
+	<textarea id="areaMateriaPrima" name="areaMateriaPrima" rows="1" cols="20" readonly></textarea>
+	<br>
+	<br>
+
 										<label for="fecha">Fecha de Toma de Parametros:</label>
 										<input type="date" id="fecha" name="fecha" value="<?php echo date('Y-m-d'); ?>" />
 								

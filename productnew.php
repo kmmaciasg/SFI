@@ -657,7 +657,7 @@ $resultado = mysqli_query($conexion, $sql);
 										</div>
 									</div>
 									<p class="text-center">
-										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" id="guardar">
+										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" onclick="pasarfase1()" id="guardar">
 											<i class="zmdi zmdi-plus"></i>
 										</button>
 										<div class="mdl-tooltip" for="guardar">Agregar Produccion</div>
@@ -701,5 +701,36 @@ $resultado = mysqli_query($conexion, $sql);
 			</div>
 		</div>
 	</section>
+
+	<script>
+function pasarfase1() {
+  // Obtenemos los datos del formulario
+
+  var pesoinicial = document.getElementById("PesoInicial").value;
+  var fecha = document.getElementById("fecha").value;
+  var pesodesperdicio = document.getElementById("PesoDesperdicio").value;
+  var pesoneto = document.getElementById("PesoNeto").value;
+  var adiciones= document.getElementById("Adiciones").value;
+  var lote = document.getElementById("#lote").value;
+  var empleado = document.getElementById("Empleado").value;
+  var cantidad = document.getElementById("Cantidad").value;
+  var materia = document.getElementById("opciones").value;
+
+
+  // Creamos un objeto XMLHttpRequest para enviar los datos a actualizarinventario.php
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("POST", "pasarfase1.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send("PesoInicial=" + pesoinicial  + "&fecha=" + fecha + "&PesoDesperdicio=" + pesodesperdicio + "&PesoNeto=" + pesoneto + "&Adiciones=" + adiciones + "&#lote=" + lote + "&Empleado=" + empleado + "&Cantidad=" + cantidad + "&opciones=" + materia);
+
+  
+    // Mostramos una notificación de éxito
+	alert("Los datos han sido guardados correctamente.");
+
+  // Retornamos false para evitar que el formulario se envíe automáticamente
+  return false;
+}
+</script>		
+		
 </body>
 </html>
