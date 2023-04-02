@@ -585,7 +585,7 @@ include 'conexion_db.php';
 						Producciones en Fermentacion 1
 					</div>
 					<div style="overflow-x: auto;">
-					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+					<table id="miTabla" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 					<thead>
                                             <tr>
                                             <th class="mdl-data-table"style="text-align: center;"># DE LOTE</th>
@@ -619,10 +619,10 @@ include 'conexion_db.php';
 															  ?>
 
 <p class="text-center">
-								<tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 200px;" onclick="pasarfase2" id="PasaraFermentacion">
+								<tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 200px;"  id="pasar-fermentacion">
 									<i class="zmdi zmdi-forward"></i>
 								</button></tr>
-								<div class="mdl-tooltip" for="PasaraFermentacion">Pasar a Fermentacion 2</div>
+								<div class="mdl-tooltip" for="pasar-fermentacion">Pasar a Fermentacion 2</div>
 							</p>
 							
 						</tbody>
@@ -636,35 +636,46 @@ include 'conexion_db.php';
 			</div>
 		</div>
 	</section>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  $("#pasar-fermentacion").click(function() {
+    var numLote = prompt("Ingrese el número de lote a pasar a fermentación:");
+    if (numLote != null && numLote != "") {
+      $.ajax({
+        type: "POST",
+        url: "pasarfase2.php",
+        data: {num_lote: numLote},
+        success: function(response) {
+			
+		  
+			alert("Operacion exitosa");
+			location.reload();
+          // Se ejecuta cuando la petición fue exitosa
+          var data = JSON.parse(response);
+          var lote = data.lote;
+          var materia = data.materia;
+          var fecha = data.fecha;
+          var pesoinicial = data.pesoinicial;
+          var pesodesperdicio = data.pesodesperdicio;
+          var adicion = data.adicion;
+          var cantidad = data.cantidad;
+          var empleado = data.empleado;
+
+
+        },
+        error: function(xhr, status, error) {
+          // Se ejecuta cuando la petición falló
+          alert("Ocurrió un error al intentar pasar el lote a fermentación.");
+        }
+      });
+    }
+  });
+});
+</script>
+
+
+
 	
-	<script>
-function pasarfase2() {
-  // Obtenemos los datos del formulario
-
-  var pesoinicial = document.getElementById("PesoInicial").value;
-  var fecha = document.getElementById("fecha").value;
-  var pesodesperdicio = document.getElementById("PesoDesperdicio").value;
-  var pesoneto = document.getElementById("PesoNeto").value;
-  var adiciones= document.getElementById("Adiciones").value;
-  var lote = document.getElementById("#lote").value;
-  var empleado = document.getElementById("Empleado").value;
-  var cantidad = document.getElementById("Cantidad").value;
-  var materia = document.getElementById("opciones").value;
-
-
-  // Creamos un objeto XMLHttpRequest para enviar los datos a actualizarinventario.php
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open("POST", "pasarfase2.php", true);
-  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlhttp.send("PesoInicial=" + pesoinicial  + "&fecha=" + fecha + "&PesoDesperdicio=" + pesodesperdicio + "&PesoNeto=" + pesoneto + "&Adiciones=" + adiciones + "&#lote=" + lote + "&Empleado=" + empleado + "&Cantidad=" + cantidad + "&opciones=" + materia);
-
-  
-    // Mostramos una notificación de éxito
-	alert("Los datos han sido guardados correctamente.");
-
-  // Retornamos false para evitar que el formulario se envíe automáticamente
-  return false;
-}
-</script>		
 </body>
 </html>
