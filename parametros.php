@@ -52,7 +52,7 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 }
 	</script>
 </head>
-<body>
+<body onload="cargarMateriaPrima()">
 <?php
 include 'conexion_db.php';
 

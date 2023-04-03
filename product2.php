@@ -585,16 +585,16 @@ include 'conexion_db.php';
 					Producciones en Fermentacion 2
 				</div>
 				<div style="overflow-x: auto;">
-				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+				<table id="miTabla" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 				<thead>
                                             <tr>
                                             <th class="mdl-data-table"style="text-align: center;"># DE LOTE</th>
                                             <th class="mdl-data-table" style="text-align: center;">MATERIA</th>
                                             <th class="mdl-data-table"style="text-align: center;">FECHA PRODUCCION</th>
-                                            <th class="mdl-data-table" style="text-align: center;">PESO INICIAL</th>
-                                            <th class="mdl-data-table"style="text-align: center;">PESO NETO</th>
+                                            <th class="mdl-data-table" style="text-align: center;">PESO INICIAL (kg)</th>
+                                            <th class="mdl-data-table"style="text-align: center;">PESO DESPERDICIO (kg)</th>
                                             <th class="mdl-data-table"style="text-align: center;">ADICION</th>
-                                            <th class="mdl-data-table" style="text-align: center;">CANTIDAD</th>
+                                            <th class="mdl-data-table" style="text-align: center;">CANTIDAD (L)</th>
                                             <th class="mdl-data-table" style="text-align: center;">USUARIO</th>
                                             </tr>
                                         </thead>
@@ -636,5 +636,59 @@ include 'conexion_db.php';
 		</div>
 	</div>
 	</section>
+
+<script>
+
+// Obtiene una referencia al botón
+const btnModificar = document.querySelector('#modificarLitraje');
+
+// Agrega un evento de clic al botón
+btnModificar.addEventListener('click', function() {
+  // Pide al usuario el número del lote y el nuevo litraje
+  const lote = prompt('Ingresa el número de lote:');
+  const litrajeNuevo = prompt('Ingresa el nuevo litraje:');
+
+  // Realiza una solicitud AJAX al servidor para actualizar la base de datos
+  const xhr = new XMLHttpRequest();
+  const url = 'modificarlitraje.php';
+  const params = 'lote=' + encodeURIComponent(lote) + '&litraje=' + encodeURIComponent(litrajeNuevo);
+  xhr.open('POST', url);
+  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      // Si la solicitud fue exitosa, refresca la página para que el usuario vea el cambio
+      location.reload();
+    }
+  };
+  xhr.send(params);
+});
+
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  $("#PasaraFermentacion").click(function() {
+    var numLote = prompt("Ingrese el número de lote a pasar a Envasado:");
+    if (numLote != null && numLote != "") {
+      $.ajax({
+        type: "POST",
+        url: "pasarenvasado.php",
+        data: {num_lote: numLote},
+        success: function(response) {
+			
+		  
+			alert("Operacion exitosa");
+			location.reload();
+        },
+        error: function(xhr, status, error) {
+          // Se ejecuta cuando la petición falló
+          alert("Ocurrió un error al intentar pasar el lote a fermentación.");
+        }
+      });
+    }
+  });
+});
+</script>
+
 </body>
 </html>

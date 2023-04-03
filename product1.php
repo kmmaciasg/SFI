@@ -591,10 +591,10 @@ include 'conexion_db.php';
                                             <th class="mdl-data-table"style="text-align: center;"># DE LOTE</th>
                                             <th class="mdl-data-table" style="text-align: center;">MATERIA</th>
                                             <th class="mdl-data-table"style="text-align: center;">FECHA PRODUCCION</th>
-                                            <th class="mdl-data-table" style="text-align: center;">PESO INICIAL</th>
-                                            <th class="mdl-data-table"style="text-align: center;">PESO DESPERDICIO</th>
+                                            <th class="mdl-data-table" style="text-align: center;">PESO INICIAL (kg)</th>
+                                            <th class="mdl-data-table"style="text-align: center;">PESO DESPERDICIO (kg)</th>
                                             <th class="mdl-data-table"style="text-align: center;">ADICION</th>
-                                            <th class="mdl-data-table" style="text-align: center;">CANTIDAD</th>
+                                            <th class="mdl-data-table" style="text-align: center;">CANTIDAD (L)</th>
                                             <th class="mdl-data-table" style="text-align: center;">USUARIO</th>
                                             </tr>
                                         </thead>
@@ -640,7 +640,7 @@ include 'conexion_db.php';
 <script>
 $(document).ready(function() {
   $("#pasar-fermentacion").click(function() {
-    var numLote = prompt("Ingrese el número de lote a pasar a fermentación:");
+    var numLote = prompt("Ingrese el número de lote a pasar a fermentación 2:");
     if (numLote != null && numLote != "") {
       $.ajax({
         type: "POST",
@@ -651,18 +651,6 @@ $(document).ready(function() {
 		  
 			alert("Operacion exitosa");
 			location.reload();
-          // Se ejecuta cuando la petición fue exitosa
-          var data = JSON.parse(response);
-          var lote = data.lote;
-          var materia = data.materia;
-          var fecha = data.fecha;
-          var pesoinicial = data.pesoinicial;
-          var pesodesperdicio = data.pesodesperdicio;
-          var adicion = data.adicion;
-          var cantidad = data.cantidad;
-          var empleado = data.empleado;
-
-
         },
         error: function(xhr, status, error) {
           // Se ejecuta cuando la petición falló

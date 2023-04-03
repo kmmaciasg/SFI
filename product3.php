@@ -54,12 +54,12 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 }
 	</script>
 </head>
-<body>
+<body onload="cargarMateriaPrima()">
 <?php
 include 'conexion_db.php';
 
 // Consulta SQL para obtener los datos
-$sql = "SELECT id FROM lotes";
+$sql = "SELECT lote FROM fase3";
 
 // Ejecutar la consulta
 $resultado = mysqli_query($conexion, $sql);
@@ -627,7 +627,7 @@ $resultadot = mysqli_query($conexion, $sqlt);
 											<?php
 												echo '<select name="opciones"id="opciones" onchange="cargarMateriaPrima()">';
 												while ($fila = mysqli_fetch_assoc($resultado)) {
-													echo "<option value='".$fila['id']."'>".$fila['id']."</option>";
+													echo "<option value='".$fila['lote']."'>".$fila['lote']."</option>";
 												}
 												echo "</select>";
 												?>
