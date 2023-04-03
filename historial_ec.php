@@ -159,7 +159,7 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 			</div>
 			<figure class="full-width" style="height: 77px;">
 				<div class="navLateral-body-cl">
-					<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+					<img src="assets/img/avatar-male2.png" alt="Avatar" class="img-responsive">
 				</div>
 				<figcaption class="navLateral-body-cr hide-on-tablet">
 					<span>

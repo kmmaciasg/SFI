@@ -137,7 +137,7 @@ $resultado1 = mysqli_query($conexion, $sql1);
 					<li class="text-condensedLight noLink" ><small> <?php echo htmlspecialchars($nombre_completo); ?></small></li>
 					<li class="noLink">
 						<figure>
-							<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+							<img src="assets/img/avatar-male2.png" alt="Avatar" class="img-responsive">
 						</figure>
 					</li>
 				</ul>
