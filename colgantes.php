@@ -724,13 +724,7 @@ function enviarDatos() {
     // Mostramos una notificación de éxito
 	alert("Los datos han sido guardados correctamente.");
 
-// Limpiamos los campos del formulario
-document.getElementById("opciones").value = "";
-document.getElementById("fecha").value = "";
-document.getElementById("cant").value = "";
-document.getElementById("Empleado").value = "";
-document.getElementById("#Factura").value = "";
-document.getElementById("Proveedor").value = "";
+	location.reload(); 
 
   // Retornamos false para evitar que el formulario se envíe automáticamente
   return false;
@@ -761,10 +755,8 @@ function enviarDatos2() {
 	alert("Los datos han sido guardados correctamente.");
 
 // Limpiamos los campos del formulario
-document.getElementById("opciones2").value = "";
-document.getElementById("fecha2").value = "";
-document.getElementById("cant2").value = "";
-document.getElementById("Empleado2").value = "";
+
+location.reload(); 
 
   // Retornamos false para evitar que el formulario se envíe automáticamente
   return false;

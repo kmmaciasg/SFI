@@ -16,6 +16,31 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 ?>
 <!DOCTYPE html>
 <html lang="es">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+		
+			$(document).ready(function() {
+      $("#opciones").change(function() {
+        var nombre = $(this).val();
+        $.ajax({
+          url: "obtenerdatos.php",
+          type: "POST",
+          data: {nombre: nombre},
+          dataType: "json",
+          success: function(data) {
+            $("#cedula").val(data.cedula);
+            $("#cel").val(data.cel);
+            $("#email").val(data.email);
+            $("#ciudad").val(data.ciudad);
+            $("#dir").val(data.dir);
+          },
+          error: function() {
+            alert("Error al cargar los datos del cliente");
+          }
+        });
+      });
+    });
+	</script>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,7 +58,7 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
 	<script src="js/main.js" ></script>
 </head>
-<body>
+<body onload="cargarMateriaPrima()">
 <?php
 include 'conexion_db.php';
 
@@ -612,7 +637,7 @@ $resultado1 = mysqli_query($conexion, $sql1);
 
 										<h6 class="text-condensedLight">Cliente</h6>
 												<?php
-												echo "<select nombre='opciones'>";
+												echo "<select nombre='opciones' id='opciones'>";
 												while ($fila = mysqli_fetch_assoc($resultado)) {
 													echo "<option value='".$fila['nombre']."'>".$fila['nombre']."</option>";
 												}
@@ -620,14 +645,17 @@ $resultado1 = mysqli_query($conexion, $sql1);
 												?>
 
                                         <h6 class="text-condensedLight">Direccion
-                                            <input class="mdl-textfield__input" type="text"  id="Direccion">
+                                            <input class="mdl-textfield__input" type="text" name="dir" id="dir">
                                         <span class="mdl-textfield__error">Nombre Invalio</span>
                                         </h6>
                                         <h6 class="text-condensedLight">Ciudad
-                                            <input class="mdl-textfield__input" type="text"  id="Ciudad">
+                                            <input class="mdl-textfield__input" type="text"  name="ciudad" id="ciudad">
                                         <span class="mdl-textfield__error">Nombre Invalio</span>
                                         </h6>
-
+										<h6 class="text-condensedLight">Email
+                                            <input class="mdl-textfield__input" type="text" name="email" id="email">
+                                        <span class="mdl-textfield__error">Nombre Invalio</span>
+                                        </h6>
                                         <h6 class="text-condensedLight"># de Cajas
                                             <input class="mdl-textfield__input" type="number" step="0.0000001"  id="cajas">
                                         <span class="mdl-textfield__error">Numero Invalio</span>
@@ -657,11 +685,11 @@ $resultado1 = mysqli_query($conexion, $sql1);
                                     </figure>
                                     <div class="mdl-textfield mdl-js-textfield">
                                         <h6 class="text-condensedLight">Cedula
-                                            <input class="mdl-textfield__input" type="number" step="0.0000001"  id="Cedula">
+                                            <input class="mdl-textfield__input" type="number" step="0.0000001" name="cedula" id="cedula">
                                         <span class="mdl-textfield__error">Numero Invalio</span>
                                         </h6>
                                         <h6 class="text-condensedLight">Celular
-                                            <input class="mdl-textfield__input" type="number" step="0.0000001"  id="Celular">
+                                            <input class="mdl-textfield__input" type="number" step="0.0000001" name="cel" id="cel">
                                         <span class="mdl-textfield__error">Numero Invalio</span>
                                         </h6>
 
