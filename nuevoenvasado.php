@@ -4,7 +4,7 @@
 
   $fecha = $_POST['fecha'];
   $tipoenvase = $_POST['tipo'];
-  $materia = $_POST['materia'];
+  $materia = $_POST['areaMateriaPrima'];
   $empleado = $_POST['Empleado'];
   $cantidad = $_POST['Cant'];
   $lote = $_POST['opciones'];

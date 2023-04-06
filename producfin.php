@@ -594,7 +594,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 							Ingreso de Producto
 						</div>
 						<div class="full-width panel-content">
-							<form id="formulario" name="formulario" method="POST" action="producfin.php" onsubmit="return enviarDatos();">
+							<form id="formulario1" name="formulario1" method="POST" action="producfin.php" onsubmit="return enviarDatos();">
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 									<label for="fecha">Fecha de ingreso:</label>
@@ -671,8 +671,8 @@ $resultado1 = mysqli_query($conexion, $sql);
 												?>
 										</h6>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="codigo" id="codigo">
-											<label class="mdl-textfield__label" for="codigo">Codigo de Barras</label>
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="codigo2" id="codigo2">
+											<label class="mdl-textfield__label" for="codigo2">Codigo de Barras</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
 										</div>	
 									</div>
@@ -682,12 +682,12 @@ $resultado1 = mysqli_query($conexion, $sql);
 											
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="cant2" id="cant2">
-											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
+											<label class="mdl-textfield__label" for="cant2"># de Unidades</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
 										</div>	
 										
 										<h6 class="text-condensedLight">Usuario:  
-											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado" value="<?php echo $nombre_completo ?>" readonly>
+											<input class="mdl-textfield__input" type="text" name="Empleado2" id="Empleado2" value="<?php echo $nombre_completo ?>" readonly>
 											</h6>
 										
 
@@ -717,7 +717,7 @@ function enviarDatos() {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.open("POST", "actualizarinventariopt.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlhttp.send("opciones=" + producto + "&fecha=" + fecha + "&cant=" + cantidad  + "&Empleado=" + empleado);
+  xmlhttp.send("opciones=" + producto + "&cant=" + cantidad);
 
   // Creamos otro objeto XMLHttpRequest para enviar los datos a guardarhistorial.php
   var xmlhttp2 = new XMLHttpRequest();
@@ -751,7 +751,7 @@ function enviarDatos2() {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.open("POST", "actualizarinventariopts.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlhttp.send("opciones2=" + producto + "&fecha2=" + fecha + "&cant2=" + cantidad  + "&Empleado2=" + empleado);
+  xmlhttp.send("opciones2=" + producto + "&cant2=" + cantidad);
 
   // Creamos otro objeto XMLHttpRequest para enviar los datos a guardarhistorial.php
   var xmlhttp2 = new XMLHttpRequest();

@@ -579,17 +579,28 @@ include 'conexion_db.php';
 </section>
 <div class="mdl-tabs__panel is-active" id="tabNewProduct">
     <div class="mdl-grid">
+	
         <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
             <div class="full-width panel mdl-shadow--2dp">
                 <div class="full-width panel-tittle bg-primary text-center tittles">
                     Inventario de Productos Terminados
                 </div>
                 <div class="full-width panel-content">
-                    <form>
+				<form>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
+    <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre">
+      <i class="zmdi zmdi-search"></i>
+    </label>
+    <div class="mdl-textfield__expandable-holder">
+      <input class="mdl-textfield__input" type="text" id="filtro_nombre" onkeyup="filtrarTabla()" placeholder="Buscar...">
+      <label class="mdl-textfield__label" for="filtro_nombre"></label>
+    </div>
+  </div>
+</form>
                         <div class="mdl-grid">
                             <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-                            <div style="overflow-x: auto;">   
-							<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+                            <div style="overflow-x: auto;">  
+							<table  id="tabla_productos"class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
                                     <thead>
                                         <tr>
                                             <th class="mdl-data-table"style="text-align: center;">Codigo</th>
@@ -622,3 +633,26 @@ include 'conexion_db.php';
         </div>
     </div>
 </div>
+<script>
+// Función para filtrar la tabla por nombre
+function filtrarTabla() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("filtro_nombre");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tabla_productos");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+</script>
+</body>
+</html>

@@ -652,7 +652,7 @@ $resultadot = mysqli_query($conexion, $sqlt);
 										
 									</div>
 									<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-										<label for="areamateriaPrima">Materia prima:</label>
+										<label for="areaMateriaPrima">Materia prima:</label>
 	<textarea id="areaMateriaPrima" name="areaMateriaPrima" rows="1" cols="50" readonly></textarea>
 									
 										

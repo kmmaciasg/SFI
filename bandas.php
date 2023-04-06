@@ -673,7 +673,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 								        </h6>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="cant2" id="cant2">
-											<label class="mdl-textfield__label" for="cant"># de Unidades</label>
+											<label class="mdl-textfield__label" for="cant2"># de Unidades</label>
 											<span class="mdl-textfield__error">Cantidad invalida</span>
 										</div>
 										
@@ -686,7 +686,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 										
 										
 										<h6 class="text-condensedLight">Usuario:  
-											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado" value="<?php echo $nombre_completo ?>" readonly>
+											<input class="mdl-textfield__input" type="text" name="Empleado2" id="Empleado2" value="<?php echo $nombre_completo ?>" readonly>
 											</h6>
 									</div>
 								</div>

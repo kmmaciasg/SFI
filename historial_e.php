@@ -597,7 +597,7 @@ include 'conexion_db.php';
     <div class="mdl-tabs__tab-bar">
        <a href="#tabNewProduct" class="mdl-tabs__tab is-active">Envases</a>
        <a href="#tabNewLote" class="mdl-tabs__tab">Embalaje</a>
-     </div>
+    </div>
    <div class="mdl-tabs__panel is-active" id="tabNewProduct">
        <div class="mdl-grid">
            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
@@ -606,11 +606,22 @@ include 'conexion_db.php';
                        Historial de Envases
                    </div>
                    <div class="full-width panel-content">
+				   <form>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
+    <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre">
+      <i class="zmdi zmdi-search"></i>
+    </label>
+    <div class="mdl-textfield__expandable-holder">
+      <input class="mdl-textfield__input" type="text" id="filtro_nombre" onkeyup="filtrarTabla()" placeholder="Buscar...">
+      <label class="mdl-textfield__label" for="filtro_nombre"></label>
+    </div>
+  </div>
+</form>
                        <div class="mdl-grid">
                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-						   <div style="overflow-x: auto;">    
-						   <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-							   <thead>
+						       <div style="overflow-x: auto;">    
+						            <table id="tabla_productos" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+							            <thead>
                                             <tr>
                                             <th class="mdl-data-table"style="text-align: center;">NOMBRE DE PRODUCTO</th>
                                             <th class="mdl-data-table" style="text-align: center;">FECHA DE INGRESO</th>
@@ -619,84 +630,99 @@ include 'conexion_db.php';
                                             <th class="mdl-data-table" style="text-align: center;">FACTURA</th>
                                             <th class="mdl-data-table" style="text-align: center;">PROVEEDOR</th>
                                             </tr>
-                                    </thead>
-                                    <tbody>
-										<?php   
+                                        </thead>
+                                        <tbody>
+										      <?php   
 									   
-									   // Mostrar los resultados en la tabla
-									   if ($resultado->num_rows > 0) {
-										   while($row = $resultado->fetch_assoc()) {
+									            // Mostrar los resultados en la tabla
+									          if ($resultado->num_rows > 0) {
+										      while($row = $resultado->fetch_assoc()) {
 											   echo "<tr><td style='text-align:center'>" . $row["producto"] . "</td>
 											   <td style='text-align:center'>" . $row["ingreso"] . "</td>
 											   <td style='text-align:center'>" . $row["cantidad"] . "</td>
 											   <td style='text-align:center'>" . $row["Usuario"] . "</td>
 											   <td style='text-align:center'>" . $row["factura"] . "</td>
 											   <td style='text-align:center'>" . $row["proveedor"] . "</td></tr>";
-											 }
-									   } else {
-										   echo "0 resultados";
-									   }
+											 }  } else {
+										       echo "0 resultados";   }
 															  ?>
-                                    </tbody>
-                               </table>
-						   </div>
+                                        </tbody>
+                                    </table>
+						        </div>
                            </div>
                        </div>
                    </div>
 
                    <div class="full-width panel-content">
+				   <form>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
+    <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombrea">
+      <i class="zmdi zmdi-search"></i>
+    </label>
+    <div class="mdl-textfield__expandable-holder">
+      <input class="mdl-textfield__input" type="text" id="filtro_nombrea" onkeyup="filtrarTablaa()" placeholder="Buscar...">
+      <label class="mdl-textfield__label" for="filtro_nombrea"></label>
+    </div>
+  </div>
+</form>
                        <div class="mdl-grid">
                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-						   <div style="overflow-x: auto;">
-						   <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-							   <thead>
+						       <div style="overflow-x: auto;">
+						            <table id="tabla_productosa" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+							            <thead>
                                             <tr>
                                             <th class="mdl-data-table"style="text-align: center;">NOMBRE DE PRODUCTO</th>
                                             <th class="mdl-data-table" style="text-align: center;">FECHA DE EGRESO</th>
                                             <th class="mdl-data-table" style="text-align: center;">CANTIDAD</th>
                                             <th class="mdl-data-table" style="text-align: center;">USUARIO</th>
                                             </tr>
-                                    </thead>
-                                    <tbody>
-										<?php   
+                                        </thead>
+                                        <tbody>
+										        <?php   
 									   
-									   // Mostrar los resultados en la tabla
-									   if ($resultadoe->num_rows > 0) {
+									         // Mostrar los resultados en la tabla
+									           if ($resultadoe->num_rows > 0) {
 										   while($row = $resultadoe->fetch_assoc()) {
 											   echo "<tr><td style='text-align:center'>" . $row["producto"] . "</td>
 											   <td style='text-align:center'>" . $row["egreso"] . "</td>
 											   <td style='text-align:center'>" . $row["cantidad"] . "</td>
 											   <td style='text-align:center'>" . $row["Usuario"] . "</td></tr>";
-											 }
-									   } else {
-										   echo "0 resultados";
-									   }
+											 }} else { echo "0 resultados";}
 															  ?>
-                                    </tbody>
-                               </table>
-						   </div>
+                                        </tbody>
+                                   </table>
+						        </div>
                            </div>
-                       </div>
-                   </div>
-               </div>
+                        </div>
+                    </div>
+                </div>
            </div>
        </div>
-
-       
    </div>
    
-     <div class="mdl-tabs__panel" id="tabNewLote">
+    <div class="mdl-tabs__panel" id="tabNewLote">
        <div class="mdl-grid">
-       <div class="full-width panel mdl-shadow--2dp">
-           <div class="full-width panel-tittle bg-primary text-center tittles">
+          <div class="full-width panel mdl-shadow--2dp">
+               <div class="full-width panel-tittle bg-primary text-center tittles">
                Historial de Embalajes
-           </div>
-           <div class="full-width panel-content">
-            <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-				<div style="overflow-x: auto;">
-					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-							   <thead>
+               </div>
+              <div class="full-width panel-content">
+			  <form>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
+    <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre1">
+      <i class="zmdi zmdi-search"></i>
+    </label>
+    <div class="mdl-textfield__expandable-holder">
+      <input class="mdl-textfield__input" type="text" id="filtro_nombre1" onkeyup="filtrarTabla1()" placeholder="Buscar...">
+      <label class="mdl-textfield__label" for="filtro_nombre1"></label>
+    </div>
+  </div>
+</form>
+                   <div class="mdl-grid">
+                       <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+				          <div style="overflow-x: auto;">
+					           <table id="tabla_productos1" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+							       <thead>
                                             <tr>
                                             <th class="mdl-data-table"style="text-align: center;">NOMBRE DE PRODUCTO</th>
                                             <th class="mdl-data-table" style="text-align: center;">FECHA DE INGRESO</th>
@@ -724,18 +750,29 @@ include 'conexion_db.php';
 									   }
 															  ?>
                                     </tbody>
-                    </table>
-				</div>
-                </div>
-            </div>
-        </div>
+                              </table>
+				          </div>
+                      </div>
+                   </div>
+               </div>
 
-        <div class="full-width panel-content">
-            <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-				<div style="overflow-x: auto;">
-				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-					<thead>
+              <div class="full-width panel-content">
+			  <form>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
+    <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre1a">
+      <i class="zmdi zmdi-search"></i>
+    </label>
+    <div class="mdl-textfield__expandable-holder">
+      <input class="mdl-textfield__input" type="text" id="filtro_nombre1a" onkeyup="filtrarTabla1a()" placeholder="Buscar...">
+      <label class="mdl-textfield__label" for="filtro_nombre1a"></label>
+    </div>
+  </div>
+</form>
+                   <div class="mdl-grid">
+                      <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+				          <div style="overflow-x: auto;">
+			             	   <table id="tabla_productos1a" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+					               <thead>
                                             <tr>
                                             <th class="mdl-data-table"style="text-align: center;">NOMBRE DE PRODUCTO</th>
                                             <th class="mdl-data-table" style="text-align: center;">FECHA DE EGRESO</th>
@@ -744,9 +781,9 @@ include 'conexion_db.php';
                                             </tr>
                                     </thead>
                                     <tbody>
-										<?php   
+									     <?php   
 									   
-									   // Mostrar los resultados en la tabla
+									        // Mostrar los resultados en la tabla
 									   if ($resultadoe1->num_rows > 0) {
 										   while($row = $resultadoe1->fetch_assoc()) {
 											   echo "<tr><td style='text-align:center'>" . $row["producto"] . "</td>
@@ -757,16 +794,100 @@ include 'conexion_db.php';
 									   } else {
 										   echo "0 resultados";
 									   }
-															  ?>
-                                    </tbody>
-                    </table>
-				</div>
-                </div>
-            </div>
-        </div>
-    </div>
+									     ?>
+                                   </tbody>
+                               </table>
+			         	    </div>
+                        </div>
+                    </div>
+               </div>
+           </div>
+       </div>
+   </div>
 </div>
-</div>
-
-
-</div>
+<script>
+// Función para filtrar la tabla por nombre
+function filtrarTabla() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("filtro_nombre");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tabla_productos");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+</script>
+<script>
+// Función para filtrar la tabla por nombre
+function filtrarTabla1() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("filtro_nombre1");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tabla_productos1");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+</script>
+<script>
+// Función para filtrar la tabla por nombre
+function filtrarTablaa() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("filtro_nombrea");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tabla_productosa");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+</script>
+<script>
+// Función para filtrar la tabla por nombre
+function filtrarTabla1a() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("filtro_nombre1a");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tabla_productos1a");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+</script>
+</body>
+</html>

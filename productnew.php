@@ -605,22 +605,20 @@ $resultado = mysqli_query($conexion, $sql);
 
 											
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input"  type="number" step="0.0000001" name="PesoInicial" id="PesoInicial">
+												<input class="mdl-textfield__input"  type="number" step="0.0000001" oninput="calcularPesoNeto()" name="PesoInicial" id="PesoInicial">
 												<label class="mdl-textfield__label" for="PesoInicial">Peso Inicial Kg</label>
 												<span class="mdl-textfield__error">Peso Invalido</span>
 											</div>
 												
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" step="0.0000001" name="PesoDesperdicio" id="PesoDesperdicio">
+												<input class="mdl-textfield__input" type="number" step="0.0000001" oninput="calcularPesoNeto()" name="PesoDesperdicio" id="PesoDesperdicio">
 												<label class="mdl-textfield__label" for="PesoDesperdicio">Peso Desperdicio Kg</label>
 												<span class="mdl-textfield__error">Peso Invalido</span>
 											</div>
 											
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" step="0.0000001" name="PesoNeto" id="PesoNeto">
-												<label class="mdl-textfield__label" for="PesoNeto">Peso Neto</label>
-												<span class="mdl-textfield__error">Peso Invalido</span>
-											</div>	
+											<h6 class="text-condensedLight">Peso Neto: 
+												<input class="mdl-textfield__input" type="number" step="0.0000001" name="PesoNeto" id="PesoNeto" readonly>
+											</h6>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" name="Adiciones" id="Adiciones">
 												<label class="mdl-textfield__label" for="Adiciones">Adiciones</label>
@@ -730,7 +728,20 @@ function pasarfase1() {
   // Retornamos false para evitar que el formulario se envíe automáticamente
   return false;
 }
-</script>		
+</script>	
+<script>
+function calcularPesoNeto() {
+  // Obtener los valores ingresados por el usuario
+  var pesoInicial = document.getElementById("PesoInicial").value;
+  var pesoDesperdicio = document.getElementById("PesoDesperdicio").value;
+
+  // Calcular el peso neto
+  var pesoNeto = pesoInicial - pesoDesperdicio;
+
+  // Actualizar el valor del campo de entrada correspondiente
+  document.getElementById("PesoNeto").value = pesoNeto;
+}
+</script>
 		
 </body>
 </html>
