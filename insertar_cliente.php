@@ -23,7 +23,7 @@ $dir = $_POST["dir"];
 $sql = "INSERT INTO `clientes`(`nombre`, `cedula`, `cel`, `email`, `ciudad`, `dir`) VALUES ('$nombre','$cedula','$cel','$email','$ciudad','$dir')";
 
 if ($conn->query($sql) === TRUE) {
-  echo "Nuevo producto creado correctamente";
+  echo "Nuevo cliente creado correctamente";
 } else {
   echo "Error al crear el nuevo producto: " . $conn->error;
 }

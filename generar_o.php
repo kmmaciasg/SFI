@@ -820,7 +820,7 @@ function abrirVentana() {
 
 	  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 155px;" id="CrearProducto">
 										<i class="zmdi zmdi-shopping-cart-plus"></i>
-										<div class="mdl-tooltip" for="CrearProducto">Crear Nuevo Producto</div>
+										<div class="mdl-tooltip" for="CrearProducto">Crear Nuevo Cliente</div>
 									</button>
     </form>
 	</div>

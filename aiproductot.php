@@ -2,8 +2,8 @@
 // Conectarse a la base de datos
   $conexion = mysqli_connect ("localhost", "root", "", "lachila" ); 
 
-  $cantidad = $_POST['cant2'];
-  $producto = $_POST['opciones2'];
+  $cantidad = $_POST['cant'];
+  $producto = $_POST['opciones'];
   
 // Verificar si hubo error en la conexión
 if (mysqli_connect_errno()) {
@@ -27,7 +27,7 @@ if (mysqli_connect_errno()) {
   $cantidadActual = $fila["Cantidad"];
   
   // Calcular la nueva cantidad sumando las unidades ingresadas y las actuales
-  $nuevaCantidad = $cantidadActual - $cantidad;
+  $nuevaCantidad = $cantidadActual + $cantidad;
   
   // Actualizar la cantidad en la base de datos
   $consulta = "UPDATE productos SET Cantidad = '$nuevaCantidad' WHERE Descripcion = '$producto'";

@@ -715,9 +715,9 @@ function enviarDatos() {
 
   // Creamos un objeto XMLHttpRequest para enviar los datos a actualizarinventario.php
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open("POST", "actualizarinventariopt.php", true);
+  xmlhttp.open("POST", "aiproductot.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlhttp.send("opciones=" + producto + "&cant=" + cantidad);
+  xmlhttp.send("opciones=" + producto + "&fecha=" + fecha + "&cant=" + cantidad  + "&Empleado=" + empleado);
 
   // Creamos otro objeto XMLHttpRequest para enviar los datos a guardarhistorial.php
   var xmlhttp2 = new XMLHttpRequest();
@@ -748,7 +748,7 @@ function enviarDatos2() {
 
   // Creamos un objeto XMLHttpRequest para enviar los datos a actualizarinventario.php
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open("POST", "actualizarinventariopts.php", true);
+  xmlhttp.open("POST", "aiproductot2.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xmlhttp.send("opciones2=" + producto + "&cant2=" + cantidad);
 
