@@ -134,24 +134,24 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
         <i class="zmdi zmdi-more-vert btn-menu" id="btn-menu"></i>	
         <div class="mdl-tooltip" for="btn-menu">Menu</div>
         <nav class="navBar-options-list">
-            <ul class="list-unstyle">
-                <li class="btn-Notification" id="notifications">
-                    <i class="zmdi zmdi-notifications"></i>
-                    <!-- <i class="zmdi zmdi-notifications-active btn-Notification" id="notifications"></i> -->
-                    <div class="mdl-tooltip" for="notifications">Notificaciones</div>
-                </li>
-                <li class="btn-exit" id="btn-exit">
-                    <i class="zmdi zmdi-power"></i>
-                    <div class="mdl-tooltip" for="btn-exit">Salir</div>
-                </li>
-                <li class="text-condensedLight noLink" ><small>Nombre de Usuario</small></li>
-                <li class="noLink">
-                    <figure>
-                        <img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
-                    </figure>
-                </li>
-            </ul>
-        </nav>
+				<ul class="list-unstyle">
+					<li class="btn-Notification" id="notifications">
+						<i class="zmdi zmdi-notifications"></i>
+						<!-- <i class="zmdi zmdi-notifications-active btn-Notification" id="notifications"></i> -->
+						<div class="mdl-tooltip" for="notifications">Notificaciones</div>
+					</li>
+					<li class="btn-exit" id="btn-exit">
+						<i class="zmdi zmdi-power"></i>
+						<div class="mdl-tooltip" for="btn-exit">Salir</div>
+					</li>
+					<li class="text-condensedLight noLink" ><small> <?php echo htmlspecialchars($nombre_completo); ?></small></li>
+					<li class="noLink">
+						<figure>
+							<img src="assets/img/avatar-male2.png" alt="Avatar" class="img-responsive">
+						</figure>
+					</li>
+				</ul>
+			</nav>
     </div>
 </div>
 <!-- navLateral -->
@@ -623,18 +623,18 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 </section>
 <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
     <div class="mdl-grid">
+	<Form>
         <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
             <div class="full-width panel mdl-shadow--2dp">
                 <div class="full-width panel-tittle bg-primary text-center tittles">
                    ORDEN DE DESPACHO NO.
                 </div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input text-center" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="#ORDEN">
-                    <label class="mdl-textfield__label text-center" for="#ORDEN"></label>
-                    <span class="mdl-textfield__error">Número de orden invalido</span>
+					<input type="text" id="numero-orden" placeholder="Ingresa el número de orden">
                 </div>
+				
                 <div class="full-width panel-content">
-                    <form>
+                    
                         <div class="mdl-grid">
                             <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
                                 <h5 class="text-condensedLight text-center">Cite-Barbosa-Santander-Colombia</h5>
@@ -642,46 +642,42 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
                                 
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <h6 class="text-condensedLight">Fecha
-                                        <input type="date" class="mdl-textfield__input">
+                                        <input type="date" name="fecha" id="fecha" class="mdl-textfield__input" readonly>
                                     </h6>
 
                                     <h6 class="text-condensedLight">Cliente
-                                    <select class="mdl-textfield__input">
-                                        <option value="" disabled="" selected="">Selecciona el Cliente</option>
-                                        <option value="">...</option>
-                                        <option value="">...</option>
-                                    </select>
+                                        <input class="mdl-textfield__input" type="text" name="opciones" id="opciones" readonly>
+                                    <span class="mdl-textfield__error">Nombre Invalio</span>
                                     </h6>
 
                                     <h6 class="text-condensedLight">Direccion
-                                        <input class="mdl-textfield__input" type="text"  id="Direccion">
+                                        <input class="mdl-textfield__input" type="text"  name="dir" id="dir" readonly>
                                     <span class="mdl-textfield__error">Nombre Invalio</span>
                                     </h6>
                                     <h6 class="text-condensedLight">Ciudad
-                                        <input class="mdl-textfield__input" type="text"  id="Ciudad">
+                                        <input class="mdl-textfield__input" type="text"  name="ciudad" id="ciudad" readonly>
                                     <span class="mdl-textfield__error">Nombre Invalio</span>
                                     </h6>
+									<h6 class="text-condensedLight">Email
+                                            <input class="mdl-textfield__input" type="text" name="email" id="email" readonly>
+                                        <span class="mdl-textfield__error">Nombre Invalio</span>
+                                        </h6>
 
                                     <h6 class="text-condensedLight"># de Cajas
-                                        <input class="mdl-textfield__input" type="number" step="0.0000001"  id="cajas">
+                                        <input class="mdl-textfield__input" type="number" step="0.0000001"  name="cajas" id="cajas" readonly>
                                     <span class="mdl-textfield__error">Numero Invalio</span>
+									</h6>
+                                        </h6>
+                                        <h6 class="text-condensedLight">Modo de Pago
+                                        <input class="mdl-textfield__input" type="text" name="pago" id="pago" readonly>
+                                    <span class="mdl-textfield__error">Nombre Invalio</span>
                                     </h6>
-                                    <h6 class="text-condensedLight">Transporte
-                                        <select class="mdl-textfield__input">
-                                            <option value="" disabled="" selected="">...</option>
-                                            <option value="">Contra Entrega</option>
-                                            <option value="">Realizar Pago</option>
-                                        </select>
+                                    </h6>
                                         </h6>
                                         <h6 class="text-condensedLight">Embalaje
-                                            <select class="mdl-textfield__input">
-                                                <option value="" disabled="" selected="">...</option>
-                                                <option value="">Libre</option>
-                                                <option value="">Cabulla</option>
-                                                <option value="">Otros</option>
-                                                <option value="">Zuncho</option>
-                                            </select>
-                                            </h6>
+                                        <input class="mdl-textfield__input" type="text"  name="embalaje" id="embalaje" readonly>
+                                    <span class="mdl-textfield__error">Nombre Invalio</span>
+                                    </h6>
                                 </div>
                                
                             </div>
@@ -691,39 +687,29 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
                                 </figure>
                                 <div class="mdl-textfield mdl-js-textfield">
                                     <h6 class="text-condensedLight">Cedula
-                                        <input class="mdl-textfield__input" type="number" step="0.0000001"  id="Cedula">
+                                        <input class="mdl-textfield__input" type="number" step="0.0000001" name="cedula" id="cedula" readonly>
                                     <span class="mdl-textfield__error">Numero Invalio</span>
                                     </h6>
                                     <h6 class="text-condensedLight">Celular
-                                        <input class="mdl-textfield__input" type="number" step="0.0000001"  id="Celular">
+                                        <input class="mdl-textfield__input" type="number" step="0.0000001"  name="cel" id="cel" readonly>
                                     <span class="mdl-textfield__error">Numero Invalio</span>
                                     </h6>
 
                                     <h6 class="text-condensedLight">Creador
-                                        <input class="mdl-textfield__input" type="text"  id="Creador">
+                                        <input class="mdl-textfield__input" type="text"  name="creador" id="creador" readonly>
                                     <span class="mdl-textfield__error">Nombre Invalio</span>
                                     </h6>
                                     <h6 class="text-condensedLight">Responsable
-                                        <input class="mdl-textfield__input" type="text"  id="Responsable">
+                                        <input class="mdl-textfield__input" type="text"  name="responsable" id="responsable" value="<?php echo $nombre_completo ?>">
                                     <span class="mdl-textfield__error">Nombre Invalio</span>
                                     </h6>
                                     <h6 class="text-condensedLight">Transportadora
-                                        <select class="mdl-textfield__input">
-                                            <option value="" disabled="" selected="">...</option>
-                                            <option value="">Interrapidisimo</option>
-                                            <option value="">Servientrega</option>
-                                            <option value="">RedeTrans</option>
-                                            <option value="">Otros</option>
-                                            <option value="">Envia</option>
-                                        </select>
-                                        </h6>
+                                        <input class="mdl-textfield__input" type="text"  name="transportadora" id="transportadora" readonly>
+                                    <span class="mdl-textfield__error">Nombre Invalio</span>
+                                    </h6>
                                         <h6 class="text-condensedLight">Notas
                                             <input class="mdl-textfield__input" type="text"  id="Notas">
                                         <span class="mdl-textfield__error">Texto Invalio</span>
-                                        </h6>
-                                        <h6 class="text-condensedLight">Usuario
-                                            <input class="mdl-textfield__input" type="text"  id="Usuario">
-                                        <span class="mdl-textfield__error">Nombre Invalio</span>
                                         </h6>
                                 </div>
                             </div>
@@ -779,3 +765,50 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
             </div>
         </div>
 </div>
+
+
+<script>
+// Capturamos el input de texto
+const inputNumeroOrden = document.getElementById('numero-orden');
+
+inputNumeroOrden.addEventListener('keydown', function (event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+
+    const numeroOrden = inputNumeroOrden.value;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'obtener_datos.php');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        const datosOrden = JSON.parse(xhr.responseText);
+        // Mostramos los datos correspondientes a la orden en los inputs de texto correspondientes
+        document.getElementById('opciones').value = datosOrden.cliente;
+        document.getElementById('fecha').value = datosOrden.fecha;
+        document.getElementById('cajas').value = datosOrden.cajas;
+        document.getElementById('pago').value = datosOrden.pago;
+        document.getElementById('embalaje').value = datosOrden.embalaje;
+        document.getElementById('creador').value = datosOrden.creador;
+        document.getElementById('transportadora').value = datosOrden.transportadora;
+		 // Mostramos los datos correspondientes al cliente en los inputs de texto correspondientes
+		 document.getElementById('cedula').value = datosOrden.cedula;
+        document.getElementById('cel').value = datosOrden.cel;
+        document.getElementById('email').value = datosOrden.email;
+        document.getElementById('ciudad').value = datosOrden.ciudad;
+        document.getElementById('dir').value = datosOrden.dir;
+      } else {
+        console.error(xhr.statusText);
+      }
+    };
+    xhr.onerror = function () {
+      console.error(xhr.statusText);
+    };
+    xhr.send('numeroOrden=' + encodeURIComponent(numeroOrden));
+  }
+});
+
+</script>
+</body>
+</html> 
+

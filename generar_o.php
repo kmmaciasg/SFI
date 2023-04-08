@@ -58,7 +58,7 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
 	<script src="js/main.js" ></script>
 </head>
-<body onload="cargarMateriaPrima()">
+<body >
 <?php
 include 'conexion_db.php';
 
@@ -613,16 +613,17 @@ $resultado1 = mysqli_query($conexion, $sql1);
         <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
                 <div class="full-width panel mdl-shadow--2dp">
+					
+				<form method="POST" action="guardarorden.php">
                     <div class="full-width panel-tittle bg-primary text-center tittles">
                        ORDEN DE DESPACHO NO.
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input text-center" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="#ORDEN">
-                        <label class="mdl-textfield__label text-center" for="#ORDEN"></label>
+                        <input class="mdl-textfield__input text-center" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="numero_orden" id="numero:orden">
+                        <label class="mdl-textfield__label text-center" for="numero_orden"></label>
                         <span class="mdl-textfield__error">Número de orden invalido</span>
                     </div>
                     <div class="full-width panel-content">
-                        <form>
                             <div class="mdl-grid">
                                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
                                     <h5 class="text-condensedLight text-center">Cite-Barbosa-Santander-Colombia</h5>
@@ -632,12 +633,12 @@ $resultado1 = mysqli_query($conexion, $sql1);
                                         
 										<label for="fecha">Fecha : </label>
 										
-                                        <input type="date" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
+                                        <input type="date" name="fecha" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
 										
 
 										<h6 class="text-condensedLight">Cliente</h6>
 												<?php
-												echo "<select nombre='opciones' id='opciones'>";
+												echo "<select name='opciones' id='opciones'>";
 												while ($fila = mysqli_fetch_assoc($resultado)) {
 													echo "<option value='".$fila['nombre']."'>".$fila['nombre']."</option>";
 												}
@@ -645,37 +646,37 @@ $resultado1 = mysqli_query($conexion, $sql1);
 												?>
 
                                         <h6 class="text-condensedLight">Direccion
-                                            <input class="mdl-textfield__input" type="text" name="dir" id="dir">
+                                            <input class="mdl-textfield__input" type="text" name="dir" id="dir" readonly>
                                         <span class="mdl-textfield__error">Nombre Invalio</span>
                                         </h6>
                                         <h6 class="text-condensedLight">Ciudad
-                                            <input class="mdl-textfield__input" type="text"  name="ciudad" id="ciudad">
+                                            <input class="mdl-textfield__input" type="text"  name="ciudad" id="ciudad" readonly>
                                         <span class="mdl-textfield__error">Nombre Invalio</span>
                                         </h6>
 										<h6 class="text-condensedLight">Email
-                                            <input class="mdl-textfield__input" type="text" name="email" id="email">
+                                            <input class="mdl-textfield__input" type="text" name="email" id="email" readonly>
                                         <span class="mdl-textfield__error">Nombre Invalio</span>
                                         </h6>
                                         <h6 class="text-condensedLight"># de Cajas
-                                            <input class="mdl-textfield__input" type="number" step="0.0000001"  id="cajas">
+                                            <input class="mdl-textfield__input" type="number" step="0.0000001" name="cajas" id="cajas">
                                         <span class="mdl-textfield__error">Numero Invalio</span>
                                         </h6>
-                                        <h6 class="text-condensedLight">Modo de Pago
-                                            <select class="mdl-textfield__input">
-                                                <option value="" disabled="" selected="">...</option>
-                                                <option value="">Contra Entrega</option>
-                                                <option value="">Realizar Pago</option>
-                                            </select>
-                                            </h6>
-                                            <h6 class="text-condensedLight">Embalaje
-                                                <select class="mdl-textfield__input">
-                                                    <option value="" disabled="" selected="">...</option>
-                                                    <option value="">Libre</option>
-                                                    <option value="">Cabulla</option>
-                                                    <option value="">Otros</option>
-                                                    <option value="">Zuncho</option>
-                                                </select>
-                                                </h6>
+										<h6 class="text-condensedLight">Modo de Pago
+    <select class="mdl-textfield__input" name="pago" id="pago">
+        <option value="" disabled="" selected="">...</option>
+        <option value="contra_entrega">Contra Entrega</option>
+        <option value="realizar_pago">Realizar Pago</option>
+    </select>
+</h6>
+<h6 class="text-condensedLight">Embalaje
+    <select class="mdl-textfield__input" name="embalaje" id="embalaje">
+        <option value="" disabled="" selected="">...</option>
+        <option value="libre">Libre</option>
+        <option value="cabulla">Cabulla</option>
+        <option value="otros">Otros</option>
+        <option value="zuncho">Zuncho</option>
+    </select>
+</h6>
                                     </div>
                                    
                                 </div>
@@ -685,32 +686,32 @@ $resultado1 = mysqli_query($conexion, $sql1);
                                     </figure>
                                     <div class="mdl-textfield mdl-js-textfield">
                                         <h6 class="text-condensedLight">Cedula
-                                            <input class="mdl-textfield__input" type="number" step="0.0000001" name="cedula" id="cedula">
+                                            <input class="mdl-textfield__input" type="number" step="0.0000001" name="cedula" id="cedula" readonly>
                                         <span class="mdl-textfield__error">Numero Invalio</span>
                                         </h6>
                                         <h6 class="text-condensedLight">Celular
-                                            <input class="mdl-textfield__input" type="number" step="0.0000001" name="cel" id="cel">
+                                            <input class="mdl-textfield__input" type="number" step="0.0000001" name="cel" id="cel" readonly>
                                         <span class="mdl-textfield__error">Numero Invalio</span>
                                         </h6>
 
-                                        <h6 class="text-condensedLight">Creador
-                                            <input class="mdl-textfield__input" type="text"  id="Creador">
-                                        <span class="mdl-textfield__error">Nombre Invalio</span>
-                                        </h6>
+										<h6 class="text-condensedLight">Creador:  
+											<input class="mdl-textfield__input" type="text" name="creador" id="creador" value="<?php echo $nombre_completo ?>" readonly>
+											</h6>
                                         <h6 class="text-condensedLight">Responsable
                                             <input class="mdl-textfield__input" type="text"  id="Ciudad">
                                         <span class="mdl-textfield__error">Nombre Invalio</span>
                                         </h6>
-                                        <h6 class="text-condensedLight">Transportadora
-                                            <select class="mdl-textfield__input">
-                                                <option value="" disabled="" selected="">...</option>
-                                                <option value="">Interrapidisimo</option>
-                                                <option value="">Servientrega</option>
-                                                <option value="">RedeTrans</option>
-                                                <option value="">Otros</option>
-                                                <option value="">Envia</option>
-                                            </select>
-                                            </h6>
+										<h6 class="text-condensedLight">Transportadora
+    <select class="mdl-textfield__input" name="transportadora" id="transportadora">
+        <option value="" disabled="" selected="">...</option>
+        <option value="interrapidisimo">Interrapidisimo</option>
+        <option value="servientrega">Servientrega</option>
+        <option value="redetrans">RedeTrans</option>
+        <option value="otros">Otros</option>
+        <option value="envia">Envia</option>
+    </select>
+</h6>
+
                                             <h6 class="text-condensedLight">Notas
                                                 <input class="mdl-textfield__input" type="text"  id="Notas">
                                             <span class="mdl-textfield__error">Texto Invalio</span>
@@ -762,7 +763,7 @@ $resultado1 = mysqli_query($conexion, $sql1);
                                     <div class="mdl-tooltip" for="btn-addProduct">Agregar Producto</div>
                                 </button>
                              
-                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary"  id="btn-generar">
+                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" id="btn-generar">
                                     <i class="zmdi zmdi-check-all"></i>
                                     <div class="mdl-tooltip" for="btn-generar">Generar Orden</div>
                                 </button>
