@@ -11,6 +11,7 @@ session_start(); // Iniciar sesión
 $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
     } else {
         header("Location: index.php"); // Si no se ha iniciado sesión, redirigir al inicio de sesión
+		
     }
 
 ?>
@@ -34,6 +35,20 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 	<script src="js/main.js" ></script>
 </head>
 <body>
+<?php
+// Consultar la tabla
+		$sql = "SELECT * FROM `o_reparto` ";
+		$resultado = $conexion->query($sql);
+
+		// Consultar la tabla
+		$sql1 = "SELECT  `numero_orden` FROM `o_subir`";
+		$resultado1 = $conexion->query($sql1);
+
+		
+		// Consultar la tabla
+		$sql2 = "SELECT  `numero_orden` FROM `o_subido`";
+		$resultado2 = $conexion->query($sql2);
+		?>
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -569,46 +584,280 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 				</p>
 			</div>						
 	</section>
-	<div class="mdl-tabs__panel" id="tabListAdmin">
-    <div class="mdl-grid">
+	
+	<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+			 <div class="mdl-tabs__tab-bar">
+				<a href="#tabNewProduct" class="mdl-tabs__tab is-active">Pedidos generados</a>
+				<a href="#tabNewLote" class="mdl-tabs__tab">Listos para subir/ subidos</a>
+			  </div>
+            <div class="mdl-tabs__panel is-active" id="tabNewProduct">
+                <div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
+            <div class="full-width panel mdl-shadow--2dp">
+                <div class="full-width panel-tittle bg-success text-center tittles">
+                    Pedidos Generados
+                </div>
+                            <div class="full-width panel-content">
+				              
+                                <div class="mdl-grid">
+								<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
+                                             <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre">
+                                              <i class="zmdi zmdi-search"></i>
+                                             </label>
+                                      <div class="mdl-textfield__expandable-holder">
+                                          <input class="mdl-textfield__input" type="text" id="filtro_nombre" onkeyup="filtrarTabla()" placeholder="Buscar...">
+                                             <label class="mdl-textfield__label" for="filtro_nombre"></label>
+                                      </div>
+                                  </div>
+                                    <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+						                <div style="overflow-x: auto;">    
+						                    <table id="tabla_productos" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+							                    <thead>
+                                                      <tr>
+                                                       <th class="mdl-data-table"style="text-align: center;">NUMERO DE ORDEN</th>
+                                               </thead>
+                                                <tbody>
+										                  <?php    // Mostrar los resultados en la tabla
+									                     if ($resultado->num_rows > 0) {
+										              while($row = $resultado->fetch_assoc()) {
+											                echo "<tr><td style='text-align:center'>" . $row["numero_orden"] . "</td></tr>";
+											              }
+									                      } else {
+										                  echo "0 resultados";
+									                       }
+															  ?>
+															  <p class="text-center">
+								<tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 50px;" id="pasar-subir">
+									<i class="zmdi zmdi-forward"></i> Pedido listo para subir
+								</button></tr>
+							</p>
+							
+                                                </tbody>
+                                          </table>
+                                       </div>
+									</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+		
+              <div class="mdl-tabs__panel" id="tabNewLote">
+			  <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
             <div class="full-width panel mdl-shadow--2dp">
                 <div class="full-width panel-tittle bg-success text-center tittles">
-                    Pedidos en Reparto
-                </div>
-                <div class="full-width panel-content">
-				    <form action="#">
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-										<label class="mdl-button mdl-js-button mdl-button--icon" for="searchAdmin">
-											<i class="zmdi zmdi-search"></i>
-										</label>
-										<div class="mdl-textfield__expandable-holder">
-											<input class="mdl-textfield__input" type="text" id="searchAdmin">
-											<label class="mdl-textfield__label"for="searchAdmin"></label>
-										</div>
-									</div>
-				    </form>
-                    
-                            <h5 class="text-condensedLight">Orden de despacho # </h5>
-                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-                                    <input type="radio" id="option-1" class="mdl-radio__button" name="options" >
-                                    <span class="mdl-radio__label">Listo para subir al carro</span>
-                                </label>
-                                <br><br>
-                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-                                    <input type="radio" id="option-2" class="mdl-radio__button" name="options" >
-                                    <span class="mdl-radio__label"> Subido en el carro</span>
-                                </label>
-                        <p class="text-center">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addProduct">
-                                <i class="zmdi zmdi-check-all"></i>
-                            </button>
-                            <div class="mdl-tooltip" for="btn-addProduct">Confirmar Cambio de Estado</div>
-                        </p>
-                       
-                   
+                     Pedidos listos para subir y pedidos subidos
+                    </div>
+				            <div class="tittle bg-primary text-center tittles">
+								Pedidos listos para subir al carro
+					         </div>
+ 
+                       <div class="mdl-grid">
+					   <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
+    <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre1">
+      <i class="zmdi zmdi-search"></i>
+    </label>
+    <div class="mdl-textfield__expandable-holder">
+      <input class="mdl-textfield__input" type="text" id="filtro_nombre1" onkeyup="filtrarTabla1()" placeholder="Buscar...">
+      <label class="mdl-textfield__label" for="filtro_nombre1"></label>
+    </div>
+  </div>
+                           <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+						       <div style="overflow-x: auto;">    
+						            <table id="tabla_productos1" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+							            <thead>
+                                            <tr>
+                                            <th class="mdl-data-table"style="text-align: center;">NUMERO DE ORDEN</th>
+                                            </tr>
+                                        </thead>
+                                    <tbody>
+										<?php   
+									   
+									   // Mostrar los resultados en la tabla
+									   if ($resultado1->num_rows > 0) {
+										   while($row = $resultado1->fetch_assoc()) {
+											   echo "<tr><td style='text-align:center'>" . $row["numero_orden"] . "</td></tr>";
+											 }
+									   } else {
+										   echo "0 resultados";
+									   }
+															  ?>
+                                    </tbody>
+									
+								<tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 200px;" id="pasar-subido">
+									<i class="zmdi zmdi-forward"></i> Confirmar Pedido subido
+								</button></tr>
+                    </table>
+				</div>
                 </div>
             </div>
-        </div>
+      </div>
+                    </div>
+                </div>
+               
+        
+				
+                       <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
+            <div class="full-width panel mdl-shadow--2dp">
+			<div class="tittle bg-primary text-center tittles">
+								Pedidos subidos al carro
+							</div>
+
+					   <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
+    <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre11">
+      <i class="zmdi zmdi-search"></i>
+    </label>
+    <div class="mdl-textfield__expandable-holder">
+      <input class="mdl-textfield__input" type="text" id="filtro_nombre11" onkeyup="filtrarTabla11()" placeholder="Buscar...">
+      <label class="mdl-textfield__label" for="filtro_nombre11"></label>
     </div>
-</div>
+  </div>
+                           <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+						       <div style="overflow-x: auto;">    
+						            <table id="tabla_productos11" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+							            <thead>
+                                            <tr>
+                                            <th class="mdl-data-table"style="text-align: center;">NUMERO DE ORDEN</th>
+                                            </tr>
+                                        </thead>
+                                    <tbody>
+										<?php   
+									   
+									   // Mostrar los resultados en la tabla
+									   if ($resultado2->num_rows > 0) {
+										   while($row = $resultado2->fetch_assoc()) {
+											   echo "<tr><td style='text-align:center'>" . $row["numero_orden"] . "</td></tr>";
+											 }
+									   } else {
+										   echo "0 resultados";
+									   }
+															  ?>
+                                    </tbody>
+                    </table>
+				</div>
+                </div>
+            </div>
+      </div>
+                    </div>
+                </div>
+               
+            </div>
+              </div>
+			  
+			  <script>
+// Función para filtrar la tabla por nombre
+function filtrarTabla() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("filtro_nombre");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tabla_productos");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+</script>
+<script>
+// Función para filtrar la tabla por nombre
+function filtrarTabla1() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("filtro_nombre1");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tabla_productos1");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+</script>
+<script>
+// Función para filtrar la tabla por nombre
+function filtrarTabla11() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("filtro_nombre11");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tabla_productos11");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+</script>
+<script>
+$(document).ready(function() {
+  $("#pasar-subir").click(function() {
+    var numero_orden = prompt("Ingrese el numero de orden que esta lista para subir al carro");
+    if (numero_orden != null && numero_orden != "") {
+      $.ajax({
+        type: "POST",
+        url: "pasarsubir.php",
+        data: {numero_orden: numero_orden},
+        success: function(response) {
+			
+		  
+			alert("Operacion exitosa");
+			location.reload();
+        },
+        error: function(xhr, status, error) {
+          // Se ejecuta cuando la petición falló
+          alert("Ocurrió un error al intentar pasar la orden");
+        }
+      });
+    }
+  });
+});
+</script>
+<script>
+$(document).ready(function() {
+  $("#pasar-subido").click(function() {
+	var numero_orden = prompt("Ingrese el numero de orden que ya se subio al carro");
+    if (numero_orden != null && numero_orden != "") {
+      $.ajax({
+        type: "POST",
+        url: "pasarsubido.php",
+        data: {numero_orden: numero_orden},
+        success: function(response) {
+			
+		  
+			alert("Operacion exitosa");
+			location.reload();
+        },
+        error: function(xhr, status, error) {
+          // Se ejecuta cuando la petición falló
+          alert("Ocurrió un error al intentar pasar la orden");
+        }
+      });
+    }
+  });
+});
+</script>
+
+</body>
+</html>

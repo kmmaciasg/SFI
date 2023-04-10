@@ -32,6 +32,10 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 	<script src="js/sweetalert2.min.js" ></script>
 	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
 	<script src="js/main.js" ></script>
+
+
+</script>
+
 </head>
 <body>
 	<!-- Notifications area -->
@@ -174,7 +178,7 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 					<li class="text-condensedLight noLink" ><small> <?php echo htmlspecialchars($nombre_completo); ?></small></li>
 					<li class="noLink">
 						<figure>
-							<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+							<img src="assets/img/avatar-male2.png" alt="Avatar" class="img-responsive">
 						</figure>
 					</li>
 				</ul>
@@ -623,14 +627,14 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 </section>
 <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
     <div class="mdl-grid">
-	<Form>
+	<form action="enviarsubir.php" method="post">
         <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
             <div class="full-width panel mdl-shadow--2dp">
                 <div class="full-width panel-tittle bg-primary text-center tittles">
                    ORDEN DE DESPACHO NO.
                 </div>
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					<input type="text" id="numero-orden" placeholder="Ingresa el número de orden">
+                <div class="mdl-textfield mdl-js-textfield ">
+					<input class="mdl-textfield__input text-center" type="text" name="numero-orden" id="numero-orden" placeholder="Ingresa el número de orden">
                 </div>
 				
                 <div class="full-width panel-content">
@@ -667,16 +671,16 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
                                         <input class="mdl-textfield__input" type="number" step="0.0000001"  name="cajas" id="cajas" readonly>
                                     <span class="mdl-textfield__error">Numero Invalio</span>
 									</h6>
-                                        </h6>
+                                        
                                         <h6 class="text-condensedLight">Modo de Pago
                                         <input class="mdl-textfield__input" type="text" name="pago" id="pago" readonly>
-                                    <span class="mdl-textfield__error">Nombre Invalio</span>
+                                         <span class="mdl-textfield__error">Nombre Invalio</span>
                                     </h6>
-                                    </h6>
-                                        </h6>
-                                        <h6 class="text-condensedLight">Embalaje
+                                    
+                                        
+                                    <h6 class="text-condensedLight">Embalaje
                                         <input class="mdl-textfield__input" type="text"  name="embalaje" id="embalaje" readonly>
-                                    <span class="mdl-textfield__error">Nombre Invalio</span>
+                                     <span class="mdl-textfield__error">Nombre Invalio</span>
                                     </h6>
                                 </div>
                                
@@ -755,16 +759,17 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
                        
                         
                         <p class="text-center">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addProduct">
+                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="generate-pdf" type="submit">
                                 <i class="zmdi zmdi-check-all"></i>
                             </button>
-                            <div class="mdl-tooltip" for="btn-addProduct">Finalizar Orden</div>
-                        </p>
-                    </form>
+                            <div class="mdl-tooltip" for="generate-pdf">Finalizar Orden</div>
+                        </p>  
                 </div>
             </div>
         </div>
+	</form>
 </div>
+
 
 
 <script>

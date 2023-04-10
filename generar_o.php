@@ -59,6 +59,9 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 	<script src="js/main.js" ></script>
 </head>
 <body >
+
+
+
 <?php
 include 'conexion_db.php';
 
@@ -73,6 +76,10 @@ $sql1 = "SELECT descripcion, codigo FROM productos";
 
 // Ejecutar la consulta
 $resultado1 = mysqli_query($conexion, $sql1);
+
+
+// Definir el arreglo de productos vacío
+$productos = array();
 
 ?>
 	<!-- Notifications area -->
@@ -719,47 +726,37 @@ $resultado1 = mysqli_query($conexion, $sql1);
                                     </div>
                                 </div>
                             </div>
-                            <div class="mdl-grid">
-							<div class="mdl-cell mdl-cell--1-col-phone mdl-cell--4-col-tablet mdl-cell--2-col-desktop">
-                                    <h6 class="text-condensedLight">Codigo
-                                        <input class="mdl-textfield__input" type="number" step="0.0000001"  id="Cantidad">
-                                    <span class="mdl-textfield__error">Numero Invalio</span>
-                                    </h6>
-                                </div>
-                                <div class="mdl-cell mdl-cell--1-col-phone mdl-cell--4-col-tablet mdl-cell--2-col-desktop">
-                                    <h6 class="text-condensedLight">Cantidad
-                                        <input class="mdl-textfield__input" type="number" step="0.0000001"  id="Cantidad">
-                                    <span class="mdl-textfield__error">Numero Invalio</span>
-                                    </h6>
-                                </div>
-                                <div class="mdl-cell mdl-cell--1-col-phone mdl-cell--4-col-tablet mdl-cell--3-col-desktop">
-								<h6 class="text-condensedLight">Producto</h6>
-												<?php
-												echo "<select descripcion='opciones'>";
-												while ($fila = mysqli_fetch_assoc($resultado1)) {
-													echo "<option value='".$fila['descripcion']."'>".$fila['descripcion']."</option>";
-												}
-												echo "</select>";
-												?>
-                                </div>
-                                <div class="mdl-cell mdl-cell--1-col-phone mdl-cell--4-col-tablet mdl-cell--2-col-desktop">
-                                    <h6 class="text-condensedLight">LV
-                                        <input class="mdl-textfield__input" type="number" step="0.0000001"  id="Cantidad">
-                                    <span class="mdl-textfield__error">Numero Invalio</span>
-                                    </h6>
-                                </div>
-                                <div class="mdl-cell mdl-cell--1-col-phone mdl-cell--4-col-tablet mdl-cell--2-col-desktop">
-                                    <h6 class="text-condensedLight">LC
-                                        <input class="mdl-textfield__input" type="number" step="0.0000001"  id="Cantidad">
-                                    <span class="mdl-textfield__error">Numero Invalio</span>
-                                    </h6>
-                                </div>
-                            </div>
-                           
+							<table  id="tabla_productos" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+							                 
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Código</th>
+      <th class="mdl-data-table__cell--non-numeric">Producto</th>
+      <th class="mdl-data-table__cell--non-numeric">Cantidad</th>
+      <th class="mdl-data-table__cell--non-numeric">LV</th>
+      <th class="mdl-data-table__cell--non-numeric">LC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach($productos as $producto): ?>
+      <tr>
+        <td class="mdl-data-table__cell--non-numeric"><?php echo $producto['codigo'] ?></td>
+        <td class="mdl-data-table__cell--non-numeric"><?php echo $producto['producto'] ?></td>
+        <td class="mdl-data-table__cell--non-numeric"><?php echo $producto['cantidad'] ?></td>
+        <td class="mdl-data-table__cell--non-numeric"><?php echo $producto['lv'] ?></td>
+        <td class="mdl-data-table__cell--non-numeric"><?php echo $producto['lc'] ?></td>
+        <td class="mdl-data-table__cell--non-numeric">
+          <a href="eliminar_producto.php?id=<?php echo $producto['id'] ?>" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Eliminar</a>
+        </td>
+      </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>
+
                             
                             <p class="text-center">
-                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary"  id="btn-addProduct">
-                                    <i class="zmdi zmdi-plus"></i>
+                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" onclick="openPopup()" id="btn-addProduct">
+								<i class="zmdi zmdi-plus"></i>
                                     <div class="mdl-tooltip" for="btn-addProduct">Agregar Producto</div>
                                 </button>
                              
