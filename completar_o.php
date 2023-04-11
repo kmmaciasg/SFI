@@ -634,7 +634,7 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
                    ORDEN DE DESPACHO NO.
                 </div>
                 <div class="mdl-textfield mdl-js-textfield ">
-					<input class="mdl-textfield__input text-center" type="text" name="numero-orden" id="numero-orden" placeholder="Ingresa el número de orden">
+					<input class="mdl-textfield__input text-center" type="text" name="numero_orden" id="numero_orden" placeholder="Ingresa el número de orden">
                 </div>
 				
                 <div class="full-width panel-content">
@@ -718,63 +718,47 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
                                 </div>
                             </div>
                         </div>
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--1-col-phone mdl-cell--4-col-tablet mdl-cell--2-col-desktop">
-                                <h6 class="text-condensedLight">Codigo
-                                    <select class="mdl-textfield__input">
-                                        <option value="" disabled="" selected="">...</option>
-                                        <option value="">...</option>
-                                        <option value="">...</option>
-                                    </select>
-                                </h6>
-                            </div>
-                            <div class="mdl-cell mdl-cell--1-col-phone mdl-cell--4-col-tablet mdl-cell--2-col-desktop">
-                                <h6 class="text-condensedLight">Cantidad
-                                    <input class="mdl-textfield__input" type="number" step="0.0000001"  id="Cantidad">
-                                <span class="mdl-textfield__error">Numero Invalio</span>
-                                </h6>
-                            </div>
-                            <div class="mdl-cell mdl-cell--1-col-phone mdl-cell--4-col-tablet mdl-cell--3-col-desktop">
-                                <h6 class="text-condensedLight">Producto
-                                    <select class="mdl-textfield__input">
-                                        <option value="" disabled="" selected="">...</option>
-                                        <option value="">...</option>
-                                        <option value="">...</option>
-                                    </select>
-                                </h6>
-                            </div>
-                            <div class="mdl-cell mdl-cell--1-col-phone mdl-cell--4-col-tablet mdl-cell--2-col-desktop">
-                                <h6 class="text-condensedLight">LV
-                                    <input class="mdl-textfield__input" type="number" step="0.0000001"  id="Cantidad">
-                                <span class="mdl-textfield__error">Numero Invalio</span>
-                                </h6>
-                            </div>
-                            <div class="mdl-cell mdl-cell--1-col-phone mdl-cell--4-col-tablet mdl-cell--2-col-desktop">
-                                <h6 class="text-condensedLight">LC
-                                    <input class="mdl-textfield__input" type="number" step="0.0000001"  id="Cantidad">
-                                <span class="mdl-textfield__error">Numero Invalio</span>
-                                </h6>
-                            </div>
-                        </div>
-                       
-                        
+                            
+							<table id="tabla-productos" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+		<thead>
+			<tr>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- Aquí se mostrarán los productos -->
+		</tbody>
+	</table>
                         <p class="text-center">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="generate-pdf" type="submit">
+                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary"  id="generate-pdf" type="submit">
                                 <i class="zmdi zmdi-check-all"></i>
-                            </button>
                             <div class="mdl-tooltip" for="generate-pdf">Finalizar Orden</div>
-                        </p>  
+                            </button>
+                        </p> 
                 </div>
             </div>
         </div>
 	</form>
 </div>
 
+<script>
+function actualizarTabla() {
+    const numeroOrden = document.getElementById("numero_orden").value; // Obtener el número de orden ingresado por el usuario
+const url = `actualizar_tabla.php?numero_orden=${numeroOrden}`; // Agregar el número de orden como parámetro en la URL
+fetch(url)
+    .then(response => response.text())
+    .then(data => {
+        // actualizar la tabla con la respuesta recibida
+        document.getElementById("tabla-productos").innerHTML = data;
+    })
+    .catch(error => console.error(error));
 
+}
+</script>
+</script>
 
 <script>
 // Capturamos el input de texto
-const inputNumeroOrden = document.getElementById('numero-orden');
+const inputNumeroOrden = document.getElementById('numero_orden');
 
 inputNumeroOrden.addEventListener('keydown', function (event) {
   if (event.key === 'Enter') {
@@ -802,6 +786,8 @@ inputNumeroOrden.addEventListener('keydown', function (event) {
         document.getElementById('email').value = datosOrden.email;
         document.getElementById('ciudad').value = datosOrden.ciudad;
         document.getElementById('dir').value = datosOrden.dir;
+		
+	actualizarTabla();
       } else {
         console.error(xhr.statusText);
       }

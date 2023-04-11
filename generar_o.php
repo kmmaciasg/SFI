@@ -782,13 +782,16 @@ $result = $conexion->query($sql2);
 
 <script>
 function actualizarTabla() {
-    fetch("actualizar_tabla.php")
-        .then(response => response.text())
-        .then(data => {
-            // actualizar la tabla con la respuesta recibida
-            document.getElementById("tabla-productos").innerHTML = data;
-        })
-        .catch(error => console.error(error));
+    const numeroOrden = document.getElementById("numero_orden").value; // Obtener el número de orden ingresado por el usuario
+const url = `actualizar_tabla.php?numero_orden=${numeroOrden}`; // Agregar el número de orden como parámetro en la URL
+fetch(url)
+    .then(response => response.text())
+    .then(data => {
+        // actualizar la tabla con la respuesta recibida
+        document.getElementById("tabla-productos").innerHTML = data;
+    })
+    .catch(error => console.error(error));
+
 }
 </script>
 <script>

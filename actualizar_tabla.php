@@ -1,7 +1,8 @@
 <?php
 include 'conexion_db.php'; 
+$numero_orden = $_GET['numero_orden'];
 // Consulta para seleccionar los datos de la tabla "ordenes_despacho"
-$sql2 = "SELECT codigo, producto, cantidad, lv, lc FROM ordenes_despacho";
+$sql2 = "SELECT codigo, producto, cantidad, lv, lc FROM ordenes_despacho WHERE numero_orden = '$numero_orden'";
 $result = $conexion->query($sql2);
 
 // código para generar la tabla
