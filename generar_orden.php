@@ -35,6 +35,8 @@ if ($conn->connect_error) {
         <script>
         alert("el producto fue agregado correctamente")
         window.close();
+        
+							window.opener.actualizarTabla()
         </script>
         '; 
     } else {

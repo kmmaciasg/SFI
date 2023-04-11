@@ -745,29 +745,15 @@ $result = $conexion->query($sql2);
                                 </div>
                             </div>
 							
-							<?php
-							if ($result->num_rows > 0) {
-  echo "<table id='tabla-productos' class='mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive'>
-  <tr>
-  <th class='mdl-data-table'style='text-align: center;'>Código</th>
-  <th class='mdl-data-table'style='text-align: center;'>Producto</th>
-  <th class='mdl-data-table'style='text-align: center;'>Cantidad</th>
-  <th class='mdl-data-table'style='text-align: center;'>LV</th>
-  <th class='mdl-data-table'style='text-align: center;'>LC</th>
-  </tr>";
-  // Salida de datos de cada fila
-  while($row = $result->fetch_assoc()) {
-    echo "<tr><td style='text-align:center'>" . $row["codigo"]. "</td>
-	<td style='text-align:center'>" . $row["producto"]. "</td>
-	<td style='text-align:center'>" . $row["cantidad"]. "</td>
-	<td style='text-align:center'>" . $row["lv"]. "</td>
-	<td style='text-align:center'>" . $row["lc"]. "</td></tr>";
-  }echo "</table>";
-} else {
-  echo "No se encontraron resultados";
-}
-
-  ?>
+							<table id="tabla-productos" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+		<thead>
+			<tr>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- Aquí se mostrarán los productos -->
+		</tbody>
+	</table>
                             <p class="text-center">
                                 <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" onclick="agregarProducto()" id="btn-addProduct">
 								<i class="zmdi zmdi-plus"></i>
@@ -794,8 +780,17 @@ $result = $conexion->query($sql2);
             </div>
 </div>
 
-
-
+<script>
+function actualizarTabla() {
+    fetch("actualizar_tabla.php")
+        .then(response => response.text())
+        .then(data => {
+            // actualizar la tabla con la respuesta recibida
+            document.getElementById("tabla-productos").innerHTML = data;
+        })
+        .catch(error => console.error(error));
+}
+</script>
 <script>
 	
 	function agregarProducto() {
@@ -846,7 +841,7 @@ $result = $conexion->query($sql2);
             </div>
         </body>
     `);
-
+	actualizarTabla();
 }
 
 
