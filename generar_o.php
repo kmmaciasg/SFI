@@ -744,12 +744,24 @@ $result = $conexion->query($sql2);
                                     </div>
                                 </div>
                             </div>
+							
 							<?php
 							if ($result->num_rows > 0) {
-  echo "<table><tr><th>Código</th><th>Producto</th><th>Cantidad</th><th>LV</th><th>LC</th></tr>";
+  echo "<table id='tabla-productos' class='mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive'>
+  <tr>
+  <th class='mdl-data-table'style='text-align: center;'>Código</th>
+  <th class='mdl-data-table'style='text-align: center;'>Producto</th>
+  <th class='mdl-data-table'style='text-align: center;'>Cantidad</th>
+  <th class='mdl-data-table'style='text-align: center;'>LV</th>
+  <th class='mdl-data-table'style='text-align: center;'>LC</th>
+  </tr>";
   // Salida de datos de cada fila
   while($row = $result->fetch_assoc()) {
-    echo "<tr><td>" . $row["codigo"]. "</td><td>" . $row["producto"]. "</td><td>" . $row["cantidad"]. "</td><td>" . $row["lv"]. "</td><td>" . $row["lc"]. "</td></tr>";
+    echo "<tr><td style='text-align:center'>" . $row["codigo"]. "</td>
+	<td style='text-align:center'>" . $row["producto"]. "</td>
+	<td style='text-align:center'>" . $row["cantidad"]. "</td>
+	<td style='text-align:center'>" . $row["lv"]. "</td>
+	<td style='text-align:center'>" . $row["lc"]. "</td></tr>";
   }echo "</table>";
 } else {
   echo "No se encontraron resultados";
@@ -777,8 +789,6 @@ $result = $conexion->query($sql2);
                                
                             </p>
                         </form>
-						<!-- Agregar una sección para mostrar la información de la orden de despacho -->
-<div id="orden-despacho"></div>
                     </div>
                 </div>
             </div>
@@ -821,20 +831,24 @@ $result = $conexion->query($sql2);
 
                             <label class="text-condensedLight" for="cantidad">Cantidad:</label>
                             <input type="number" name="cantidad" min="1" max="1000000000">
-							<input class="mdl-textfield__input text-center" type="text" readonly value="<?php echo $new_order_number; ?>"name="numero_orden" id="numero:orden">
-                        <label class="mdl-textfield__label text-center" for="numero_orden">Numero de Orden</label>
+							 <label class="text-condensedLight" for="numero_orden">Numero Orden</label>
+							<input type="text" readonly value="<?php echo $new_order_number; ?>"name="numero_orden" id="numero:orden">
+                       
                         
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 140px;" id="CrearProducto">
                                 <i class="zmdi zmdi-shopping-cart-plus"></i>
                                 <div class="mdl-tooltip" for="CrearProducto">Agregar Producto</div>
                             </button>
+							
                         </form>
                     </div>
                 </div>
             </div>
         </body>
     `);
+
 }
+
 
 </script>
 
