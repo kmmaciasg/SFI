@@ -72,14 +72,19 @@ $sql = "SELECT nombre FROM clientes";
 $resultado = mysqli_query($conexion, $sql);
 
 // Consulta SQL para obtener los datos
-$sql1 = "SELECT descripcion, codigo FROM productos";
+$sql1 = "SELECT Descripcion, codigo FROM productos";
 
 // Ejecutar la consulta
 $resultado1 = mysqli_query($conexion, $sql1);
 
 
-// Definir el arreglo de productos vacío
-$productos = array();
+// Obtener el último número de orden
+$query = "SELECT numero_orden FROM o_despacho ORDER BY id DESC LIMIT 1";
+$resultorden = mysqli_query($conexion, $query);
+
+// Consulta para seleccionar los datos de la tabla "ordenes_despacho"
+$sql2 = "SELECT codigo, producto, cantidad, lv, lc FROM ordenes_despacho";
+$result = $conexion->query($sql2);
 
 ?>
 	<!-- Notifications area -->
@@ -626,10 +631,23 @@ $productos = array();
                        ORDEN DE DESPACHO NO.
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input text-center" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="numero_orden" id="numero:orden">
+						<?php
+						if (mysqli_num_rows($resultorden) > 0) {
+							$row = mysqli_fetch_assoc($resultorden);
+							$last_order_number = $row["numero_orden"];
+						  } else {
+							// Si no hay ninguna orden en la tabla, establecer el número de orden en 0
+							$last_order_number = 0;
+						  }
+						  
+						  // Generar el siguiente número de orden
+						  $new_order_number = $last_order_number + 1;
+						?>
+
+                        <input class="mdl-textfield__input text-center" type="text" readonly value="<?php echo $new_order_number; ?>"name="numero_orden" id="numero_orden">
                         <label class="mdl-textfield__label text-center" for="numero_orden"></label>
                         <span class="mdl-textfield__error">Número de orden invalido</span>
-                    </div>
+					</div>
                     <div class="full-width panel-content">
                             <div class="mdl-grid">
                                 <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
@@ -705,7 +723,7 @@ $productos = array();
 											<input class="mdl-textfield__input" type="text" name="creador" id="creador" value="<?php echo $nombre_completo ?>" readonly>
 											</h6>
                                         <h6 class="text-condensedLight">Responsable
-                                            <input class="mdl-textfield__input" type="text"  id="Ciudad">
+                                            <input class="mdl-textfield__input" type="text"  id="Responsable">
                                         <span class="mdl-textfield__error">Nombre Invalio</span>
                                         </h6>
 										<h6 class="text-condensedLight">Transportadora
@@ -726,36 +744,20 @@ $productos = array();
                                     </div>
                                 </div>
                             </div>
-							<table  id="tabla_productos" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-							                 
-  <thead>
-    <tr>
-      <th class="mdl-data-table__cell--non-numeric">Código</th>
-      <th class="mdl-data-table__cell--non-numeric">Producto</th>
-      <th class="mdl-data-table__cell--non-numeric">Cantidad</th>
-      <th class="mdl-data-table__cell--non-numeric">LV</th>
-      <th class="mdl-data-table__cell--non-numeric">LC</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php foreach($productos as $producto): ?>
-      <tr>
-        <td class="mdl-data-table__cell--non-numeric"><?php echo $producto['codigo'] ?></td>
-        <td class="mdl-data-table__cell--non-numeric"><?php echo $producto['producto'] ?></td>
-        <td class="mdl-data-table__cell--non-numeric"><?php echo $producto['cantidad'] ?></td>
-        <td class="mdl-data-table__cell--non-numeric"><?php echo $producto['lv'] ?></td>
-        <td class="mdl-data-table__cell--non-numeric"><?php echo $producto['lc'] ?></td>
-        <td class="mdl-data-table__cell--non-numeric">
-          <a href="eliminar_producto.php?id=<?php echo $producto['id'] ?>" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Eliminar</a>
-        </td>
-      </tr>
-    <?php endforeach; ?>
-  </tbody>
-</table>
+							<?php
+							if ($result->num_rows > 0) {
+  echo "<table><tr><th>Código</th><th>Producto</th><th>Cantidad</th><th>LV</th><th>LC</th></tr>";
+  // Salida de datos de cada fila
+  while($row = $result->fetch_assoc()) {
+    echo "<tr><td>" . $row["codigo"]. "</td><td>" . $row["producto"]. "</td><td>" . $row["cantidad"]. "</td><td>" . $row["lv"]. "</td><td>" . $row["lc"]. "</td></tr>";
+  }echo "</table>";
+} else {
+  echo "No se encontraron resultados";
+}
 
-                            
+  ?>
                             <p class="text-center">
-                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" onclick="openPopup()" id="btn-addProduct">
+                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" onclick="agregarProducto()" id="btn-addProduct">
 								<i class="zmdi zmdi-plus"></i>
                                     <div class="mdl-tooltip" for="btn-addProduct">Agregar Producto</div>
                                 </button>
@@ -768,19 +770,79 @@ $productos = array();
                                     <i class="zmdi zmdi-collection-text"></i>
                                     <div class="mdl-tooltip" for="btn-guia">Crear Guia</div>
                                 </button>
-								<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" onclick="abrirVentana()" id="CrearProducto">
+								<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" onclick="abrirVentana()" id="CrearProducto">
 										<i class="zmdi zmdi-account-add"></i>
 										<div class="mdl-tooltip" for="CrearProducto">Crear Nuevo Cliente</div>
 									</button>
                                
                             </p>
                         </form>
+						<!-- Agregar una sección para mostrar la información de la orden de despacho -->
+<div id="orden-despacho"></div>
                     </div>
                 </div>
             </div>
 </div>
+
+
+
+<script>
+	
+	function agregarProducto() {
+    // Bloquear el envío del formulario
+    event.preventDefault();
+
+    var ventana = window.open("", "Nueva ventana", "width=600,height=400");
+  
+
+    // Insertar HTML en la ventana
+    ventana.document.write(`
+        <head>
+            <link rel="stylesheet" href="css/normalize.css">
+            <link rel="stylesheet" href="css/sweetalert2.css">
+            <link rel="stylesheet" href="css/material.min.css">
+            <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+            <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+            <link rel="stylesheet" href="css/main.css">
+        </head>
+        <body>
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+                    <div class="full-width panel mdl-shadow--2dp">
+                        <form method="post" action="generar_orden.php">
+                            <label class="text-condensedLight" for="producto">Producto:</label>
+                            <?php
+                                echo "<select name='producto' id='producto'>";
+                                while ($fila = mysqli_fetch_assoc($resultado1)) {
+                                    echo "<option value='".$fila['Descripcion']."'>".$fila['Descripcion']."</option>";
+                                }
+                                echo "</select>";
+                            ?>
+
+                            <label class="text-condensedLight" for="cantidad">Cantidad:</label>
+                            <input type="number" name="cantidad" min="1" max="1000000000">
+							<input class="mdl-textfield__input text-center" type="text" readonly value="<?php echo $new_order_number; ?>"name="numero_orden" id="numero:orden">
+                        <label class="mdl-textfield__label text-center" for="numero_orden">Numero de Orden</label>
+                        
+                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 140px;" id="CrearProducto">
+                                <i class="zmdi zmdi-shopping-cart-plus"></i>
+                                <div class="mdl-tooltip" for="CrearProducto">Agregar Producto</div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </body>
+    `);
+}
+
+</script>
+
 <script>
 function abrirVentana() {
+	
+    // Bloquear el envío del formulario
+    event.preventDefault()
   // Abrir ventana emergente
   var ventana = window.open("", "Nueva ventana", "width=400,height=400");
   
@@ -829,4 +891,4 @@ function abrirVentana() {
 }
 </script>
 </body>
-</html>  
+</html> 
