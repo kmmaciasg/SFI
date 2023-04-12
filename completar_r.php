@@ -32,6 +32,9 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 	<script src="js/sweetalert2.min.js" ></script>
 	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
 	<script src="js/main.js" ></script>
+	
+  
+  
 </head>
 <body>
 	<!-- Notifications area -->
@@ -577,51 +580,19 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
                     Completar Ruta
                 </div>
                 <div class="full-width panel-content">
-				<form action="#">
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-										<label class="mdl-button mdl-js-button mdl-button--icon" for="searchAdmin">
-											<i class="zmdi zmdi-search"></i>
-										</label>
-										<div class="mdl-textfield__expandable-holder">
-											<input class="mdl-textfield__input" type="text" id="searchAdmin">
-											<label class="mdl-textfield__label"></label>
-										</div>
-									</div>
-								</form>
-                    <div class="mdl-list">
-                        <div class="mdl-list__item mdl-list__item--two-line">
-                            <span class="mdl-list__item-primary-content">
-                                <i class="zmdi zmdi-account mdl-list__item-avatar"></i>
-                                <span>Usuario</span>
-                                <span class="mdl-list__item-sub-title"><?php echo $nombre_completo ?></span>
-                            </span>
-                           
-                        </div>
-                            <h5 class="text-condensedLight">Ruta de Entrega</h5>
-                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-                                    <input type="radio" id="option-1" class="mdl-radio__button" name="options" >
-                                    <span class="mdl-radio__label"> ...</span>
-                                </label>
-                                <br><br>
-                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-                                    <input type="radio" id="option-2" class="mdl-radio__button" name="options" >
-                                    <span class="mdl-radio__label">...</span>
-                                </label>
-                                <br><br>
-                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
-                                    <input type="radio" id="option-3" class="mdl-radio__button" name="options" >
-                                    <span class="mdl-radio__label">...</span>
-                                </label>
-                               
-                        <p class="text-center">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addProduct">
-                                <i class="zmdi zmdi-check-all"></i>
-                            </button>
-                            <div class="mdl-tooltip" for="btn-addProduct">Finalizar Ruta</div>
-                        </p>
-                        </div>
-                    </div>
-                </div>
+				<h1>Seleccionar Ruta</h1>
+	<label for="ruta">Selecciona una ruta:</label>
+	<select id="ruta" onchange="mostrarLugares()">
+	</select>
+	<br><br>
+	<h2>Lugares de la ruta:</h2>
+	<ul id="lugaresRuta">
+	</ul>
+	<br><br>
+	<h2>Lugares visitados:</h2>
+	<ul id="lugaresVisitados">
+	</ul>
+	<script src="script.js"></script>
             </div>
         </div>
     </div>

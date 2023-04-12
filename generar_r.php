@@ -32,6 +32,8 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 	<script src="js/sweetalert2.min.js" ></script>
 	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
 	<script src="js/main.js" ></script>
+	
+
 </head>
 <body>
 	<!-- Notifications area -->
@@ -574,43 +576,16 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
             <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
                 <div class="full-width panel mdl-shadow--2dp">
 			
-                    
-                    <div class="full-width panel-tittle bg-success text-center tittles">
-                        Nueva Ruta NO.
-                    </div>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input text-center" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="#ORDEN">
-                        <label class="mdl-textfield__label text-center" for="#ORDEN"></label>
-                        <span class="mdl-textfield__error">Número de orden invalido</span>
-                    </div>
+                   
                     <div class="full-width panel-content">
-                        <form>
-                            <div class="mdl-grid">
-                                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
-                                    <h5 class="text-condensedLight text-center">Agregue los lugares de destino</h5>
-                                </div>
-                                <div class="mdl-textfield mdl-js-textfield">
-                                    <input class="mdl-textfield__input" type="text"  id="Lugar1">
-                                    <label class="mdl-textfield__label" for="Lugar1">Lugar 1</label>
-                                    <span class="mdl-textfield__error">Nombre Invalio</span>
-                                </div>  
-                                <div class="mdl-textfield mdl-js-textfield">
-                                    <input class="mdl-textfield__input" type="text"  id="Lugar2">
-                                    <label class="mdl-textfield__label" for="Lugar2">Lugar 2</label>
-                                    <span class="mdl-textfield__error">Nombre Invalio</span>
-                                </div>  
-                            </div>
-                            <p class="text-center">
-                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="AgregarProducto">
-                                    <i class="zmdi zmdi-plus"></i>
-                                    <div class="mdl-tooltip" for="AgregarProducto">Agregar Lugar</div>
-                                </button>
-                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 55px;" id="CrearProducto">
-                                    <i class="zmdi zmdi-truck"></i>
-                                    <div class="mdl-tooltip" for="CrearProducto">Generar Ruta</div>
-                                </button>
-                            </p>
-                        </form>
+					<form>
+		<label for="numRuta">Número de ruta:</label>
+		<input type="text" id="numRuta" name="numRuta"><br><br>
+		<button type="button" onclick="agregarLugar()">Agregar lugar</button>
+	</form>
+	<div id="lugares"></div>
+	<button type="button" onclick="guardarRuta()">Guardar ruta</button>
+	<script src="script.js"></script>
                     </div>
                 </div>
             </div>
