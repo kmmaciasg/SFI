@@ -16,13 +16,12 @@ function guardarRuta() {
     $("#lugares li").each(function() {
         lugares.push($(this).text());
     });
-    rutas.push({"numRuta": numRuta, "lugares": lugares});
+    rutas.push({"numRuta": $("#numRuta").val(), "lugares": lugares});
     localStorage.setItem("rutas", JSON.stringify(rutas));
     alert("Ruta guardada exitosamente");
     $("#numRuta").val("");
     $("#lugares").empty();
 }
-
 // Función para mostrar las rutas en el select
 function mostrarRutas() {
     var storedRutas = JSON.parse(localStorage.getItem("rutas"));
@@ -31,6 +30,12 @@ function mostrarRutas() {
         for (var i = 0; i < rutas.length; i++) {
             $("#ruta").append("<option value='" + i + "'>" + rutas[i].numRuta + "</option>");
         }
+        // Agregar evento change al select
+        $("#ruta").change(function() {
+            var index = $(this).val(); // Obtener el índice seleccionado
+            var numRuta = rutas[index].numRuta; // Obtener el valor de numRuta correspondiente
+            $("#numRutaSeleccionada").text(numRuta); // Mostrar el valor en un elemento de texto aparte
+        });
     } else {
         alert("No hay rutas guardadas");
     }
@@ -42,7 +47,13 @@ function mostrarLugares() {
     var lugares = rutas[index].lugares;
     $("#lugaresRuta").empty();
     for (var i = 0; i < lugares.length; i++) {
-        $("#lugaresRuta").append("<li>" + lugares[i] + "</li>");
+        $("#lugaresRuta").append("<li>"+ "<a>"+"<div class='navLateral-body-cl'>"+"<i class='zmdi zmdi-home'>"+"</i>"+"</div>"+"<div class='navLateral-body-cr'>"+ lugares[i]+ "</div>" +"</a>" + "</li>");
+
+        
+								
+							
+							
+							
     }
 }
 
@@ -50,7 +61,8 @@ function mostrarLugares() {
 function marcarLugar() {
     var lugar = $(this).text();
     $(this).addClass("visitado");
-    $("#lugaresVisitados").append("<li>" + lugar + "</li>");
+    $("#lugaresVisitados").append("<li>"+ "<a>"+"<div class='navLateral-body-cl'>"+"<i class='zmdi zmdi-home'>"+"</i>"+"</div>"+"<div class='navLateral-body-cr'>"+ lugar+ "</div>" +"</a>" + "</li>");
+
 }
 
 // Función para mostrar los lugares visitados de la ruta seleccionada
@@ -61,7 +73,9 @@ function mostrarLugaresVisitados() {
     });
     $("#lugaresVisitados").empty();
     for (var i = 0; i < lugaresVisitados.length; i++) {
-        $("#lugaresVisitados").append("<li>" + lugaresVisitados[i] + "</li>");
+        $("#lugaresVisitados").append("<li>"+ "<a>"+"<div class='navLateral-body-cl'>"+"<i class='zmdi zmdi-home'>"+"</i>"+"</div>"+"<div class='navLateral-body-cr'>"+ lugaresVisitados[i]+ "</div>" +"</a>" + "</li>");
+
+        
     }
 }
 
@@ -73,3 +87,53 @@ $(document).ready(function() {
     $("#ruta").change(mostrarLugaresVisitados);
 });
 
+
+function guardarRuta() {
+      // Obtenemos el número de ruta y los lugares visitados
+      var numRutaSeleccionada = document.getElementById("numRutaSeleccionada");
+      var numeroRuta = numRutaSeleccionada.textContent.trim();
+
+    var lugaresVisitados = "";
+    var elementosLugares = document.querySelectorAll("#lugaresVisitados li");
+    
+    for (var i = 0; i < elementosLugares.length; i++) {
+      lugaresVisitados += elementosLugares[i].textContent.trim() + ",";
+    }
+    
+    lugaresVisitados = lugaresVisitados.slice(0, -1); // Eliminar la última coma
+    
+    // Creamos un objeto FormData para enviar los datos
+    var formData = new FormData();
+    formData.append("numero_ruta", numeroRuta);
+    formData.append("lugares_visitados", lugaresVisitados);
+    
+    // Creamos una petición AJAX para enviar los datos a la base de datos MySQL
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "guardar_ruta.php");
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        // Si la petición es exitosa, mostramos un mensaje de éxito
+        alert("La ruta se ha guardado exitosamente en la base de datos.");
+      } else {
+        // Si hay algún error, mostramos un mensaje de error
+        alert("Ha ocurrido un error al guardar la ruta en la base de datos.");
+      }
+    };
+    xhr.send(formData);
+     // Eliminamos el elemento seleccionado del almacenamiento local
+     localStorage.removeItem("ruta");
+}    
+
+function eliminarRuta(numRuta) {
+    var rutas = JSON.parse(localStorage.getItem("rutas"));
+    var nuevaListaRutas = [];
+
+    for (var i = 0; i < rutas.length; i++) {
+        if (rutas[i].numRuta !== numRuta) {
+            nuevaListaRutas.push(rutas[i]);
+        }
+    }
+
+    localStorage.setItem("rutas", JSON.stringify(nuevaListaRutas));
+    alert("La ruta " + numRuta + " ha sido eliminada exitosamente");
+}

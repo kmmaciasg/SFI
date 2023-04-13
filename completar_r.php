@@ -582,29 +582,35 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 				<form>
 				<h6 class="text-condensedLight">Selecciona la ruta
 				
-				<select id="ruta" onchange="mostrarLugares()">
+				<select id="ruta" name="ruta" onchange="mostrarLugares()">
 	<label class="mdl-textfield__label text-center" for="ruta">Selecciona una ruta:</label>
 	</h6>
 											</div>
 				
 	</select>
-	<br><br>
-	
+	<p>La ruta seleccionada es: <span id="numRutaSeleccionada"></span></p>
+
 	<h6 class="text-condensedLight">Lugares de la ruta:</h6>
 	
 	
-	<ul id="lugaresRuta">
+	<ul id="lugaresRuta" class="list-unstyle menu-principal">
 					
 				</ul>
 				
-	
-	
+
 	<br><br>
 	<h6 class="text-condensedLight">Lugares visitados:</h6>
 					
-	<ul  id="lugaresVisitados">
+	<ul  id="lugaresVisitados" class="list-unstyle menu-principal">
 	</ul>
-					
+	<br><br>
+	<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 185px;" id="Completar"onclick="guardarRuta()">
+								<i class="zmdi zmdi-check"></i>
+								
+							<div class="mdl-tooltip" for="Completar">Completar Ruta</div>	
+							</button>
+	
+
 	<script src="script.js"></script>
             </div>
         </div>
