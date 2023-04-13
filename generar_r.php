@@ -571,20 +571,36 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
         </div>						
 </section>
 <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-    <div class="mdl-tabs__panel is-active" id="tabNewProduct">
         <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
                 <div class="full-width panel mdl-shadow--2dp">
 			
                    
-                    <div class="full-width panel-content">
+					
+					<div class="full-width panel-tittle bg-primary text-center tittles">
+                       Generar Rutas
+                    </div>
+					<div class="full-width panel-content">
 					<form>
-		<label for="numRuta">Número de ruta:</label>
-		<input type="text" id="numRuta" name="numRuta"><br><br>
-		<button type="button" onclick="agregarLugar()">Agregar lugar</button>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input class="mdl-textfield__input text-center" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="numRuta" name="numRuta">
+											<label class="mdl-textfield__label text-center" for="numRuta">Número de ruta:</label>
+											<span class="mdl-textfield__error text-center">Numero Invalido</span>
+										</div>
+										<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" type="button" onclick="agregarLugar()" id="CrearProducto">Agregar Lugar
+										<i class="zmdi zmdi-pin"></i>
+										<div class="mdl-tooltip" for="CrearProducto">Agregar Lugar</div>
+									</button>
+                         
 	</form>
-	<div id="lugares"></div>
-	<button type="button" onclick="guardarRuta()">Guardar ruta</button>
+	<div class="full-width panel-content" id="lugares">
+
+	</div>
+	<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" type="button" onclick="guardarRuta()" id="Crearruta"> Guardar Ruta
+										<i class="zmdi zmdi-assignment-check"></i>
+										<div class="mdl-tooltip" for="Crearruta">Guardar Ruta</div>
+									</button>
+	
 	<script src="script.js"></script>
                     </div>
                 </div>

@@ -572,7 +572,6 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
             </p>
         </div>						
 </section>
-<div class="mdl-tabs__panel" id="tabListAdmin">
     <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
             <div class="full-width panel mdl-shadow--2dp">
@@ -580,18 +579,32 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
                     Completar Ruta
                 </div>
                 <div class="full-width panel-content">
-				<h1>Seleccionar Ruta</h1>
-	<label for="ruta">Selecciona una ruta:</label>
-	<select id="ruta" onchange="mostrarLugares()">
+				<form>
+				<h6 class="text-condensedLight">Selecciona la ruta
+				
+				<select id="ruta" onchange="mostrarLugares()">
+	<label class="mdl-textfield__label text-center" for="ruta">Selecciona una ruta:</label>
+	</h6>
+											</div>
+				
 	</select>
 	<br><br>
-	<h2>Lugares de la ruta:</h2>
+	
+	<h6 class="text-condensedLight">Lugares de la ruta:</h6>
+	
+	
 	<ul id="lugaresRuta">
-	</ul>
+					
+				</ul>
+				
+	
+	
 	<br><br>
-	<h2>Lugares visitados:</h2>
-	<ul id="lugaresVisitados">
+	<h6 class="text-condensedLight">Lugares visitados:</h6>
+					
+	<ul  id="lugaresVisitados">
 	</ul>
+					
 	<script src="script.js"></script>
             </div>
         </div>
