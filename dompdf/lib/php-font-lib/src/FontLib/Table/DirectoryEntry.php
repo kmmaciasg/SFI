@@ -69,6 +69,12 @@ class DirectoryEntry extends BinaryStream {
     $this->tag = $this->font->read(4);
   }
 
+  /**
+   * Summary of open
+   * @param mixed $filename
+   * @param mixed $mode
+   * @return void
+   */
   function open($filename, $mode = self::modeRead) {
     // void
   }
