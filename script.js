@@ -88,7 +88,7 @@ $(document).ready(function() {
 });
 
 
-function guardarRuta() {
+function Pasardb() {
       // Obtenemos el número de ruta y los lugares visitados
       var numRutaSeleccionada = document.getElementById("numRutaSeleccionada");
       var numeroRuta = numRutaSeleccionada.textContent.trim();
@@ -120,20 +120,18 @@ function guardarRuta() {
       }
     };
     xhr.send(formData);
-     // Eliminamos el elemento seleccionado del almacenamiento local
-     localStorage.removeItem("ruta");
+    eliminarRuta();
+    location= "../sfi/home.php"; 
 }    
 
-function eliminarRuta(numRuta) {
-    var rutas = JSON.parse(localStorage.getItem("rutas"));
-    var nuevaListaRutas = [];
-
-    for (var i = 0; i < rutas.length; i++) {
-        if (rutas[i].numRuta !== numRuta) {
-            nuevaListaRutas.push(rutas[i]);
-        }
-    }
-
-    localStorage.setItem("rutas", JSON.stringify(nuevaListaRutas));
-    alert("La ruta " + numRuta + " ha sido eliminada exitosamente");
+function eliminarRuta() {
+    var index = $("#ruta").val();
+    var numRuta = rutas[index].numRuta;
+   
+        rutas.splice(index, 1);
+        localStorage.setItem("rutas", JSON.stringify(rutas));
+        $("#numRuta").val("");
+        $("#lugares").empty();
+        $("#ruta").empty();
+        mostrarRutas();
 }

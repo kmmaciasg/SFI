@@ -36,6 +36,17 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 
 </head>
 <body>
+
+
+<?php
+include 'conexion_db.php';
+
+// Obtener el último número de orden
+$query = "SELECT N_ruta FROM ruta ORDER BY id DESC LIMIT 1";
+$resultorden = mysqli_query($conexion, $query);
+
+
+?>
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -583,7 +594,19 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 					<div class="full-width panel-content">
 					<form>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input text-center" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="numRuta" name="numRuta">
+					<?php
+						if (mysqli_num_rows($resultorden) > 0) {
+							$row = mysqli_fetch_assoc($resultorden);
+							$last_order_number = $row["N_ruta"];
+						  } else {
+							// Si no hay ninguna orden en la tabla, establecer el número de orden en 0
+							$last_order_number = 0;
+						  }
+						  
+						  // Generar el siguiente número de orden
+						  $new_order_number = $last_order_number + 1;
+						?>
+											<input class="mdl-textfield__input text-center" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" readonly value="<?php echo $new_order_number; ?>" id="numRuta" name="numRuta">
 											<label class="mdl-textfield__label text-center" for="numRuta">Número de ruta:</label>
 											<span class="mdl-textfield__error text-center">Numero Invalido</span>
 										</div>

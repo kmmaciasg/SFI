@@ -612,7 +612,7 @@ include 'conexion_db.php';
 									   if ($resultado->num_rows > 0) {
 										   while($row = $resultado->fetch_assoc()) {
 											   echo "<tr><td style='text-align:center'>" . $row["N_ruta"] . "</td>
-											   <td style='text-align:center'>" . $row["lugares"] . "</td>></tr>";
+											   <td style='text-align:center'>" . $row["lugares"] . "</td></tr>";
 											 }
 									   } else {
 										   echo "0 resultados";

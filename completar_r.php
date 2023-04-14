@@ -604,7 +604,7 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 	<ul  id="lugaresVisitados" class="list-unstyle menu-principal">
 	</ul>
 	<br><br>
-	<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 185px;" id="Completar"onclick="guardarRuta()">
+	<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 185px;" id="Completar"onclick="Pasardb()">
 								<i class="zmdi zmdi-check"></i>
 								
 							<div class="mdl-tooltip" for="Completar">Completar Ruta</div>	
