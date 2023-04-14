@@ -1,4 +1,7 @@
+<?php
+ob_start();
 
+?>
 <?php
 
 $conexion = mysqli_connect ("localhost", "root", "", "lachila" ); 
@@ -627,10 +630,7 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
         </div>						
 </section>
 
-<?php
-ob_start();
 
-?>
 <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
     <div class="mdl-grid">
 	<form action="enviarsubir.php" method="post">
