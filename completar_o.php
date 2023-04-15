@@ -1,7 +1,4 @@
-<?php
-ob_start();
 
-?>
 <?php
 
 $conexion = mysqli_connect ("localhost", "root", "", "lachila" ); 
@@ -640,7 +637,7 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
                    ORDEN DE DESPACHO NO.
                 </div>
                 <div class="mdl-textfield mdl-js-textfield ">
-					<input class="mdl-textfield__input text-center" type="text" name="numero_orden" id="numero_orden" placeholder="Ingresa el número de orden">
+					<input class="mdl-textfield__input text-center" type="text" name="numero_orden" id="numero_orden">
                 </div>
 				
                 <div class="full-width panel-content">
@@ -718,7 +715,7 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
                                     <span class="mdl-textfield__error">Nombre Invalio</span>
                                     </h6>
                                         <h6 class="text-condensedLight">Notas
-                                            <input class="mdl-textfield__input" type="text"  id="Notas">
+                                            <input class="mdl-textfield__input" type="text"  name="notas" id="notas">
                                         <span class="mdl-textfield__error">Texto Invalio</span>
                                         </h6>
                                 </div>
@@ -808,32 +805,4 @@ inputNumeroOrden.addEventListener('keydown', function (event) {
 </script>
 </body>
 </html> 
-<?php
-$html=ob_get_clean();
- //echo $html; 
 
- // include autoloader
-// include autoloader
-require_once 'dompdf/autoload.inc.php';
-// reference the Dompdf namespace
-use Dompdf\Dompdf;
-
-// instantiate and use the dompdf class
-$dompdf = new Dompdf();
-
-$options = $dompdf->getOptions();
-$options->set(array('isRemoteEnabled' => true));
-$dompdf->setOptions($options);
-
-$dompdf->loadHtml($html);
-
-// (Optional) Setup the paper size and orientation
-$dompdf->setPaper('letter');
-//$dompdf->setPaper('A4', 'landscape');
-
-// Render the HTML as PDF
-$dompdf->render();
-
-// Output the generated PDF to Browser
-$dompdf->stream("archivo_pdf", array("Attachment" => false));
-?>

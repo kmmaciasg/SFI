@@ -8,7 +8,18 @@ if (!$conexion) {
 }
 
 // Recibir el dato del campo "numero_orden"
-$numero_orden = $_POST["numero-orden"];
+$numero_orden = $_POST["numero_orden"];
+$cliente = $_POST["opciones"];
+$fecha = $_POST["fecha"];
+$cajas = $_POST["cajas"];
+$pago = $_POST["pago"];
+$embalaje = $_POST["embalaje"];
+$creador = $_POST["creador"];
+$responsable = $_POST["responsable"];
+$transportadora = $_POST["transportadora"];
+$notas = $_POST["notas"];
+
+
 
 // Consulta SQL para insertar el dato en la tabla "o_subir"
 $sql = "INSERT INTO `o_reparto` (numero_orden) VALUES ('$numero_orden')";
@@ -36,6 +47,18 @@ if (mysqli_query($conexion, $sql3)) {
     <script>
     alert("Los datos fueron grabados correctamente")
     window.location= "../sfi/home.php"; 
+    </script>
+    '; 
+} else {
+    echo "Error al guardar el número de orden en la tabla o_nofacturada: " . mysqli_error($conexion) . "<br>";
+}
+$sql4 = "INSERT INTO pdf( numero_orden, cliente,fecha,cajas,pago,embalaje,creador,responsable,transportadora,notas) VALUES ('$numero_orden','$cliente','$fecha','$cajas','$pago','$embalaje','$creador','$responsable','$transportadora','$notas')";
+
+if (mysqli_query($conexion, $sql4)) {
+    echo '
+    <script>
+    alert("Los datos fueron grabados correctamente")
+    window.location= "../sfi/generarpdf.php"; 
     </script>
     '; 
 } else {
