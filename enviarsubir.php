@@ -43,12 +43,6 @@ if (mysqli_query($conexion, $sql2)) {
 $sql3 = "INSERT INTO o_nofacturada (numero_orden) VALUES ('$numero_orden')";
 
 if (mysqli_query($conexion, $sql3)) {
-    echo '
-    <script>
-    alert("Los datos fueron grabados correctamente")
-    window.location= "../sfi/home.php"; 
-    </script>
-    '; 
 } else {
     echo "Error al guardar el número de orden en la tabla o_nofacturada: " . mysqli_error($conexion) . "<br>";
 }

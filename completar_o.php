@@ -18,6 +18,7 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 <!DOCTYPE html>
 <html lang="es">
 <head>
+	
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Completar Orden</title>
@@ -34,8 +35,6 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
 	<script src="js/main.js" ></script>
 
-
-</script>
 
 </head>
 <body>
@@ -630,7 +629,7 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 
 <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
     <div class="mdl-grid">
-	<form action="enviarsubir.php" method="post">
+	<form  >
         <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
             <div class="full-width panel mdl-shadow--2dp">
                 <div class="full-width panel-tittle bg-primary text-center tittles">
@@ -731,16 +730,24 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 			<!-- Aquí se mostrarán los productos -->
 		</tbody>
 	</table>
+	
                         <p class="text-center">
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary"  id="generate-pdf" type="submit">
+						
+                             
+                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" id="generate-pdf" >
                                 <i class="zmdi zmdi-check-all"></i>
                             <div class="mdl-tooltip" for="generate-pdf">Finalizar Orden</div>
                             </button>
+							<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary"  type="submit" onclick="agregarProducto()" id="btn-addProduct">
+								<i class="zmdi zmdi-refresh"></i>
+                                    <div class="mdl-tooltip" for="btn-addProduct">Agregar LV y LC</div>
+                                </button>
                         </p> 
                 </div>
             </div>
         </div>
 	</form>
+            </div>
 </div>
 
 <script>
@@ -757,6 +764,61 @@ fetch(url)
 
 }
 </script>
+
+<script>
+	
+	function agregarProducto() {
+    // Bloquear el envío del formulario
+    event.preventDefault();
+
+    var ventana = window.open("", "Nueva ventana", "width=600,height=400");
+  
+
+    // Insertar HTML en la ventana
+    ventana.document.write(`
+        <head>
+            <link rel="stylesheet" href="css/normalize.css">
+            <link rel="stylesheet" href="css/sweetalert2.css">
+            <link rel="stylesheet" href="css/material.min.css">
+            <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+            <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+            <link rel="stylesheet" href="css/main.css">
+        </head>
+        <body>
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+                    <div class="full-width panel mdl-shadow--2dp">
+                        <form method="post" action="generar_orden.php">
+                            <label class="text-condensedLight" for="producto">Producto:</label>
+                            <?php
+                                echo "<select name='producto' id='producto'>";
+                                while ($fila = mysqli_fetch_assoc($resultado1)) {
+                                    echo "<option value='".$fila['Descripcion']."'>".$fila['Descripcion']."</option>";
+                                }
+                                echo "</select>";
+                            ?>
+
+                            <label class="text-condensedLight" for="cantidad">Cantidad:</label>
+                            <input type="number" name="cantidad" min="1" max="1000000000">
+							 <label class="text-condensedLight" for="numero_orden">Numero Orden</label>
+							<input type="text" readonly value="<?php echo $new_order_number; ?>"name="numero_orden" id="numero:orden">
+                       
+                        
+                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 140px;" id="CrearProducto">
+                                <i class="zmdi zmdi-shopping-cart-plus"></i>
+                                <div class="mdl-tooltip" for="CrearProducto">Agregar Producto</div>
+                            </button>
+							
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </body>
+    `);
+	actualizarTabla();
+}
+
+
 </script>
 
 <script>
@@ -803,6 +865,9 @@ inputNumeroOrden.addEventListener('keydown', function (event) {
 });
 
 </script>
+
 </body>
+
+
 </html> 
 

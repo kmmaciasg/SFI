@@ -79,7 +79,7 @@ $resultado1 = mysqli_query($conexion, $sql1);
 
 
 // Obtener el último número de orden
-$query = "SELECT numero_orden FROM o_despacho ORDER BY id DESC LIMIT 1";
+$query = "SELECT numero_orden FROM ordenes_despacho ORDER BY id DESC LIMIT 1";
 $resultorden = mysqli_query($conexion, $query);
 
 // Consulta para seleccionar los datos de la tabla "ordenes_despacho"
