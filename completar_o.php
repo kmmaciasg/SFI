@@ -1,4 +1,5 @@
 <?php
+use Sabberworm\CSS\Value\Value;
 $conexion = mysqli_connect ("localhost", "root", "", "lachila" ); 
 session_start(); // Iniciar sesión
     if(isset($_SESSION['nombre_usuario'])){ // Comprobar si se ha iniciado sesión
@@ -15,6 +16,7 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 <!DOCTYPE html>
 <html lang="es">
 <head>
+	
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Completar Orden</title>
@@ -32,6 +34,8 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 	<script src="js/main.js" ></script>
 </head>
 <body>
+	
+
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -728,14 +732,21 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 						
 						<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="generate-pdf" type="submit">
                                 <i class="zmdi zmdi-check-all"></i>
+								
+								<div class="mdl-tooltip" for="generate-pdf">Finalizar Orden</div>
                             </button>
-                            <div class="mdl-tooltip" for="generate-pdf">Finalizar Orden</div>
+							<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="generate-producto" type="button" onclick="agregarProducto()">
+                                <i class="zmdi zmdi-refresh"></i>
+								
+								<div class="mdl-tooltip" for="generate-producto">Editar Lotes</div>
+                            </button>
                         </p>  
                 </div>
             </div>
         </div>
 	</form>
 </div>
+
 <script>
 function actualizarTabla() {
     const numeroOrden = document.getElementById("numero_orden").value; // Obtener el número de orden ingresado por el usuario
@@ -778,17 +789,28 @@ inputNumeroOrden.addEventListener('keydown', function (event) {
         document.getElementById('ciudad').value = datosOrden.ciudad;
         document.getElementById('dir').value = datosOrden.dir;
 		actualizarTabla();
+		
       } else {
-        console.error(xhr.statusText);
+        
       }
+	  
     };
     xhr.onerror = function () {
-      console.error(xhr.statusText);
     };
     xhr.send('numeroOrden=' + encodeURIComponent(numeroOrden));
   }
-});
+} );
 </script>
+<script>
+		function agregarProducto() {
+			event.preventDefault();
+			var numero_orden = document.getElementById("numero_orden").value;
+			var ventana = window.open("ventana_emergente.php?numero_orden=" + numero_orden, "Nueva ventana", "width=600,height=400");
+			ventana.focus();
+		}
+	</script>
+
+
 </body>
 </html> 
 

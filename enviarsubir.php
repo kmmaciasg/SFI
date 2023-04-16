@@ -25,7 +25,7 @@ $notas = $_POST["notas"];
 $sql = "INSERT INTO `o_reparto` (numero_orden) VALUES ('$numero_orden')";
 
 if (mysqli_query($conexion, $sql)) {
-    echo "Número de orden guardado correctamente en la tabla o_subir<br>";
+    echo "Número de orden guardado correctamente";
 } else {
     echo "Error al guardar el número de orden en la tabla o_subir: " . mysqli_error($conexion) . "<br>";
 }
@@ -34,7 +34,7 @@ if (mysqli_query($conexion, $sql)) {
 $sql2 = "DELETE FROM o_despacho WHERE numero_orden = '$numero_orden'";
 
 if (mysqli_query($conexion, $sql2)) {
-    echo "Número de orden eliminado correctamente de la tabla o_despacho<br>";
+    echo "";
 } else {
     echo "Error al eliminar el número de orden de la tabla o_despacho: " . mysqli_error($conexion) . "<br>";
 }
