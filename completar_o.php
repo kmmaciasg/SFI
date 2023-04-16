@@ -1,6 +1,4 @@
-
 <?php
-
 $conexion = mysqli_connect ("localhost", "root", "", "lachila" ); 
 session_start(); // Iniciar sesión
     if(isset($_SESSION['nombre_usuario'])){ // Comprobar si se ha iniciado sesión
@@ -13,12 +11,10 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
     } else {
         header("Location: index.php"); // Si no se ha iniciado sesión, redirigir al inicio de sesión
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Completar Orden</title>
@@ -34,8 +30,6 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 	<script src="js/sweetalert2.min.js" ></script>
 	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
 	<script src="js/main.js" ></script>
-
-
 </head>
 <body>
 	<!-- Notifications area -->
@@ -629,15 +623,14 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 
 <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
     <div class="mdl-grid">
-	<form  >
+	<form action="enviarsubir.php" method="post">
         <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
             <div class="full-width panel mdl-shadow--2dp">
                 <div class="full-width panel-tittle bg-primary text-center tittles">
                    ORDEN DE DESPACHO NO.
                 </div>
                 <div class="mdl-textfield mdl-js-textfield ">
-					<input class="mdl-textfield__input text-center" type="text" name="numero_orden" id="numero_orden">
-                </div>
+				<input class="mdl-textfield__input text-center" type="text" name="numero_orden" id="numero_orden" placeholder="Ingresa el número de orden"> </div>
 				
                 <div class="full-width panel-content">
                     
@@ -733,23 +726,16 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 	
                         <p class="text-center">
 						
-                             
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" id="generate-pdf" >
+						<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="generate-pdf" type="submit">
                                 <i class="zmdi zmdi-check-all"></i>
-                            <div class="mdl-tooltip" for="generate-pdf">Finalizar Orden</div>
                             </button>
-							<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary"  type="submit" onclick="agregarProducto()" id="btn-addProduct">
-								<i class="zmdi zmdi-refresh"></i>
-                                    <div class="mdl-tooltip" for="btn-addProduct">Agregar LV y LC</div>
-                                </button>
-                        </p> 
+                            <div class="mdl-tooltip" for="generate-pdf">Finalizar Orden</div>
+                        </p>  
                 </div>
             </div>
         </div>
 	</form>
-            </div>
 </div>
-
 <script>
 function actualizarTabla() {
     const numeroOrden = document.getElementById("numero_orden").value; // Obtener el número de orden ingresado por el usuario
@@ -764,73 +750,13 @@ fetch(url)
 
 }
 </script>
-
-<script>
-	
-	function agregarProducto() {
-    // Bloquear el envío del formulario
-    event.preventDefault();
-
-    var ventana = window.open("", "Nueva ventana", "width=600,height=400");
-  
-
-    // Insertar HTML en la ventana
-    ventana.document.write(`
-        <head>
-            <link rel="stylesheet" href="css/normalize.css">
-            <link rel="stylesheet" href="css/sweetalert2.css">
-            <link rel="stylesheet" href="css/material.min.css">
-            <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
-            <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
-            <link rel="stylesheet" href="css/main.css">
-        </head>
-        <body>
-            <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-                    <div class="full-width panel mdl-shadow--2dp">
-                        <form method="post" action="generar_orden.php">
-                            <label class="text-condensedLight" for="producto">Producto:</label>
-                            <?php
-                                echo "<select name='producto' id='producto'>";
-                                while ($fila = mysqli_fetch_assoc($resultado1)) {
-                                    echo "<option value='".$fila['Descripcion']."'>".$fila['Descripcion']."</option>";
-                                }
-                                echo "</select>";
-                            ?>
-
-                            <label class="text-condensedLight" for="cantidad">Cantidad:</label>
-                            <input type="number" name="cantidad" min="1" max="1000000000">
-							 <label class="text-condensedLight" for="numero_orden">Numero Orden</label>
-							<input type="text" readonly value="<?php echo $new_order_number; ?>"name="numero_orden" id="numero:orden">
-                       
-                        
-                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 140px;" id="CrearProducto">
-                                <i class="zmdi zmdi-shopping-cart-plus"></i>
-                                <div class="mdl-tooltip" for="CrearProducto">Agregar Producto</div>
-                            </button>
-							
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </body>
-    `);
-	actualizarTabla();
-}
-
-
-</script>
-
 <script>
 // Capturamos el input de texto
 const inputNumeroOrden = document.getElementById('numero_orden');
-
 inputNumeroOrden.addEventListener('keydown', function (event) {
   if (event.key === 'Enter') {
     event.preventDefault();
-
     const numeroOrden = inputNumeroOrden.value;
-
     const xhr = new XMLHttpRequest();
     xhr.open('POST', 'obtener_datos.php');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -851,8 +777,7 @@ inputNumeroOrden.addEventListener('keydown', function (event) {
         document.getElementById('email').value = datosOrden.email;
         document.getElementById('ciudad').value = datosOrden.ciudad;
         document.getElementById('dir').value = datosOrden.dir;
-		
-	actualizarTabla();
+		actualizarTabla();
       } else {
         console.error(xhr.statusText);
       }
@@ -863,11 +788,7 @@ inputNumeroOrden.addEventListener('keydown', function (event) {
     xhr.send('numeroOrden=' + encodeURIComponent(numeroOrden));
   }
 });
-
 </script>
-
 </body>
-
-
 </html> 
 
