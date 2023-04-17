@@ -764,7 +764,7 @@ $result = $conexion->query($sql2);
                                     <i class="zmdi zmdi-check-all"></i>
                                     <div class="mdl-tooltip" for="btn-generar">Generar Orden</div>
                                 </button>
-                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary"  id="btn-guia">
+                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary"  type="submit" onclick="generarGuia()"id="btn-guia">
                                     <i class="zmdi zmdi-collection-text"></i>
                                     <div class="mdl-tooltip" for="btn-guia">Crear Guia</div>
                                 </button>
@@ -795,7 +795,19 @@ fetch(url)
 }
 </script>
 <script>
-	
+	function generarGuia() {
+		event.preventDefault();
+  // Mostrar prompt y obtener número de orden
+  var numeroOrden = prompt("Ingrese el número de orden para generar la guía:");
+
+  // Validar que se ingresó un número de orden
+  if (numeroOrden != null && numeroOrden.trim() != "") {
+    // Redirigir a la página de generación de guía con el número de orden como parámetro GET
+    window.location.href = "generarguia.php?orden=" + encodeURIComponent(numeroOrden);
+  }
+}
+</script>
+<script>
 	function agregarProducto() {
     // Bloquear el envío del formulario
     event.preventDefault();
