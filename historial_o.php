@@ -575,12 +575,18 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
         <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
             <div class="full-width panel mdl-shadow--2dp">
                 <div class="full-width panel-tittle bg-primary text-center tittles">
-                   Historial de Ordenes de Despacho
+                   Historial de Ordenes de Despacho y Guias de Despacho
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
+            <div class="full-width panel mdl-shadow--2dp">
+                <div class="full-width panel-tittle bg-success text-center tittles">
+                  Historial Ordenes de Despacho
+                </div>
  
 <div class="full-width panel-content">
 			<form>
@@ -627,6 +633,12 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
                
             </div>
               </div>
+			  <div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
+            <div class="full-width panel mdl-shadow--2dp">
+                <div class="full-width panel-tittle bg-success text-center tittles">
+                    Historial Guias de Despacho
+                </div>
 			  <div class="full-width panel-content">
 			<form>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">

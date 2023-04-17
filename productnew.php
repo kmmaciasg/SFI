@@ -12,7 +12,48 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
     } else {
         header("Location: index.php"); // Si no se ha iniciado sesión, redirigir al inicio de sesión
     }
+	$permiso = ""; // definir la variable $permiso al inicio
+	// verificar si el usuario tiene permiso para acceder a esta página
+	if ($permiso == 'agregar nueva produccion') {
+		// aquí iría el código para agregar nueva producción
+		$permisos_usuariop = obtener_permisos_usuariop($nombre_completo);
+	if (!in_array($permiso, $permisos_usuariop)) {
+	  // el usuario no tiene permiso, redirigir a la página de inicio y mostrar mensaje de error
+	  // Imprimir mensaje
+  echo "Para realizar esta accion se requieren permisos especiales ";
 
+  header("refresh:3;url=home.php");
+
+  // Redirigir al usuario a la página de inicio
+  exit;
+	}
+	} elseif ($permiso == 'agregar nueva materia') {
+		// aquí iría el código para agregar nueva materia
+		$permisos_usuariop = obtener_permisos_usuariop($nombre_completo);
+	if (!in_array($permiso, $permisos_usuariop)) {
+	  // el usuario no tiene permiso, redirigir a la página de inicio y mostrar mensaje de error
+	  // Imprimir mensaje
+  echo "Para realizar esta accion se requieren permisos especiales ";
+
+  header("refresh:3;url=home.php");
+
+  // Redirigir al usuario a la página de inicio
+  exit;
+}
+} else {
+    // el usuario no tiene permiso, redirigir a la página de inicio y mostrar mensaje de error
+    // Imprimir mensaje
+    echo "Para realizar esta accion se requieren permisos especiales ";
+
+    header("refresh:3;url=home.php");
+
+    // Detener el resto del código
+    exit;
+}
+
+	
+	
+	
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -702,7 +743,6 @@ $resultado = mysqli_query($conexion, $sql);
 
 	<script>
 function pasarfase1() {
-  // Obtenemos los datos del formulario
 
   var pesoinicial = document.getElementById("PesoInicial").value;
   var fecha = document.getElementById("fecha").value;
@@ -722,8 +762,6 @@ function pasarfase1() {
   xmlhttp.send("PesoInicial=" + pesoinicial  + "&fecha=" + fecha + "&PesoDesperdicio=" + pesodesperdicio + "&PesoNeto=" + pesoneto + "&Adiciones=" + adiciones + "&#lote=" + lote + "&Empleado=" + empleado + "&Cantidad=" + cantidad + "&opciones=" + materia);
 
   
-    // Mostramos una notificación de éxito
-	alert("Los datos han sido guardados correctamente.");
 
   // Retornamos false para evitar que el formulario se envíe automáticamente
   return false;
@@ -742,6 +780,39 @@ function calcularPesoNeto() {
   document.getElementById("PesoNeto").value = pesoNeto;
 }
 </script>
-		
+<?php
+// función para conectarse a la base de datos
+function conectar_bd() {
+  $servidor = 'localhost';
+  $usuario = 'root';
+  $password = '';
+  $bd = 'lachila';
+  
+  $conexion = mysqli_connect($servidor, $usuario, $password, $bd);
+  
+  if (!$conexion) {
+    die('Error al conectar a la base de datos: ' . mysqli_connect_error());
+  }
+  
+  return $conexion;
+}	
+
+function obtener_permisos_usuariop($nombre_completo) {
+
+	
+$conexion = conectar_bd();
+$query = "SELECT p.id, p.nombre FROM permisos p 
+INNER JOIN usuarios_permisos u ON p.id = permiso_id
+WHERE u.usuario_nombre = '$nombre_completo'";
+$resultado = mysqli_query($conexion, $query);
+$permisos = array();
+while ($fila = mysqli_fetch_assoc($resultado)) {
+  $permisos[] = $fila["nombre"];
+}
+mysqli_free_result($resultado);
+mysqli_close($conexion);
+return $permisos;
+}
+?>	
 </body>
 </html>

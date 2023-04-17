@@ -33,7 +33,23 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
     } else {
         header("Location: index.php"); // Si no se ha iniciado sesión, redirigir al inicio de sesión
     }
+	
+	// código para procesar los permisos
+	
+	// verificar si el usuario tiene permiso para acceder a esta página
+	$permiso = 'administracion';
+	$permisos_usuariop = obtener_permisos_usuariop($nombre_completo);
+	if (!in_array($permiso, $permisos_usuariop)) {
+	  // el usuario no tiene permiso, redirigir a la página de inicio y mostrar mensaje de error
+	  // Imprimir mensaje
+  echo "Para realizar esta accion se requieren permisos especiales ";
 
+  header("refresh:3;url=home.php");
+
+  // Redirigir al usuario a la página de inicio
+  exit;
+	}
+	
 
 // Consulta SQL para obtener los datos
 $sql = "SELECT tipo FROM usuarios";
@@ -41,6 +57,7 @@ $sql = "SELECT tipo FROM usuarios";
 // Ejecutar la consulta
 $resultado = mysqli_query($conexion, $sql);
 ?>
+
 	<!-- Notifications area -->
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
@@ -628,15 +645,7 @@ $resultado = mysqli_query($conexion, $sql);
 												<label class="mdl-textfield__label" for="passwordAdmin">Contraseña</label>
 												<span class="mdl-textfield__error">Invalid password</span>
 											</div>
-											<h6 class="text-condensedLight">Selecciona el tipo de Usuario
-											<?php
-												echo "<select name='opciones' id='opciones'>";
-												while ($fila = mysqli_fetch_assoc($resultado)) {
-													echo "<option value='".$fila['tipo']."'>".$fila['tipo']."</option>";
-												}
-												echo "</select>";
-												?>
-										</h6>
+											
 										</div>
 									</div>
 									<p class="text-center">
@@ -656,117 +665,188 @@ $resultado = mysqli_query($conexion, $sql);
 					<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
 						<div class="full-width panel mdl-shadow--2dp">
 							<div class="full-width panel-tittle bg-success text-center tittles">
-								Asignar Tareas
+								Asignar Permisos
 							</div>
 							<div class="full-width panel-content">
-								<form action="#">
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-										<label class="mdl-button mdl-js-button mdl-button--icon" for="searchAdmin">
-											<i class="zmdi zmdi-search"></i>
-										</label>
-										<div class="mdl-textfield__expandable-holder">
-											<input class="mdl-textfield__input" type="text" id="searchAdmin">
-											<label class="mdl-textfield__label"></label>
-										</div>
-									</div>
-								</form>
-								<div class="mdl-list">
-									<div class="mdl-list__item mdl-list__item--two-line">
-										<span class="mdl-list__item-primary-content">
-											<i class="zmdi zmdi-account mdl-list__item-avatar"></i>
-											<span>Nombre de usuario</span>
-											<span class="mdl-list__item-sub-title">Documento de Identidad</span>
-										</span>
-										<a class="mdl-list__item-secondary-action" href="#AsignarPermiso"><i class="zmdi zmdi-check-all"></i></a>
-										<a class="mdl-list__item-sub-title">Asignar</a>
-									</div>
-								
-									<div class="mdl-radio is-active" id="AsignarPermiso">
-										<h5 class="text-condensedLight">Escoger las tareas permitidas</h5>
-											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-												<input type="radio" id="option-1" class="mdl-radio__button" name="options" >
-												<span class="mdl-radio__label"> Agregar Nueva Produccion</span>
-											</label>
-											<br><br>
-											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-												<input type="radio" id="option-2" class="mdl-radio__button" name="options" >
-												<span class="mdl-radio__label">Pasar produccion de Fase 1 a Fase 2</span>
-											</label>
-											<br><br>
-											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
-												<input type="radio" id="option-3" class="mdl-radio__button" name="options" >
-												<span class="mdl-radio__label">Pasar de Fermentación a Envasado</span>
-											</label>
-											<br><br>
-											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
-												<input type="radio" id="option-4" class="mdl-radio__button" name="options">
-												<span class="mdl-radio__label">Ingresar Producto Terminado</span>
-											</label>
-											<br><br>
-											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-5">
-												<input type="radio" id="option-5" class="mdl-radio__button" name="options">
-												<span class="mdl-radio__label">Egresar Producto Terminado</span>
-											</label>
-											<br><br>
-											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-6">
-												<input type="radio" id="option-6" class="mdl-radio__button" name="options">
-												<span class="mdl-radio__label">Ingresar Envases</span>
-											</label>
-											<br><br>
-											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-7">
-												<input type="radio" id="option-7" class="mdl-radio__button" name="options">
-												<span class="mdl-radio__label">Egresar Envases</span>
-											</label>
-											<br><br>
-											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-8">
-												<input type="radio" id="option-8" class="mdl-radio__button" name="options">
-												<span class="mdl-radio__label">Ingresar Etiquetas</span>
-											</label>
-											<br><br>
-											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-9">
-												<input type="radio" id="option-9" class="mdl-radio__button" name="options">
-												<span class="mdl-radio__label">Egresar Etiquetas</span>
-											</label>
-											<br><br>
-											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-10">
-												<input type="radio" id="option-10" class="mdl-radio__button" name="options">
-												<span class="mdl-radio__label">Ingresar Colgantes</span>
-											</label>
-											<br><br>
-											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-11">
-												<input type="radio" id="option-11" class="mdl-radio__button" name="options">
-												<span class="mdl-radio__label">Egresar Colgantes</span>
-											</label>
-											<br><br>
-											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-12">
-												<input type="radio" id="option-12" class="mdl-radio__button" name="options">
-												<span class="mdl-radio__label">Ingresar Tapas</span>
-											</label>
-											<br><br>
-											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-13">
-												<input type="radio" id="option-13" class="mdl-radio__button" name="options">
-												<span class="mdl-radio__label">Egresar Tapas</span>
-											</label>
-											<br><br>
-											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-14">
-												<input type="radio" id="option-14" class="mdl-radio__button" name="options">
-												<span class="mdl-radio__label">Ingresar Bandas de Seguridad</span>
-											</label>
-											<br><br>
-											<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-15">
-												<input type="radio" id="option-15" class="mdl-radio__button" name="options">
-												<span class="mdl-radio__label">Egresar Bandas de Seguridad</span>
-											</label>
-									</div>
-										
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+							
+  
+  <form action="procesar_permisos.php" method="post">
+    <label for="usuario">Seleccione un usuario:</label>
+    <select id="usuario" name="usuario">
+      <?php
+        // código PHP para obtener la lista de usuarios desde la base de datos
+        $usuarios = obtener_usuarios();
+       // generar opciones de selección para cada usuario con nombre y apellido
+  foreach ($usuarios as $usuario) {
+    echo '<option value="' . $usuario['num_documento'] . '">' . $usuario['nombres'] . ' ' . $usuario['apellidos'] . '</option>';
+  }
+  
+ 
+      ?>
+    </select>
+	<br>
+	<br>
+    <label >Seleccione una acción:</label>
+    
+    <input type="radio" id="agregar" name="accion" value="agregar">
+    <label for="agregar">Agregar permisos</label>
+    
+    <input type="radio" id="eliminar" name="accion" value="eliminar">
+    <label for="eliminar">Eliminar permisos</label>
+    
+    <div id="permisos_agregar" style="display: none;">
+	<br>
+      <p>Seleccione los permisos que desea agregar:</p>
+      <?php
+        // código PHP para generar las opciones de selección de permisos
+        $permisos = obtener_permisos();
+
+        foreach ($permisos as $permiso) {
+          echo '<input type="checkbox" id="permiso_' . $permiso['id'] . '" name="permisos[]" value="' . $permiso['id'] . '">';
+          echo '<label for="permiso_' . $permiso['id'] . '">' . $permiso['nombre'] . '</label><br>';
+        }
+      ?>
+    </div>
+    
+    <div id="permisos_eliminar" style="display: none;">
+	<br>
+      <p>Seleccione los permisos que desea eliminar:</p>
+      <?php
+        // código PHP para generar las opciones de selección de permisos
+        $permisos = obtener_permisos_usuario($usuario);
+
+        foreach ($permisos as $permiso) {
+          echo '<input type="checkbox" id="permiso_' . $permiso['id'] . '" name="permisos[]" value="' . $permiso['id'] . '">';
+          echo '<label for="permiso_' . $permiso['id'] . '">' . $permiso['nombre'] . '</label><br>';
+        }
+      ?>
+    </div>
+    
+	<br>
+	<br>
+	
+	<p class="text-center">
+   <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="guardar" type="submit">
+   <i class="zmdi zmdi-check"></i>
+   <div class="mdl-tooltip" for="guardar">Editar Permiso</div>
+   </button>
+	</p>
+  </form>
+  
+  <script>
+    // mostrar/ocultar las opciones de selección de permisos según la acción seleccionada
+    var agregar = document.getElementById('agregar');
+    var eliminar = document.getElementById('eliminar');
+    var permisos_agregar = document.getElementById('permisos_agregar');
+    var permisos_eliminar = document.getElementById('permisos_eliminar');
+    
+    agregar.addEventListener('click', function() {
+      permisos_agregar.style.display = 'block';
+      permisos_eliminar.style.display = 'none';
+    });
+    
+    eliminar.addEventListener('click', function() {
+      permisos_agregar.style.display = 'none';
+      permisos_eliminar.style.display = 'block';
+    });
+  </script>
+  <?php
+// función para conectarse a la base de datos
+function conectar_bd() {
+  $servidor = 'localhost';
+  $usuario = 'root';
+  $password = '';
+  $bd = 'lachila';
+  
+  $conexion = mysqli_connect($servidor, $usuario, $password, $bd);
+  
+  if (!$conexion) {
+    die('Error al conectar a la base de datos: ' . mysqli_connect_error());
+  }
+  
+  return $conexion;
+}
+
+// función para obtener la lista de usuarios desde la base de datos
+function obtener_usuarios() {
+  $conexion = conectar_bd();
+  
+  $query = "SELECT nombres, apellidos, num_documento FROM usuarios";
+  $resultado = mysqli_query($conexion, $query);
+  
+  $usuarios = array();
+  
+  while ($fila = mysqli_fetch_assoc($resultado)) {
+    $usuarios[] = $fila;
+  }
+  
+  mysqli_free_result($resultado);
+  mysqli_close($conexion);
+  
+  return $usuarios;
+}
+
+// función para obtener la lista de permisos desde la base de datos
+function obtener_permisos() {
+  $conexion = conectar_bd();
+  
+  $query = "SELECT id, nombre FROM permisos";
+  $resultado = mysqli_query($conexion, $query);
+  
+  $permisos = array();
+  
+  while ($fila = mysqli_fetch_assoc($resultado)) {
+    $permisos[] = $fila;
+  }
+  
+  mysqli_free_result($resultado);
+  mysqli_close($conexion);
+  
+  return $permisos;
+}
+
+// función para obtener los permisos de un usuario desde la base de datos
+function obtener_permisos_usuario($usuario) {
+	$nombres=$usuario['nombres'] . ' ' . $usuario['apellidos'];
+	
+  $conexion = conectar_bd();
+  
+  $query = "SELECT p.id, p.nombre FROM permisos p 
+  INNER JOIN usuarios_permisos u ON p.id = permiso_id
+  WHERE u.usuario_nombre = '$nombres'";
+  
+  $resultado = mysqli_query($conexion, $query);
+  
+  $permisos = array();
+  
+  while ($fila = mysqli_fetch_assoc($resultado)) {
+    $permisos[] = $fila;
+  }
+  
+  mysqli_free_result($resultado);
+  mysqli_close($conexion);
+  
+  return $permisos;
+}
+
+function obtener_permisos_usuariop($nombre_completo) {
+
+	
+  $conexion = conectar_bd();
+  $query = "SELECT p.id, p.nombre FROM permisos p 
+  INNER JOIN usuarios_permisos u ON p.id = permiso_id
+  WHERE u.usuario_nombre = '$nombre_completo'";
+  $resultado = mysqli_query($conexion, $query);
+  $permisos = array();
+  while ($fila = mysqli_fetch_assoc($resultado)) {
+    $permisos[] = $fila["nombre"];
+  }
+  mysqli_free_result($resultado);
+  mysqli_close($conexion);
+  return $permisos;
+}
+
+
+?>
 </body>
 </html>
