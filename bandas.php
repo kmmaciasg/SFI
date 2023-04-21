@@ -36,7 +36,7 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 
 
 	// verificar si el usuario tiene permiso para acceder a esta página
-	$permiso = 'ingresar y egresar inventario';
+	$permiso = 'ingresar  y egresar inventario';
 	$permisos_usuariop = obtener_permisos_usuariop($nombre_completo);
 	if (!in_array($permiso, $permisos_usuariop)) {
 	  // el usuario no tiene permiso, redirigir a la página de inicio y mostrar mensaje de error

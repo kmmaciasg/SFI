@@ -11,12 +11,12 @@ session_start(); // Iniciar sesión
 $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
     } else {
         header("Location: index.php"); // Si no se ha iniciado sesión, redirigir al inicio de sesión
+		
     }
-	$permiso = ""; // definir la variable $permiso al inicio
+
 	// verificar si el usuario tiene permiso para acceder a esta página
-	if ($permiso == 'agregar nueva produccion') {
-		// aquí iría el código para agregar nueva producción
-		$permisos_usuariop = obtener_permisos_usuariop($nombre_completo);
+	$permiso = 'agregar nueva produccion';
+	$permisos_usuariop = obtener_permisos_usuariop($nombre_completo);
 	if (!in_array($permiso, $permisos_usuariop)) {
 	  // el usuario no tiene permiso, redirigir a la página de inicio y mostrar mensaje de error
 	  // Imprimir mensaje
@@ -27,32 +27,6 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
   // Redirigir al usuario a la página de inicio
   exit;
 	}
-	} elseif ($permiso == 'agregar nueva materia') {
-		// aquí iría el código para agregar nueva materia
-		$permisos_usuariop = obtener_permisos_usuariop($nombre_completo);
-	if (!in_array($permiso, $permisos_usuariop)) {
-	  // el usuario no tiene permiso, redirigir a la página de inicio y mostrar mensaje de error
-	  // Imprimir mensaje
-  echo "Para realizar esta accion se requieren permisos especiales ";
-
-  header("refresh:3;url=home.php");
-
-  // Redirigir al usuario a la página de inicio
-  exit;
-}
-} else {
-    // el usuario no tiene permiso, redirigir a la página de inicio y mostrar mensaje de error
-    // Imprimir mensaje
-    echo "Para realizar esta accion se requieren permisos especiales ";
-
-    header("refresh:3;url=home.php");
-
-    // Detener el resto del código
-    exit;
-}
-
-	
-	
 	
 ?>
 <!DOCTYPE html>
