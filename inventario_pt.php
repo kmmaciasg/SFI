@@ -586,7 +586,7 @@ include 'conexion_db.php';
                     Inventario de Productos Terminados
                 </div>
                 <div class="full-width panel-content">
-				<form>
+				<form><h6 class="text-center">Buscar por nombre de producto</h6>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
     <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre">
       <i class="zmdi zmdi-search"></i>

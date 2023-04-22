@@ -598,20 +598,24 @@ include 'conexion_db.php';
                                 Historial de Productos Terminados
                             </div>
                             <div class="full-width panel-content">
-			<form>
+			<form><h6 class="text-center">Buscar por nombre de producto</h6>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
     <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre">
       <i class="zmdi zmdi-search"></i>
     </label>
     <div class="mdl-textfield__expandable-holder">
-      <input class="mdl-textfield__input" type="text" id="filtro_nombre" onkeyup="filtrarTabla()" placeholder="Buscar...">
+      <input class="mdl-textfield__input" type="text" id="filtro_nombre" onkeyup="filtrarTabla()" placeholder="Buscar por nombre producto">
       <label class="mdl-textfield__label" for="filtro_nombre"></label>
     </div>
   </div>
 </form>
                        <div class="mdl-grid">
                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-						       <div style="overflow-x: auto;">    
+						   <div class="full-width panel mdl-shadow--2dp">
+                <div class="full-width panel-tittle bg-success text-center tittles">
+                    Historial de ingreso
+                </div>      
+						   <div style="overflow-x: auto;">    
 						            <table id="tabla_productos" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 							            <thead> 
 											
@@ -643,22 +647,26 @@ include 'conexion_db.php';
                                     </div>
                                 </div>
                             </div>
-
+							</div>
                             <div class="full-width panel-content">
-			<form>
+			<form ><h6 class="text-center">Buscar por nombre de producto</h6>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
     <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombrea">
       <i class="zmdi zmdi-search"></i>
     </label>
     <div class="mdl-textfield__expandable-holder">
-      <input class="mdl-textfield__input" type="text" id="filtro_nombrea" onkeyup="filtrarTablaa()" placeholder="Buscar...">
+      <input class="mdl-textfield__input" type="text" id="filtro_nombrea" onkeyup="filtrarTablaa()" placeholder="Buscar por nombre producto">
       <label class="mdl-textfield__label" for="filtro_nombrea"></label>
     </div>
   </div>
 </form>
                        <div class="mdl-grid">
                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-						       <div style="overflow-x: auto;">    
+						   <div class="full-width panel mdl-shadow--2dp">
+                <div class="full-width panel-tittle bg-success text-center tittles">
+                    Historial de egreso
+                </div>      
+						   <div style="overflow-x: auto;">    
 						            <table id="tabla_productosa" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 							            <thead> 
 											
@@ -693,7 +701,7 @@ include 'conexion_db.php';
                         </div>
                     </div>
                 </div>
-
+				</div>
                 
             </div>
             
@@ -703,17 +711,36 @@ include 'conexion_db.php';
                     <div class="full-width panel-tittle bg-primary text-center tittles">
                         Historial  de Lotes
                     </div>
-                    <div class="full-width panel-content">
-			<form>
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
-    <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre1">
-      <i class="zmdi zmdi-search"></i>
-    </label>
-    <div class="mdl-textfield__expandable-holder">
-      <input class="mdl-textfield__input" type="text" id="filtro_nombre1" onkeyup="filtrarTabla1()" placeholder="Buscar...">
-      <label class="mdl-textfield__label" for="filtro_nombre1"></label>
-    </div>
+                    <div style="display: flex;">
+  <div style="flex: 1;">
+    <form><h6 class="text-center">Buscar por numero de Lote</h6>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
+	  
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre1">
+          <i class="zmdi zmdi-search"></i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="filtro_nombre1" onkeyup="filtrarTabla1()" placeholder="Buscar # de lote">
+          <label class="mdl-textfield__label" for="filtro_nombre1"></label>
+        </div>
+      </div>
+    </form>
   </div>
+  <div style="flex: 1;">
+    <form><h6 class="text-center">Buscar por materia prima</h6>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre2">
+          <i class="zmdi zmdi-search"></i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="filtro_nombre2" onkeyup="filtrarTabla2()" placeholder="Buscar materia prima">
+          <label class="mdl-textfield__label" for="filtro_nombre2"></label>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
 </form>
                        <div class="mdl-grid">
                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
@@ -794,7 +821,7 @@ function filtrarTabla1() {
     table = document.getElementById("tabla_productos1");
     tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[1];
+        td = tr[i].getElementsByTagName("td")[0];
         if (td) {
             txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -827,6 +854,26 @@ function filtrarTablaa() {
     }
 }
 </script>
+<script>
+// Función para filtrar la tabla por nombre
+function filtrarTabla2() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("filtro_nombre2");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tabla_productos1");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
 </script>
 </body>
 </html>

@@ -606,7 +606,7 @@ include 'conexion_db.php';
                        Historial de Envases
                    </div>
                    <div class="full-width panel-content">
-				   <form>
+				   <form><h6 class="text-center">Buscar por nombre de producto</h6>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
     <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre">
       <i class="zmdi zmdi-search"></i>
@@ -619,7 +619,11 @@ include 'conexion_db.php';
 </form>
                        <div class="mdl-grid">
                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-						       <div style="overflow-x: auto;">    
+						   <div class="full-width panel mdl-shadow--2dp">
+                <div class="full-width panel-tittle bg-success text-center tittles">
+                    Historial de ingreso
+                </div>    
+						   <div style="overflow-x: auto;">    
 						            <table id="tabla_productos" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 							            <thead>
                                             <tr>
@@ -652,9 +656,9 @@ include 'conexion_db.php';
                            </div>
                        </div>
                    </div>
-
+				   </div>
                    <div class="full-width panel-content">
-				   <form>
+				   <form><h6 class="text-center">Buscar por nombre de producto</h6>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
     <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombrea">
       <i class="zmdi zmdi-search"></i>
@@ -667,7 +671,11 @@ include 'conexion_db.php';
 </form>
                        <div class="mdl-grid">
                            <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-						       <div style="overflow-x: auto;">
+						   <div class="full-width panel mdl-shadow--2dp">
+                <div class="full-width panel-tittle bg-success text-center tittles">
+                    Historial de egreso
+                </div>    
+						   <div style="overflow-x: auto;">
 						            <table id="tabla_productosa" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 							            <thead>
                                             <tr>
@@ -699,7 +707,7 @@ include 'conexion_db.php';
            </div>
        </div>
    </div>
-   
+   </div>
     <div class="mdl-tabs__panel" id="tabNewLote">
        <div class="mdl-grid">
           <div class="full-width panel mdl-shadow--2dp">
@@ -707,7 +715,7 @@ include 'conexion_db.php';
                Historial de Embalajes
                </div>
               <div class="full-width panel-content">
-			  <form>
+			  <form><h6 class="text-center">Buscar por nombre de producto</h6>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
     <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre1">
       <i class="zmdi zmdi-search"></i>
@@ -720,7 +728,11 @@ include 'conexion_db.php';
 </form>
                    <div class="mdl-grid">
                        <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-				          <div style="overflow-x: auto;">
+					   <div class="full-width panel mdl-shadow--2dp">
+                <div class="full-width panel-tittle bg-success text-center tittles">
+                    Historial de ingreso
+                </div>    
+					   <div style="overflow-x: auto;">
 					           <table id="tabla_productos1" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 							       <thead>
                                             <tr>
@@ -757,7 +769,7 @@ include 'conexion_db.php';
                </div>
 
               <div class="full-width panel-content">
-			  <form>
+			  <form><h6 class="text-center">Buscar por nombre de producto</h6>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
     <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre1a">
       <i class="zmdi zmdi-search"></i>
@@ -770,7 +782,11 @@ include 'conexion_db.php';
 </form>
                    <div class="mdl-grid">
                       <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-				          <div style="overflow-x: auto;">
+					  <div class="full-width panel mdl-shadow--2dp">
+                <div class="full-width panel-tittle bg-success text-center tittles">
+                    Historial de egreso
+                </div>    
+					  <div style="overflow-x: auto;">
 			             	   <table id="tabla_productos1a" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 					               <thead>
                                             <tr>
