@@ -11,10 +11,12 @@
   $temperatura = $_POST['Temperatura'];
   $solidos = $_POST['SolidosTotales'];
   $lote = $_POST['opciones'];
+  $loteagua = $_POST['arealoteagua'];
+  $materia = $_POST['areaMateriaPrima'];
   
 
   // Insertar los datos en la base de datos
-  $sql = "INSERT INTO registro_variables (Lote, Usuario, brix, alcohol, ph, solidos, ac, temperatura, fecha_registro) VALUES ('$lote', '$empleado','$brix','$alcohol','$ph','$solidos','$acidez','$temperatura','$fecha')";
+  $sql = "INSERT INTO registro_variables (Lote, Usuario, brix, alcohol, ph, solidos, ac, temperatura, fecha_registro, materia, loteagua) VALUES ('$lote', '$empleado','$brix','$alcohol','$ph','$solidos','$acidez','$temperatura','$fecha','$materia','$loteagua')";
 
   $resultado = mysqli_query($conexion, $sql);
 

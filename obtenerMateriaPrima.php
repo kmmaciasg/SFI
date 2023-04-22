@@ -14,16 +14,18 @@ if ($conn->connect_error) {
 $lote = $_POST["lote"];
 
 // Obtener la materia prima del lote desde la base de datos
-$sql = "SELECT Materia FROM lotes WHERE id = '" . $lote . "'";
+$sql = "SELECT Materia, loteagua FROM lotes WHERE id = '" . $lote . "'";
 $resultado = $conn->query($sql);
 
 // Comprobar si se encontró la materia prima del lote
 if ($resultado->num_rows > 0) {
 	$fila = $resultado->fetch_assoc();
 	$materiaPrima = $fila["Materia"];
-	echo json_encode(array("materiaPrima" => $materiaPrima));
+	$loteagua = $fila["loteagua"];
+	echo json_encode(array("materiaPrima" => $materiaPrima, "loteagua" => $loteagua));
+
 } else {
-	echo json_encode(array("materiaPrima" => "Materia prima no encontrada"));
+	echo json_encode(array("materiaPrima" => "Materia prima no encontrada","loteagua" => "Lote no encontrado"));
 }
 
 // Cerrar la conexión a la base de datos

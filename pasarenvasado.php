@@ -26,13 +26,14 @@ if (isset($_POST['num_lote'])) {
   $materia = $row['materia'];
   $fecha = $row['fecha'];
   $pesoinicial = $row['peso_i'];
+  $loteagua = $row['loteagua'];
   $pesodesperdicio = $row['peso_n'];
   $adicion = $row['adicion'];
   $cantidad = $row['cant'];
   $empleado = $row['usuario'];
 
   // Insertamos los datos en la tabla fase2
-  $sql = "INSERT INTO fase3 (lote, materia, fecha, peso_i, peso_n, adicion, cant, usuario) VALUES ('$lote', '$materia', '$fecha', '$pesoinicial', '$pesodesperdicio', '$adicion', '$cantidad', '$empleado')";
+  $sql = "INSERT INTO fase3 (lote, materia, fecha, peso_i, peso_n, adicion, cant, usuario, loteagua) VALUES ('$lote', '$materia', '$fecha', '$pesoinicial', '$pesodesperdicio', '$adicion', '$cantidad', '$empleado', '$loteagua')";
   $result = $conn->query($sql);
 
   // Verificamos si hubo un error en la inserción

@@ -95,6 +95,8 @@ return $permisos;
             // Actualizar el área de texto con la materia prima obtenida
             var materiaPrima = JSON.parse(this.responseText)["materiaPrima"];
             document.getElementById("areaMateriaPrima").value = materiaPrima;
+            var loteagua = JSON.parse(this.responseText)["loteagua"];
+            document.getElementById("arealoteagua").value = loteagua;
         }
     };
     xhttp.open("POST", "obtenerMateriaPrima.php", true);
@@ -704,8 +706,10 @@ $resultadot = mysqli_query($conexion, $sqlt);
 										<label for="areaMateriaPrima">Materia prima:</label>
 	<textarea id="areaMateriaPrima" name="areaMateriaPrima" rows="1" cols="50" readonly></textarea>
 									
-										
-										
+		<br>								
+	<label for="arealoteagua">Lote Agua:</label>
+	<textarea id="arealoteagua" name="arealoteagua" rows="1" cols="50" readonly></textarea>
+									
 										<h6 class="text-condensedLight">Usuario:  
 											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado" value="<?php echo $nombre_completo ?>" readonly>
 											</h6>

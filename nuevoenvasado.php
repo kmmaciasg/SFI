@@ -4,6 +4,7 @@
 
   $fecha = $_POST['fecha'];
   $tipoenvase = $_POST['tipo'];
+  $loteagua = $_POST['arealoteagua'];
   $materia = $_POST['areaMateriaPrima'];
   $empleado = $_POST['Empleado'];
   $cantidad = $_POST['Cant'];
@@ -11,7 +12,7 @@
   
 
   // Insertar los datos en la base de datos
-  $sql = "INSERT INTO envasado (Lote, Tipo_Envase, Usuario, cantidad, fecha_envasado, materia) VALUES ('$lote','$tipoenvase', '$empleado','$cantidad','$fecha','$materia')";
+  $sql = "INSERT INTO envasado (Lote, loteagua, Tipo_Envase, Usuario, cantidad, fecha_envasado, materia) VALUES ('$lote','$loteagua','$tipoenvase', '$empleado','$cantidad','$fecha','$materia')";
 
   $resultado = mysqli_query($conexion, $sql);
 

@@ -47,7 +47,7 @@ include 'conexion_db.php';
 				$resultadoe = $conexion->query($sqle);
 
 				// Consultar la tabla
-				$sql1 = "SELECT id, materia, fecha_inicio, peso_inicial, peso_neto, adicion, cantidad, usuario FROM lotes";
+				$sql1 = "SELECT id, materia, fecha_inicio, peso_inicial, peso_neto, adicion, cantidad, usuario, loteagua FROM lotes";
 				$resultado1 = $conexion->query($sql1);
 ?>
 	<!-- Notifications area -->
@@ -724,6 +724,7 @@ include 'conexion_db.php';
                                             <tr>
                                             <th class="mdl-data-table"style="text-align: center;"># DE LOTE</th>
                                             <th class="mdl-data-table" style="text-align: center;">MATERIA</th>
+                                            <th class="mdl-data-table" style="text-align: center;">LOTE AGUA</th>
                                             <th class="mdl-data-table"style="text-align: center;">FECHA PRODUCCION</th>
                                             <th class="mdl-data-table" style="text-align: center;">PESO INICIAL</th>
                                             <th class="mdl-data-table"style="text-align: center;">PESO NETO</th>
@@ -740,6 +741,7 @@ include 'conexion_db.php';
 										   while($row = $resultado1->fetch_assoc()) {
 											   echo "<tr><td style='text-align:center'>" . $row["id"] . "</td>
 											   <td style='text-align:center'>" . $row["materia"] . "</td>
+											   <td style='text-align:center'>" . $row["loteagua"] . "</td>
 											   <td style='text-align:center'>" . $row["fecha_inicio"] . "</td>
 											   <td style='text-align:center'>" . $row["peso_inicial"] . "</td>
 											   <td style='text-align:center'>" . $row["peso_neto"] . "</td>

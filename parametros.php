@@ -93,6 +93,8 @@ return $permisos;
             // Actualizar el área de texto con la materia prima obtenida
             var materiaPrima = JSON.parse(this.responseText)["materiaPrima"];
             document.getElementById("areaMateriaPrima").value = materiaPrima;
+            var loteagua = JSON.parse(this.responseText)["loteagua"];
+            document.getElementById("arealoteagua").value = loteagua;
         }
     };
     xhttp.open("POST", "obtenerMateriaPrima.php", true);
@@ -676,8 +678,10 @@ $resultado = mysqli_query($conexion, $sql);
 
 											<label for="areamateriaPrima">Materia prima:</label>
 	<textarea id="areaMateriaPrima" name="areaMateriaPrima" rows="1" cols="20" readonly></textarea>
-	<br>
-	<br>
+	<br><br>
+	
+	<label for="areamateriaPrima">Lote agua:</label>
+	<textarea id="arealoteagua" name="arealoteagua" rows="1" cols="20" readonly></textarea>	<br><br>
 
 										<label for="fecha">Fecha de Toma de Parametros:</label>
 										<input type="date" id="fecha" name="fecha" value="<?php echo date('Y-m-d'); ?>" />

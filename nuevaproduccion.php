@@ -72,6 +72,7 @@ return $permisos;
   $pesodesperdicio = $_POST['PesoDesperdicio'];
   $pesoneto = $_POST['PesoNeto'];
   $adiciones = $_POST['Adiciones'];
+  $loteagua = $_POST['#loteagua'];
   $lote = $_POST['#lote'];
   $empleado = $_POST['Empleado'];
   $cantidad = $_POST['Cantidad'];
@@ -79,7 +80,7 @@ return $permisos;
   
 
   // Insertar los datos en la base de datos
-  $sql = "INSERT INTO lotes (id, materia, fecha_inicio, peso_inicial, peso_neto, adicion, cantidad, usuario) VALUES ('$lote','$materia','$fecha','$pesoinicial','$pesoneto','$adiciones','$cantidad', '$empleado')";
+  $sql = "INSERT INTO lotes (id, materia, fecha_inicio, peso_inicial, peso_neto,p_desperdicio, adicion, cantidad, usuario, loteagua) VALUES ('$lote','$materia','$fecha','$pesoinicial','$pesoneto','$pesodesperdicio','$adiciones','$cantidad', '$empleado' ,'$loteagua')";
 
   $resultado = mysqli_query($conexion, $sql);
 

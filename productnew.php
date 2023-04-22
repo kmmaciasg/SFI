@@ -639,22 +639,43 @@ $resultado = mysqli_query($conexion, $sql);
 												<label class="mdl-textfield__label" for="Adiciones">Adiciones</label>
 												<span class="mdl-textfield__error">Adicion Invalida</span>
 											</div>
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input" type="number" step="0.0000001"name="Cantidad" id="Cantidad">
+												<label class="mdl-textfield__label" for="Cantidad">Cantidad en L</label>
+												<span class="mdl-textfield__error">Peso Invalido</span>
+											</div>
 										</div>
 										<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 											
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" name="#lote" id="#lote">
+												<input class="mdl-textfield__input" type="text" name="#lote" id="#lote">
 												<label class="mdl-textfield__label" for="#lote">Número de Lote</label>
 												<span class="mdl-textfield__error">Número de lote invalido</span>
 											</div>
-											
-											<h6 class="text-condensedLight">Selecciona la materia prima</h6>
+												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input" type="number"  name="#loteagua" id="#loteagua">
+												<label class="mdl-textfield__label" for="#loteagua">Lote Agua</label>
+												<span class="mdl-textfield__error">Número de lote invalido</span>
+											</div>
+											<h6 class="text-condensedLight">Selecciona la materia prima
+												
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
+    <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre" >
+      <i class="zmdi zmdi-search"></i>
+    </label>
+    <div class="mdl-textfield__expandable-holder">
+      <input class="mdl-textfield__input" type="text" id="filtro_nombre" onkeyup="filtrarTabla()" placeholder="Buscar..."  onkeydown="if (event.keyCode === 13) {detenerEnvioFormulario();}">
+      <label class="mdl-textfield__label" for="filtro_nombre"></label>
+    </div>
+  </div>
+											</h6>
 												<?php
-												echo "<select name='opciones' id='opciones' >";
-												while ($fila = mysqli_fetch_assoc($resultado)) {
-													echo "<option value='".$fila['nombre']."'>".$fila['nombre']."</option>";
-												}
-												echo "</select>";
+												 echo "<select name='opciones' id='opciones'>";
+												 echo "<option value='' selected></option>"; // Agregar opción inicial vacía
+												 while ($fila = mysqli_fetch_assoc($resultado)) {
+												   echo "<option value='".$fila['nombre']."'>".$fila['nombre']."</option>";
+												 }
+												 echo "</select>";
 										    ?>
 										
 					
@@ -662,11 +683,7 @@ $resultado = mysqli_query($conexion, $sql);
 											<input class="mdl-textfield__input" type="text" name="Empleado" id="Empleado" value="<?php echo $nombre_completo ?>" readonly>
 											</h6>
                                                 
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" step="0.0000001"name="Cantidad" id="Cantidad">
-												<label class="mdl-textfield__label" for="Cantidad">Cantidad en L</label>
-												<span class="mdl-textfield__error">Peso Invalido</span>
-											</div>
+											
 										</div>
 									</div>
 									<p class="text-center">
@@ -714,7 +731,35 @@ $resultado = mysqli_query($conexion, $sql);
 			</div>
 		</div>
 	</section>
+	<script>
+    function detenerEnvioFormulario() {
+		event.preventDefault()
+    }
+  </script>
+	<script>// JavaScript
+const listaProductos = document.getElementById("opciones");
+const filtroNombre = document.getElementById("filtro_nombre");
 
+function filtrarLista() {
+  const filtro = filtroNombre.value.toUpperCase(); // Obtener el valor del campo de texto y convertirlo a mayúsculas
+  const opciones = listaProductos.options; // Obtener las opciones de la lista
+
+  for (let i = 0; i < opciones.length; i++) {
+    const opcion = opciones[i];
+    const valor = opcion.value.toUpperCase(); // Obtener el valor de la opción y convertirlo a mayúsculas
+
+    if (valor.includes(filtro)) {
+      opcion.style.display = "block"; // Mostrar la opción si el valor coincide con el filtro
+    } else {
+      opcion.style.display = "none"; // Ocultar la opción si el valor no coincide con el filtro
+    }
+  }
+}
+
+listaProductos.addEventListener("change", filtrarLista); // Agregar evento onchange para la lista desplegable
+filtroNombre.addEventListener("input", filtrarLista); // Agregar evento input para el campo de texto
+
+</script>
 	<script>
 function pasarfase1() {
 
@@ -724,6 +769,7 @@ function pasarfase1() {
   var pesoneto = document.getElementById("PesoNeto").value;
   var adiciones= document.getElementById("Adiciones").value;
   var lote = document.getElementById("#lote").value;
+  var loteagua = document.getElementById("#loteagua").value;
   var empleado = document.getElementById("Empleado").value;
   var cantidad = document.getElementById("Cantidad").value;
   var materia = document.getElementById("opciones").value;
@@ -733,7 +779,7 @@ function pasarfase1() {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.open("POST", "pasarfase1.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlhttp.send("PesoInicial=" + pesoinicial  + "&fecha=" + fecha + "&PesoDesperdicio=" + pesodesperdicio + "&PesoNeto=" + pesoneto + "&Adiciones=" + adiciones + "&#lote=" + lote + "&Empleado=" + empleado + "&Cantidad=" + cantidad + "&opciones=" + materia);
+  xmlhttp.send("PesoInicial=" + pesoinicial  + "&fecha=" + fecha + "&PesoDesperdicio=" + pesodesperdicio + "&PesoNeto=" + pesoneto + "&Adiciones=" + adiciones + "&#lote=" + lote+ "&#loteagua=" + loteagua + "&Empleado=" + empleado + "&Cantidad=" + cantidad + "&opciones=" + materia);
 
   
 

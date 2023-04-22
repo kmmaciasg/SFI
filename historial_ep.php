@@ -33,11 +33,11 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
     }
  
 				// Consultar la tabla
-				$sql = "SELECT Lote, Tipo_Envase, Usuario, cantidad, fecha_envasado, materia FROM envasado ";
+				$sql = "SELECT Lote, Tipo_Envase, Usuario, cantidad, fecha_envasado, materia, loteagua FROM envasado ";
 				$resultado = $conexion->query($sql);
 
 				// Consultar la tabla
-				$sql1 = "SELECT Lote, Usuario, brix, alcohol, ph, solidos, ac, temperatura, fecha_registro FROM `registro_variables`";
+				$sql1 = "SELECT Lote, Usuario, brix, alcohol, ph, solidos, ac, temperatura, fecha_registro, materia, loteagua FROM `registro_variables`";
 				$resultado1 = $conexion->query($sql1);
 
 				
@@ -609,6 +609,7 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 							            <thead>
                                             <tr>
                                             <th class="mdl-data-table"style="text-align: center;">LOTE ENVASADO</th>
+                                            <th class="mdl-data-table" style="text-align: center;">LOTE AGUA</th>
                                             <th class="mdl-data-table" style="text-align: center;">MATERIA</th>
                                             <th class="mdl-data-table" style="text-align: center;">CANT</th>
                                             <th class="mdl-data-table" style="text-align: center;">ENVASE</th>
@@ -623,6 +624,7 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 									   if ($resultado->num_rows > 0) {
 										   while($row = $resultado->fetch_assoc()) {
 											   echo "<tr><td style='text-align:center'>" . $row["Lote"] . "</td>
+											   <td style='text-align:center'>" . $row["loteagua"] . "</td>
 											   <td style='text-align:center'>" . $row["materia"] . "</td>
 											   <td style='text-align:center'>" . $row["cantidad"] . "</td>
 											   <td style='text-align:center'>" . $row["Tipo_Envase"] . "</td>
@@ -671,6 +673,8 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 							            <thead>
                                             <tr>
                                             <th class="mdl-data-table"style="text-align: center;">LOTE</th>
+                                            <th class="mdl-data-table" style="text-align: center;">LOTE AGUA</th>
+                                            <th class="mdl-data-table" style="text-align: center;">MATERIA</th>
                                             <th class="mdl-data-table" style="text-align: center;">ALCOHOL</th>
                                             <th class="mdl-data-table" style="text-align: center;">SOLIDOS TOTALES</th>
                                             <th class="mdl-data-table" style="text-align: center;">BRIX</th>
@@ -688,6 +692,8 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 									   if ($resultado1->num_rows > 0) {
 										   while($row = $resultado1->fetch_assoc()) {
 											   echo "<tr><td style='text-align:center'>" . $row["Lote"] . "</td>
+											   <td style='text-align:center'>" . $row["loteagua"] . "</td>
+											   <td style='text-align:center'>" . $row["materia"] . "</td>
 											   <td style='text-align:center'>" . $row["alcohol"] . "</td>
 											   <td style='text-align:center'>" . $row["solidos"] . "</td>
 											   <td style='text-align:center'>" . $row["brix"] . "</td>
