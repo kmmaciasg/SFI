@@ -717,7 +717,7 @@ return $permisos;
                                         </h6>
 
                                     <h6 class="text-condensedLight"># de Cajas
-                                        <input class="mdl-textfield__input" type="number" step="0.0000001"  name="cajas" id="cajas" readonly>
+                                        <input class="mdl-textfield__input" type="number" step="0.0000001"  name="cajas" id="cajas">
                                     <span class="mdl-textfield__error">Numero Invalio</span>
 									</h6>
                                         
@@ -761,7 +761,7 @@ return $permisos;
                                     <span class="mdl-textfield__error">Nombre Invalio</span>
                                     </h6>
                                         <h6 class="text-condensedLight">Notas
-                                            <input class="mdl-textfield__input" type="text"  name="notas" id="notas">
+                                            <input class="mdl-textfield__input" type="text"  name="notas" id="notas" readonly>
                                         <span class="mdl-textfield__error">Texto Invalio</span>
                                         </h6>
                                 </div>
@@ -832,6 +832,7 @@ inputNumeroOrden.addEventListener('keydown', function (event) {
         document.getElementById('embalaje').value = datosOrden.embalaje;
         document.getElementById('creador').value = datosOrden.creador;
         document.getElementById('transportadora').value = datosOrden.transportadora;
+        document.getElementById('notas').value = datosOrden.notas;
 		 // Mostramos los datos correspondientes al cliente en los inputs de texto correspondientes
 		 document.getElementById('cedula').value = datosOrden.cedula;
         document.getElementById('cel').value = datosOrden.cel;

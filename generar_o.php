@@ -131,8 +131,21 @@ $resultado1 = mysqli_query($conexion, $sql1);
 $query = "SELECT numero_orden FROM ordenes_despacho ORDER BY id DESC LIMIT 1";
 $resultorden = mysqli_query($conexion, $query);
 
+
+if (mysqli_num_rows($resultorden) > 0) {
+	$row = mysqli_fetch_assoc($resultorden);
+	$last_order_number = $row["numero_orden"];
+  } else {
+	// Si no hay ninguna orden en la tabla, establecer el número de orden en 0
+	$last_order_number = 0;
+  }
+  
+  // Generar el siguiente número de orden
+  $new_order_number = $last_order_number + 1;
+
+
 // Consulta para seleccionar los datos de la tabla "ordenes_despacho"
-$sql2 = "SELECT codigo, producto, cantidad, lv, lc FROM ordenes_despacho";
+$sql2 = "SELECT codigo, producto, cantidad, lv, lc FROM ordenes_despacho WHERE numero_orden = '$new_order_number'" ;
 $result = $conexion->query($sql2);
 
 ?>
@@ -680,19 +693,7 @@ $result = $conexion->query($sql2);
                        ORDEN DE DESPACHO NO.
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<?php
-						if (mysqli_num_rows($resultorden) > 0) {
-							$row = mysqli_fetch_assoc($resultorden);
-							$last_order_number = $row["numero_orden"];
-						  } else {
-							// Si no hay ninguna orden en la tabla, establecer el número de orden en 0
-							$last_order_number = 0;
-						  }
-						  
-						  // Generar el siguiente número de orden
-						  $new_order_number = $last_order_number + 1;
-						?>
-
+					
                         <input class="mdl-textfield__input text-center" type="text" readonly value="<?php echo $new_order_number; ?>"name="numero_orden" id="numero_orden">
                         <label class="mdl-textfield__label text-center" for="numero_orden"></label>
                         <span class="mdl-textfield__error">Número de orden invalido</span>
@@ -787,7 +788,7 @@ $result = $conexion->query($sql2);
 </h6>
 
                                             <h6 class="text-condensedLight">Notas
-                                                <input class="mdl-textfield__input" type="text"  id="Notas">
+                                                <input class="mdl-textfield__input" type="text" name="Notas" id="Notas">
                                             <span class="mdl-textfield__error">Texto Invalio</span>
                                             </h6>
                                     </div>
@@ -808,20 +809,25 @@ $result = $conexion->query($sql2);
 								<i class="zmdi zmdi-plus"></i>
                                     <div class="mdl-tooltip" for="btn-addProduct">Agregar Producto</div>
                                 </button>
+								<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" onclick="eliminarProducto()" id="eliminar">
+								<i class="zmdi zmdi-minus-circle"></i>
+                                    <div class="mdl-tooltip" for="eliminar">Eliminar Producto</div>
+                                </button>
+                             
                              
                                 <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" id="btn-generar">
                                     <i class="zmdi zmdi-check-all"></i>
                                     <div class="mdl-tooltip" for="btn-generar">Generar Orden</div>
                                 </button>
-                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary"  type="submit" onclick="generarGuia()"id="btn-guia">
-                                    <i class="zmdi zmdi-collection-text"></i>
-                                    <div class="mdl-tooltip" for="btn-guia">Crear Guia</div>
-                                </button>
-								<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" onclick="abrirVentana()" id="CrearProducto">
-										<i class="zmdi zmdi-account-add"></i>
-										<div class="mdl-tooltip" for="CrearProducto">Crear Nuevo Cliente</div>
-									</button>
-                               
+								<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" onclick="generarGuia()" id="btn-guia">
+    <i class="zmdi zmdi-collection-text"></i>
+    <div class="mdl-tooltip" for="btn-guia">Crear Guia</div>
+</button>
+<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" onclick="abrirVentana()" id="CrearProducto">
+    <i class="zmdi zmdi-account-add"></i>
+    <div class="mdl-tooltip" for="CrearProducto">Crear Nuevo Cliente</div>
+</button>
+
                             </p>
                         </form>
                     </div>
@@ -891,7 +897,7 @@ fetch(url)
                             <label class="text-condensedLight" for="cantidad">Cantidad:</label>
                             <input type="number" name="cantidad" min="1" max="1000000000">
 							 <label class="text-condensedLight" for="numero_orden">Numero Orden</label>
-							<input type="text" readonly value="<?php echo $new_order_number; ?>"name="numero_orden" id="numero:orden">
+							<input type="text" readonly value="<?php echo $new_order_number; ?>"name="numero_orden" id="numero_orden">
                        
                         
                             <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 140px;" id="CrearProducto">
@@ -910,6 +916,65 @@ fetch(url)
 
 
 </script>
+<script>
+ function eliminarProducto() {
+    // Bloquear el envío del formulario
+    event.preventDefault();
+
+    var ventana = window.open("", "Nueva ventana", "width=600,height=400");
+
+    // Obtener los datos del servidor usando AJAX
+    fetch('consultasql.php')
+        .then(response => response.json())
+        .then(data => {
+            var opciones = "";
+            data.forEach(fila => {
+                opciones += "<option value='" + fila.producto + "'>" + fila.producto + "</option>";
+            });
+
+            // Insertar el resultado en el elemento <select> en el documento HTML
+            var select = ventana.document.getElementById("producto");
+            select.innerHTML = opciones;
+
+            // Esperar a que la ventana abierta haya cargado completamente
+            ventana.addEventListener("load", function() {
+                
+            });
+        });
+
+    // Insertar HTML en la ventana
+    ventana.document.write(`
+        <head>
+            <link rel="stylesheet" href="css/normalize.css">
+            <link rel="stylesheet" href="css/sweetalert2.css">
+            <link rel="stylesheet" href="css/material.min.css">
+            <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+            <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+            <link rel="stylesheet" href="css/main.css">
+        </head>
+        <body>
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+                    <div class="full-width panel mdl-shadow--2dp">
+                        <form method="post" action="eliminarproducto.php">
+                            <label class="text-condensedLight" for="producto">Producto:</label>
+                            <select name='producto' id='producto'></select>
+                            <label class="text-condensedLight" for="numero_orden">Numero Orden</label>
+                            <input type="text" readonly value="<?php echo $new_order_number; ?>" name="numero_orden" id="numero_orden">
+                            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 140px;" id="eliminarProducto">
+                                <i class="zmdi zmdi-minus-circle"></i>
+                                <div class="mdl-tooltip" for="eliminarProducto">Eliminar Producto</div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </body>
+    `);actualizarTabla();
+}
+
+</script>
+
 
 <script>
 function abrirVentana() {

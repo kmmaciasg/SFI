@@ -99,7 +99,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 	<section class="full-width container-notifications">
 		<div class="full-width container-notifications-bg btn-Notification"></div>
 	    <section class="NotificationArea">
-	        <div class="full-width text-center NotificationArea-title tittles">Notifications <i class="zmdi zmdi-close btn-Notification"></i></div>
+	        <div class="full-width text-center NotificationArea-title tittles">Notificaciones <i class="zmdi zmdi-close btn-Notification"></i></div>
 	        <a href="#" class="Notification" id="notifation-unread-1">
 	            <div class="Notification-icon"><i class="zmdi zmdi-accounts-alt bg-info"></i></div>
 	            <div class="Notification-text">
@@ -115,12 +115,23 @@ $resultado1 = mysqli_query($conexion, $sql);
 	        <a href="#" class="Notification" id="notifation-read-1">
 	            <div class="Notification-icon"><i class="zmdi zmdi-cloud-download bg-primary"></i></div>
 	            <div class="Notification-text">
-	                <p>
-	                    <i class="zmdi zmdi-circle-o"></i>
-	                    <strong>New Updates</strong> 
-	                    <br>
-	                    <small>30 Mins Ago</small>
-	                </p>
+				<?php
+// Crear una consulta SQL para seleccionar los productos con cantidad menor a 250
+$sql = "SELECT * FROM productos WHERE Cantidad < 250";
+
+// Ejecutar la consulta
+$resultado = $conexion->query($sql);
+
+// Verificar si hay resultados
+if ($resultado->num_rows > 0) {
+  // Si hay resultados, imprimir el mensaje en negrita
+  echo '<p><i class="zmdi zmdi-circle-o"></i> <strong>Hay productos terminados con stock menor a 250</strong></p>';
+} else {
+  // Si no hay resultados, no imprimir nada
+}
+?>
+
+	               
 	            </div>
 	            <div class="mdl-tooltip mdl-tooltip--left" for="notifation-read-1">Notification as Read</div>
 	        </a>
@@ -857,6 +868,8 @@ function abrirVentana() {
       <input type="text" name="descripcion"><br><br>
       <label>Cantidad:</label>
       <input type="number" name="cantidad"><br><br>
+      <label>Codigo Barras:</label>
+      <input type="varchar" name="barras"><br><br>
 
 	  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 155px;" id="CrearProducto">
 										<i class="zmdi zmdi-shopping-cart-plus"></i>

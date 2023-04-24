@@ -86,8 +86,6 @@ return $permisos;
 <body>
 <?php
 // Consultar la tabla
-		$sql = "SELECT * FROM `o_reparto` ";
-		$resultado = $conexion->query($sql);
 
 		// Consultar la tabla
 		$sql1 = "SELECT  `numero_orden` FROM `o_subir`";
@@ -635,79 +633,19 @@ return $permisos;
 	</section>
 	
 	<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-			 <div class="mdl-tabs__tab-bar">
-				<a href="#tabNewProduct" class="mdl-tabs__tab is-active">Pedidos generados</a>
-				<a href="#tabNewLote" class="mdl-tabs__tab">Listos para subir/ subidos</a>
-			  </div>
-            <div class="mdl-tabs__panel is-active" id="tabNewProduct">
-                <div class="mdl-grid">
-				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
-            <div class="full-width panel mdl-shadow--2dp">
-                <div class="full-width panel-tittle bg-success text-center tittles">
-                    Pedidos Generados
-                </div>
-                            <div class="full-width panel-content">
-				              
-                                <div class="mdl-grid">
-								<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
-                                             <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre">
-                                              <i class="zmdi zmdi-search"></i>
-                                             </label>
-                                      <div class="mdl-textfield__expandable-holder">
-                                          <input class="mdl-textfield__input" type="text" id="filtro_nombre" onkeyup="filtrarTabla()" placeholder="Buscar...">
-                                             <label class="mdl-textfield__label" for="filtro_nombre"></label>
-                                      </div>
-                                  </div>
-                                    <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-						                <div style="overflow-x: auto;">    
-						                    <table id="tabla_productos" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-							                    <thead>
-                                                      <tr>
-                                                       <th class="mdl-data-table"style="text-align: center;">NUMERO DE ORDEN</th>
-                                               </thead>
-                                                <tbody>
-										                  <?php    // Mostrar los resultados en la tabla
-									                     if ($resultado->num_rows > 0) {
-										              while($row = $resultado->fetch_assoc()) {
-											                echo "<tr><td style='text-align:center'>" . $row["numero_orden"] . "</td></tr>";
-											              }
-									                      } else {
-										                  echo "0 resultados";
-									                       }
-															  ?>
-															  <p class="text-center">
-								<tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 50px;" id="pasar-subir">
-									<i class="zmdi zmdi-forward"></i> Pedido listo para subir
-								</button></tr>
-							</p>
-							
-                                                </tbody>
-                                          </table>
-                                       </div>
-									</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>  
-            </div>
-		
-              <div class="mdl-tabs__panel" id="tabNewLote">
+			
 			  <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
             <div class="full-width panel mdl-shadow--2dp">
                 <div class="full-width panel-tittle bg-success text-center tittles">
-                     Pedidos listos para subir y pedidos subidos
+                     Pedidos pendientes de salida
                     </div>
-				            <div class="tittle bg-primary text-center tittles">
-								Pedidos listos para subir al carro
-					         </div>
- 
-                       <div class="mdl-grid">
+                       
+					  
 					   <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
     <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre1">
       <i class="zmdi zmdi-search"></i>
-    </label>
+    </label> <h6 class="text-center">Buscar por numero de orden</h6>
     <div class="mdl-textfield__expandable-holder">
       <input class="mdl-textfield__input" type="text" id="filtro_nombre1" onkeyup="filtrarTabla1()" placeholder="Buscar...">
       <label class="mdl-textfield__label" for="filtro_nombre1"></label>
@@ -735,10 +673,11 @@ return $permisos;
 															  ?>
                                     </tbody>
 									
-								<tr><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 200px;" id="pasar-subido">
-									<i class="zmdi zmdi-forward"></i> Confirmar Pedido subido
-								</button></tr>
                     </table>
+					<br>
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 200px;" id="pasar-subido">
+									<i class="zmdi zmdi-forward"></i> Confirmar Pedido despachado
+								</button>
 				</div>
                 </div>
             </div>
@@ -751,14 +690,14 @@ return $permisos;
                        <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
             <div class="full-width panel mdl-shadow--2dp">
-			<div class="tittle bg-primary text-center tittles">
-								Pedidos subidos al carro
-							</div>
+			<div class="full-width panel-tittle bg-success text-center tittles">
+                     Pedidos despachados
+                    </div>
 
 					   <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
     <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre11">
       <i class="zmdi zmdi-search"></i>
-    </label>
+    </label> <h6 class="text-center">Buscar por numero de orden</h6>
     <div class="mdl-textfield__expandable-holder">
       <input class="mdl-textfield__input" type="text" id="filtro_nombre11" onkeyup="filtrarTabla11()" placeholder="Buscar...">
       <label class="mdl-textfield__label" for="filtro_nombre11"></label>
@@ -786,6 +725,11 @@ return $permisos;
 															  ?>
                                     </tbody>
                     </table>
+					
+					<br>
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 200px;" id="pasar-subir">
+									<i class="zmdi zmdi-forward"></i> Devolver Pedido despachado
+								</button>
 				</div>
                 </div>
             </div>
@@ -862,7 +806,7 @@ function filtrarTabla11() {
 <script>
 $(document).ready(function() {
   $("#pasar-subir").click(function() {
-    var numero_orden = prompt("Ingrese el numero de orden que esta lista para subir al carro");
+    var numero_orden = prompt("Ingrese el numero de orden que desea devolver");
     if (numero_orden != null && numero_orden != "") {
       $.ajax({
         type: "POST",
@@ -886,7 +830,7 @@ $(document).ready(function() {
 <script>
 $(document).ready(function() {
   $("#pasar-subido").click(function() {
-	var numero_orden = prompt("Ingrese el numero de orden que ya se subio al carro");
+	var numero_orden = prompt("Ingrese el numero de orden que ya se despacho");
     if (numero_orden != null && numero_orden != "") {
       $.ajax({
         type: "POST",

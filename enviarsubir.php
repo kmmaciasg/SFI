@@ -22,7 +22,7 @@ $notas = $_POST["notas"];
 
 
 // Consulta SQL para insertar el dato en la tabla "o_subir"
-$sql = "INSERT INTO `o_reparto` (numero_orden) VALUES ('$numero_orden')";
+$sql = "INSERT INTO `o_subir` (numero_orden) VALUES ('$numero_orden')";
 
 if (mysqli_query($conexion, $sql)) {
     echo "Número de orden guardado correctamente";

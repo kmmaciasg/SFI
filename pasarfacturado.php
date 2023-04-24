@@ -9,9 +9,11 @@ if (!$conexion) {
 
 // Recibir el dato del campo "numero_orden"
 $numero_orden = $_POST["numero_orden"];
+$numero_factura = $_POST["numero_factura"];
+$fecha = $_POST["fecha"];
 
 // Consulta SQL para insertar el dato en la tabla "o_subir"
-$sql = "INSERT INTO `o_facturada` (numero_orden) VALUES ('$numero_orden')";
+$sql = "INSERT INTO `o_facturada` (numero_orden, factura, fecha) VALUES ('$numero_orden','$numero_factura','$fecha')";
 $result = $conexion->query($sql);
 
   // Verificamos si hubo un error en la inserción

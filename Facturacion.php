@@ -90,7 +90,7 @@ return $permisos;
 		$resultado = $conexion->query($sql);
 
 		// Consultar la tabla
-		$sql1 = "SELECT  `numero_orden` FROM `o_facturada`";
+		$sql1 = "SELECT  `numero_orden`, `factura`,`fecha` FROM `o_facturada`";
 		$resultado1 = $conexion->query($sql1);
 
 		?>
@@ -649,7 +649,7 @@ return $permisos;
 								<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
                                              <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre">
                                               <i class="zmdi zmdi-search"></i>
-                                             </label>
+                                             </label> <h6 class="text-center">Buscar por numero de orden</h6>
                                       <div class="mdl-textfield__expandable-holder">
                                           <input class="mdl-textfield__input" type="text" id="filtro_nombre" onkeyup="filtrarTabla()" placeholder="Buscar...">
                                              <label class="mdl-textfield__label" for="filtro_nombre"></label>
@@ -700,7 +700,7 @@ return $permisos;
 					   <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
     <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre1">
       <i class="zmdi zmdi-search"></i>
-    </label>
+    </label> <h6 class="text-center">Buscar por numero de orden</h6>
     <div class="mdl-textfield__expandable-holder">
       <input class="mdl-textfield__input" type="text" id="filtro_nombre1" onkeyup="filtrarTabla1()" placeholder="Buscar...">
       <label class="mdl-textfield__label" for="filtro_nombre1"></label>
@@ -712,6 +712,8 @@ return $permisos;
 							            <thead>
                                             <tr>
                                             <th class="mdl-data-table"style="text-align: center;">NUMERO DE ORDEN</th>
+                                            <th class="mdl-data-table"style="text-align: center;">NUMERO DE FACTURA</th>
+                                            <th class="mdl-data-table"style="text-align: center;">FECHA FACTURACION</th>
                                             </tr>
                                         </thead>
                                     <tbody>
@@ -720,12 +722,20 @@ return $permisos;
 									   // Mostrar los resultados en la tabla
 									   if ($resultado1->num_rows > 0) {
 										   while($row = $resultado1->fetch_assoc()) {
-											   echo "<tr><td style='text-align:center'>" . $row["numero_orden"] . "</td></tr>";
+											   echo "<tr><td style='text-align:center'>" . $row["numero_orden"] . "</td>
+											   <td style='text-align:center'>" . $row["factura"] . "</td>
+											   <td style='text-align:center'>" . $row["fecha"] . "</td></tr>";
 											 }
 									   } else {
 										   echo "0 resultados";
 									   }
 															  ?>
+															   <p class="text-center">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" id="cambiarfecha">
+                                <i class="zmdi zmdi-refresh"> CAMBIAR FECHA FACTURACION</i>
+                            </button>
+                        </p>
+                   
                                     </tbody>
 									
                     </table>
@@ -784,16 +794,17 @@ function filtrarTabla1() {
 $(document).ready(function() {
   $("#pasar-subir").click(function() {
     var numero_orden = prompt("Ingrese el numero de orden que se facturo");
+    var numero_factura = prompt("Ingrese el numero de factura");
+    var fecha = new Date().toISOString().slice(0,10);
+    
     if (numero_orden != null && numero_orden != "") {
       $.ajax({
         type: "POST",
         url: "pasarfacturado.php",
-        data: {numero_orden: numero_orden},
+        data: {numero_orden: numero_orden, numero_factura: numero_factura, fecha: fecha},
         success: function(response) {
-			
-		  
-			alert("Operacion exitosa");
-			location.reload();
+          alert("Operacion exitosa");
+          location.reload();
         },
         error: function(xhr, status, error) {
           // Se ejecuta cuando la petición falló
@@ -803,4 +814,30 @@ $(document).ready(function() {
     }
   });
 });
+
 </script>    
+<script>
+$(document).ready(function() {
+  $("#cambiarfecha").click(function() {
+    var numero_orden = prompt("Ingrese el numero de orden que desea modificar la fecha de facturacion");
+    
+    var fecha = prompt("Ingrese la fecha en formato YYYY-MM-DD");
+    if (numero_orden != null && numero_orden != "") {
+      $.ajax({
+        type: "POST",
+        url: "nuevafecha.php",
+        data: {numero_orden: numero_orden,fecha: fecha},
+        success: function(response) {
+          alert("Operacion exitosa");
+          location.reload();
+        },
+        error: function(xhr, status, error) {
+          // Se ejecuta cuando la petición falló
+          alert("Ocurrió un error al intentar pasar la orden");
+        }
+      });
+    }
+  });
+});
+
+</script> 

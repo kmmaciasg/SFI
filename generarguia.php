@@ -25,6 +25,16 @@ ob_start();
 <?php
 // Conectarse a la base de datos
 $conexion = mysqli_connect("localhost", "root", "", "lachila");
+
+session_start(); // Iniciar sesión
+    if(isset($_SESSION['nombre_usuario'])) // Comprobar si se ha iniciado sesión
+        $nombre_usuario = $_SESSION['nombre_usuario']; // Obtener el nombre de usuario guardado en la sesión
+        $apellido_usuario = $_SESSION['apellido_usuario']; // Obtener el apellido de usuario guardado en la sesión
+       
+		
+// Concatenar el nombre y apellido en una sola cadena de texto
+$nombre_completo = $nombre_usuario . " " . $apellido_usuario;
+   
 if (isset($_GET['orden'])) {
     $numeroOrden = $_GET['orden'];
   } else {
@@ -43,7 +53,7 @@ if ($conexion->connect_error) {
 }
 
 // Realizamos la consulta a la base de datos para obtener los datos correspondientes a la orden
-$sql = "SELECT cliente FROM pdf WHERE numero_orden = '$numeroOrden'";
+$sql = "SELECT cliente, responsable FROM pdf WHERE numero_orden = '$numeroOrden'";
 $resultado = $conexion->query($sql);
 
 if ($resultado->num_rows > 0) {
@@ -58,6 +68,7 @@ if ($resultado->num_rows > 0) {
 
   
   $cliente=$datosOrden["cliente"];
+  $responsable=$datosOrden["responsable"];
 		 // Mostramos los datos correspondientes al cliente en los inputs de texto correspondientes
 $cedula = $datosCliente["cedula"];
 $cel = $datosCliente["cel"];
@@ -92,7 +103,7 @@ $conexion->close();
                         <div class="row">
                                  <div  style="border: 1px solid black; padding: 4px;margin-left: 10px" class="col-sm-3">
                                  
-                                 R.F:
+                                 R.F: <?php echo  $responsable; ?>
                                   </div>
                                   <div class="col-sm-6">
                                    <img src="assets/img/nuevologo.jpeg" alt="LOGO" class="img-responsive">
@@ -177,7 +188,7 @@ $conexion->close();
                         <div class="row">
                                  <div  style="border: 1px solid black; padding: 4px;margin-left: 10px" class="col-sm-3">
                                  
-                                 R.F:
+                                 R.F: <?php echo  $responsable; ?>
                                   </div>
                                   <div class="col-sm-6">
                                    <img src="assets/img/nuevologo.jpeg" alt="LOGO" class="img-responsive">

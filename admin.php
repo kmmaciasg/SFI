@@ -709,17 +709,11 @@ $resultado = mysqli_query($conexion, $sql);
     </div>
     
     <div id="permisos_eliminar" style="display: none;">
+	
 	<br>
       <p>Seleccione los permisos que desea eliminar:</p>
-      <?php
-        // código PHP para generar las opciones de selección de permisos
-        $permisos = obtener_permisos_usuario($usuario);
-
-        foreach ($permisos as $permiso) {
-          echo '<input type="checkbox" id="permiso_' . $permiso['id'] . '" name="permisos[]" value="' . $permiso['id'] . '">';
-          echo '<label for="permiso_' . $permiso['id'] . '">' . $permiso['nombre'] . '</label><br>';
-        }
-      ?>
+	  
+    
     </div>
     
 	<br>
@@ -732,7 +726,36 @@ $resultado = mysqli_query($conexion, $sql);
    </button>
 	</p>
   </form>
-  
+  <script>
+  const selectUsuario = document.getElementById('usuario');
+  const radioEliminar = document.getElementById('eliminar');
+radioEliminar.addEventListener('change', function () {
+  const valorSeleccionado = selectUsuario.value;
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'buscar_permisos.php?usuario=' + valorSeleccionado);
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      const permisos = JSON.parse(xhr.responseText);
+      // Mostramos la sección permisos_eliminar
+      document.getElementById('permisos_eliminar').style.display = 'block';
+
+      // Generamos las opciones de selección de permisos
+      let opciones = '';
+      permisos.forEach(function (permiso) {
+        opciones += '<input type="checkbox" id="permiso_' + permiso.id + '" name="permisos[]" value="' + permiso.id + '">';
+        opciones += '<label for="permiso_' + permiso.id + '">' + permiso.nombre + '</label><br>';
+      });
+
+      // Actualizamos la sección permisos_eliminar con las opciones generadas
+      document.getElementById('permisos_eliminar').innerHTML = opciones;
+      console.log(xhr.responseText);
+    }
+  };
+  xhr.send();
+});
+
+
+</script>
   <script>
     // mostrar/ocultar las opciones de selección de permisos según la acción seleccionada
     var agregar = document.getElementById('agregar');
@@ -806,28 +829,6 @@ function obtener_permisos() {
 }
 
 // función para obtener los permisos de un usuario desde la base de datos
-function obtener_permisos_usuario($usuario) {
-	$nombres=$usuario['nombres'] . ' ' . $usuario['apellidos'];
-	
-  $conexion = conectar_bd();
-  
-  $query = "SELECT p.id, p.nombre FROM permisos p 
-  INNER JOIN usuarios_permisos u ON p.id = permiso_id
-  WHERE u.usuario_nombre = '$nombres'";
-  
-  $resultado = mysqli_query($conexion, $query);
-  
-  $permisos = array();
-  
-  while ($fila = mysqli_fetch_assoc($resultado)) {
-    $permisos[] = $fila;
-  }
-  
-  mysqli_free_result($resultado);
-  mysqli_close($conexion);
-  
-  return $permisos;
-}
 
 function obtener_permisos_usuariop($nombre_completo) {
 
@@ -845,7 +846,6 @@ function obtener_permisos_usuariop($nombre_completo) {
   mysqli_close($conexion);
   return $permisos;
 }
-
 
 ?>
 </body>

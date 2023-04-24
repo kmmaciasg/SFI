@@ -12,10 +12,11 @@ $pago = $_POST['pago'];
 $embalaje = $_POST['embalaje'];
 $creador = $_POST['creador'];
 $transportadora = $_POST['transportadora'];
+$notas = $_POST['Notas'];
 
 
 // Insertar los datos en la tabla o_despacho
-$sql = "INSERT INTO o_despacho (numero_orden, cliente, fecha, cajas, pago, embalaje, creador, transportadora) VALUES ('$numero_orden', '$cliente', '$fecha', '$cajas', '$pago', '$embalaje', '$creador', '$transportadora')";
+$sql = "INSERT INTO o_despacho (numero_orden, cliente, fecha, cajas, pago, embalaje, creador, transportadora, notas) VALUES ('$numero_orden', '$cliente', '$fecha', '$cajas', '$pago', '$embalaje', '$creador', '$transportadora', '$notas')";
 
 if (mysqli_query($conexion, $sql)) {echo '
     <script>

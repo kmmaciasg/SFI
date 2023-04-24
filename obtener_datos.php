@@ -10,7 +10,7 @@ if ($conexion->connect_error) {
 }
 
 // Realizamos la consulta a la base de datos para obtener los datos correspondientes a la orden
-$sql = "SELECT cliente, fecha, cajas, pago, embalaje, creador, transportadora FROM o_despacho WHERE numero_orden = '$numeroOrden'";
+$sql = "SELECT cliente, fecha, cajas, pago, embalaje, creador, transportadora,notas FROM o_despacho WHERE numero_orden = '$numeroOrden'";
 $resultado = $conexion->query($sql);
 
 if ($resultado->num_rows > 0) {

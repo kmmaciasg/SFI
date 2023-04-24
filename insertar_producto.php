@@ -80,9 +80,10 @@ if ($conn->connect_error) {
 $codigo = $_POST["codigo"];
 $descripcion = $_POST["descripcion"];
 $cantidad = $_POST["cantidad"];
+$barras = $_POST["barras"];
 
 // Insertar el nuevo producto en la tabla productos
-$sql = "INSERT INTO productos (codigo, Descripcion, Cantidad) VALUES ('$codigo', '$descripcion', $cantidad)";
+$sql = "INSERT INTO productos (codigo, Descripcion, Cantidad, barras) VALUES ('$codigo', '$descripcion', '$cantidad', '$barras')";
 
 if ($conn->query($sql) === TRUE) {
   echo "Nuevo producto creado correctamente";
