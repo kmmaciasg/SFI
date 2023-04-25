@@ -48,6 +48,83 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 	<script src="js/sweetalert2.min.js" ></script>
 	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
 	<script src="js/main.js" ></script>
+	<script>
+        $(document).ready(function() {
+            // Agregamos el evento click al botón
+            $("#modificar").click(function() {
+				event.preventDefault()
+                // Pedimos al usuario el ID del lote
+                var id_lote = prompt("Introduce el # del lote a buscar:");
+
+                // Realizamos la petición AJAX para buscar el lote
+                $.ajax({
+                    url: "buscar_lote.php",
+                    type: "POST",
+                    data: {id_lote: id_lote},
+                    dataType: "json",
+                    success: function(resultado) {
+                        // Mostramos la ventana emergente con los datos del lote
+                        $("#ventana-emergente").show();
+
+                        // Llenamos los campos de la ventana emergente con los datos del lote
+                        $("#id_lote").val(resultado.id);
+                        $("#materia").val(resultado.Materia);
+                        $("#fecha_inicio").val(resultado.fecha_inicio);
+                        $("#peso_inicial").val(resultado.peso_inicial);
+                        $("#peso_neto").val(resultado.peso_neto);
+                        $("#p_desperdicio").val(resultado.p_desperdicio);
+                        $("#adicion").val(resultado.adicion);
+                        $("#cantidad").val(resultado.Cantidad);
+                        $("#usuario").val(resultado.Usuario);
+                        $("#loteagua").val(resultado.loteagua);
+                    },
+                    error: function() {
+                        alert("Error al buscar el lote");
+                    }
+                });
+            });
+			// Agregamos el evento click al botón de guardar cambios
+            $("#btn-guardar-cambios").click(function() {
+                // Obtenemos los datos de la ventana emergente
+                var id_lote = $("#id_lote").val();
+                var materia = $("#materia").val();
+                var fecha_inicio = $("#fecha_inicio").val();
+                var peso_inicial = $("#peso_inicial").val();
+                var peso_neto = $("#peso_neto").val();
+                var p_desperdicio = $("#p_desperdicio").val();
+                var adicion = $("#adicion").val();
+                var cantidad = $("#cantidad").val();
+                var usuario = $("#usuario").val();
+				var loteagua = $("#loteagua").val();
+
+// Realizamos la petición AJAX para guardar los cambios en la base de datos
+$.ajax({
+	url: "guardar_cambios.php",
+	type: "POST",
+	data: {
+		id_lote: id_lote,
+		materia: materia,
+		fecha_inicio: fecha_inicio,
+		peso_inicial: peso_inicial,
+		peso_neto: peso_neto,
+		p_desperdicio: p_desperdicio,
+		adicion: adicion,
+		cantidad: cantidad,
+		usuario: usuario,
+		loteagua: loteagua
+	},
+	success: function() {
+		alert("Los cambios se han guardado correctamente");
+		$("#ventana-emergente").hide();
+	},
+	error: function() {
+		alert("Error al guardar los cambios");
+	}
+});
+});
+});
+</script>
+
 </head>
 <body>
 <?php
@@ -789,8 +866,12 @@ $resultado = mysqli_query($conexion, $sql);
 									<p class="text-center">
 										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" onclick="pasarfase1()" id="guardar">
 											<i class="zmdi zmdi-plus"></i>
-										</button>
 										<div class="mdl-tooltip" for="guardar">Agregar Produccion</div>
+										</button>
+										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" id="modificar" >
+											<i class="zmdi zmdi-refresh"></i>
+										<div class="mdl-tooltip" for="modificar">Modificar Produccion</div>
+										</button>
 									</p>
 								</form>
 							</div>
@@ -798,6 +879,46 @@ $resultado = mysqli_query($conexion, $sql);
 					</div>
 				</div>
 			</div>
+			<div id="ventana-emergente" style="display: none;">
+			<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+										
+    <h6>Modificar lote</h6>
+    <form>
+        <label >ID:</label>
+        <input type="text" id="id_lote" readonly><br>
+
+        <label>Materia:</label>
+        <input type="text" id="materia"><br>
+
+        <label>Fecha de inicio:</label>
+        <input type="date" id="fecha_inicio"><br>
+
+        <label>Peso inicial:</label>
+        <input type="number" id="peso_inicial"><br>
+
+        <label>Peso neto:</label>
+        <input type="number" id="peso_neto"><br>
+
+        <label>Porcentaje de desperdicio:</label>
+        <input type="number" id="p_desperdicio"><br>
+
+        <label>Adición:</label>
+        <input type="text" id="adicion"><br>
+
+        <label>Cantidad:</label>
+        <input type="number" id="cantidad"><br>
+
+        <label>Usuario:</label>
+        <input type="text" id="usuario"  readonly><br>
+
+        <label>Lote de agua:</label>
+        <input type="text" id="loteagua"><br>
+
+        <button class="mdl-button mdl-js-button mdl-button--rised mdl-js-ripple-effect mdl-button--colored bg-primary" type="button" id="btn-guardar-cambios">Guardar cambios</button>
+    </form>
+</div>
+			</div></div>
 			<div class="mdl-tabs__panel" id="tabNewMateria">
 					<div class="mdl-grid">
 						<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
@@ -887,6 +1008,7 @@ function pasarfase1() {
   return false;
 }
 </script>	
+
 <script>
 function calcularPesoNeto() {
   // Obtener los valores ingresados por el usuario

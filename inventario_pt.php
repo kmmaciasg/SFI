@@ -32,6 +32,62 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 	<script src="js/sweetalert2.min.js" ></script>
 	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
 	<script src="js/main.js" ></script>
+	<script>
+        $(document).ready(function() {
+            // Agregamos el evento click al botón
+            $("#modificar").click(function() {
+				event.preventDefault()
+                // Pedimos al usuario el ID del lote
+                var id_lote = prompt("Introduce el codigo del producto a modificar:");
+
+                // Realizamos la petición AJAX para buscar el lote
+                $.ajax({
+                    url: "buscar_producto.php",
+                    type: "POST",
+                    data: {id_lote: id_lote},
+                    dataType: "json",
+                    success: function(resultado) {
+                        // Mostramos la ventana emergente con los datos del lote
+                        $("#ventana-emergente").show();
+
+                        // Llenamos los campos de la ventana emergente con los datos del lote
+						
+                        $("#id_envasado").val(resultado.codigo);
+                        $("#id_lote").val(resultado.Descripcion);
+                        $("#materia").val(resultado.Cantidad);
+                    },
+                    error: function() {
+                        alert("Error al buscar el lote");
+                    }
+                });
+            });
+			// Agregamos el evento click al botón de guardar cambios
+            $("#btn-guardar-cambios").click(function() {
+                // Obtenemos los datos de la ventana emergente
+                var id_envasado = $("#id_envasado").val();
+                var id_lote = $("#id_lote").val();
+                var materia = $("#materia").val();
+
+// Realizamos la petición AJAX para guardar los cambios en la base de datos
+$.ajax({
+	url: "modificar_producto.php",
+	type: "POST",
+	data: {
+		id_envasado: id_envasado,
+		id_lote: id_lote,
+		materia: materia,
+	},
+	success: function() {
+		alert("Los cambios se han guardado correctamente");
+		$("#ventana-emergente").hide();
+	},
+	error: function() {
+		alert("Error al guardar los cambios");
+	}
+});
+});
+});
+</script>
 </head>
 <body>
 <?php
@@ -725,7 +781,12 @@ include 'conexion_db.php';
 				}
 									   ?>
                                     </tbody>
+									
                                 </table>
+								<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit"style="margin-left:450px"  id="modificar" >
+											<i class="zmdi zmdi-refresh"></i>
+										<div class="mdl-tooltip" for="modificar">Modificar Inventario</div>
+										</button>
 							</div>
                             </div>
                         </div>	
@@ -735,6 +796,25 @@ include 'conexion_db.php';
         </div>
     </div>
 </div>
+	       
+		   <div id="ventana-emergente" style="display: none;">
+		   <div class="mdl-grid">
+		   <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+									   
+   <h6>Modificar lote</h6>
+   <form>
+	   <label >Codigo:</label>
+	   <input type="text" id="id_envasado" readonly><br>
+	   <label >Producto:</label>
+	   <input type="text" id="id_lote"><br>
+
+	   <label>Cantidad:</label>
+	   <input type="text" id="materia"><br>
+
+	   <button class="mdl-button mdl-js-button mdl-button--rised mdl-js-ripple-effect mdl-button--colored bg-primary" type="button" id="btn-guardar-cambios">Guardar cambios</button>
+   </form>
+</div>
+		   </div></div>       
 <script>
 // Función para filtrar la tabla por nombre
 function filtrarTabla() {
@@ -756,5 +836,6 @@ function filtrarTabla() {
     }
 }
 </script>
+
 </body>
 </html>

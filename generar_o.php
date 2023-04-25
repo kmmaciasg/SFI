@@ -1078,7 +1078,31 @@ fetch(url)
 
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var button = document.getElementById("btn-generar"); 
 
+  button.addEventListener('click', function(){
+    notify();
+  });
+
+  function notify (){
+    if (!("Notification" in window)){
+      alert("Tu navegador no soporta notificaciones");
+    } else if (Notification.permission === "granted"){
+      var notification = new Notification("Nueva orden Generada");
+
+    } else if (Notification.permission === "denied"){
+      Notification.requestPermission(function(permission){
+        if (Notification.permission === "granted"){
+          var notification = new Notification ("Hola mundo");
+        }
+      });
+    }
+  }
+});
+
+</script>
 <script>
 function abrirVentana() {
 	
