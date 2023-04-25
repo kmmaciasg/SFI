@@ -255,7 +255,7 @@ $ruta_imagen = $fila_usuario['foto'];
 			</div>
 			<figure class="full-width" style="height: 77px;">
 				<div class="navLateral-body-cl">
-					<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+				<img src="<?php echo $ruta_imagen; ?>" alt="Foto de perfil del usuario" class="img-responsive">
 				</div>
 				<figcaption class="navLateral-body-cr hide-on-tablet">
 					<span>

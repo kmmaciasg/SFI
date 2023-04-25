@@ -94,7 +94,15 @@ $resultado = mysqli_query($conexion, $sql);
 $resultado1 = mysqli_query($conexion, $sql);
 
 
-    // Variable para contar el número de notificaciones no leídas
+$sql_usuario = "SELECT foto FROM usuarios WHERE nombres = '$nombre_usuario'";
+
+$resultado_usuario = mysqli_query($conexion, $sql_usuario);
+
+// Obtener la ruta de la imagen del usuario actual
+$fila_usuario = mysqli_fetch_assoc($resultado_usuario);
+$ruta_imagen = $fila_usuario['foto'];
+
+// Variable para contar el número de notificaciones no leídas
     $num_notificaciones = 0;
     ?>
 
@@ -285,7 +293,8 @@ $resultado1 = mysqli_query($conexion, $sql);
 					<li class="text-condensedLight noLink" ><small> <?php echo htmlspecialchars($nombre_completo); ?></small></li>
 					<li class="noLink">
 						<figure>
-							<img src="assets/img/avatar-male2.png" alt="Avatar" class="img-responsive">
+						<img src="<?php echo $ruta_imagen; ?>" alt="Foto de perfil del usuario" class="img-responsive">
+
 						</figure>
 					</li>
 				</ul>
@@ -301,7 +310,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 			</div>
 			<figure class="full-width" style="height: 77px;">
 				<div class="navLateral-body-cl">
-					<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+				<img src="<?php echo $ruta_imagen; ?>" alt="Foto de perfil del usuario" class="img-responsive">
 				</div>
 				<figcaption class="navLateral-body-cr hide-on-tablet">
 					<span>
@@ -719,6 +728,7 @@ $resultado1 = mysqli_query($conexion, $sql);
 			</nav>
 		</div>
 	</section>
+
 
 	<!-- pageContent -->
 	<section class="full-width pageContent">

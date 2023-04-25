@@ -97,6 +97,15 @@ include 'conexion_db.php';
 				// Consultar la tabla
 				$sql = "SELECT codigo, descripcion, cantidad FROM productos";
 				$resultado = $conexion->query($sql);
+
+				$sql_usuario = "SELECT foto FROM usuarios WHERE nombres = '$nombre_usuario'";
+
+				$resultado_usuario = mysqli_query($conexion, $sql_usuario);
+				
+				// Obtener la ruta de la imagen del usuario actual
+				$fila_usuario = mysqli_fetch_assoc($resultado_usuario);
+				$ruta_imagen = $fila_usuario['foto'];
+				
 				// Variable para contar el número de notificaciones no leídas
 					$num_notificaciones = 0;
 					?>
@@ -288,440 +297,442 @@ include 'conexion_db.php';
 									<li class="text-condensedLight noLink" ><small> <?php echo htmlspecialchars($nombre_completo); ?></small></li>
 									<li class="noLink">
 										<figure>
-											<img src="assets/img/avatar-male2.png" alt="Avatar" class="img-responsive">
+										<img src="<?php echo $ruta_imagen; ?>" alt="Foto de perfil del usuario" class="img-responsive">
+				
 										</figure>
 									</li>
 								</ul>
 							</nav>
 						</div>
 					</div>
-	<!-- navLateral -->
-	<section class="full-width navLateral">
-		<div class="full-width navLateral-bg btn-menu"></div>
-		<div class="full-width navLateral-body">
-			<div class="full-width navLateral-body-logo text-center tittles">
-				<i class="zmdi zmdi-close btn-menu"></i> Inventario
-			</div>
-			<figure class="full-width" style="height: 77px;">
-				<div class="navLateral-body-cl">
-					<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
-				</div>
-				<figcaption class="navLateral-body-cr hide-on-tablet">
-					<span>
-					<span>Usuario: <?php echo htmlspecialchars($nombre_completo); ?><br>
-					</span>
-				</figcaption>
-			</figure>
-			<nav class="full-width">
-				<ul class="full-width list-unstyle menu-principal">
-					<li class="full-width">
-						<a href="home.php" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-home"></i>
+					<!-- navLateral -->
+					<section class="full-width navLateral">
+						<div class="full-width navLateral-bg btn-menu"></div>
+						<div class="full-width navLateral-body">
+							<div class="full-width navLateral-body-logo text-center tittles">
+								<i class="zmdi zmdi-close btn-menu"></i> Inventario
 							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								INICIO
-							</div>
-						</a>
-					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a href="#!" class="full-width btn-subMenu">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-hospital-alt"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								PRODUCCION
-							</div>
-							<span class="zmdi zmdi-chevron-left"></span>
-						</a>
-						<ul class="full-width menu-principal sub-menu-options">
-							<li class="full-width">
-								<a href="productnew.php" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-hospital-alt"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Nueva Produccion
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="product1.php" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-label"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Producciones en Fase 1
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="product2.php" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-label"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Producciones en Fase 2
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="product3.php" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-label"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Producciones en Envasado
-									</div>
-								</a>
-							</li>
-						</ul>
-					</li>
+							<figure class="full-width" style="height: 77px;">
+								<div class="navLateral-body-cl">
+								<img src="<?php echo $ruta_imagen; ?>" alt="Foto de perfil del usuario" class="img-responsive">
+								</div>
+								<figcaption class="navLateral-body-cr hide-on-tablet">
+									<span>
+									<span>Usuario: <?php echo htmlspecialchars($nombre_completo); ?> <br>
+									</span>
+								</figcaption>
+							</figure>
+							<nav class="full-width">
+								<ul class="full-width list-unstyle menu-principal">
+									<li class="full-width">
+										<a href="home.php" class="full-width">
+											<div class="navLateral-body-cl">
+												<i class="zmdi zmdi-home"></i>
+											</div>
+											<div class="navLateral-body-cr hide-on-tablet">
+												INICIO
+											</div>
+										</a>
+									</li>
+									<li class="full-width divider-menu-h"></li>
+									<li class="full-width">
+										<a href="#!" class="full-width btn-subMenu">
+											<div class="navLateral-body-cl">
+												<i class="zmdi zmdi-hospital-alt"></i>
+											</div>
+											<div class="navLateral-body-cr hide-on-tablet">
+												PRODUCCION
+											</div>
+											<span class="zmdi zmdi-chevron-left"></span>
+										</a>
+										<ul class="full-width menu-principal sub-menu-options">
+											<li class="full-width">
+												<a href="productnew.php" class="full-width">
+													<div class="navLateral-body-cl">
+														<i class="zmdi zmdi-hospital-alt"></i>
+													</div>
+													<div class="navLateral-body-cr hide-on-tablet">
+														Nueva Produccion
+													</div>
+												</a>
+											</li>
+											<li class="full-width">
+												<a href="product1.php" class="full-width">
+													<div class="navLateral-body-cl">
+														<i class="zmdi zmdi-label"></i>
+													</div>
+													<div class="navLateral-body-cr hide-on-tablet">
+														Producciones en Fase 1
+													</div>
+												</a>
+											</li>
+											<li class="full-width">
+												<a href="product2.php" class="full-width">
+													<div class="navLateral-body-cl">
+														<i class="zmdi zmdi-label"></i>
+													</div>
+													<div class="navLateral-body-cr hide-on-tablet">
+														Producciones en Fase 2
+													</div>
+												</a>
+											</li>
+											<li class="full-width">
+												<a href="product3.php" class="full-width">
+													<div class="navLateral-body-cl">
+														<i class="zmdi zmdi-label"></i>
+													</div>
+													<div class="navLateral-body-cr hide-on-tablet">
+														Producciones en Envasado
+													</div>
+												</a>
+											</li>
+										</ul>
+									</li>
+									
+									<li class="full-width divider-menu-h"></li>
+									 <li class="full-width">
+											 <a href="parametros.php" class="full-width">
+											 <div class="navLateral-body-cl">
+												<i class="zmdi zmdi-cocktail"></i>
+											 </div>
+											 <div class="navLateral-body-cr hide-on-tablet">
+												PARAMETROS
+											 </div>
+											 </a>
+										</li>
+									</li>
+									<li class="full-width divider-menu-h"></li>
+										<li class="full-width">
+											<a href="ADMIN.php" class="full-width">
+											<div class="navLateral-body-cl">
+												<i class="zmdi zmdi-face"></i>
+											</div>
+											<div class="navLateral-body-cr hide-on-tablet">
+												ADMINISTRACION
+											</div>  
+											</a>
+										</li>		
+									</li>	
+									<li class="full-width divider-menu-h"></li>
+									<li class="full-width">
+										<a href="#!" class="full-width btn-subMenu">
+											<div class="navLateral-body-cl">
+												<i class="zmdi zmdi-camera-switch"></i>
+											</div>
+											<div class="navLateral-body-cr hide-on-tablet">
+												INGRESOS Y SALIDAS
+											</div>
+											<span class="zmdi zmdi-chevron-left"></span>
+										</a>
+										<ul class="full-width menu-principal sub-menu-options">
+											<li class="full-width">
+											<a href="producfin.php" class="full-width">
+											<div class="navLateral-body-cl">
+												<i class="zmdi zmdi-assignment-check"></i>
+											</div>
+											<div class="navLateral-body-cr hide-on-tablet">
+												Producto Terminado
+											</div>
+											</a>
+											</li>
+											<li class="full-width">
+											 <a href="envases.php" class="full-width">
+											<div class="navLateral-body-cl">
+												<i class="zmdi zmdi-battery"></i>
+											</div>
+											<div class="navLateral-body-cr hide-on-tablet">
+												Envases
+											</div>
+											</a>
+											</li>
+											<li class="full-width">
+											<a href="embalaje.php" class="full-width">
+											<div class="navLateral-body-cl">
+												<i class="zmdi zmdi-card-giftcard"></i>
+											</div>
+											<div class="navLateral-body-cr hide-on-tablet">
+												Embalaje
+											</div>
+											</a>
+											</li>
+											<li class="full-width">
+											<a href="etiquetas.php" class="full-width">
+											<div class="navLateral-body-cl">
+												<i class="zmdi zmdi-file"></i>
+											</div>
+											<div class="navLateral-body-cr hide-on-tablet">
+												Etiquetas
+											</div>
+											</a>
+											</li>
+											<li class="full-width">
+											<a href="colgantes.php" class="full-width">
+											<div class="navLateral-body-cl">
+												<i class="zmdi zmdi-receipt"></i>
+											</div>
+											<div class="navLateral-body-cr hide-on-tablet">
+												Colgantes
+											</div>
+											</a>
+											</li>
+											<li class="full-width">
+											<a href="tapas.php" class="full-width">
+											<div class="navLateral-body-cl">
+												<i class="zmdi zmdi-album"></i>
+											</div>
+											<div class="navLateral-body-cr hide-on-tablet">
+												Tapas
+											</div>
+											</a>
+											</li>
+											<li class="full-width">
+											<a href="bandas.php" class="full-width">
+											<div class="navLateral-body-cl">
+												<i class="zmdi zmdi-check-all"></i>
+											</div>
+											<div class="navLateral-body-cr hide-on-tablet">
+												Bandas de Seguridad
+											</div>
+											</a>
+											</li>
+										</ul>
+									</li>
 					
-					<li class="full-width divider-menu-h"></li>
-					 <li class="full-width">
-							 <a href="parametros.php" class="full-width">
-							 <div class="navLateral-body-cl">
-								<i class="zmdi zmdi-cocktail"></i>
-							 </div>
-							 <div class="navLateral-body-cr hide-on-tablet">
-								PARAMETROS
-							 </div>
-						     </a>
-					    </li>
-                    </li>
-					<li class="full-width divider-menu-h"></li>
-					    <li class="full-width">
-						    <a href="ADMIN.php" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-face"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								ADMINISTRACION
-							</div>  
-						    </a>
-						</li>		
-					</li>	
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a href="#!" class="full-width btn-subMenu">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-camera-switch"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								INGRESOS Y SALIDAS
-							</div>
-							<span class="zmdi zmdi-chevron-left"></span>
-						</a>
-						<ul class="full-width menu-principal sub-menu-options">
-							<li class="full-width">
-						    <a href="producfin.php" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-assignment-check"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								Producto Terminado
-							</div>
-						    </a>
-							</li>
-							<li class="full-width">
-						     <a href="envases.php" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-battery"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								Envases
-							</div>
-						    </a>
-					        </li>
-							<li class="full-width">
-						    <a href="embalaje.php" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-card-giftcard"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								Embalaje
-							</div>
-						    </a>
-					        </li>
-							<li class="full-width">
-						    <a href="etiquetas.php" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-file"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								Etiquetas
-							</div>
-						    </a>
-					        </li>
-							<li class="full-width">
-						    <a href="colgantes.php" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-receipt"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								Colgantes
-							</div>
-						    </a>
-					        </li>
-							<li class="full-width">
-						    <a href="tapas.php" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-album"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								Tapas
-							</div>
-						    </a>
-					        </li>
-							<li class="full-width">
-						    <a href="bandas.php" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-check-all"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								Bandas de Seguridad
-							</div>
-						    </a>
-					        </li>
-						</ul>
-					</li>
-	
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a href="#!" class="full-width btn-subMenu">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-file-text"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								INVENTARIOS
-							</div>
-							<span class="zmdi zmdi-chevron-left"></span>
-						</a>
-						<ul class="full-width menu-principal sub-menu-options">
-							<li class="full-width">
-								<a href="inventario_pt.php" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-file-text"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Producto Terminado
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="inventario_e.php" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-file-text"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Envases y Embalaje
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="inventario_ec.php" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-file-text"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Etiquetas y Colgantes
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="inventario_tb.php" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-file-text"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Tapas y Bandas
-									</div>
-								</a>
-							</li>
-						</ul>	
-					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a href="#!" class="full-width btn-subMenu">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-window-maximize"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								HISTORIAL
-							</div>
-							<span class="zmdi zmdi-chevron-left"></span>
-						</a>
-						<ul class="full-width menu-principal sub-menu-options">
-							<li class="full-width">
-								<a href="historial_pl.php" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-window-maximize"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Producto Terminado y Lotes
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="historial_e.php" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-window-maximize"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Envases y Embalaje
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="Historial_ec.php" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-window-maximize"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Etiquetas y Colgantes
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-                            <a href="Historial_tb.php" class="full-width">
-                                <div class="navLateral-body-cl">
-                                    <i class="zmdi zmdi-window-maximize"></i>
-                                </div>
-                                <div class="navLateral-body-cr hide-on-tablet">
-                                    Tapas y Bandas
-                                </div>
-                            </a>
-                        </li>
-                        <li class="full-width">
-                            <a href="Historial_ep.php" class="full-width">
-                                <div class="navLateral-body-cl">
-                                    <i class="zmdi zmdi-window-maximize"></i>
-                                </div>
-                                <div class="navLateral-body-cr hide-on-tablet">
-                                    Envasado y Parametros
-                                </div>
-                            </a>
-                        </li>
-						</ul>	
-					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a href="#!" class="full-width btn-subMenu">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-calendar-note"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								PEDIDOS
-							</div>
-							<span class="zmdi zmdi-chevron-left"></span>
-						</a>
-						<ul class="full-width menu-principal sub-menu-options">
-							<li class="full-width">
-								<a href="generar_o.php" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-calendar-note"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Generar Orden Despacho
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="completar_o.php" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-calendar-note"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Completar Orden Despacho
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="reparto.php" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-calendar-note"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Pedidos en Reparto
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="historial_o.php" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-calendar-note"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Historial Orden Despacho
-									</div>
-								</a>
-							</li>
-						</ul>
-					</li>
-					
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a href="#!" class="full-width btn-subMenu">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-truck"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								RUTA
-							</div>
-							<span class="zmdi zmdi-chevron-left"></span>
-						</a>
-						<ul class="full-width menu-principal sub-menu-options">
-							<li class="full-width">
-								<a href="generar_r.php" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-truck"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Generar Ruta
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="completar_r.php" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-truck"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Completar Ruta
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="historial_r.php" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-truck"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										Historial Rutas
-									</div>
-								</a>
-							</li>
-						</ul>
-							
-					<li class="full-width divider-menu-h"></li>
-					 <li class="full-width">
-							 <a href="Facturacion.php" class="full-width">
-							 <div class="navLateral-body-cl">
-								<i class="zmdi zmdi-assignment-check"></i>
-							 </div>
-							 <div class="navLateral-body-cr hide-on-tablet">
-								FACTURACION
-							 </div>
-						     </a>
-					    </li>
-                    </li>
-					</li>
-				</ul>	
-			</nav>
-		</div>
-	</section>
+									<li class="full-width divider-menu-h"></li>
+									<li class="full-width">
+										<a href="#!" class="full-width btn-subMenu">
+											<div class="navLateral-body-cl">
+												<i class="zmdi zmdi-file-text"></i>
+											</div>
+											<div class="navLateral-body-cr hide-on-tablet">
+												INVENTARIOS
+											</div>
+											<span class="zmdi zmdi-chevron-left"></span>
+										</a>
+										<ul class="full-width menu-principal sub-menu-options">
+											<li class="full-width">
+												<a href="inventario_pt.php" class="full-width">
+													<div class="navLateral-body-cl">
+														<i class="zmdi zmdi-file-text"></i>
+													</div>
+													<div class="navLateral-body-cr hide-on-tablet">
+														Producto Terminado
+													</div>
+												</a>
+											</li>
+											<li class="full-width">
+												<a href="inventario_e.php" class="full-width">
+													<div class="navLateral-body-cl">
+														<i class="zmdi zmdi-file-text"></i>
+													</div>
+													<div class="navLateral-body-cr hide-on-tablet">
+														Envases y Embalaje
+													</div>
+												</a>
+											</li>
+											<li class="full-width">
+												<a href="inventario_ec.php" class="full-width">
+													<div class="navLateral-body-cl">
+														<i class="zmdi zmdi-file-text"></i>
+													</div>
+													<div class="navLateral-body-cr hide-on-tablet">
+														Etiquetas y Colgantes
+													</div>
+												</a>
+											</li>
+											<li class="full-width">
+												<a href="inventario_tb.php" class="full-width">
+													<div class="navLateral-body-cl">
+														<i class="zmdi zmdi-file-text"></i>
+													</div>
+													<div class="navLateral-body-cr hide-on-tablet">
+														Tapas y Bandas
+													</div>
+												</a>
+											</li>
+										</ul>	
+									</li>
+									<li class="full-width divider-menu-h"></li>
+									<li class="full-width">
+										<a href="#!" class="full-width btn-subMenu">
+											<div class="navLateral-body-cl">
+												<i class="zmdi zmdi-window-maximize"></i>
+											</div>
+											<div class="navLateral-body-cr hide-on-tablet">
+												HISTORIAL
+											</div>
+											<span class="zmdi zmdi-chevron-left"></span>
+										</a>
+										<ul class="full-width menu-principal sub-menu-options">
+											<li class="full-width">
+												<a href="historial_pl.php" class="full-width">
+													<div class="navLateral-body-cl">
+														<i class="zmdi zmdi-window-maximize"></i>
+													</div>
+													<div class="navLateral-body-cr hide-on-tablet">
+														Producto Terminado y Lotes
+													</div>
+												</a>
+											</li>
+											<li class="full-width">
+												<a href="historial_e.php" class="full-width">
+													<div class="navLateral-body-cl">
+														<i class="zmdi zmdi-window-maximize"></i>
+													</div>
+													<div class="navLateral-body-cr hide-on-tablet">
+														Envases y Embalaje
+													</div>
+												</a>
+											</li>
+											<li class="full-width">
+												<a href="Historial_ec.php" class="full-width">
+													<div class="navLateral-body-cl">
+														<i class="zmdi zmdi-window-maximize"></i>
+													</div>
+													<div class="navLateral-body-cr hide-on-tablet">
+														Etiquetas y Colgantes
+													</div>
+												</a>
+											</li>
+											<li class="full-width">
+											<a href="Historial_tb.php" class="full-width">
+												<div class="navLateral-body-cl">
+													<i class="zmdi zmdi-window-maximize"></i>
+												</div>
+												<div class="navLateral-body-cr hide-on-tablet">
+													Tapas y Bandas
+												</div>
+											</a>
+										</li>
+										<li class="full-width">
+											<a href="Historial_ep.php" class="full-width">
+												<div class="navLateral-body-cl">
+													<i class="zmdi zmdi-window-maximize"></i>
+												</div>
+												<div class="navLateral-body-cr hide-on-tablet">
+													Envasado y Parametros
+												</div>
+											</a>
+										</li>
+										</ul>	
+									</li>
+									<li class="full-width divider-menu-h"></li>
+									<li class="full-width">
+										<a href="#!" class="full-width btn-subMenu">
+											<div class="navLateral-body-cl">
+												<i class="zmdi zmdi-calendar-note"></i>
+											</div>
+											<div class="navLateral-body-cr hide-on-tablet">
+												PEDIDOS
+											</div>
+											<span class="zmdi zmdi-chevron-left"></span>
+										</a>
+										<ul class="full-width menu-principal sub-menu-options">
+											<li class="full-width">
+												<a href="generar_o.php" class="full-width">
+													<div class="navLateral-body-cl">
+														<i class="zmdi zmdi-calendar-note"></i>
+													</div>
+													<div class="navLateral-body-cr hide-on-tablet">
+														Generar Orden Despacho
+													</div>
+												</a>
+											</li>
+											<li class="full-width">
+												<a href="completar_o.php" class="full-width">
+													<div class="navLateral-body-cl">
+														<i class="zmdi zmdi-calendar-note"></i>
+													</div>
+													<div class="navLateral-body-cr hide-on-tablet">
+														Completar Orden Despacho
+													</div>
+												</a>
+											</li>
+											<li class="full-width">
+												<a href="reparto.php" class="full-width">
+													<div class="navLateral-body-cl">
+														<i class="zmdi zmdi-calendar-note"></i>
+													</div>
+													<div class="navLateral-body-cr hide-on-tablet">
+														Pedidos en Reparto
+													</div>
+												</a>
+											</li>
+											<li class="full-width">
+												<a href="historial_o.php" class="full-width">
+													<div class="navLateral-body-cl">
+														<i class="zmdi zmdi-calendar-note"></i>
+													</div>
+													<div class="navLateral-body-cr hide-on-tablet">
+														Historial Orden Despacho
+													</div>
+												</a>
+											</li>
+										</ul>
+									</li>
+									
+									<li class="full-width divider-menu-h"></li>
+									<li class="full-width">
+										<a href="#!" class="full-width btn-subMenu">
+											<div class="navLateral-body-cl">
+												<i class="zmdi zmdi-truck"></i>
+											</div>
+											<div class="navLateral-body-cr hide-on-tablet">
+												RUTA
+											</div>
+											<span class="zmdi zmdi-chevron-left"></span>
+										</a>
+										<ul class="full-width menu-principal sub-menu-options">
+											<li class="full-width">
+												<a href="generar_r.php" class="full-width">
+													<div class="navLateral-body-cl">
+														<i class="zmdi zmdi-truck"></i>
+													</div>
+													<div class="navLateral-body-cr hide-on-tablet">
+														Generar Ruta
+													</div>
+												</a>
+											</li>
+											<li class="full-width">
+												<a href="completar_r.php" class="full-width">
+													<div class="navLateral-body-cl">
+														<i class="zmdi zmdi-truck"></i>
+													</div>
+													<div class="navLateral-body-cr hide-on-tablet">
+														Completar Ruta
+													</div>
+												</a>
+											</li>
+											<li class="full-width">
+												<a href="historial_r.php" class="full-width">
+													<div class="navLateral-body-cl">
+														<i class="zmdi zmdi-truck"></i>
+													</div>
+													<div class="navLateral-body-cr hide-on-tablet">
+														Historial Rutas
+													</div>
+												</a>
+											</li>
+										</ul>
+											
+									<li class="full-width divider-menu-h"></li>
+									 <li class="full-width">
+											 <a href="Facturacion.php" class="full-width">
+											 <div class="navLateral-body-cl">
+												<i class="zmdi zmdi-assignment-check"></i>
+											 </div>
+											 <div class="navLateral-body-cr hide-on-tablet">
+												FACTURACION
+											 </div>
+											 </a>
+										</li>
+									</li>
+									</li>
+								</ul>	
+							</nav>
+						</div>
+					</section>
+				
 
 <section class="full-width pageContent">
     <section class="full-width header-well">
