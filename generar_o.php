@@ -1098,10 +1098,12 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   function notify (){
+	
+	var numorden = document.getElementById("numero_orden").value;
     if (!("Notification" in window)){
       alert("Tu navegador no soporta notificaciones");
     } else if (Notification.permission === "granted"){
-      var notification = new Notification("Nueva orden Generada");
+      var notification = new Notification("Nueva orden Generada: "+numorden);
 
     } else if (Notification.permission === "denied"){
       Notification.requestPermission(function(permission){

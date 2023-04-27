@@ -18,7 +18,7 @@
     } else {
         echo '
         <script>
-        alert("usuario no existe")
+        alert("Clave o usuario incorrectos")
         window.location= "../sfi/index.php"; 
         </script>
         '; 

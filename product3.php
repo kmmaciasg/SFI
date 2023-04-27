@@ -925,7 +925,7 @@ $ruta_imagen = $fila_usuario['foto'];
 			<div class="mdl-grid">
 			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
 										
-    <h6>Modificar lote</h6>
+    <h6>Modificar envasado</h6>
     <form>
         <label >Id de envasado:</label>
         <input type="text" id="id_envasado" readonly><br>
@@ -948,10 +948,13 @@ $ruta_imagen = $fila_usuario['foto'];
         <input type="text" id="usuario"  readonly><br>
 
         <label>Lote de agua:</label>
-        <input type="text" id="loteagua" readonly><br>
-
-        <button class="mdl-button mdl-js-button mdl-button--rised mdl-js-ripple-effect mdl-button--colored bg-primary" type="button" id="btn-guardar-cambios">Guardar cambios</button>
-    </form>
+        <input type="text" id="loteagua" readonly><br><br>
+		<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 85px;" id="btn-guardar-cambios">
+								<i class="zmdi zmdi-check"> Guardar Cambios</i>
+								
+							<div class="mdl-tooltip" for="btn-guardar-cambios">Guardar Cambios</div>
+							</button>
+         </form>
 </div>
 			</div></div>       
 	</section>

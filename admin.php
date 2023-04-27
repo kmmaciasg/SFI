@@ -52,10 +52,7 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 	
 
 // Consulta SQL para obtener los datos
-$sql = "SELECT tipo FROM usuarios";
 
-// Ejecutar la consulta
-$resultado = mysqli_query($conexion, $sql);
 
 
 

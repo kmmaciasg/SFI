@@ -62,8 +62,23 @@ function marcarLugar() {
     var lugar = $(this).text();
     $(this).addClass("visitado");
     $("#lugaresVisitados").append("<li>"+ "<a>"+"<div class='navLateral-body-cl'>"+"<i class='zmdi zmdi-home'>"+"</i>"+"</div>"+"<div class='navLateral-body-cr'>"+ lugar+ "</div>" +"</a>" + "</li>");
-
+    notify("Nuevo lugar visitado: " + lugar);
 }
+
+function notify(message) {
+    if (!("Notification" in window)){
+      alert("Tu navegador no soporta notificaciones");
+    } else if (Notification.permission === "granted"){
+      var notification = new Notification(message);
+    } else if (Notification.permission === "denied"){
+      Notification.requestPermission(function(permission){
+        if (Notification.permission === "granted"){
+          var notification = new Notification(message);
+        }
+      });
+    }
+}
+
 
 // Función para mostrar los lugares visitados de la ruta seleccionada
 function mostrarLugaresVisitados() {

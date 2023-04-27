@@ -793,10 +793,12 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   function notify (){
+	var numRutaSeleccionada = document.getElementById("numRutaSeleccionada").textContent;
+
     if (!("Notification" in window)){
       alert("Tu navegador no soporta notificaciones");
     } else if (Notification.permission === "granted"){
-      var notification = new Notification("Nueva ruta Completada");
+      var notification = new Notification("Nueva ruta Completada: Ruta # "+numRutaSeleccionada);
 
     } else if (Notification.permission === "denied"){
       Notification.requestPermission(function(permission){

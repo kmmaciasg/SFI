@@ -883,10 +883,12 @@ $ruta_imagen = $fila_usuario['foto'];
 	   <input type="text" id="id_lote"><br>
 
 	   <label>Cantidad:</label>
-	   <input type="text" id="materia"><br>
-
-	   <button class="mdl-button mdl-js-button mdl-button--rised mdl-js-ripple-effect mdl-button--colored bg-primary" type="button" id="btn-guardar-cambios">Guardar cambios</button>
-   </form>
+	   <input type="text" id="materia"><br><br>
+	   <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 85px;" id="btn-guardar-cambios">
+								<i class="zmdi zmdi-check"> Guardar Cambios</i>
+								
+							<div class="mdl-tooltip" for="btn-guardar-cambios">Guardar Cambios</div>
+							</button> </form>
 </div>
 		   </div></div>    
     <div class="mdl-tabs__panel" id="tabNewEgreso">
@@ -962,10 +964,12 @@ $ruta_imagen = $fila_usuario['foto'];
 	   <input type="text" id="id_lote1"><br>
 
 	   <label>Cantidad:</label>
-	   <input type="text" id="materia1"><br>
-
-	   <button class="mdl-button mdl-js-button mdl-button--rised mdl-js-ripple-effect mdl-button--colored bg-primary" type="button" id="btn-guardar-cambios1">Guardar cambios</button>
-   </form>
+	   <input type="text" id="materia1"><br><br>
+	   <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 85px;" id="btn-guardar-cambios">
+								<i class="zmdi zmdi-check"> Guardar Cambios</i>
+								
+							<div class="mdl-tooltip" for="btn-guardar-cambios">Guardar Cambios</div>
+							</button>  </form>
 </div>
 		   </div></div>       
 <script>

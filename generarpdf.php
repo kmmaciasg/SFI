@@ -249,7 +249,8 @@ $dompdf->render();
 
 $pdf_content = $dompdf->output();
 // Definir el nombre del archivo con una variable
-$nombre_archivo = $ultimo_numero;
+$nombre_archivo = $ultimo_numero . '-' . $nombreCliente;
+
 $file_path = "../sfi/ordenes de despacho/{$nombre_archivo}.pdf";
 
 // Guardar el PDF en la carpeta "ordenes de despacho" con el nombre de la variable

@@ -14,10 +14,14 @@ $cantidad = $_POST["cantidad"];
 $usuario = $_POST["usuario"];
 $loteagua = $_POST["loteagua"];
 
-// Actualizamos los datos en la base de datos
-$query = "UPDATE lotes SET Materia = '$materia', fecha_inicio = '$fecha_inicio', peso_inicial = $peso_inicial, peso_neto = $peso_neto, p_desperdicio = $p_desperdicio, adicion = '$adicion', Cantidad = $cantidad, Usuario = '$usuario', loteagua = '$loteagua' WHERE id = '$id_lote'";
+// Actualizamos los datos en la tabla 'lotes'
+$query_lotes = "UPDATE lotes SET Materia = '$materia', fecha_inicio = '$fecha_inicio', peso_inicial = $peso_inicial, peso_neto = $peso_neto, p_desperdicio = $p_desperdicio, adicion = '$adicion', Cantidad = $cantidad, Usuario = '$usuario', loteagua = '$loteagua' WHERE id = '$id_lote'";
 
-if (mysqli_query($conexion, $query)) {
+// Actualizamos los datos en la tabla 'fase1'
+$query_fase1 = "UPDATE fase1 SET materia = '$materia', fecha = '$fecha_inicio', peso_i = $peso_inicial, peso_n = $peso_neto, adicion = '$adicion', cant = $cantidad, usuario = '$usuario', loteagua = '$loteagua' WHERE lote = '$id_lote'";
+
+// Ejecutamos las consultas de actualización
+if (mysqli_query($conexion, $query_lotes) && mysqli_query($conexion, $query_fase1)) {
     // Si se han actualizado los datos correctamente, devolvemos una respuesta satisfactoria
     echo "Los cambios se han guardado correctamente";
 } else {
@@ -27,4 +31,5 @@ if (mysqli_query($conexion, $query)) {
 
 // Cerramos la conexión con la base de datos
 mysqli_close($conexion);
+
 ?>

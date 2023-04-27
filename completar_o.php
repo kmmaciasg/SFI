@@ -725,6 +725,18 @@ $ruta_imagen = $fila_usuario['foto'];
 		</div>
 	</section>
 
+	<section class="full-width pageContent">
+    <section class="full-width header-well">
+        <div class="full-width header-well-icon">
+            <figure class="full-width">
+                    <img src="assets/img/nuevologo.jpeg" alt="LOGO" class="img-responsive">
+            </figure>
+            <div class="full-width header-well-text">
+            <p class="text-condensedLight">
+                 GENERAR ORDEN
+            </p>
+        </div>						
+</section>
 
 
 <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
@@ -916,6 +928,7 @@ inputNumeroOrden.addEventListener('keydown', function (event) {
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+	
   var button = document.getElementById("generate-pdf"); 
 
   button.addEventListener('click', function(){
@@ -923,10 +936,12 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   function notify (){
+	
+	var numorden = document.getElementById("numero_orden").value;
     if (!("Notification" in window)){
       alert("Tu navegador no soporta notificaciones");
     } else if (Notification.permission === "granted"){
-      var notification = new Notification("Nueva orden Completada");
+      var notification = new Notification("Nueva orden Completada: "+numorden);
 
     } else if (Notification.permission === "denied"){
       Notification.requestPermission(function(permission){

@@ -290,7 +290,8 @@ $dompdf->setPaper('letter');
 $dompdf->render();
 $pdf_content = $dompdf->output();
 // Definir el nombre del archivo con una variable
-$nombre_archivo = $numeroOrden;
+
+$nombre_archivo = $numeroOrden . '-' . $cliente;
 $file_path = "../sfi/guias de despacho/{$nombre_archivo}.pdf";
 // Guardar el PDF en la carpeta "ordenes de despacho" con el nombre de la variable
 file_put_contents($file_path, $pdf_content);
