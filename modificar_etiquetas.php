@@ -6,9 +6,10 @@ $conexion = mysqli_connect("localhost", "root", "", "lachila");
 $id_envasado = $_POST["id_envasado"];
 $id_lote = $_POST["id_lote"];
 $materia = $_POST["materia"];
+$stock = $_POST["stock"];
 
 // Actualizamos los datos en la base de datos
-$query = "UPDATE etiquetas SET cant = '$materia', Descripcion = '$id_lote' WHERE id = '$id_envasado'";
+$query = "UPDATE etiquetas SET cant = '$materia', Descripcion = '$id_lote' , stock_limite = '$stock' WHERE id = '$id_envasado'";
 
 if (mysqli_query($conexion, $query)) {
     // Si se han actualizado los datos correctamente, devolvemos una respuesta satisfactoria

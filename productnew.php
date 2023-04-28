@@ -143,173 +143,193 @@ $resultado_usuario = mysqli_query($conexion, $sql_usuario);
 // Obtener la ruta de la imagen del usuario actual
 $fila_usuario = mysqli_fetch_assoc($resultado_usuario);
 $ruta_imagen = $fila_usuario['foto'];
-
 // Variable para contar el número de notificaciones no leídas
-    $num_notificaciones = 0;
-    ?>
+$num_notificaciones = 0;
+?>
 
-    <!-- Notifications area -->
+<!-- Notifications area -->
 <section class="full-width container-notifications">
-    <div class="full-width container-notifications-bg btn-Notification">
+	<div class="full-width container-notifications-bg btn-Notification">
 
-    </div>
-	
-    <section class="NotificationArea">
-        <div class="full-width text-center NotificationArea-title tittles">Notificaciones <i class="zmdi zmdi-close btn-Notification"></i></div>
-        <a href="#" class="Notification" id="notifation-unread-1">
-            <div class="Notification-icon"><i class="zmdi zmdi-alert-triangle bg-info"></i></div>
-            <div class="Notification-text">
-                <?php
-                // Crear una consulta SQL para seleccionar los productos con cantidad menor a 250
-                $sql4 = "SELECT * FROM productos WHERE Cantidad < 250";
+	</div>
 
-                // Ejecutar la consulta
-                $resultado4 = $conexion->query($sql4);
-
-                // Verificar si hay resultados
-                if ($resultado4->num_rows > 0) {
-                  // Si hay resultados, imprimir el mensaje en negrita y aumentar el número de notificaciones no leídas
-                  echo '<p><strong>Productos terminados con stock menor a 250</strong></p>';
-                  $num_notificaciones++;
-                } else {
-                  // Si no hay resultados, no imprimir nada
-                }
-                ?>
-            </div>
-            <div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-1">Notification no leida</div> 
-        </a>  
-		<a href="#" class="Notification" id="notifation-unread-2">
-            <div class="Notification-icon"><i class="zmdi zmdi-alert-triangle bg-info"></i></div>
-            <div class="Notification-text">
-                <?php
-                // Crear una consulta SQL para seleccionar los productos con cantidad menor a 250
-                $sql5 = "SELECT * FROM bandas WHERE cant < 250";
-
-                // Ejecutar la consulta
-                $resultado5 = $conexion->query($sql5);
-
-                // Verificar si hay resultados
-                if ($resultado5->num_rows > 0) {
-                  // Si hay resultados, imprimir el mensaje en negrita y aumentar el número de notificaciones no leídas
-                  echo '<p><strong>Bandas de seguridad con stock menor a 250</strong></p>';
-                  $num_notificaciones++;
-                } else {
-                  // Si no hay resultados, no imprimir nada
-                }
-                ?>
-            </div>
-            <div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-2">Notification no leida</div> 
-        </a>       
-		<a href="#" class="Notification" id="notifation-unread-3">
-            <div class="Notification-icon"><i class="zmdi zmdi-alert-triangle bg-info"></i></div>
-            <div class="Notification-text">
-                <?php
-                // Crear una consulta SQL para seleccionar los productos con cantidad menor a 250
-                $sql6 = "SELECT * FROM colgantes WHERE cant < 250";
-
-                // Ejecutar la consulta
-                $resultado6 = $conexion->query($sql6);
-
-                // Verificar si hay resultados
-                if ($resultado6->num_rows > 0) {
-                  // Si hay resultados, imprimir el mensaje en negrita y aumentar el número de notificaciones no leídas
-                  echo '<p><strong>Colgantes con stock menor a 250</strong></p>';
-                  $num_notificaciones++;
-                } else {
-                  // Si no hay resultados, no imprimir nada
-                }
-                ?>
-            </div>
-            <div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-3">Notification no leida</div> 
-        </a> 
-		<a href="#" class="Notification" id="notifation-unread-4">
-            <div class="Notification-icon"><i class="zmdi zmdi-alert-triangle bg-info"></i></div>
-            <div class="Notification-text">
-                <?php
-                // Crear una consulta SQL para seleccionar los productos con cantidad menor a 250
-                $sql7 = "SELECT * FROM embalaje WHERE cant < 100";
-
-                // Ejecutar la consulta
-                $resultado7 = $conexion->query($sql7);
-
-                // Verificar si hay resultados
-                if ($resultado7->num_rows > 0) {
-                  // Si hay resultados, imprimir el mensaje en negrita y aumentar el número de notificaciones no leídas
-                  echo '<p><strong>Embalajes con stock menor a 100</strong></p>';
-                  $num_notificaciones++;
-                } else {
-                  // Si no hay resultados, no imprimir nada
-                }
-                ?>
-            </div>
-            <div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-4">Notification no leida</div> 
-        </a>
-		<a href="#" class="Notification" id="notifation-unread-5">
-            <div class="Notification-icon"><i class="zmdi zmdi-alert-triangle bg-info"></i></div>
-            <div class="Notification-text">
-                <?php
-                // Crear una consulta SQL para seleccionar los productos con cantidad menor a 250
-                $sql8 = "SELECT * FROM etiquetas WHERE cant < 250";
-
-                // Ejecutar la consulta
-                $resultado8 = $conexion->query($sql8);
-
-                // Verificar si hay resultados
-                if ($resultado8->num_rows > 0) {
-                  // Si hay resultados, imprimir el mensaje en negrita y aumentar el número de notificaciones no leídas
-                  echo '<p><strong>Etiquetas con stock menor a 250</strong></p>';
-                  $num_notificaciones++;
-                } else {
-                  // Si no hay resultados, no imprimir nada
-                }
-                ?>
-            </div>
-            <div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-5">Notification no leida</div> 
-        </a>  
-		<a href="#" class="Notification" id="notifation-unread-6">
-            <div class="Notification-icon"><i class="zmdi zmdi-alert-triangle bg-info"></i></div>
-            <div class="Notification-text">
-                <?php
-                // Crear una consulta SQL para seleccionar los productos con cantidad menor a 250
-                $sql9 = "SELECT * FROM envases WHERE Cantidad < 250";
-
-                // Ejecutar la consulta
-                $resultado9 = $conexion->query($sql9);
-
-                // Verificar si hay resultados
-                if ($resultado9->num_rows > 0) {
-                  // Si hay resultados, imprimir el mensaje en negrita y aumentar el número de notificaciones no leídas
-                  echo '<p><strong>Envases con stock menor a 250</strong></p>';
-                  $num_notificaciones++;
-                } else {
-                  // Si no hay resultados, no imprimir nada
-                }
-                ?>
-            </div>
-            <div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-6">Notification no leida</div> 
-        </a> 
-		<a href="#" class="Notification" id="notifation-unread-7">
-            <div class="Notification-icon"><i class="zmdi zmdi-alert-triangle bg-info"></i></div>
-            <div class="Notification-text">
-                <?php
-                // Crear una consulta SQL para seleccionar los productos con cantidad menor a 250
-                $sqll = "SELECT * FROM tapas WHERE cantidad < 250";
-
-                // Ejecutar la consulta
-                $resultadol = $conexion->query($sqll);
-
-                // Verificar si hay resultados
-                if ($resultadol->num_rows > 0) {
-                  // Si hay resultados, imprimir el mensaje en negrita y aumentar el número de notificaciones no leídas
-                  echo '<p><strong>Tapas con stock menor a 250</strong></p>';
-                  $num_notificaciones++;
-                } else {
-                  // Si no hay resultados, no imprimir nada
-                }
-                ?>
-            </div>
-            <div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-7">Notification no leida</div> 
-        </a>                                
+	<section class="NotificationArea">
+		<div class="full-width text-center NotificationArea-title tittles">Notificaciones <i class="zmdi zmdi-close btn-Notification"></i></div>
+		
+		<?php
+		// Crear una consulta SQL para seleccionar los productos con cantidad menor al stock límite
+		$sql4 = "SELECT * FROM productos WHERE Cantidad < stock_limite";
+		
+		// Ejecutar la consulta
+		$resultado4 = $conexion->query($sql4);
+		
+		// Verificar si hay resultados
+		if ($resultado4->num_rows > 0) {
+			// Si hay resultados, imprimir la notificación correspondiente para cada producto y aumentar el número de notificaciones no leídas
+			while ($fila = $resultado4->fetch_assoc()) {
+				echo '<a href="#" class="Notification" id="notifation-unread-'.$fila['id'].'">
+					<div class="Notification-icon"><i class="zmdi zmdi-alert-triangle bg-info"></i></div>
+					<div class="Notification-text">
+						<p><strong>'.$fila['Descripcion'].' con stock menor a '.$fila['stock_limite'].'</strong></p>
+					</div>
+					<div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-'.$fila['id'].'">PRODUCTO TERMINADO</div> 
+				</a>';
+				$num_notificaciones++;
+			}
+		} else {
+			// Si no hay resultados, no imprimir nada
+		}
+		?>
+            
+       
+			<?php
+		// Crear una consulta SQL para seleccionar los productos con cantidad menor al stock límite
+		$sql5 = "SELECT * FROM envases WHERE Cantidad < stock_limite";
+		
+		// Ejecutar la consulta
+		$resultado5 = $conexion->query($sql5);
+		
+		// Verificar si hay resultados
+		if ($resultado5->num_rows > 0) {
+			// Si hay resultados, imprimir la notificación correspondiente para cada producto y aumentar el número de notificaciones no leídas
+			while ($fila = $resultado5->fetch_assoc()) {
+				echo '<a href="#" class="Notification" id="notifation-unread-2'.$fila['id'].'">
+					<div class="Notification-icon"><i class="zmdi zmdi-alert-triangle bg-info"></i></div>
+					<div class="Notification-text">
+						<p><strong>'.$fila['Descripcion'].' con stock menor a '.$fila['stock_limite'].'</strong></p>
+					</div>
+					<div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-2'.$fila['id'].'">ENVASES</div> 
+				</a>';
+				$num_notificaciones++;
+			}
+		} else {
+			// Si no hay resultados, no imprimir nada
+		}
+		?>
+            <?php
+		// Crear una consulta SQL para seleccionar los productos con cantidad menor al stock límite
+		$sql6 = "SELECT * FROM bandas WHERE cant < stock_limite";
+		
+		// Ejecutar la consulta
+		$resultado6 = $conexion->query($sql6);
+		
+		// Verificar si hay resultados
+		if ($resultado6->num_rows > 0) {
+			// Si hay resultados, imprimir la notificación correspondiente para cada producto y aumentar el número de notificaciones no leídas
+			while ($fila = $resultado6->fetch_assoc()) {
+				echo '<a href="#" class="Notification" id="notifation-unread-3'.$fila['id'].'">
+					<div class="Notification-icon"><i class="zmdi zmdi-alert-triangle bg-info"></i></div>
+					<div class="Notification-text">
+						<p><strong>'.$fila['Descripcion'].' con stock menor a '.$fila['stock_limite'].'</strong></p>
+					</div>
+					<div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-3'.$fila['id'].'">BANDAS</div> 
+				</a>';
+				$num_notificaciones++;
+			}
+		} else {
+			// Si no hay resultados, no imprimir nada
+		}
+		?>
+            
+            <?php
+		// Crear una consulta SQL para seleccionar los productos con cantidad menor al stock límite
+		$sql7 = "SELECT * FROM tapas WHERE cantidad < stock_limite";
+		
+		// Ejecutar la consulta
+		$resultado7 = $conexion->query($sql7);
+		
+		// Verificar si hay resultados
+		if ($resultado7->num_rows > 0) {
+			// Si hay resultados, imprimir la notificación correspondiente para cada producto y aumentar el número de notificaciones no leídas
+			while ($fila = $resultado7->fetch_assoc()) {
+				echo '<a href="#" class="Notification" id="notifation-unread-4'.$fila['id'].'">
+					<div class="Notification-icon"><i class="zmdi zmdi-alert-triangle bg-info"></i></div>
+					<div class="Notification-text">
+						<p><strong>'.$fila['Descripcion'].' con stock menor a '.$fila['stock_limite'].'</strong></p>
+					</div>
+					<div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-4'.$fila['id'].'">TAPAS</div> 
+				</a>';
+				$num_notificaciones++;
+			}
+		} else {
+			// Si no hay resultados, no imprimir nada
+		}
+		?>
+         ?>
+            
+            <?php
+		// Crear una consulta SQL para seleccionar los productos con cantidad menor al stock límite
+		$sql8 = "SELECT * FROM embalaje WHERE cant < stock_limite";
+		
+		// Ejecutar la consulta
+		$resultado8 = $conexion->query($sql8);
+		
+		// Verificar si hay resultados
+		if ($resultado8->num_rows > 0) {
+			// Si hay resultados, imprimir la notificación correspondiente para cada producto y aumentar el número de notificaciones no leídas
+			while ($fila = $resultado8->fetch_assoc()) {
+				echo '<a href="#" class="Notification" id="notifation-unread-5'.$fila['id'].'">
+					<div class="Notification-icon"><i class="zmdi zmdi-alert-triangle bg-info"></i></div>
+					<div class="Notification-text">
+						<p><strong>'.$fila['Descripcion'].' con stock menor a '.$fila['stock_limite'].'</strong></p>
+					</div>
+					<div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-5'.$fila['id'].'">EMBALAJE</div> 
+				</a>';
+				$num_notificaciones++;
+			}
+		} else {
+			// Si no hay resultados, no imprimir nada
+		}
+		?>
+               <?php
+		// Crear una consulta SQL para seleccionar los productos con cantidad menor al stock límite
+		$sql9 = "SELECT * FROM etiquetas WHERE cant < stock_limite";
+		
+		// Ejecutar la consulta
+		$resultado9 = $conexion->query($sql9);
+		
+		// Verificar si hay resultados
+		if ($resultado9->num_rows > 0) {
+			// Si hay resultados, imprimir la notificación correspondiente para cada producto y aumentar el número de notificaciones no leídas
+			while ($fila = $resultado9->fetch_assoc()) {
+				echo '<a href="#" class="Notification" id="notifation-unread-6'.$fila['id'].'">
+					<div class="Notification-icon"><i class="zmdi zmdi-alert-triangle bg-info"></i></div>
+					<div class="Notification-text">
+						<p><strong>'.$fila['Descripcion'].' con stock menor a '.$fila['stock_limite'].'</strong></p>
+					</div>
+					<div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-6'.$fila['id'].'">ETIQUETAS</div> 
+				</a>';
+				$num_notificaciones++;
+			}
+		} else {
+			// Si no hay resultados, no imprimir nada
+		}
+		?>
+            
+               <?php
+		// Crear una consulta SQL para seleccionar los productos con cantidad menor al stock límite
+		$sql10 = "SELECT * FROM colgantes WHERE cant < stock_limite";
+		
+		// Ejecutar la consulta
+		$resultado10 = $conexion->query($sql10);
+		
+		// Verificar si hay resultados
+		if ($resultado10->num_rows > 0) {
+			// Si hay resultados, imprimir la notificación correspondiente para cada producto y aumentar el número de notificaciones no leídas
+			while ($fila = $resultado10->fetch_assoc()) {
+				echo '<a href="#" class="Notification" id="notifation-unread-7'.$fila['id'].'">
+					<div class="Notification-icon"><i class="zmdi zmdi-alert-triangle bg-info"></i></div>
+					<div class="Notification-text">
+						<p><strong>'.$fila['Descripcion'].' con stock menor a '.$fila['stock_limite'].'</strong></p>
+					</div>
+					<div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-7'.$fila['id'].'">COLGANTES</div> 
+				</a>';
+				$num_notificaciones++;
+			}
+		} else {
+			// Si no hay resultados, no imprimir nada
+		}
+		?>                            
     </section>
 </section>
 
