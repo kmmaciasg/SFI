@@ -213,8 +213,6 @@ $num_notificaciones = 0;
 			// Si no hay resultados, no imprimir nada
 		}
 		?>
-         ?>
-            
             <?php
 		// Crear una consulta SQL para seleccionar los productos con cantidad menor al stock límite
 		$sql8 = "SELECT * FROM embalaje WHERE cant < stock_limite";

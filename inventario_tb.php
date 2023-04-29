@@ -33,6 +33,56 @@ $nombre_completo = $nombre_usuario . " " . $apellido_usuario;
 	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
 	<script src="js/main.js" ></script>
 	<script>
+$(document).ready(function() {
+    // Agregamos el evento click al botón
+    $("#eliminar").click(function() {
+        event.preventDefault()
+        // Pedimos al usuario el ID del lote
+        var id_lote = prompt("Introduce la tapa a eliminar:");
+
+        // Realizamos la petición AJAX para eliminar el lote
+        $.ajax({
+            url: "eliminar_tapas.php",
+            type: "POST",
+            data: {id_lote: id_lote},
+            success: function(resultado) {
+                // Mostramos un mensaje indicando si se ha eliminado el registro correctamente o no
+                alert(resultado);
+                location.reload();
+            },
+            error: function() {
+                alert("Error al eliminar la tapa");
+            }
+        });
+    })
+});
+</script>
+<script>
+$(document).ready(function() {
+    // Agregamos el evento click al botón
+    $("#eliminar1").click(function() {
+        event.preventDefault()
+        // Pedimos al usuario el ID del lote
+        var id_lote = prompt("Introduce la banda a eliminar:");
+
+        // Realizamos la petición AJAX para eliminar el lote
+        $.ajax({
+            url: "eliminar_bandas.php",
+            type: "POST",
+            data: {id_lote: id_lote},
+            success: function(resultado) {
+                // Mostramos un mensaje indicando si se ha eliminado el registro correctamente o no
+                alert(resultado);
+                location.reload();
+            },
+            error: function() {
+                alert("Error al eliminar la banda");
+            }
+        });
+    })
+});
+</script>
+	<script>
         $(document).ready(function() {
             // Agregamos el evento click al botón
             $("#modificar").click(function() {
@@ -282,10 +332,7 @@ $num_notificaciones = 0;
 		} else {
 			// Si no hay resultados, no imprimir nada
 		}
-		?>
-         ?>
-            
-            <?php
+		?> <?php
 		// Crear una consulta SQL para seleccionar los productos con cantidad menor al stock límite
 		$sql8 = "SELECT * FROM embalaje WHERE cant < stock_limite";
 		
@@ -888,6 +935,9 @@ $num_notificaciones = 0;
 									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit"style="margin-left:450px"  id="modificar" >
 											<i class="zmdi zmdi-refresh"></i>
 										<div class="mdl-tooltip" for="modificar">Modificar Inventario</div>
+										</button>	<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit"id="eliminar" >
+											<i class="zmdi zmdi-close"></i>
+										<div class="mdl-tooltip" for="eliminar">Eliminar Inventario</div>
 										</button>
 								</div>
                                 </div>
@@ -972,6 +1022,10 @@ $num_notificaciones = 0;
 									<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit"style="margin-left:450px"  id="modificar1" >
 											<i class="zmdi zmdi-refresh"></i>
 										<div class="mdl-tooltip" for="modificar1">Modificar Inventario</div>
+										</button>	
+										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit"id="eliminar1" >
+											<i class="zmdi zmdi-close"></i>
+										<div class="mdl-tooltip" for="eliminar1">Eliminar Inventario</div>
 										</button>
 								</div>
                                 </div>

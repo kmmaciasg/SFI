@@ -267,9 +267,7 @@ $num_notificaciones = 0;
 		} else {
 			// Si no hay resultados, no imprimir nada
 		}
-		?>
-         ?>
-            
+		?>   
             <?php
 		// Crear una consulta SQL para seleccionar los productos con cantidad menor al stock límite
 		$sql8 = "SELECT * FROM embalaje WHERE cant < stock_limite";
@@ -845,9 +843,21 @@ $num_notificaciones = 0;
                                         <input type="date" name="fecha" id="fecha" value="<?php echo date('Y-m-d'); ?>" />
 										
 
-										<h6 class="text-condensedLight">Cliente</h6>
+										<h6 class="text-condensedLight">Cliente
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" style="text-align: center;">
+    <label class="mdl-button mdl-js-button mdl-button--icon" for="filtro_nombre" >
+      <i class="zmdi zmdi-search"></i>
+    </label>
+    <div class="mdl-textfield__expandable-holder">
+      <input class="mdl-textfield__input" type="text" id="filtro_nombre" onkeyup="filtrarTabla()" placeholder="Buscar..."  onkeydown="if (event.keyCode === 13) {detenerEnvioFormulario();}">
+      <label class="mdl-textfield__label" for="filtro_nombre"></label>
+    </div>
+  </div>
+										</h6>
 												<?php
 												echo "<select name='opciones' id='opciones'>";
+												
+												echo "<option value='' selected></option>"; // Agregar opción inicial vacía
 												while ($fila = mysqli_fetch_assoc($resultado)) {
 													echo "<option value='".$fila['nombre']."'>".$fila['nombre']."</option>";
 												}
@@ -969,6 +979,35 @@ $num_notificaciones = 0;
             </div>
 </div>
 
+<script>
+    function detenerEnvioFormulario() {
+		event.preventDefault()
+    }
+  </script>
+	<script>// JavaScript
+const listaProductos = document.getElementById("opciones");
+const filtroNombre = document.getElementById("filtro_nombre");
+
+function filtrarLista() {
+  const filtro = filtroNombre.value.toUpperCase(); // Obtener el valor del campo de texto y convertirlo a mayúsculas
+  const opciones = listaProductos.options; // Obtener las opciones de la lista
+
+  for (let i = 0; i < opciones.length; i++) {
+    const opcion = opciones[i];
+    const valor = opcion.value.toUpperCase(); // Obtener el valor de la opción y convertirlo a mayúsculas
+
+    if (valor.includes(filtro)) {
+      opcion.style.display = "block"; // Mostrar la opción si el valor coincide con el filtro
+    } else {
+      opcion.style.display = "none"; // Ocultar la opción si el valor no coincide con el filtro
+    }
+  }
+}
+
+listaProductos.addEventListener("change", filtrarLista); // Agregar evento onchange para la lista desplegable
+filtroNombre.addEventListener("input", filtrarLista); // Agregar evento input para el campo de texto
+
+</script>
 <script>
 function actualizarTabla() {
     const numeroOrden = document.getElementById("numero_orden").value; // Obtener el número de orden ingresado por el usuario

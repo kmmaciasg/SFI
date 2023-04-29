@@ -17,6 +17,68 @@
 	<script src="js/sweetalert2.min.js" ></script>
 	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
 	<script src="js/main.js" ></script>
+	<script>
+        $(document).ready(function() {
+            // Agregamos el evento click al botón
+            $("#modificar").click(function() {
+				event.preventDefault()
+                // Pedimos al usuario el ID del lote
+                var id_lote = prompt("Introduce el documento del usuario a modificar:");
+
+                // Realizamos la petición AJAX para buscar el lote
+                $.ajax({
+                    url: "buscar_usuario.php",
+                    type: "POST",
+                    data: {id_lote: id_lote},
+                    dataType: "json",
+                    success: function(resultado) {
+                        // Mostramos la ventana emergente con los datos del lote
+                        $("#ventana-emergente").show();
+
+                        // Llenamos los campos de la ventana emergente con los datos del lote
+						
+                        $("#doc").val(resultado.num_documento);
+                        $("#nombres").val(resultado.nombres);
+                        $("#apellidos").val(resultado.apellidos);
+                        $("#cel").val(resultado.num_telefono);
+                        $("#contraseña").val(resultado.clave);
+                    },
+                    error: function() {
+                        alert("Error al buscar el usuario");
+                    }
+                });
+            });
+			// Agregamos el evento click al botón de guardar cambios
+            $("#btn-guardar-cambios").click(function() {
+                // Obtenemos los datos de la ventana emergente
+                var doc = $("#doc").val();
+                var nombres = $("#nombres").val();
+                var apellidos = $("#apellidos").val();
+                var cel = $("#cel").val();
+                var contraseña = $("#contraseña").val();
+
+// Realizamos la petición AJAX para guardar los cambios en la base de datos
+$.ajax({
+	url: "modificar_usuario.php",
+	type: "POST",
+	data: {
+		doc: doc,
+		nombres: nombres,
+		apellidos: apellidos,
+		cel: cel,
+		contraseña: contraseña,
+	},
+	success: function() {
+		alert("Los cambios se han guardado correctamente");
+		$("#ventana-emergente").hide();
+	},
+	error: function() {
+		alert("Error al guardar los cambios");
+	}
+});
+});
+});
+</script>
 </head>
 <body>
 	
@@ -175,7 +237,7 @@ $num_notificaciones = 0;
 			// Si no hay resultados, no imprimir nada
 		}
 		?>
-         ?>
+         
             
             <?php
 		// Crear una consulta SQL para seleccionar los productos con cantidad menor al stock límite
@@ -781,8 +843,12 @@ $num_notificaciones = 0;
 									<p class="text-center">
 										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" id="NuevoUsuario">
 											<i class="zmdi zmdi-plus"></i>
-										</button>
 										<div class="mdl-tooltip" for="NuevoUsuario">Agregar Usuario</div>
+										</button>
+										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit"id="modificar" >
+											<i class="zmdi zmdi-refresh"></i>
+										<div class="mdl-tooltip" for="modificar">Modificar usuario</div>
+										</button>
 									</p>
 								</form>
 							</div>
@@ -790,6 +856,31 @@ $num_notificaciones = 0;
 					</div>
 				</div>
 			</div>
+			
+			<div id="ventana-emergente" style="display: none;">
+		   <div class="mdl-grid">
+		   <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--6-col-desktop">
+									   
+   <h6>Modificar usuario</h6>
+   <form>
+	   <label>Documento de Identidad:</label>
+	   <input type="number" id="doc" readonly><br>
+	   <label >Nombres:</label>
+	   <input type="text" id="nombres"><br>
+	   <label >Apellidos:</label>
+	   <input type="text" id="apellidos"><br>
+
+	   <label>Contraseña:</label>
+	   <input type="text" id="contraseña"><br>
+	   <label>Celular:</label>
+	   <input type="number" id="cel"><br><br>
+	   <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored bg-primary" style="margin-left: 85px;" id="btn-guardar-cambios">
+								<i class="zmdi zmdi-check"> Guardar Cambios</i>
+								
+							<div class="mdl-tooltip" for="btn-guardar-cambios">Guardar Cambios</div>
+							</button> </form>
+</div>
+		   </div></div>     
 			<div class="mdl-tabs__panel" id="tabListAdmin">
 				<div class="mdl-grid">
 					<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
